@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="AI-powered on-demand staffing platform that connects companies with vetted professionals. Manage temporary workforce, automate shift scheduling, and streamline operations with intelligent workforce management software.
+.">
+
+  <meta property="og:title" content="aplyk – AI Workforce Management Platform">
+  <meta property="og:description" content="Instantly connect with vetted professionals. AI-powered shift management for companies and workers.">
+  <meta property="og:image" content="https://aplyk.com/images/aplyk-og-preview.png">
+  <meta property="og:type" content="website">
+
+  <link rel="canonical" href="https://aplyk.com/en.html" />
+  <link rel="alternate" hreflang="es" href="https://aplyk.com/es.html" />
+  <link rel="alternate" hreflang="en" href="https://aplyk.com/en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://aplyk.com" />
+
+  <title>aplyk - AI powered temporary workers hiring service.</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Aplyk",
+      "url": "https://aplyk.com/en.html",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Android, iOS",
+      "description": "AI-powered temporary staffing platform connecting companies with pre-validated professionals.",
+      "areaServed": ["Spain", "United Kingdom"],
+      "sameAs": [
+        "https://www.linkedin.com/company/aplyk",
+        "https://www.instagram.com/aplyk"
+      ]
+    }
+  </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does AI matching work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our AI tools analyse key data — skills, availability, location and past performance — to quickly match qualified professionals with your shifts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which sectors do you cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We currently specialise in light industry, warehousing, logistics, hospitality and events, and also support other sectors with similar shift-based staffing needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Aplyk employ and pay the workers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Aplyk is a technology platform that connects companies with verified professionals for temporary shifts. We do not act as the legal employer and do not manage payroll. The hiring company remains responsible for contracts, payroll and legal obligations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can I get staff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our on-demand network is active 24/7. In most urban areas we can cover shifts in as little as 2 hours. Posting 24–48 hours in advance guarantees the best matching quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is compliance managed automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The platform automatically applies breaks, overtime rules and local labour regulations based on location, reducing risk and ensuring compliance."
+      }
+    }
+  ]
+}
+</script>
+
+  <!-- Theme Config (merged) -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+
+            /* Soft blues */
+            "accent-light": "#BCD2E2",
+            "highlight": "#BCD2E2",
+            "soft-blue": "#BCD2E2",
+
+            /* Orange accent */
+            "accent": "#F28A3A",
+            "accent-cta": "#F28A3A",
+            "accent-cta-hover": "#d97529",
+
+            /* Backgrounds */
+            "background-light": "#f9fafb",
+            "background-dark": "#22262a",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"],
+            "body": ["Manrope", "sans-serif"],
+          },
+          backgroundImage: {
+            "tech-pattern": "radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px)",
+          }
+        },
+      },
+    }
+  </script>
+
+<script defer src="./main.js"></script>
+
+
+
+</head>
+
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+
+  <!-- HERO (Code #1) -->
+  <!-- <div class="relative w-full bg-primary text-white overflow-hidden"> -->
+    <div class="relative w-full bg-primary text-white overflow-x-hidden overflow-y-visible">
+
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 z-0 pointer-events-none bg-tech-pattern [background-size:24px_24px] opacity-20"></div>
+    <!-- Decorative Gradient Glow -->
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] rounded-full bg-blue-400/10 blur-3xl pointer-events-none z-0"></div>
+
+    <div class="relative z-10 flex w-full flex-col">
+      <!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-12">
+  <a class="brand flex items-center" href="#top" aria-label="aplyk">
+    <img src="./images/LogoBlue_LightBlueBG.png" alt="aplyk" class="h-16 sm:h-15 lg:h-15 w-auto object-contain" loading="lazy">
+  </a>
+
+  <!-- Desktop Menu -->
+<nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
+  <a class="nav-link" href="#companies">Companies</a>
+  <a class="nav-link" href="#workers">Workers</a>
+  <a class="nav-link" href="#faq">FAQ</a>
+</nav>
+
+  <!-- Actions -->
+  <div class="flex items-center gap-4">
+    <button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
+      <span class="truncate">Login</span>
+    </button>
+
+    <a href="#demo" class="flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
+      Book a demo
+    </a>
+<!-- Add this next to Login / Book demo (inside your Actions div) -->
+<div class="relative" id="langWrap">
+  <button id="langBtn" type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false">
+    <span id="langLabel">ES</span>
+    <span class="material-symbols-outlined" style="font-size:20px; line-height:0;">expand_more</span>
+  </button>
+
+  <div
+    id="langMenu"
+    class="lang-menu hidden"
+    role="menu"
+    aria-label="Language selector"
+    style="position: absolute; right: 0; top: calc(100% + 10px); background: white; border: 1px solid rgba(42,82,111,0.14); border-radius: 12px; min-width: 160px; box-shadow: 0 16px 40px rgba(42,82,111,0.14); padding: 6px; z-index: 9999;"
+  >
+    <button class="lang-item" type="button" data-lang="es">Español (ES)</button>
+    <button class="lang-item" type="button" data-lang="en">English (EN)</button>
+    <!-- <button class="lang-item" type="button" data-lang="de">Deutsch (DE)</button> -->
+  </div>
+</div>
+
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden flex items-center justify-center text-white" id="mobileMenuBtn" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</header>
+
+
+
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden border-b border-white/10 bg-primary/95 backdrop-blur-sm" id="mobileMenu">
+        <div class="px-6 py-4 flex flex-col gap-3">
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="#companies">For Companies</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="#workers">For Workers</a>
+        </div>
+      </div>
+
+      <!-- Hero Content -->
+      <main class="flex flex-col justify-center px-6 py-12 lg:px-12 lg:py-20">
+        <div class="mx-auto w-full max-w-7xl">
+          <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+
+            <!-- Left Column: Text -->
+            <div class="flex flex-col gap-8 max-w-2xl mx-auto lg:mx-0">
+              <!-- Chips / Highlights -->
+              <div class="flex flex-wrap gap-3">
+                <div class="flex h-7 items-center justify-center rounded-full bg-accent-light px-3 shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[16px] mr-1.5">bolt</span>
+                  <p class="text-primary text-xs font-bold uppercase tracking-wide">Real-time matching</p>
+                </div>
+                <div class="flex h-7 items-center justify-center rounded-full bg-accent-light px-3 shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[16px] mr-1.5">schema</span>
+                  <p class="text-primary text-xs font-bold uppercase tracking-wide">Automated workflows</p>
+                </div>
+                <div class="flex h-7 items-center justify-center rounded-full bg-accent-light px-3 shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[16px] mr-1.5">smartphone</span>
+                  <p class="text-primary text-xs font-bold uppercase tracking-wide">Mobile-first</p>
+                </div>
+              </div>
+
+              <!-- Headlines -->
+              <div class="flex flex-col gap-4">
+                <h1 class="text-white text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
+                  <!-- Temporary Workforce Management Solution — <span class="text-accent-light inline-block">powered by AI</span> -->
+                   AI-Powered On-Demand Staffing & Workforce Management Platform
+                </h1>
+                <p class="text-white/70 text-lg leading-relaxed max-w-lg">
+                  Experience the future of staffing. Connect instantly with qualified candidates and automate your scheduling with our intelligent, data-driven platform.
+                </p>
+              </div>
+
+              <!-- CTAs -->
+              <div class="flex flex-wrap gap-4 pt-2">
+                <button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-accent-cta hover:bg-accent-cta-hover text-white text-base font-bold shadow-lg shadow-orange-900/20 transition-all hover:scale-[1.02]">
+                  <span class="truncate">Book a demo</span>
+                  <span class="material-symbols-outlined ml-2 text-[20px]">calendar_month</span>
+                </button>
+                <button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 border border-white/30 bg-white/5 hover:bg-white/10 text-white text-base font-bold backdrop-blur-sm transition-all">
+                  <span class="material-symbols-outlined mr-2 text-[20px]">play_circle</span>
+                  <span class="truncate">See how it works</span>
+                </button>
+              </div>
+
+              <!-- Trust Indicators -->
+              <!-- <div class="flex items-center gap-4 pt-4 text-white/40 text-sm font-medium">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                  SOC2 Compliant
+                </span>
+                <span class="h-1 w-1 rounded-full bg-white/20"></span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  4.9/5 on G2 
+                </span>
+              </div> -->
+            </div>
+
+<!-- Right Column: Visual -->
+<!-- <div class="relative w-full aspect-[4/3] lg:aspect-square max-h-[600px] flex items-center justify-center lg:justify-end"> Do not hide the image -->
+<!-- <div class="relative hidden md:flex w-full aspect-[4/3] lg:aspect-square max-h-[600px] items-center justify-center lg:justify-end">  -->
+  <div class="relative hidden md:flex w-full aspect-[4/3] lg:aspect-square max-h-[600px] items-center justify-center lg:justify-end">
+
+
+  <!-- New “background image” layer (abstract + grid) -->
+
+
+  <div class="relative w-full max-w-[620px]">
+
+    <!-- Card 1: Shift created (appears first) -->
+    <div class="hero-card hero-card--1 absolute left-2 sm:left-6 top-6 sm:top-10 w-[220px] sm:w-[270px] rounded-2xl bg-white backdrop-blur border border-white/60 shadow-xl p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full" style="background:#F28A3A"></span>
+          <div class="font-extrabold text-sm" style="color:#2A526F">Shift created</div>
+        </div>
+        <div class="text-[10px] font-bold px-2 py-1 rounded-full border"
+             style="background:rgba(188,210,226,.55); color:#2A526F; border-color:rgba(42,82,111,.12);">
+          1-click
+        </div>
+      </div>
+
+      <div class="mt-2 text-xs leading-relaxed" style="color:rgba(42,82,111,.72)">
+        Warehouse Picker • 18:00–23:00<br />
+        Location: Site A
+      </div>
+
+      <div class="mt-3 flex items-center justify-between text-xs">
+        <span style="color:rgba(42,82,111,.70)">Qualified matches</span>
+        <span class="font-extrabold" style="color:#2A526F">12 available</span>
+      </div>
+
+      <div class="mt-2 h-1.5 rounded-full overflow-hidden" style="background:rgba(188,210,226,.55)">
+        <div class="h-full w-[72%]" style="background:#F28A3A"></div>
+      </div>
+    </div>
+
+    <!-- Card 2: Filled instantly (appears second) -->
+    <div class="hero-card hero-card--2 absolute right-2 sm:right-6 top-24 sm:top-28 w-[210px] sm:w-[260px] rounded-2xl bg-white backdrop-blur border border-white/60 shadow-xl p-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl border flex items-center justify-center"
+             style="background:rgba(188,210,226,.55); border-color:rgba(42,82,111,.12)">
+          <span class="material-symbols-outlined" style="color:#2A526F; font-size:20px;">check_circle</span>
+        </div>
+        <div>
+          <div class="font-extrabold text-sm" style="color:#2A526F">Filled instantly</div>
+          <div class="text-xs" style="color:rgba(42,82,111,.72)">Top-rated professional confirmed</div>
+        </div>
+      </div>
+
+      <div class="mt-3 flex items-center justify-between text-xs">
+        <span style="color:rgba(42,82,111,.70)">Rating</span>
+        <span class="font-extrabold" style="color:#2A526F">4.8★</span>
+      </div>
+
+      <div class="mt-2 flex items-center justify-between text-xs">
+        <span style="color:rgba(42,82,111,.70)">Time to confirm</span>
+        <span class="font-extrabold" style="color:#F28A3A">38s</span>
+      </div>
+    </div>
+
+      <!-- Card 3: Clock-in confirmed (appears third) -->
+      <div class="hero-card hero-card--3 absolute left-2 sm:left-10 bottom-10 sm:bottom-14 w-[240px] sm:w-[300px] rounded-2xl bg-white backdrop-blur border border-white/60 shadow-xl p-4">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl border flex items-center justify-center"
+                style="background:rgba(242,138,58,.15); border-color:rgba(242,138,58,.25)">
+              <span class="material-symbols-outlined" style="color:#F28A3A; font-size:20px;">schedule</span>
+            </div>
+            <div>
+              <div class="font-extrabold text-sm" style="color:#2A526F">Clock-in confirmed</div>
+              <div class="text-xs" style="color:rgba(42,82,111,.72)">Accurate time tracking</div>
+            </div>
+          </div>
+
+          <div class="text-[10px] font-bold px-2 py-1 rounded-full border"
+              style="background:rgba(188,210,226,.55); color:#2A526F; border-color:rgba(42,82,111,.12);">
+            Live
+          </div>
+        </div>
+
+        <div class="mt-3 grid grid-cols-2 gap-3 text-xs">
+          <div class="rounded-xl border p-3"
+              style="background:rgba(188,210,226,.35); border-color:rgba(42,82,111,.12)">
+            <div style="color:rgba(42,82,111,.70)">Clock-in</div>
+            <div class="font-extrabold" style="color:#2A526F">17:58</div>
+          </div>
+          <div class="rounded-xl border p-3"
+              style="background:rgba(188,210,226,.35); border-color:rgba(42,82,111,.12)">
+            <div style="color:rgba(42,82,111,.70)">Status</div>
+            <div class="font-extrabold" style="color:#2A526F">On-site</div>
+          </div>
+        </div>
+      </div>
+  <!-- Card 4: New opportunities (candidates) -->
+    <div class="hero-card hero-card--4 absolute right-2 sm:right-10 bottom-24 sm:bottom-28 w-[230px] sm:w-[290px] rounded-2xl bg-white backdrop-blur border border-white/60 shadow-xl p-4">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined" style="color:#F28A3A; font-size:20px;">work</span>
+          <div class="font-extrabold text-sm" style="color:#2A526F">New opportunities</div>
+        </div>
+        <div class="text-[10px] font-bold px-2 py-1 rounded-full border"
+            style="background:rgba(188,210,226,.55); color:#2A526F; border-color:rgba(42,82,111,.12);">
+          Updated
+        </div>
+      </div>
+
+      <div class="mt-3 grid grid-cols-2 gap-3 text-xs">
+        <div class="rounded-xl border p-3"
+            style="background:rgba(188,210,226,.35); border-color:rgba(42,82,111,.12)">
+          <div style="color:rgba(42,82,111,.70)">New companies</div>
+          <div class="font-extrabold" style="color:#2A526F">+10</div>
+        </div>
+        <div class="rounded-xl border p-3"
+            style="background:rgba(242,138,58,.12); border-color:rgba(242,138,58,.25)">
+          <div style="color:rgba(42,82,111,.70)">Shifts available</div>
+          <div class="font-extrabold" style="color:#2A526F">200+</div>
+        </div>
+      </div>
+
+      <div class="mt-3 text-xs" style="color:rgba(42,82,111,.72)">
+        More options this week — choose shifts that fit your schedule.
+      </div>
+    </div>
+
+  <!-- Card 5: Top performer (candidates) -->
+  <div class="hero-card hero-card--5 absolute right-2 sm:right-6 top-[80px] sm:top-[-50px] w-[240px] sm:w-[320px] rounded-2xl bg-white border border-white/60 shadow-xl p-4">
+    <div class="flex items-start justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl border flex items-center justify-center"
+            style="background:rgba(242,138,58,.15); border-color:rgba(242,138,58,.25)">
+          <span class="material-symbols-outlined" style="color:#F28A3A; font-size:20px;">emoji_events</span>
+        </div>
+        <div>
+          <div class="font-extrabold text-sm" style="color:#2A526F">Top performer</div>
+          <div class="text-xs" style="color:rgba(42,82,111,.72)">Your reliability and ratings are trending up.</div>
+        </div>
+      </div>
+
+      <div class="text-[10px] font-bold px-2 py-1 rounded-full border"
+          style="background:rgba(188,210,226,.55); color:#2A526F; border-color:rgba(42,82,111,.12);">
+        This month
+      </div>
+    </div>
+
+    <div class="mt-3 flex items-center justify-between text-xs">
+      <span style="color:rgba(42,82,111,.70)">Rating</span>
+      <span class="font-extrabold" style="color:#2A526F">4.9★</span>
+    </div>
+
+    <div class="mt-2 flex items-center justify-between text-xs">
+      <span style="color:rgba(42,82,111,.70)">Rank</span>
+      <span class="font-extrabold" style="color:#F28A3A">Top 10%</span>
+    </div>
+  </div>
+
+
+
+  </div>
+</div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- COMPANIES (Code #2) -->
+  <section id="companies" class="relative w-full bg-white scroll-mt-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <!-- Section Header -->
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl lg:text-5xl">
+          Everything companies need — <br class="hidden sm:block"/>in one mobile-first platform.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-slate-500">
+          Streamline your operations with AI-driven tools designed specifically for on-site management. Handle everything from your pocket, anywhere.
+        </p>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+
+        <!-- Left Column: Image (no frame / no crop) -->
+        <div class="relative order-2 lg:order-1">
+          <!-- Decorative background blob/accent -->
+          <div class="absolute -inset-4 -rotate-2 rounded-[2rem] bg-highlight/40 sm:-inset-6 -z-10"></div>
+          <div class="absolute -bottom-6 -right-6 h-24 w-24 rounded-full bg-accent/10 blur-2xl -z-10"></div>
+
+        <img
+          src="./images/Owner_Pic_Webpage2.png"
+          alt="Business owner managing shifts from a laptop"
+          class="relative w-full h-auto max-w-[560px] mx-auto lg:mx-0 object-contain"
+          loading="lazy"
+        />
+        </div>
+
+        <!-- Right Column: Features -->
+        <div class="flex flex-col gap-8 order-1 lg:order-2">
+          <!-- Feature 1 -->
+          <div class="group flex gap-5 rounded-xl p-4 transition-all hover:bg-gray-50">
+            <div class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+              <span class="material-symbols-outlined" style="font-size: 28px;">add_circle</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="text-xl font-bold text-primary">One-click shift creation</h3>
+              <p class="text-base font-medium text-slate-500 leading-relaxed">Post jobs in seconds using smart AI templates that learn from your previous hiring patterns.</p>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="group flex gap-5 rounded-xl p-4 transition-all hover:bg-gray-50">
+            <div class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+              <span class="material-symbols-outlined" style="font-size: 28px;">timer</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="text-xl font-bold text-primary">Time tracking</h3>
+              <p class="text-base font-medium text-slate-500 leading-relaxed">GPS-verified clock-ins and outs ensure you only pay for the time actually worked on-site.</p>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="group flex gap-5 rounded-xl p-4 transition-all hover:bg-gray-50">
+            <div class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+              <span class="material-symbols-outlined" style="font-size: 28px;">star</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="text-xl font-bold text-primary">Worker rating</h3>
+              <p class="text-base font-medium text-slate-500 leading-relaxed">Rate performance instantly after every shift to build a pool of your favorite reliable workers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits Bar -->
+      <div class="mt-20 lg:mt-24">
+            <div class="flex w-full flex-col items-start justify-start text-left gap-y-4
+                        rounded-2xl border border-highlight/30 bg-gray-50/50 px-6 py-8
+                        lg:flex-row lg:flex-wrap lg:justify-center lg:items-center lg:gap-x-12 lg:gap-y-4">
+
+              <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+                <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+                <span class="text-sm font-bold text-primary md:text-base">Vetted professionals</span>
+              </div>
+
+              <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+                <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+                <span class="text-sm font-bold text-primary md:text-base">Multi-location control</span>
+              </div>
+
+              <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+                <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+                <span class="text-sm font-bold text-primary md:text-base">Instant matching</span>
+              </div>
+
+              <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+                <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+                <span class="text-sm font-bold text-primary md:text-base">24/7 Priority Support</span>
+              </div>
+
+            </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKERS (Code #3) -->
+<section id="workers" class="bg-background-light dark:bg-background-dark text-[#111518] dark:text-gray-100 scroll-mt-24">
+  <div class="relative w-full overflow-x-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16 lg:py-24">
+
+      <!-- Title -->
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-primary dark:text-white text-4xl lg:text-5xl font-extrabold font-display tracking-tight">
+          Smart tools to manage your shifts
+        </h2>
+        <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+          Easily stay on top of your schedule and shift opportunities.
+        </p>
+      </div>
+
+      <!-- 3-column layout -->
+      <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+
+        <!-- LEFT CARD: Video interview -->
+<!-- LEFT CARD: Video interview (UPDATED) -->
+<div class="lg:col-span-4">
+  <div class="bg-white/90 dark:bg-gray-800/70 backdrop-blur border border-gray-100 dark:border-gray-700 rounded-3xl shadow-xl px-8 py-10 overflow-hidden">
+
+    <!-- Icon -->
+    <div class="w-14 h-14 rounded-full bg-accent/10 dark:bg-accent/15 flex items-center justify-center mx-auto">
+      <span class="material-symbols-outlined text-accent text-3xl">videocam</span>
+    </div>
+
+    <!-- Title + subtitle -->
+    <h3 class="mt-6 text-center text-primary dark:text-white text-2xl font-extrabold">
+      Video interview
+    </h3>
+    <p class="mt-3 text-center text-gray-600 dark:text-gray-300 leading-relaxed">
+      Join video calls for easy online interviews.
+    </p>
+
+    <!-- Left Side Cropped screenshot (TOP PART visible) -->
+          <div class="mt-8">
+            <div class="mx-auto w-full max-w-[240px] rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
+              <!-- controls the crop -->
+              <div class="relative w-full h-[185px] overflow-hidden">
+                <img
+                  src="./images/workerapp_screenshot%231.png"
+                  alt="Video interview screen"
+                  class="absolute top-0 left-0 w-full h-auto object-cover"
+                  loading="lazy"
+                />
+                <!-- subtle fade at the bottom like the example -->
+                <div class="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-b from-transparent to-white/95 dark:to-gray-900/95"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NEW bottom block INSIDE the same card -->
+          <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+            <div class="flex items-start gap-3">
+              <div class="mt-0.5 w-9 h-9 rounded-xl bg-accent/10 dark:bg-accent/15 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-accent text-[18px]">auto_awesome</span>
+              </div>
+              <div>
+                <div class="text-primary dark:text-white font-extrabold">
+                  AI Video Interview Profile
+                </div>
+                <p class="mt-1 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  <!-- Create a short, guided profile once — then apply to any shift instantly with the same trusted introduction (no repeating yourself). -->
+                   Take the interview anytime, anywhere — record a quick, guided video when it suits you and let employers review it instantly, so you can move faster without scheduling delays.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+</div>
+
+
+        <!-- CENTER: Main phone + caption -->
+<div class="lg:col-span-4 relative flex flex-col items-center justify-center">
+  <div class="absolute -z-10 w-[520px] h-[520px] rounded-full bg-soft-blue/30 dark:bg-primary/10 blur-3xl"></div>
+
+  <!-- Cropped image (keeps your sizing: max-w-[320px]/[360px]) -->
+  <div class="w-full max-w-[320px] lg:max-w-[360px] rounded-2xl overflow-hidden relative">
+    <div class="relative w-full h-[520px] overflow-hidden">
+      <img
+        src="./images/workerapp_screenshot%232.png"
+        alt="Live alerts screen"
+        class="absolute top-0 left-0 w-full h-auto object-cover drop-shadow-2xl"
+        loading="lazy"
+      />
+      <!-- subtle fade like the other card -->
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-white/95 dark:to-gray-900/95"></div>
+    </div>
+  </div>
+
+  <!-- Text below stays the same -->
+  <div class="mt-6 flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm flex items-center justify-center">
+      <span class="material-symbols-outlined text-accent">notifications</span>
+    </div>
+    <div>
+      <div class="text-primary dark:text-white font-extrabold">Live alerts</div>
+      <div class="text-gray-600 dark:text-gray-300 text-sm">
+        Get notified immediately when shifts become available.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <!-- RIGHT CARD: Calendar -->
+       <div class="lg:col-span-4">
+            <div class="bg-white/90 dark:bg-gray-800/70 backdrop-blur border border-gray-100 dark:border-gray-700 rounded-3xl shadow-xl px-8 py-10 overflow-hidden">
+
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center mx-auto">
+                <span class="material-symbols-outlined text-primary dark:text-soft-blue text-3xl">calendar_month</span>
+                </div>
+
+                <!-- Title + subtitle (updated copy) -->
+                <h3 class="mt-6 text-center text-primary dark:text-white text-2xl font-extrabold">
+                Calendar
+                </h3>
+                <p class="mt-3 text-center text-gray-600 dark:text-gray-300 leading-relaxed">
+                View and manage your upcoming shifts with a clear schedule.
+                </p>
+
+                <!-- Cropped screenshot (TOP PART visible) -->
+                <div class="mt-8">
+                <div class="mx-auto w-full max-w-[240px] rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
+                    <div class="relative w-full h-[185px] overflow-hidden">
+                    <img
+                        src="./images/workerapp_screenshot%233.png"
+                        alt="Calendar screen"
+                        class="absolute top-0 left-0 w-full h-auto object-cover"
+                        loading="lazy"
+                    />
+                    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-b from-transparent to-white/95 dark:to-gray-900/95"></div>
+                    </div>
+                </div>
+        </div>
+
+    <!-- NEW bottom block (experience-focused) -->
+    <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+      <div class="flex items-start gap-3">
+        <div class="mt-0.5 w-9 h-9 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-primary dark:text-soft-blue text-[18px]">touch_app</span>
+        </div>
+
+        <div>
+          <div class="text-primary dark:text-white font-extrabold">
+            Shift Discovery Experience
+          </div>
+          <p class="mt-1 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            Browse available shifts, compare options quickly, and keep everything organized in one place — so planning your week feels effortless.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <!-- Benefits Bar -->
+      <div class="mt-20 lg:mt-24">
+        <div class="flex w-full flex-col items-start justify-start text-left gap-y-4
+            rounded-2xl border border-highlight/30 bg-gray-50/50 px-6 py-8
+            lg:flex-row lg:flex-wrap lg:justify-center lg:items-center lg:gap-x-12 lg:gap-y-4">
+
+  <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+    <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+    <span class="text-sm font-bold text-primary md:text-base">Multiple Companies & Shifts Available</span>
+  </div>
+
+  <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+    <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+    <span class="text-sm font-bold text-primary md:text-base">Build a trusted profile</span>
+  </div>
+
+  <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+    <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+    <span class="text-sm font-bold text-primary md:text-base">Instant matching</span>
+  </div>
+
+  <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+    <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+    <span class="text-sm font-bold text-primary md:text-base">24/7 Support</span>
+  </div>
+
+  <div class="flex w-full items-center justify-start gap-2 lg:w-auto">
+    <span class="material-symbols-outlined text-primary" style="font-weight:700;">check_circle</span>
+    <span class="text-sm font-bold text-primary md:text-base">Rate Companies</span>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- FAQ + CTA + FOOTER (Code #4) -->
+  <section id="faq" class="relative w-full bg-faq-bg py-24 px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <!-- Abstract background pattern (subtle) -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
+      <div class="absolute -top-[20%] -right-[10%] w-[500px] h-[500px] rounded-full bg-white blur-[80px]"></div>
+      <div class="absolute top-[40%] -left-[10%] w-[300px] h-[300px] rounded-full bg-[#cbdceb] blur-[60px]"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto flex flex-col items-center">
+      <div class="text-center mb-12 max-w-2xl">
+        <span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4 tracking-wide">SUPPORT &amp; ANSWERS</span>
+        <h2 class="text-primary text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-slate-600 text-lg leading-relaxed">
+          Everything you need to know about our AI-driven workforce management solution.
+        </p>
+      </div>
+
+      <div class="w-full flex flex-col gap-4">
+        <details class="group bg-white/60 border border-slate-200/60 rounded-xl overflow-hidden transition-all duration-300 hover:bg-white hover:shadow-sm">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 text-slate-800 font-semibold select-none">
+            <span class="text-lg">How does the AI matching work?</span>
+            <span class="material-symbols-outlined text-slate-400 transition-transform duration-300 group-open:rotate-180 group-open:text-primary">expand_more</span>
+          </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed">
+            Our advanced AI tools analyze the most critical data points — including skills, availability, location, and past performance — to quickly match qualified professionals with your shift requirements.
+            </div>
+        </details>
+
+        <details class="group bg-white/60 border border-slate-200/60 rounded-xl overflow-hidden transition-all duration-300 hover:bg-white hover:shadow-sm">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 text-slate-800 font-semibold select-none">
+            <span class="text-lg">What industries do you serve?</span>
+            <span class="material-symbols-outlined text-slate-400 transition-transform duration-300 group-open:rotate-180 group-open:text-primary">expand_more</span>
+          </summary>
+<div class="px-6 pb-6 text-slate-600 leading-relaxed">
+  We currently specialize in Light Industrial, Warehousing, Logistics, Hospitality, and Event Staffing — and we also support other sectors with similar skill demands and shift-based workforce needs.
+</div>
+        </details>
+
+        <details class="group bg-white border-2 border-primary/10 shadow-lg rounded-xl overflow-hidden transition-all duration-300" open>
+          <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 text-primary font-bold select-none bg-primary/5">
+            <span class="text-lg flex items-center gap-2">
+              <span class="material-symbols-outlined text-accent text-2xl" style="font-variation-settings:'FILL' 1;">stars</span>
+              Does aplyk employ and pay the workers?
+            </span>
+            <span class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180">expand_more</span>
+          </summary>
+          <div class="px-6 py-6 text-slate-700 leading-relaxed bg-white relative">
+            <div class="absolute left-0 top-0 bottom-0 w-1 bg-accent"></div>
+            <p class="font-medium text-lg mb-2 text-primary">No.</p>
+            <p>aplyk is a <strong>technology platform</strong> that connects businesses with vetted professionals for temporary shifts. We <strong>do not</strong> act as the Employer of Record and we <strong>do not</strong> run payroll. The hiring company remains responsible for contracts, payroll, and statutory obligations, while aplyk provides the tools to manage the workflow — matching, shift confirmations, time tracking, and performance feedback.</p>
+
+          </div>
+        </details>
+
+        <details class="group bg-white/60 border border-slate-200/60 rounded-xl overflow-hidden transition-all duration-300 hover:bg-white hover:shadow-sm">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 text-slate-800 font-semibold select-none">
+            <span class="text-lg">How quickly can I get workers?</span>
+            <span class="material-symbols-outlined text-slate-400 transition-transform duration-300 group-open:rotate-180 group-open:text-primary">expand_more</span>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 leading-relaxed">
+            Our on-demand network is active 24/7. For most metro areas, we can fill shift requests in as little as 2 hours. However, posting shifts 24-48 hours in advance guarantees the highest quality matches.
+          </div>
+        </details>
+
+        <details class="group bg-white/60 border border-slate-200/60 rounded-xl overflow-hidden transition-all duration-300 hover:bg-white hover:shadow-sm">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 text-slate-800 font-semibold select-none">
+            <span class="text-lg">Is compliance handled automatically?</span>
+            <span class="material-symbols-outlined text-slate-400 transition-transform duration-300 group-open:rotate-180 group-open:text-primary">expand_more</span>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 leading-relaxed">
+            Yes. Our platform automatically enforces break times, overtime rules, and local labor laws based on the worker's location, reducing your liability and ensuring full legal compliance effortlessly.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-Footer CTA Section -->
+  <section class="relative bg-white border-t border-slate-100">
+    <div class="flex justify-center w-full">
+      <div class="w-full max-w-7xl px-4 py-20 md:py-28 flex flex-col md:flex-row items-center justify-between gap-10">
+        <div class="flex flex-col gap-4 max-w-2xl text-center md:text-left">
+          <h2 class="text-primary text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+            Ready to streamline your workforce?
+          </h2>
+          <p class="text-slate-500 text-lg md:text-xl font-medium">
+            Join 500+ companies using aplyk to reduce staffing overhead.
+          </p>
+        </div>
+        <div class="shrink-0">
+          <button class="group relative flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white text-lg font-bold py-4 px-10 rounded-lg shadow-lg shadow-accent/20 transition-all duration-300 hover:-translate-y-1">
+            <span>Book a Demo</span>
+            <span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+          </button>
+          <p class="mt-3 text-center text-sm text-slate-400">No credit card required</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white pt-20 pb-10 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
+        <div class="lg:col-span-1 flex flex-col gap-6">
+          <a class="flex items-center gap-3 group" href="#top" aria-label="aplyk">
+            <div class="flex items-center">
+              <img 
+                src="./images/LogoBlue_LightBlueBG.png" 
+                alt="aplyk Logo" 
+                class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+                loading="lazy"
+              >
+            </div>
+
+          </a>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            The AI-powered workforce platform built for modern agility and compliance.
+          </p>
+            <div class="flex gap-4 mt-2">
+              <a aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all duration-300 group" href="#">
+                <img src="./images/linkedin.png" alt="LinkedIn" class="w-5 h-5 object-contain brightness-0 invert" />
+              </a>
+
+              <a aria-label="Twitter" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all duration-300 group" href="#">
+                <img src="./images/twitter.png" alt="Twitter" class="w-5 h-5 object-contain brightness-0 invert" />
+              </a>
+
+              <a aria-label="Instagram" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all duration-300 group" href="#">
+                <img src="./images/instagram.png" alt="Instagram" class="w-5 h-5 object-contain brightness-0 invert" />
+              </a>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <h4 class="text-white font-bold text-lg">Solutions</h4>
+          <ul class="flex flex-col gap-3">
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#companies">For Companies</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#workers">For Workers</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <h4 class="text-white font-bold text-lg">Company</h4>
+          <ul class="flex flex-col gap-3">
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">About Us</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Careers</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Blog</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <h4 class="text-white font-bold text-lg">Legal</h4>
+          <ul class="flex flex-col gap-3">
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Privacy Policy</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Terms of Service</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Cookie Policy</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Security</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-1 flex flex-col gap-4">
+          <h4 class="text-white font-bold text-lg">Stay updated</h4>
+          <p class="text-slate-300 text-sm">Get the latest workforce trends directly to your inbox.</p>
+          <form class="flex flex-col gap-3">
+            <div class="relative">
+              <input class="w-full bg-white/5 border border-white/10 text-white text-sm rounded-lg px-4 py-3 outline-none focus:border-accent focus:bg-white/10 transition-colors placeholder:text-slate-400" placeholder="Enter your email" type="email"/>
+            </div>
+            <button class="bg-white text-primary font-bold text-sm py-3 px-4 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-center gap-2" type="button">
+              Subscribe
+              <span class="material-symbols-outlined text-sm">send</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-slate-400 text-sm">© 2026 aplyk. All rights reserved.</p>
+        <div class="flex gap-6">
+          <span class="flex items-center gap-1 text-slate-400 text-xs">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            Systems Operational
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    }
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (!href || href.length < 2) return;
+        const el = document.querySelector(href);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        menu?.classList.add('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>
