@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ========================================================
+       INSTRUCCIONES PARA USAR ESTA PLANTILLA
+       1. Duplica esta plantilla dentro de la carpeta del nuevo post
+          ej: /posts/titulo-del-articulo-con-guiones/index.html
+       2. Busca y reemplaza todos los campos marcados con [CAMBIAR]
+       3. Escribe el contenido del artículo en la sección <article>
+       4. Sube el archivo a GitHub
+       5. Añade la tarjeta (post normal o post destacado) en blog.html
+  ======================================================== -->
+
+  <!-- [CAMBIAR] Meta SEO -->
+  <meta name="description" content="[CAMBIAR: descripción del post, 150-160 caracteres]"/>
+  <meta property="og:title" content="[CAMBIAR: título del post] — Blog Aplyk"/>
+  <meta property="og:description" content="[CAMBIAR: descripción del post]"/>
+  <meta property="og:image" content="https://aplyk.com/posts/[CAMBIAR: slug-del-post]/caratula.png"/>
+  <meta property="og:type" content="article"/>
+
+  <!-- [CAMBIAR] URL canónica — sustituye el slug -->
+  <link rel="canonical" href="https://aplyk.com/posts/[CAMBIAR: slug-del-post]/index.html"/>
+
+  <!-- [CAMBIAR] Título de la pestaña -->
+  <title>[CAMBIAR: título del post] — Blog Aplyk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .nav-link {
+      position: relative; padding: 8px 0;
+      color: rgba(255,255,255,.85); font-weight: 600; font-size: 16px;
+      line-height: 1; transition: color .2s ease; text-decoration: none;
+    }
+    .nav-link::after {
+      content:""; position:absolute; left:0; bottom:2px;
+      width:0%; height:2px; background:#F28A3A;
+      border-radius:2px; transition: width .2s ease;
+    }
+    .nav-link:hover { color:#fff; }
+    .nav-link:hover::after, .nav-link.active::after { width:100%; }
+
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+    .sources { margin-top: 1.5rem; }
+    .sources h2 { font-size: 1.1rem; }
+    .sources ol { margin-left: 1.25rem; }
+    .sources li { font-size: 0.9rem; color: #64748b; margin-bottom: 0.4rem; }
+  </style>
+
+  <!-- [CAMBIAR] Schema Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "[CAMBIAR: título del post]",
+    "description": "[CAMBIAR: descripción]",
+    "image": "https://aplyk.com/posts/[CAMBIAR: slug-del-post]/caratula.png",
+    "datePublished": "[CAMBIAR: fecha YYYY-MM-DD, ej: 2026-04-27]",
+    "author": {
+      "@type": "Organization",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+
+  <!-- NAV -->
+  <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-12 bg-primary" style="overflow:visible;">
+    <a class="flex items-center" href="../../index.html" aria-label="Aplyk">
+      <img src="../../images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-16 sm:h-15 w-auto object-contain" loading="lazy">
+    </a>
+    <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
+      <a class="nav-link" href="../../index.html#companies">Empresas</a>
+      <a class="nav-link" href="../../index.html#workers">Profesionales</a>
+      <a class="nav-link" href="../../index.html#faq">FAQ</a>
+      <a class="nav-link active" href="../../blog.html">Blog</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
+        <span class="truncate">Iniciar sesión</span>
+      </button>
+      <a href="../../index.html#demo" class="flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
+        Reservar una demo
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+    <div class="max-w-3xl mx-auto flex items-center gap-2 text-sm text-slate-400">
+      <a href="../../index.html" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <a href="../../blog.html" class="hover:text-primary transition-colors">Blog</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <!-- [CAMBIAR] Título corto para el breadcrumb -->
+      <span class="text-primary font-medium">[CAMBIAR: título corto]</span>
+    </div>
+  </div>
+
+  <!-- HEADER DEL POST -->
+  <header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+    <div class="max-w-3xl mx-auto flex flex-col gap-5">
+
+      <!-- [CAMBIAR] Categoría — opciones: Empresas / Trabajadores / Tecnología / Sector -->
+      <div class="flex items-center gap-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          [CAMBIAR: Categoría]
+        </span>
+      </div>
+
+      <!-- [CAMBIAR] Título principal -->
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+        [CAMBIAR: título completo del artículo]
+      </h1>
+
+      <!-- [CAMBIAR] Extracto / subtítulo (1-2 frases) -->
+      <p class="text-slate-500 text-lg leading-relaxed">
+        [CAMBIAR: extracto de 1-2 frases que resume el artículo]
+      </p>
+
+      <!-- Meta info -->
+      <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">business</span>
+          Aplyk
+        </span>
+        <!-- [CAMBIAR] Fecha de publicación -->
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          [CAMBIAR: DD Mes YYYY]
+        </span>
+        <!-- [CAMBIAR] Tiempo de lectura -->
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          [CAMBIAR: X] min de lectura
+        </span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- CONTENIDO DEL ARTÍCULO -->
+  <main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
+    <article class="post-content">
+
+      <!-- ================================================
+           INTRODUCCIÓN (150-200 palabras)
+           Arranca con un dato, pregunta provocadora o afirmación
+      ================================================ -->
+      <p>[CAMBIAR: párrafo de introducción]</p>
+      <p>[CAMBIAR: párrafo de introducción]</p>
+      <p>[CAMBIAR: párrafo de introducción — tesis del artículo]</p>
+
+      <!-- ================================================
+           SECCIÓN 1
+      ================================================ -->
+      <h2>[CAMBIAR: título de la sección 1]</h2>
+
+      <p>[CAMBIAR: bloque informativo con dato/fuente]</p>
+      <p>[CAMBIAR: bloque informativo]</p>
+
+      <!-- Callout de opinión experta (opcional, usar cuando proceda) -->
+      <div class="callout">
+        <span class="material-symbols-outlined callout-icon">[CAMBIAR: icono, ej: info / bolt / gavel / lightbulb]</span>
+        <div class="callout-text">
+          <strong>[CAMBIAR: título del callout]</strong><br/>
+          [CAMBIAR: texto del callout — opinión experta o dato destacado]
+        </div>
+      </div>
+
+      <!-- ================================================
+           SECCIÓN 2
+      ================================================ -->
+      <h2>[CAMBIAR: título de la sección 2]</h2>
+
+      <p>[CAMBIAR: bloque informativo con dato/fuente]</p>
+      <p>[CAMBIAR: bloque informativo]</p>
+
+      <!-- Cita destacada (opcional) -->
+      <blockquote>
+        [CAMBIAR: cita o frase de opinión experta]
+      </blockquote>
+
+      <!-- ================================================
+           SECCIÓN 3
+      ================================================ -->
+      <h2>[CAMBIAR: título de la sección 3]</h2>
+
+      <p>[CAMBIAR: bloque informativo con dato/fuente]</p>
+      <p>[CAMBIAR: bloque informativo]</p>
+
+      <div class="callout">
+        <span class="material-symbols-outlined callout-icon">[CAMBIAR: icono]</span>
+        <div class="callout-text">
+          <strong>[CAMBIAR: título del callout]</strong><br/>
+          [CAMBIAR: texto del callout]
+        </div>
+      </div>
+
+      <!-- ================================================
+           CONCLUSIÓN (150-200 palabras)
+      ================================================ -->
+      <h2>Conclusión</h2>
+
+      <p>[CAMBIAR: párrafo de conclusión]</p>
+      <p>[CAMBIAR: predicción concreta sobre el futuro del tema]</p>
+      <p>[CAMBIAR: llamada a la reflexión o acción]</p>
+
+      <hr/>
+
+      <!-- FUENTES -->
+      <div class="sources">
+        <h2>Fuentes</h2>
+        <ol>
+          <li>[CAMBIAR: Nombre del estudio/informe, Organismo/Publicación, Año]</li>
+          <li>[CAMBIAR: Nombre del estudio/informe, Organismo/Publicación, Año]</li>
+          <li>[CAMBIAR: Nombre del estudio/informe, Organismo/Publicación, Año]</li>
+          <li>[CAMBIAR: Nombre del estudio/informe, Organismo/Publicación, Año]</li>
+        </ol>
+      </div>
+
+    </article>
+
+    <!-- CTA — [CAMBIAR] el texto según el tema del artículo -->
+    <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+      <h3 class="text-xl font-extrabold">[CAMBIAR: titular del CTA relacionado con el artículo]</h3>
+      <p class="text-white/70">[CAMBIAR: descripción del CTA, 1-2 frases]</p>
+      <div>
+        <a href="../../index.html#demo" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
+          Reservar una demo
+          <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- VOLVER AL BLOG -->
+    <div class="mt-10">
+      <a href="../../blog.html" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+        Volver al blog
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-8 px-6 lg:px-12 border-t border-white/10 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="../../images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-8 w-auto object-contain">
+      </div>
+      <p class="text-slate-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Aplyk. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm text-slate-400">
+        <a href="../../index.html" class="hover:text-white transition-colors">Inicio</a>
+        <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-white transition-colors">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
