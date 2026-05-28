@@ -1,34 +1,46 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aplyk — Trabajo temporal instantáneo | Instant temp staffing</title>
-  <meta name="description" content="Aplyk conecta empresas con trabajadores temporales al instante. HORECA y logística. Aplyk connects businesses with temporary workers instantly." />
 
-  <!-- SEO: canonical y hreflang correctos -->
+  <title>Aplyk | AI-Powered Temporary Workforce Platform</title>
+
+  <meta name="description" content="Aplyk is an AI-powered temporary workforce platform connecting companies with vetted professionals for temporary shifts." />
+
   <link rel="canonical" href="https://aplyk.com/" />
+
   <link rel="alternate" hreflang="es" href="https://aplyk.com/es.html" />
   <link rel="alternate" hreflang="en" href="https://aplyk.com/en.html" />
   <link rel="alternate" hreflang="x-default" href="https://aplyk.com/" />
 
-  <!-- Detección de idioma SIN redirect de servidor: lo hace JS después de que Google haya leído el HTML -->
   <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      var lang = navigator.language || navigator.userLanguage || '';
-      if (lang.toLowerCase().startsWith('es')) {
-        window.location.replace('./es.html');
-      } else {
-        window.location.replace('./en.html');
-      }
-    });
+    (function () {
+      try {
+        var lang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+
+        if (lang.startsWith("es")) {
+          window.location.href = "/es.html";
+        } else {
+          window.location.href = "/en.html";
+        }
+      } catch (e) {}
+    })();
   </script>
 </head>
+
 <body>
-  <!-- Contenido visible para Google mientras JS carga -->
-  <h1>Aplyk — Trabajo temporal instantáneo</h1>
-  <p>Aplyk es el marketplace de trabajo temporal para HORECA y logística. Conectamos empresas con trabajadores al instante.</p>
-  <p>Aplyk is the instant temporary staffing marketplace for HORECA and logistics.</p>
-  <p><a href="./es.html">Español</a> | <a href="./en.html">English</a></p>
+  <main>
+    <h1>Aplyk</h1>
+
+    <p>
+      AI-powered temporary workforce platform connecting companies with vetted professionals.
+    </p>
+
+    <nav aria-label="Language selector">
+      <a href="en.html">English</a> |
+      <a href="es.html">Español</a>
+    </nav>
+  </main>
 </body>
 </html>
