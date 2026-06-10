@@ -62,34 +62,95 @@
       letter-spacing: 0.06em; text-transform: uppercase;
       padding: 3px 10px; border-radius: 20px;
     }
+
+    @media (max-width: 767px) {
+      html,
+      body {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+<body id="top" class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
 
   <!-- NAV -->
-  <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-12 bg-primary" style="overflow:visible;">
-    <a class="flex items-center" href="./es.html" aria-label="Aplyk">
-      <img src="./images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-16 sm:h-15 w-auto object-contain" loading="lazy">
-    </a>
-    <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
-      <a class="nav-link" href="./es.html#companies">Empresas</a>
-      <a class="nav-link" href="./es.html#workers">Profesionales</a>
-      <a class="nav-link" href="./es.html#faq">FAQ</a>
-      <a class="nav-link active" href="./blog.html">Blog</a>
-    </nav>
-    <div class="flex items-center gap-4">
-      <button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
-        <span class="truncate">Iniciar sesión</span>
-      </button>
-      <a href="./es.html#demo" class="flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
-        Reservar una demo
+  <div class="fixed inset-x-0 top-0 z-[1000]">
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 bg-primary/95 backdrop-blur-md px-6 py-4 lg:px-12 shadow-md">
+      <a class="flex items-center" href="./es.html" aria-label="Aplyk">
+        <img
+          src="./images/LogoBlue_LightBlueBG.png"
+          alt="Aplyk"
+          class="h-12 sm:h-14 w-auto object-contain"
+          loading="lazy"
+        >
       </a>
+
+      <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
+        <a class="nav-link" href="./es.html#companies">Empresas</a>
+        <a class="nav-link" href="./es.html#workers">Profesionales</a>
+        <a class="nav-link" href="./es.html#faq">FAQ</a>
+        <a class="nav-link active" href="./blog.html">Blog</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+        <button
+          type="button"
+          class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide"
+        >
+          <span class="truncate">Iniciar sesión</span>
+        </button>
+
+        <a
+          href="./es.html#demo"
+          class="hidden md:flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity"
+        >
+          Reservar una demo
+        </a>
+
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="md:hidden flex shrink-0 items-center justify-center text-white"
+          aria-label="Abrir menú"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+    </header>
+
+
+<div id="mobileMenu" class="md:hidden hidden border-b border-white/10 bg-primary/95 backdrop-blur-sm shadow-md">
+  <nav class="px-6 py-4 flex flex-col gap-3" aria-label="Menú móvil">
+
+    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./es.html#companies">Para empresas </a>
+    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./es.html#workers">Para profesionales </a>
+    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./es.html#faq">FAQ </a>
+    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./blog.html"> Blog </a>
+
+    <div class="mt-2 pt-4 border-t border-white/10 flex flex-col gap-3">
+
+      <a href="#"class="flex items-center justify-center rounded-lg h-10 px-5 border border-white/20 text-white text-sm font-bold hover:bg-white/10 transition-colors">Iniciar sesión</a>
+      <a href="./es.html#demo" class="flex items-center justify-center rounded-lg h-10 px-5 bg-accent text-white text-sm font-bold hover:opacity-90 transition-opacity">Reservar una demo</a>
     </div>
-  </header>
+  </nav>
+
+</div>
+
+  </div>
 
   <!-- HERO BLOG -->
-  <section class="bg-primary text-white py-16 px-6 lg:px-12" style="background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 24px 24px;">
+  <section class="bg-primary text-white pt-36 pb-16 px-6 lg:px-12 lg:pt-40" style="background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 24px 24px;">
     <div class="max-w-4xl mx-auto text-center">
       <div class="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-1.5 mb-6">
         <span class="w-2 h-2 rounded-full bg-accent"></span>
@@ -105,7 +166,7 @@
   </section>
 
   <!-- CATEGORÍAS -->
-  <section class="bg-white border-b border-slate-100 px-6 lg:px-12 py-4 sticky top-0 z-10">
+  <section class="bg-white border-b border-slate-100 px-6 lg:px-12 py-4 sticky top-20 sm:top-[88px] z-20">
     <div class="max-w-6xl mx-auto flex gap-3 flex-wrap">
       <button onclick="filterPosts('all')" id="cat-all" class="cat-btn tag bg-primary text-white">Todos</button>
       <button onclick="filterPosts('empresas')" id="cat-empresas" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer">Empresas</button>
@@ -119,7 +180,7 @@
   <main class="max-w-6xl mx-auto px-6 lg:px-12 py-16">
 
     <!-- POST DESTACADO (Featured) -->
-    <a href="./posts/por-que-la-contratacion-temporal-sigue-siendo-demasiado-lenta/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+    <a id="featured-post" href="./posts/por-que-la-contratacion-temporal-sigue-siendo-demasiado-lenta/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="bg-primary/5 min-h-[260px] h-[260px] flex items-center justify-center overflow-hidden">
           <img
@@ -192,7 +253,7 @@
 
 
 
-      <a href="./posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+      <a href="./posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="tecnologia">
         <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
           <img
             src="./posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/caratula.png"
@@ -277,7 +338,7 @@
       </a>
 
 
-      <a href="./posts/que-sectores-dependen-mas-de-los-trabajadores-temporales/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+      <a href="./posts/que-sectores-dependen-mas-de-los-trabajadores-temporales/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="sector">
         <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
           <img
             src="./posts/que-sectores-dependen-mas-de-los-trabajadores-temporales/caratula.png"
@@ -305,7 +366,7 @@
         </div>
       </a>
 
-    <a href="./posts/como-la-tecnologia-esta-cambiando-la-contratacion-temporal/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+    <a href="./posts/como-la-tecnologia-esta-cambiando-la-contratacion-temporal/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="tecnologia">
       <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
         <img
           src="./posts/como-la-tecnologia-esta-cambiando-la-contratacion-temporal/caratula.png"
@@ -421,44 +482,83 @@
     </div>
   </footer>
 
+  <button
+    id="backToTop"
+    type="button"
+    aria-label="Volver arriba"
+    class="fixed bottom-6 right-6 z-[999] flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-lg transition-all duration-300 hover:bg-accent/90 hover:-translate-y-1"
+  >
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
   <script>
     function filterPosts(cat) {
       const buttons = document.querySelectorAll('.cat-btn');
-      buttons.forEach(b => {
-        b.classList.remove('bg-primary', 'text-white');
-        b.classList.add('bg-slate-100', 'text-slate-600');
-      });
       const active = document.getElementById('cat-' + cat);
-      active.classList.add('bg-primary', 'text-white');
-      active.classList.remove('bg-slate-100', 'text-slate-600');
-
       const featured = document.getElementById('featured-post');
       const cards = document.querySelectorAll('#posts-grid a[data-category]');
       const empty = document.getElementById('empty-state');
 
-      let visibleCount = 0;
+      buttons.forEach((button) => {
+        button.classList.remove('bg-primary', 'text-white');
+        button.classList.add('bg-slate-100', 'text-slate-600');
+      });
 
-      if (cat === 'all') {
-        featured.style.display = '';
-        cards.forEach(c => c.style.display = '');
-        visibleCount = cards.length + 1;
-      } else {
-        const featuredCat = featured.querySelector('a') ? featured.querySelector('a').dataset.category : featured.querySelector('[data-category]')?.dataset.category;
-        const featuredEl = featured.querySelector('[data-category]');
-        if (featuredEl && featuredEl.dataset.category === cat) {
-          featured.style.display = '';
-          visibleCount++;
-        } else {
-          featured.style.display = 'none';
-        }
-        cards.forEach(c => {
-          if (c.dataset.category === cat) { c.style.display = ''; visibleCount++; }
-          else { c.style.display = 'none'; }
-        });
+      if (active) {
+        active.classList.add('bg-primary', 'text-white');
+        active.classList.remove('bg-slate-100', 'text-slate-600');
       }
 
-      empty.style.display = visibleCount === 0 ? '' : 'none';
-      empty.classList.toggle('hidden', visibleCount !== 0);
+      let visibleCount = 0;
+
+      if (featured) {
+        const showFeatured = cat === 'all' || featured.dataset.category === cat;
+        featured.style.display = showFeatured ? '' : 'none';
+        if (showFeatured) visibleCount++;
+      }
+
+      cards.forEach((card) => {
+        const showCard = cat === 'all' || card.dataset.category === cat;
+        card.style.display = showCard ? '' : 'none';
+        if (showCard) visibleCount++;
+      });
+
+      if (empty) {
+        const showEmpty = visibleCount === 0;
+        empty.classList.toggle('hidden', !showEmpty);
+        empty.style.display = showEmpty ? '' : 'none';
+      }
+    }
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpening = mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpening));
+      });
+
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const backToTopButton = document.getElementById('backToTop');
+
+    if (backToTopButton) {
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    const currentYear = document.getElementById('currentYear');
+    if (currentYear) {
+      currentYear.textContent = new Date().getFullYear();
     }
   </script>
 
