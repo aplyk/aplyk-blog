@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="AI-powered temporary workforce platform. Connect with vetted professionals, manage shifts and streamline temporary staffing operations.">
+
+  <meta property="og:title" content="aplyk – AI Workforce Management Platform">
+  <meta property="og:description" content="Instantly connect with vetted professionals. AI-powered shift management for companies and workers.">
+  <meta property="og:image" content="https://aplyk.com/images/aplyk-og-preview.png">
+  <meta property="og:url" content="https://aplyk.com/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2A526F" />
+
+  <link rel="icon" type="image/png" href="https://aplyk.com/images/aplykIcon.png" />
+  <link rel="apple-touch-icon" href="https://aplyk.com/images/aplykIcon.png" />
+
+  <link rel="canonical" href="https://aplyk.com/" />
+
+  <title>Aplyk | AI-Powered Temporary Workforce Platform</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style_test.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Aplyk",
+    "url": "https://aplyk.com/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "description": "AI-powered temporary staffing platform connecting companies with pre-validated professionals.",
+    "areaServed": ["Spain", "United Kingdom"],
+    "sameAs": ["https://www.linkedin.com/company/aplyk", "https://www.instagram.com/aplyk.app"]
+  }
+  </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How does AI matching work?", "acceptedAnswer": { "@type": "Answer", "text": "Our AI tools analyse key data — skills, availability, location and past performance — to quickly match qualified professionals with your shifts." } },
+    { "@type": "Question", "name": "Which sectors do you cover?", "acceptedAnswer": { "@type": "Answer", "text": "We currently specialise in light industry, warehousing, logistics, hospitality and events, and also support other sectors with similar shift-based staffing needs." } },
+    { "@type": "Question", "name": "Does Aplyk employ and pay the workers?", "acceptedAnswer": { "@type": "Answer", "text": "No. Aplyk is a technology platform that connects companies with verified professionals for temporary shifts. We do not act as the legal employer and do not manage payroll. The hiring company remains responsible for contracts, payroll and legal obligations." } },
+    { "@type": "Question", "name": "How quickly can I get staff?", "acceptedAnswer": { "@type": "Answer", "text": "Our on-demand network is active 24/7. In most urban areas we can cover shifts in as little as 2 hours. Posting 24–48 hours in advance guarantees the best matching quality." } },
+    { "@type": "Question", "name": "Is compliance managed automatically?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The platform helps companies manage shifts, breaks and time tracking more efficiently, reducing operational errors." } }
+  ]
+}
+</script>
+
+<script defer src="./main_test.js"></script>
+</head>
+<body id="top">
+
+<button id="backToTop" type="button" aria-label="Back to top" class="back-to-top">
+  <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+<!-- ===================== INTRO VIDEO MODAL ===================== -->
+<div id="videoModal" class="video-modal" aria-hidden="true">
+  <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+  <div class="video-modal-window">
+    <button class="video-modal-close" id="videoModalClose" aria-label="Close video" data-i18n="closeVideo" data-i18n-attribute="aria-label">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <video id="introVideo" autoplay muted playsinline controls>
+      <source src="./Resources/Aplyk_WebVideo_Eng.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<!-- ===================== BOOK A DEMO MODAL ===================== -->
+<div class="modal" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title" aria-hidden="true">
+  <div class="modal-backdrop" data-close-demo></div>
+  <div class="modal-dialog">
+    <button class="modal-close" type="button" data-close-demo aria-label="Close form" data-i18n="closeForm" data-i18n-attribute="aria-label">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <div class="modal-heading">
+      <h2 data-i18n="demoModalTitle">Book a demo</h2>
+      <p data-i18n="demoModalText">Tell us a bit about your company and we'll get back to you shortly.</p>
+    </div>
+
+    <form id="demo-form" action="https://formsubmit.co/info@aplyk.com" method="POST">
+      <input type="hidden" name="_subject" value="New Aplyk demo request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" id="demo-form-next" value="">
+      <div class="honeypot" aria-hidden="true">
+        <label for="demo-website">Website</label>
+        <input type="text" name="_honey" id="demo-website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form-grid">
+        <div class="form-status" id="demo-form-status" role="status"></div>
+
+        <div class="form-field">
+          <label for="demo-name" data-i18n="demoNameLabel">Full name</label>
+          <input id="demo-name" name="Full name" type="text" required autocomplete="name" data-i18n="demoNamePh" data-i18n-attribute="placeholder">
+        </div>
+
+        <div class="form-field">
+          <label for="demo-company" data-i18n="demoCompanyLabel">Company</label>
+          <input id="demo-company" name="Company" type="text" required autocomplete="organization" data-i18n="demoCompanyPh" data-i18n-attribute="placeholder">
+        </div>
+
+        <div class="form-field">
+          <label for="demo-industry" data-i18n="demoIndustryLabel">Industry</label>
+          <select id="demo-industry" name="Industry" required>
+            <option value="" selected disabled data-i18n="demoSelectPh">Select an option</option>
+            <option value="Hospitality" data-i18n="demoIndHospitality">Hospitality</option>
+            <option value="Warehousing / Logistics" data-i18n="demoIndWarehouse">Warehousing / Logistics</option>
+            <option value="Retail" data-i18n="demoIndRetail">Retail</option>
+            <option value="Events" data-i18n="demoIndEvents">Events</option>
+            <option value="Other" data-i18n="demoIndOther">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="demo-email" data-i18n="demoEmailLabel">Work email</label>
+          <input id="demo-email" name="Email" type="email" required autocomplete="email" data-i18n="demoEmailPh" data-i18n-attribute="placeholder">
+        </div>
+
+        <div class="form-field full">
+          <label for="demo-phone" data-i18n="demoPhoneLabel">Phone (optional)</label>
+          <input id="demo-phone" name="Phone" type="tel" autocomplete="tel" data-i18n="demoPhonePh" data-i18n-attribute="placeholder">
+        </div>
+
+        <p class="form-note" data-i18n="demoFormNote">Your information will be sent to info@aplyk.com.</p>
+
+        <div class="form-actions">
+          <button class="btn-secondary" type="button" data-close-demo data-i18n="demoCancel">Cancel</button>
+          <button class="btn-primary" type="submit" data-i18n="demoSubmit">Send request</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<div class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="#top" aria-label="aplyk">
+      <img src="./images/LogoAplyk_WhiteBG.png" alt="aplyk" loading="lazy">
+    </a>
+
+    <ul class="nav-links" aria-label="Primary">
+      <li><a href="#companies" data-i18n="navCompanies">Companies</a></li>
+      <li><a href="#workers" data-i18n="navWorkers">Workers</a></li>
+      <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
+      <li><a href="./blog.html" data-i18n="navBlog">Blog</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button type="button" class="btn-ghost" data-i18n="login">Login</button>
+      <a href="#" class="nav-cta js-open-demo" data-i18n="bookDemo">Book a demo</a>
+
+      <div class="language-switcher" id="langWrap">
+        <button id="langBtn" type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          <span id="langLabel">EN</span>
+          <span class="material-symbols-outlined" style="font-size:18px; line-height:0;">expand_more</span>
+        </button>
+        <div id="langMenu" class="lang-menu hidden" role="menu" aria-label="Language selector">
+          <button class="lang-item" type="button" data-lang="es">Español (ES)</button>
+          <button class="lang-item" type="button" data-lang="en">English (EN)</button>
+        </div>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu hidden">
+    <nav class="wrap" style="padding:20px 0; display:flex; flex-direction:column; gap:16px;" aria-label="Mobile menu">
+      <a href="#companies" data-i18n="navCompanies">Companies</a>
+      <a href="#workers" data-i18n="navWorkers">Workers</a>
+      <a href="#faq" data-i18n="navFaq">FAQ</a>
+      <a href="./blog.html" data-i18n="navBlog">Blog</a>
+      <div style="margin-top:8px; padding-top:16px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:12px;">
+        <button type="button" class="btn-ghost" data-i18n="login" style="width:100%;">Login</button>
+        <a href="#" class="nav-cta js-open-demo" data-i18n="bookDemo" style="width:100%; justify-content:center;">Book a demo</a>
+        <div style="display:flex; gap:16px; margin-top:4px;">
+          <button type="button" class="lang-item-mobile" data-lang="es" style="font-size:13px; font-weight:700; background:none; border:0;">ES</button>
+          <button type="button" class="lang-item-mobile" data-lang="en" style="font-size:13px; font-weight:700; background:none; border:0;">EN</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ===================== HERO — floating cards ===================== -->
+<header class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-pill"><span class="d"></span><span data-i18n="heroEyebrow">AI-powered · Real-time matching</span></div>
+      <h1 data-i18n="heroTitle" data-i18n-html="true">Fill shifts fast. <span class="hl">Keep everyone happy.</span></h1>
+      <p class="lead" data-i18n="heroLead">Aplyk connects companies with vetted professionals instantly — post a shift, get matched, track everything from your pocket.</p>
+      <div class="hero-cta">
+        <button class="btn-primary js-open-demo" data-i18n="bookDemo">Book a demo</button>
+        <button class="btn-secondary" id="watchVideoBtn" data-i18n="seeHowItWorks">See how it works</button>
+      </div>
+      <div class="trust-row">
+        <div class="stat"><b>38s</b><span data-i18n="statMatch">Avg. time to match</span></div>
+        <div class="sep"></div>
+        <div class="stat"><b>4.8★</b><span data-i18n="statRating">Average worker rating</span></div>
+        <div class="sep"></div>
+        <div class="stat"><b>200+</b><span data-i18n="statShifts">Shifts live this week</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <!-- Card 1: Shift created -->
+      <div class="demo-card demo-card--1">
+        <div class="dc-head">
+          <div class="dc-title"><span class="dc-dot"></span><span data-i18n="card1Title">Shift created</span></div>
+          <span class="dc-tag" data-i18n="card1Tag">1-CLICK</span>
+        </div>
+        <div class="dc-meta" data-i18n="card1Meta" data-i18n-html="true">Warehouse Picker · 18:00–23:00<br>Site A</div>
+        <div class="dc-row"><span class="k" data-i18n="card1RowK">Qualified matches</span><span class="v" data-i18n="card1RowV">12 available</span></div>
+        <div class="dc-bar"><span style="width:72%"></span></div>
+      </div>
+
+      <!-- Card 2: Filled instantly -->
+      <div class="demo-card demo-card--2">
+        <div class="dc-with-icon">
+          <div class="dc-icon"><span class="material-symbols-outlined">check_circle</span></div>
+          <div>
+            <div class="dc-title" data-i18n="card2Title">Filled instantly</div>
+            <div class="dc-sub" data-i18n="card2Sub">Top-rated professional confirmed</div>
+          </div>
+        </div>
+        <div class="dc-row"><span class="k" data-i18n="card2RowK1">Rating</span><span class="v">4.8★</span></div>
+        <div class="dc-row"><span class="k" data-i18n="card2RowK2">Time to confirm</span><span class="v accent">38s</span></div>
+      </div>
+
+      <!-- Card 3: Clock-in confirmed -->
+      <div class="demo-card demo-card--3">
+        <div class="dc-head">
+          <div class="dc-with-icon">
+            <div class="dc-icon accent"><span class="material-symbols-outlined">schedule</span></div>
+            <div>
+              <div class="dc-title" data-i18n="card3Title">Clock-in confirmed</div>
+              <div class="dc-sub" data-i18n="card3Sub">Accurate time tracking</div>
+            </div>
+          </div>
+          <span class="dc-tag" data-i18n="card3Tag">LIVE</span>
+        </div>
+        <div class="dc-grid2">
+          <div class="dc-cell"><span class="k" data-i18n="card3CellK1">Clock-in</span><span class="v">17:58</span></div>
+          <div class="dc-cell"><span class="k" data-i18n="card3CellK2">Status</span><span class="v" data-i18n="card3CellV2">On-site</span></div>
+        </div>
+      </div>
+
+      <!-- Card 4: New opportunities -->
+      <div class="demo-card demo-card--4">
+        <div class="dc-head">
+          <div class="dc-title"><span class="material-symbols-outlined" style="font-size:18px; color:var(--orange-dark);">work</span><span data-i18n="card4Title">New opportunities</span></div>
+          <span class="dc-tag" data-i18n="card4Tag">UPDATED</span>
+        </div>
+        <div class="dc-grid2">
+          <div class="dc-cell"><span class="k" data-i18n="card4CellK1">New companies</span><span class="v">+10</span></div>
+          <div class="dc-cell accent"><span class="k" data-i18n="card4CellK2">Shifts available</span><span class="v">200+</span></div>
+        </div>
+        <p class="dc-note" data-i18n="card4Note">More options this week — choose shifts that fit your schedule.</p>
+      </div>
+
+      <!-- Card 5: Top performer -->
+      <div class="demo-card demo-card--5">
+        <div class="dc-head">
+          <div class="dc-with-icon">
+            <div class="dc-icon accent"><span class="material-symbols-outlined">emoji_events</span></div>
+            <div>
+              <div class="dc-title" data-i18n="card5Title">Top performer</div>
+              <div class="dc-sub" data-i18n="card5Sub">Your reliability and ratings are trending up.</div>
+            </div>
+          </div>
+          <span class="dc-tag" data-i18n="card5Tag">THIS MONTH</span>
+        </div>
+        <div class="dc-row"><span class="k" data-i18n="card2RowK1">Rating</span><span class="v">4.9★</span></div>
+        <div class="dc-row"><span class="k" data-i18n="card5RowK2">Ranking</span><span class="v accent" data-i18n="card5RowV2">Top 10%</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== COMPANIES ===================== -->
+<section id="companies">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow-pill on-section" style="margin-inline:auto;"><span class="d"></span><span data-i18n="companiesEyebrow">For companies</span></div>
+      <h2 data-i18n="companiesTitle">Everything you need, in one friendly platform.</h2>
+      <p data-i18n="companiesLead">Streamline your operations with AI-driven tools designed specifically for on-site management. Handle everything from your pocket, anywhere.</p>
+    </div>
+
+    <div class="companies-grid">
+      <div class="companies-media">
+        <div class="blob"></div>
+        <img src="./images/Owner_Pic_Webpage2.png" alt="Business owner managing shifts from a laptop" loading="lazy" />
+      </div>
+
+      <div class="feature-list">
+        <div class="feature-row">
+          <div class="feature-num">1</div>
+          <div class="feature-body">
+            <h3 data-i18n="feat1Title">One-click shift creation</h3>
+            <p data-i18n="feat1Text">Post jobs in seconds using smart AI templates that learn from your previous hiring patterns.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-num">2</div>
+          <div class="feature-body">
+            <h3 data-i18n="feat2Title">Time tracking</h3>
+            <p data-i18n="feat2Text">GPS-verified clock-ins and outs ensure you only pay for the time actually worked on-site.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-num">3</div>
+          <div class="feature-body">
+            <h3 data-i18n="feat3Title">Worker rating</h3>
+            <p data-i18n="feat3Text">Rate performance instantly after every shift to build a pool of your favorite reliable workers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pill-row">
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="pillVetted">Vetted professionals</span></div>
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="pillMulti">Multi-location control</span></div>
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="pillInstant">Instant matching</span></div>
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="pillSupport">24/7 Priority Support</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WORKERS ===================== -->
+<section id="workers" class="section-alt">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow-pill on-section" style="margin-inline:auto;"><span class="d"></span><span data-i18n="workersEyebrow">For workers</span></div>
+      <h2 data-i18n="workersTitle">Smart tools to manage your shifts</h2>
+      <p data-i18n="workersLead">Easily stay on top of your schedule and shift opportunities.</p>
+    </div>
+
+    <div class="workers-grid">
+      <!-- LEFT -->
+      <div class="soft-card">
+        <div class="ic-round"><span class="material-symbols-outlined">videocam</span></div>
+        <h3 data-i18n="w1Title">Video interview</h3>
+        <p data-i18n="w1Text">Join video calls for easy online interviews.</p>
+
+        <div class="worker-shot">
+          <div class="crop">
+            <img src="./images/workerapp_screenshot%231.png" alt="Video interview screen" loading="lazy" />
+            <div class="fade"></div>
+          </div>
+        </div>
+
+        <div class="foot">
+          <div class="ic"><span class="material-symbols-outlined">auto_awesome</span></div>
+          <div>
+            <div class="title" data-i18n="w1FootTitle">AI video interview profile</div>
+            <p data-i18n="w1FootText">Record a quick, guided video when it suits you and let employers review it instantly — no scheduling delays.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENTER -->
+      <div class="soft-card center-card">
+        <div class="worker-phone">
+          <div class="crop">
+            <img src="./images/workerapp_screenshot%232.png" alt="Live alerts screen" loading="lazy" />
+            <div class="fade"></div>
+          </div>
+        </div>
+        <div class="center-caption">
+          <div class="ic"><span class="material-symbols-outlined">notifications</span></div>
+          <div style="text-align:left;">
+            <div class="title" data-i18n="w2Title">Live alerts</div>
+            <div class="sub" data-i18n="w2Text">Get notified the moment shifts open up.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="soft-card">
+        <div class="ic-round"><span class="material-symbols-outlined">calendar_month</span></div>
+        <h3 data-i18n="w3Title">Calendar</h3>
+        <p data-i18n="w3Text">View and manage your upcoming shifts with a clear schedule.</p>
+
+        <div class="worker-shot">
+          <div class="crop">
+            <img src="./images/workerapp_screenshot%233.png" alt="Calendar screen" loading="lazy" />
+            <div class="fade"></div>
+          </div>
+        </div>
+
+        <div class="foot">
+          <div class="ic"><span class="material-symbols-outlined">touch_app</span></div>
+          <div>
+            <div class="title" data-i18n="w3FootTitle">Shift discovery experience</div>
+            <p data-i18n="w3FootText">Browse available shifts, compare options quickly, and plan your week without effort.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pill-row">
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="wPill1">Multiple companies &amp; shifts</span></div>
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="wPill2">Build a trusted profile</span></div>
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="pillInstant">Instant matching</span></div>
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="wPill4">24/7 support</span></div>
+      <div class="pill"><span class="material-symbols-outlined">check_circle</span><span data-i18n="wPill5">Rate companies</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+  <div class="wrap" style="max-width:820px;">
+    <div class="section-head center">
+      <div class="eyebrow-pill on-section" style="margin-inline:auto;"><span class="d"></span><span data-i18n="faqEyebrow">Support &amp; answers</span></div>
+      <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+      <p data-i18n="faqLead">Everything you need to know about our AI-driven workforce management solution.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span data-i18n="faq1Q">How does the AI matching work?</span><span class="material-symbols-outlined chev">expand_more</span></summary>
+        <div class="body" data-i18n="faq1A">Our advanced AI tools analyse the most critical data points — including skills, availability, location, and past performance — to quickly match qualified professionals with your shift requirements.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span data-i18n="faq2Q">What industries do you serve?</span><span class="material-symbols-outlined chev">expand_more</span></summary>
+        <div class="body" data-i18n="faq2A">We currently specialise in Light Industrial, Warehousing, Logistics, Hospitality, and Event Staffing — and we also support other sectors with similar skill demands and shift-based workforce needs.</div>
+      </details>
+
+      <details class="faq-item highlight" open>
+        <summary><span style="display:flex; align-items:center; gap:8px;"><span class="material-symbols-outlined" style="color:var(--orange); font-size:20px;">stars</span><span data-i18n="faq3Q">Does aplyk employ and pay the workers?</span></span><span class="material-symbols-outlined chev">expand_more</span></summary>
+        <div class="body">
+          <p class="lede" data-i18n="faq3Lede">No.</p>
+          <p data-i18n="faq3A" data-i18n-html="true">aplyk is a <strong>technology platform</strong> that connects businesses with vetted professionals for temporary shifts. We <strong>do not</strong> act as the Employer of Record and we <strong>do not</strong> run payroll. The hiring company remains responsible for contracts, payroll, and statutory obligations, while aplyk provides the tools to manage the workflow — matching, shift confirmations, time tracking, and performance feedback.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span data-i18n="faq4Q">How quickly can I get workers?</span><span class="material-symbols-outlined chev">expand_more</span></summary>
+        <div class="body" data-i18n="faq4A">Our on-demand network is active 24/7. In most major cities, we can fill shift requests in as little as 2 hours. However, posting shifts 24-48 hours in advance guarantees the highest quality matches.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span data-i18n="faq5Q">Is compliance handled automatically?</span><span class="material-symbols-outlined chev">expand_more</span></summary>
+        <div class="body" data-i18n="faq5A">The platform helps companies manage shifts, breaks and time tracking more efficiently, reducing operational errors.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA — floating island ===================== -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-card">
+      <div>
+        <h2 data-i18n="ctaTitle">Ready to streamline your workforce?</h2>
+        <p data-i18n="ctaText">Discover how Aplyk can help streamline your temporary workforce operations.</p>
+      </div>
+      <button class="btn-primary js-open-demo">
+        <span data-i18n="ctaButton">Book a Demo</span>
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="footer-wordmark" href="#top" aria-label="aplyk">
+          <img src="./images/LogoBlue_LightBlueBG.png" alt="aplyk Logo" loading="lazy">
+        </a>
+        <p data-i18n="footerTagline">AI-powered temporary workforce platform designed for fast and efficient operations.</p>
+        <div class="social-row">
+          <a class="social-btn" aria-label="LinkedIn" href="https://www.linkedin.com/company/aplyk/?viewAsMember=true">
+            <img src="./images/linkedin.png" alt="LinkedIn" />
+          </a>
+          <a class="social-btn" aria-label="Twitter" href="#">
+            <img src="./images/twitter.png" alt="Twitter" />
+          </a>
+          <a class="social-btn" aria-label="Instagram" href="https://www.instagram.com/aplyk.app?utm_source=qr&igsh=MTNleTNmcjNldzcx">
+            <img src="./images/instagram.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footerSolutions">Solutions</h4>
+        <ul>
+          <li><a href="#companies" data-i18n="navCompanies">For Companies</a></li>
+          <li><a href="#workers" data-i18n="navWorkers">For Workers</a></li>
+          <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footerCompany">Company</h4>
+        <ul>
+          <li><a href="#" data-i18n="footerAbout">About Us</a></li>
+          <li><a href="#" data-i18n="footerCareers">Careers</a></li>
+          <li><a href="./blog.html" data-i18n="navBlog">Blog</a></li>
+          <li><a href="#" data-i18n="footerContact">Contact Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footerLegal">Legal</h4>
+        <ul>
+          <li><a href="#" data-i18n="footerPrivacy">Privacy Policy</a></li>
+          <li><a href="#" data-i18n="footerTerms">Terms of Service</a></li>
+          <li><a href="#" data-i18n="footerCookies">Cookie Policy</a></li>
+          <li><a href="#" data-i18n="footerSecurity">Security</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footerStay">Stay updated</h4>
+        <p style="color:rgba(255,255,255,.62); font-size:14px; margin-bottom:14px;" data-i18n="footerStayText">Get the latest workforce trends directly to your inbox.</p>
+        <form class="footer-form">
+          <input type="email" data-i18n="footerEmailPh" data-i18n-attribute="placeholder" placeholder="Enter your email" />
+          <button type="button"><span data-i18n="footerSubscribe">Subscribe</span> <span class="material-symbols-outlined" style="font-size:16px;">send</span></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> <span data-i18n="footerRights">aplyk. All rights reserved.</span></p>
+      <div class="status-dot"><span class="d"></span><span data-i18n="footerStatus">Platform available 24/7</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileMenu');
+  if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || href.length < 2) return;
+      const el = document.querySelector(href);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      menu?.classList.add('hidden');
+    });
+  });
+
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    const toggleBackToTop = () => { backToTop.style.display = window.scrollY > 480 ? 'flex' : 'none'; };
+    toggleBackToTop();
+    window.addEventListener('scroll', toggleBackToTop);
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // ===== Intro video modal =====
+  const videoModal = document.getElementById('videoModal');
+  const introVideo = document.getElementById('introVideo');
+  const openVideo = () => {
+    videoModal.classList.add('open');
+    videoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    introVideo.currentTime = 0;
+    introVideo.muted = true;
+    introVideo.play().catch(() => {});
+  };
+  const closeVideo = () => {
+    videoModal.classList.remove('open');
+    videoModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    introVideo.pause();
+  };
+  document.getElementById('videoModalClose')?.addEventListener('click', closeVideo);
+  document.getElementById('videoModalBackdrop')?.addEventListener('click', closeVideo);
+  document.getElementById('watchVideoBtn')?.addEventListener('click', openVideo);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo(); });
+
+  // Open automatically on first load
+  window.addEventListener('DOMContentLoaded', () => { openVideo(); });
+
+  // ===== Book a demo modal =====
+  const demoModal = document.getElementById('demo-modal');
+  const demoForm = document.getElementById('demo-form');
+  const demoStatus = document.getElementById('demo-form-status');
+  let lastFocused = null;
+
+  const openDemo = (trigger) => {
+    if (!demoModal) return;
+    closeVideo();
+    lastFocused = trigger || document.activeElement;
+    demoModal.classList.add('is-open');
+    demoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => document.getElementById('demo-name')?.focus());
+  };
+  const closeDemo = () => {
+    if (!demoModal) return;
+    demoModal.classList.remove('is-open');
+    demoModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  };
+
+  document.querySelectorAll('.js-open-demo').forEach((el) => {
+    el.addEventListener('click', (e) => { e.preventDefault(); openDemo(el); });
+  });
+  document.querySelectorAll('[data-close-demo]').forEach((el) => {
+    el.addEventListener('click', closeDemo);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && demoModal?.classList.contains('is-open')) closeDemo();
+  });
+
+  if (demoForm) {
+    demoForm.addEventListener('submit', () => {
+      const nextInput = document.getElementById('demo-form-next');
+      if (!nextInput) return;
+      const targetUrl = new URL(window.location.href);
+      targetUrl.searchParams.set('demo_submitted', '1');
+      nextInput.value = targetUrl.toString();
+    });
+  }
+
+  const demoUrl = new URL(window.location.href);
+  if (demoUrl.searchParams.get('demo_submitted') === '1' && demoStatus) {
+    const lang = (window.getCurrentLanguage && window.getCurrentLanguage()) || 'en';
+    demoStatus.textContent = (window.translations && window.translations[lang]?.demoSubmitted) || 'Thank you. Your request has been sent.';
+    demoStatus.classList.add('is-visible');
+    openDemo();
+    demoUrl.searchParams.delete('demo_submitted');
+    window.history.replaceState({}, '', demoUrl.pathname + demoUrl.search + demoUrl.hash);
+  }
+</script>
+
+</body>
+</html>
