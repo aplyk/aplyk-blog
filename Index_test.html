@@ -69,8 +69,9 @@
     <button class="video-modal-close" id="videoModalClose" aria-label="Close video" data-i18n="closeVideo" data-i18n-attribute="aria-label">
       <span class="material-symbols-outlined">close</span>
     </button>
-    <video id="introVideo" autoplay muted playsinline controls>
-      <source src="./Resources/Aplyk_WebVideo_Eng.mp4" type="video/mp4">
+    <video id="introVideo" autoplay muted playsinline controls
+      data-src-en="./Resources/Aplyk_WebVideo_Eng.mp4"
+      data-src-es="./Resources/Aplyk_WebVideo_Esp.mp4">
     </video>
   </div>
 </div>
@@ -578,7 +579,23 @@
   // ===== Intro video modal =====
   const videoModal = document.getElementById('videoModal');
   const introVideo = document.getElementById('introVideo');
+
+  const setVideoSourceForLanguage = () => {
+    const lang = (window.getCurrentLanguage && window.getCurrentLanguage()) || 'en';
+    const wantedSrc = introVideo.dataset[lang === 'es' ? 'srcEs' : 'srcEn'];
+    if (wantedSrc && !introVideo.currentSrc.endsWith(wantedSrc.replace('./', ''))) {
+      const wasOpen = videoModal.classList.contains('open');
+      introVideo.src = wantedSrc;
+      introVideo.load();
+      if (wasOpen) {
+        introVideo.muted = true;
+        introVideo.play().catch(() => {});
+      }
+    }
+  };
+
   const openVideo = () => {
+    setVideoSourceForLanguage();
     videoModal.classList.add('open');
     videoModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -596,6 +613,11 @@
   document.getElementById('videoModalBackdrop')?.addEventListener('click', closeVideo);
   document.getElementById('watchVideoBtn')?.addEventListener('click', openVideo);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo(); });
+
+  // Keep the video in sync if the person switches language while it's open
+  document.querySelectorAll('#langMenu [data-lang], .lang-item-mobile[data-lang]').forEach((item) => {
+    item.addEventListener('click', () => { setTimeout(setVideoSourceForLanguage, 0); });
+  });
 
   // Open automatically on first load
   window.addEventListener('DOMContentLoaded', () => { openVideo(); });
