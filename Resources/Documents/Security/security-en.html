@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aplyk Security — information about our security approach and responsible vulnerability reporting.">
+  <link rel="canonical" href="https://aplyk.com/Resources/Documents/Security/security-en.html">
+  <title>Security — Aplyk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#2A526F;
+      --navy-deep:#1E3B50;
+      --orange:#F28A3A;
+      --orange-dark:#D97529;
+      --muted:#64798C;
+      --soft:#EBF3F8;
+      --line:rgba(42,82,111,.14);
+      --ink:#1C2E3D;
+      --paper:#FFFFFF;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Manrope,sans-serif;
+      color:var(--ink);
+      background:#f9fafb;
+      line-height:1.68;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--orange-dark);font-weight:700;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{width:min(calc(100% - 40px),920px);margin:auto}
+    header{
+      background:var(--navy);
+      color:#fff;
+      padding:28px 20px 54px;
+    }
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      margin-bottom:52px;
+    }
+    nav a{color:#fff;text-decoration:none}
+    .brand{font-size:23px;font-weight:800}
+    h1{
+      font-size:clamp(38px,6vw,58px);
+      line-height:1.05;
+      margin:0 0 12px;
+      letter-spacing:-.02em;
+    }
+    header p{margin:0;color:rgba(255,255,255,.7)}
+    main{padding:54px 0 80px}
+    .intro{
+      font-size:18px;
+      color:#43586a;
+      margin-bottom:34px;
+    }
+    section{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:28px;
+      margin-bottom:18px;
+      box-shadow:0 10px 30px rgba(42,82,111,.06);
+    }
+    h2{
+      color:var(--navy);
+      font-size:24px;
+      margin:0 0 14px;
+      letter-spacing:-.01em;
+    }
+    h3{
+      color:var(--navy);
+      font-size:16px;
+      margin:18px 0 6px;
+    }
+    p{margin:0 0 12px;color:#556b7c}
+    p:last-child{margin-bottom:0}
+    ul{margin:10px 0 0 20px;color:#556b7c}
+    li{margin:7px 0}
+    .notice{
+      background:var(--soft);
+      border:1px solid rgba(42,82,111,.10);
+      border-radius:16px;
+      padding:18px;
+      margin-top:16px;
+    }
+    .contact-box{
+      background:var(--navy);
+      color:#fff;
+      border-radius:18px;
+      padding:22px;
+      margin-top:16px;
+    }
+    .contact-box p{color:rgba(255,255,255,.78)}
+    .contact-box a{color:#fff;text-decoration:underline}
+    footer{
+      background:var(--navy-deep);
+      color:rgba(255,255,255,.68);
+      padding:26px 20px;
+    }
+    footer .wrap{
+      display:flex;
+      gap:22px;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    footer a{color:#fff}
+    @media(max-width:650px){
+      section{padding:22px}
+      nav{align-items:flex-start}
+    }
+  </style>
+
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="../../../index.html">aplyk</a>
+      <a href="../../../index.html">Back to Aplyk</a>
+    </nav>
+    <h1>Security</h1>
+    <p>Last updated: September 2026</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="intro">
+      Security is an important part of how Aplyk designs and operates its platform. This page explains our current security approach at a high level and provides a clear process for reporting potential vulnerabilities.
+    </p>
+
+    <section>
+      <h2>1. Our security approach</h2>
+      <p>
+        Aplyk aims to apply proportionate technical and organisational measures appropriate to the nature of the service, the information processed and the risks involved. Our security practices are intended to evolve as the platform develops and as our operational requirements change.
+      </p>
+      <p>
+        We do not use this page to claim certifications, audit results or formal security accreditations that Aplyk has not obtained.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Data protection and secure transmission</h2>
+      <p>
+        Aplyk uses HTTPS-enabled web services so that information transmitted between supported browsers and our website can be protected in transit using industry-standard transport encryption.
+      </p>
+      <p>
+        We also seek to limit the collection and retention of information to what is reasonably necessary for the service, operational requirements and applicable legal obligations.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Access control</h2>
+      <p>
+        Access to systems and operational data is intended to be limited to authorised users, personnel and service providers who require that access for legitimate business or technical purposes.
+      </p>
+      <p>
+        Access permissions should be reviewed and adjusted as responsibilities, systems and platform functionality evolve.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Account and application security</h2>
+      <p>
+        Aplyk seeks to design account and application functionality with security in mind. This includes appropriate authentication controls, session management, input validation, dependency maintenance, logging and error handling where relevant to the service.
+      </p>
+      <p>
+        Security features may change as the platform develops. Where new controls are introduced, this page may be updated accordingly.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Infrastructure and service providers</h2>
+      <p>
+        Aplyk may rely on third-party infrastructure, hosting, communications and software providers to operate parts of the service. We aim to select reputable providers and assess relevant security and privacy considerations when integrating external services.
+      </p>
+      <p>
+        Third-party providers remain responsible for the security of the services they operate, subject to their contractual and legal obligations.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Monitoring, maintenance and incident response</h2>
+      <p>
+        Aplyk seeks to maintain processes for identifying technical issues, applying updates, investigating suspected incidents and limiting potential impact where reasonably possible.
+      </p>
+      <p>
+        If a security incident results in obligations to notify affected individuals, authorities or other parties under applicable law, Aplyk will assess and act on those obligations as required.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Responsible vulnerability disclosure</h2>
+      <p>
+        If you believe you have identified a security vulnerability affecting Aplyk, please report it privately before making the issue public.
+      </p>
+
+      <div class="contact-box">
+        <p><strong>Security contact</strong></p>
+        <p><a href="mailto:info@aplyk.com">info@aplyk.com</a></p>
+      </div>
+
+      <h3>Please include</h3>
+      <ul>
+        <li>a clear description of the suspected vulnerability;</li>
+        <li>the affected page, endpoint or feature, where known;</li>
+        <li>steps that allow us to reproduce the issue;</li>
+        <li>any screenshots, logs or technical details that are relevant;</li>
+        <li>your contact details if you would like us to respond.</li>
+      </ul>
+
+      <div class="notice">
+        <strong>Please do not include passwords, authentication tokens, or personal data belonging to other users in your report unless strictly necessary to explain the issue.</strong>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Testing that is not permitted</h2>
+      <p>When investigating or reporting a potential vulnerability, please do not:</p>
+      <ul>
+        <li>access, modify, copy or disclose data belonging to another person or company;</li>
+        <li>perform denial-of-service, stress or load testing that could disrupt the service;</li>
+        <li>use social engineering, phishing or physical intrusion;</li>
+        <li>deploy malware, ransomware or destructive payloads;</li>
+        <li>attempt to permanently alter or damage systems or data;</li>
+        <li>publicly disclose a vulnerability before Aplyk has had a reasonable opportunity to investigate and address it.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>9. No guarantee of absolute security</h2>
+      <p>
+        No website, application or online service can guarantee complete security. Aplyk works to reduce risk through appropriate safeguards, but users should also protect their own credentials, devices and account access.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Updates to this page</h2>
+      <p>
+        We may update this Security page as Aplyk's systems, controls, providers or operational practices change. The latest version will be published on this page.
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Aplyk</span>
+    <span>
+      <a href="../../../index.html">Home</a> ·
+      <a href="../Privacy/privacy-policy-en.html">Privacy Policy</a> ·
+      <a href="../Terms/terms-of-service-en.html">Terms of Service</a> ·
+      <a href="../Cookies/cookie-policy-en.html">Cookie Policy</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>
