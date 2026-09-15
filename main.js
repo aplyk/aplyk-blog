@@ -117,6 +117,29 @@ const translations = {
     footerPrivacy: "Privacy Policy",
     footerTerms: "Terms of Service",
     footerCookies: "Cookie Policy",
+    footerCookieSettings: "Cookie Settings",
+
+    cookieBannerAria: "Cookie preferences",
+    cookieTitle: "Your privacy choices",
+    cookieText: "We use strictly necessary storage to make Aplyk work. With your permission, we may also use preference, analytics and marketing technologies. You can accept, reject or choose what you allow. Read our <a href=\"#\" class=\"cookie-policy-link\">Cookie Policy</a>.",
+    cookieReject: "Reject non-essential",
+    cookieAccept: "Accept all",
+    cookieManage: "Manage preferences",
+    cookieClose: "Close cookie settings",
+    cookieKicker: "Privacy controls",
+    cookiePreferencesTitle: "Cookie preferences",
+    cookiePreferencesText: "Choose which optional technologies Aplyk may use. Strictly necessary storage is always active because it is required for essential website functions and to remember your privacy choice.",
+    cookieNecessaryTitle: "Strictly necessary",
+    cookieAlwaysOn: "Always on",
+    cookieNecessaryText: "Required for core website functions and for storing your cookie-consent choice.",
+    cookiePreferencesCategoryTitle: "Preferences",
+    cookiePreferencesCategoryText: "Allows Aplyk to remember optional choices, such as your preferred website language between visits.",
+    cookieAnalyticsTitle: "Analytics",
+    cookieAnalyticsText: "Would allow us to measure website usage and improve the service. Aplyk currently does not load an analytics tracker on this homepage.",
+    cookieMarketingTitle: "Marketing",
+    cookieMarketingText: "Would allow advertising or campaign-measurement technologies. Aplyk currently does not load a marketing tracker on this homepage.",
+    cookieSave: "Save preferences",
+
     footerSecurity: "Security",
     footerStay: "Stay updated",
     footerStayText: "Get the latest workforce trends directly to your inbox.",
@@ -265,6 +288,29 @@ const translations = {
     footerPrivacy: "Política de privacidad",
     footerTerms: "Términos de servicio",
     footerCookies: "Política de cookies",
+    footerCookieSettings: "Configuración de cookies",
+
+    cookieBannerAria: "Preferencias de cookies",
+    cookieTitle: "Tus opciones de privacidad",
+    cookieText: "Utilizamos almacenamiento estrictamente necesario para que Aplyk funcione. Con tu permiso, también podremos utilizar tecnologías de preferencias, analítica y marketing. Puedes aceptar, rechazar o elegir qué autorizas. Consulta nuestra <a href=\"#\" class=\"cookie-policy-link\">Política de Cookies</a>.",
+    cookieReject: "Rechazar no esenciales",
+    cookieAccept: "Aceptar todas",
+    cookieManage: "Configurar preferencias",
+    cookieClose: "Cerrar configuración de cookies",
+    cookieKicker: "Controles de privacidad",
+    cookiePreferencesTitle: "Preferencias de cookies",
+    cookiePreferencesText: "Elige qué tecnologías opcionales puede utilizar Aplyk. El almacenamiento estrictamente necesario permanece siempre activo porque es imprescindible para funciones esenciales del sitio y para recordar tu elección de privacidad.",
+    cookieNecessaryTitle: "Estrictamente necesarias",
+    cookieAlwaysOn: "Siempre activas",
+    cookieNecessaryText: "Necesarias para funciones esenciales del sitio y para guardar tu elección sobre cookies.",
+    cookiePreferencesCategoryTitle: "Preferencias",
+    cookiePreferencesCategoryText: "Permite a Aplyk recordar opciones voluntarias, como el idioma preferido del sitio entre visitas.",
+    cookieAnalyticsTitle: "Analítica",
+    cookieAnalyticsText: "Permitiría medir el uso del sitio web y mejorar el servicio. Actualmente Aplyk no carga un rastreador analítico en esta página de inicio.",
+    cookieMarketingTitle: "Marketing",
+    cookieMarketingText: "Permitiría tecnologías publicitarias o de medición de campañas. Actualmente Aplyk no carga un rastreador de marketing en esta página de inicio.",
+    cookieSave: "Guardar preferencias",
+
     footerSecurity: "Seguridad",
     footerStay: "Mantente al día",
     footerStayText: "Recibe las últimas tendencias directamente en tu email.",
@@ -299,41 +345,93 @@ const translations = {
 };
 
 const STORAGE_KEY = 'aplyk_lang';
+const CONSENT_STORAGE_KEY = 'aplyk_cookie_consent_v1';
+const CONSENT_VERSION = 1;
+
 let currentLanguage = 'en';
 
+function getCookieConsent() {
+  try {
+    const raw = localStorage.getItem(CONSENT_STORAGE_KEY);
+
+    if (!raw) return null;
+
+    const parsed = JSON.parse(raw);
+
+    if (parsed && parsed.version === CONSENT_VERSION) {
+      return parsed;
+    }
+  } catch (_) {}
+
+  return null;
+}
+
+function hasConsent(category) {
+  const consent = getCookieConsent();
+
+  return Boolean(
+    consent &&
+    consent[category] === true
+  );
+}
+
 function detectBrowserLang() {
-  const candidates = (Array.isArray(navigator.languages) && navigator.languages.length)
-    ? navigator.languages
-    : [navigator.language];
-  for (const c of candidates) {
-    const b = String(c || '').toLowerCase().split('-')[0];
-    if (translations[b]) return b;
+  const candidates =
+    Array.isArray(navigator.languages) && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language];
+
+  for (const candidate of candidates) {
+    const baseLanguage = String(candidate || '')
+      .toLowerCase()
+      .split('-')[0];
+
+    if (translations[baseLanguage]) {
+      return baseLanguage;
+    }
   }
+
   return 'en';
 }
 
 function getPreferredLang() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved && translations[saved]) return saved;
-  } catch (_) {}
+  if (hasConsent('preferences')) {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+
+      if (saved && translations[saved]) {
+        return saved;
+      }
+    } catch (_) {}
+  }
+
   return detectBrowserLang();
 }
 
 function setLanguage(lang) {
   currentLanguage = translations[lang] ? lang : 'en';
+
   const dict = translations[currentLanguage];
 
   document.documentElement.lang = currentLanguage;
-  if (dict.pageTitle) document.title = dict.pageTitle;
+
+  if (dict.pageTitle) {
+    document.title = dict.pageTitle;
+  }
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.getAttribute('data-i18n');
+
     if (!(key in dict)) return;
 
     if (el.hasAttribute('data-i18n-attribute')) {
-      el.setAttribute(el.getAttribute('data-i18n-attribute'), dict[key]);
-    } else if (el.getAttribute('data-i18n-html') === 'true') {
+      el.setAttribute(
+        el.getAttribute('data-i18n-attribute'),
+        dict[key]
+      );
+    } else if (
+      el.getAttribute('data-i18n-html') === 'true'
+    ) {
       el.innerHTML = dict[key];
     } else {
       el.textContent = dict[key];
@@ -341,63 +439,464 @@ function setLanguage(lang) {
   });
 
   const langLabel = document.getElementById('langLabel');
-  if (langLabel) langLabel.textContent = currentLanguage.toUpperCase();
 
-    // Privacy Policy links
-  document.querySelectorAll('.privacy-policy-link').forEach((link) => {
-    link.href =
-      currentLanguage === 'es'
-        ? './Resources/Documents/Privacy/privacy-policy-es.html'
-        : './Resources/Documents/Privacy/privacy-policy-en.html';
+  if (langLabel) {
+    langLabel.textContent = currentLanguage.toUpperCase();
+  }
+
+  document
+    .querySelectorAll('.privacy-policy-link')
+    .forEach((link) => {
+      link.href =
+        currentLanguage === 'es'
+          ? './Resources/Documents/Privacy/privacy-policy-es.html'
+          : './Resources/Documents/Privacy/privacy-policy-en.html';
+    });
+
+  document
+    .querySelectorAll('.terms-of-service-link')
+    .forEach((link) => {
+      link.href =
+        currentLanguage === 'es'
+          ? './Resources/Documents/Terms/terms-of-service-es.html'
+          : './Resources/Documents/Terms/terms-of-service-en.html';
+    });
+
+  document
+    .querySelectorAll('.cookie-policy-link')
+    .forEach((link) => {
+      link.href =
+        currentLanguage === 'es'
+          ? './Resources/Documents/Cookies/cookie-policy-es.html'
+          : './Resources/Documents/Cookies/cookie-policy-en.html';
+    });
+
+  if (hasConsent('preferences')) {
+    try {
+      localStorage.setItem(
+        STORAGE_KEY,
+        currentLanguage
+      );
+    } catch (_) {}
+  }
+
+  refreshCookieUI();
+}
+
+function saveCookieConsent(
+  preferences,
+  analytics,
+  marketing
+) {
+  const consent = {
+    version: CONSENT_VERSION,
+    necessary: true,
+    preferences: Boolean(preferences),
+    analytics: Boolean(analytics),
+    marketing: Boolean(marketing),
+    updatedAt: new Date().toISOString()
+  };
+
+  try {
+    localStorage.setItem(
+      CONSENT_STORAGE_KEY,
+      JSON.stringify(consent)
+    );
+
+    if (consent.preferences) {
+      localStorage.setItem(
+        STORAGE_KEY,
+        currentLanguage
+      );
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  } catch (_) {}
+
+  applyCookieConsent(consent);
+  hideCookieBanner();
+  closeCookiePreferences();
+}
+
+function applyCookieConsent(consent) {
+  const detail =
+    consent ||
+    getCookieConsent() || {
+      version: CONSENT_VERSION,
+      necessary: true,
+      preferences: false,
+      analytics: false,
+      marketing: false
+    };
+
+  window.aplykConsent = detail;
+
+  document.dispatchEvent(
+    new CustomEvent(
+      'aplyk:consentchange',
+      {
+        detail
+      }
+    )
+  );
+}
+
+function showCookieBanner() {
+  const banner =
+    document.getElementById('cookieBanner');
+
+  if (banner) {
+    banner.hidden = false;
+  }
+}
+
+function hideCookieBanner() {
+  const banner =
+    document.getElementById('cookieBanner');
+
+  if (banner) {
+    banner.hidden = true;
+  }
+}
+
+function openCookiePreferences() {
+  const panel =
+    document.getElementById(
+      'cookiePreferences'
+    );
+
+  if (!panel) return;
+
+  const consent = getCookieConsent();
+
+  const preferenceToggle =
+    document.getElementById(
+      'cookiePreferencesToggle'
+    );
+
+  const analyticsToggle =
+    document.getElementById(
+      'cookieAnalyticsToggle'
+    );
+
+  const marketingToggle =
+    document.getElementById(
+      'cookieMarketingToggle'
+    );
+
+  if (preferenceToggle) {
+    preferenceToggle.checked =
+      Boolean(consent?.preferences);
+  }
+
+  if (analyticsToggle) {
+    analyticsToggle.checked =
+      Boolean(consent?.analytics);
+  }
+
+  if (marketingToggle) {
+    marketingToggle.checked =
+      Boolean(consent?.marketing);
+  }
+
+  panel.classList.add('is-open');
+
+  panel.setAttribute(
+    'aria-hidden',
+    'false'
+  );
+
+  requestAnimationFrame(() => {
+    panel
+      .querySelector(
+        '.cookie-preferences-close'
+      )
+      ?.focus();
   });
+}
 
-  try { localStorage.setItem(STORAGE_KEY, currentLanguage); } catch (_) {}
+function closeCookiePreferences() {
+  const panel =
+    document.getElementById(
+      'cookiePreferences'
+    );
+
+  if (!panel) return;
+
+  panel.classList.remove('is-open');
+
+  panel.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+}
+
+function refreshCookieUI() {
+  document
+    .querySelectorAll('.cookie-policy-link')
+    .forEach((link) => {
+      link.href =
+        currentLanguage === 'es'
+          ? './Resources/Documents/Cookies/cookie-policy-es.html'
+          : './Resources/Documents/Cookies/cookie-policy-en.html';
+    });
+}
+
+function wireCookieConsentUI() {
+  document
+    .getElementById('cookieAcceptAll')
+    ?.addEventListener(
+      'click',
+      () => {
+        saveCookieConsent(
+          true,
+          true,
+          true
+        );
+      }
+    );
+
+  document
+    .getElementById('cookieRejectAll')
+    ?.addEventListener(
+      'click',
+      () => {
+        saveCookieConsent(
+          false,
+          false,
+          false
+        );
+      }
+    );
+
+  document
+    .getElementById('cookieManage')
+    ?.addEventListener(
+      'click',
+      openCookiePreferences
+    );
+
+  document
+    .querySelectorAll(
+      '.js-cookie-settings'
+    )
+    .forEach((el) => {
+      el.addEventListener(
+        'click',
+        (event) => {
+          event.preventDefault();
+          openCookiePreferences();
+        }
+      );
+    });
+
+  document
+    .querySelectorAll(
+      '[data-cookie-close]'
+    )
+    .forEach((el) => {
+      el.addEventListener(
+        'click',
+        closeCookiePreferences
+      );
+    });
+
+  document
+    .getElementById(
+      'cookiePreferencesAccept'
+    )
+    ?.addEventListener(
+      'click',
+      () => {
+        saveCookieConsent(
+          true,
+          true,
+          true
+        );
+      }
+    );
+
+  document
+    .getElementById(
+      'cookiePreferencesReject'
+    )
+    ?.addEventListener(
+      'click',
+      () => {
+        saveCookieConsent(
+          false,
+          false,
+          false
+        );
+      }
+    );
+
+  document
+    .getElementById(
+      'cookieSavePreferences'
+    )
+    ?.addEventListener(
+      'click',
+      () => {
+        saveCookieConsent(
+          document.getElementById(
+            'cookiePreferencesToggle'
+          )?.checked,
+
+          document.getElementById(
+            'cookieAnalyticsToggle'
+          )?.checked,
+
+          document.getElementById(
+            'cookieMarketingToggle'
+          )?.checked
+        );
+      }
+    );
+
+  document.addEventListener(
+    'keydown',
+    (event) => {
+      if (event.key === 'Escape') {
+        closeCookiePreferences();
+      }
+    }
+  );
+
+  const consent =
+    getCookieConsent();
+
+  if (consent) {
+    applyCookieConsent(consent);
+    hideCookieBanner();
+  } else {
+    applyCookieConsent(null);
+    showCookieBanner();
+  }
 }
 
 function wireLanguageUI() {
-  const wrap = document.getElementById('langWrap');
-  const btn = document.getElementById('langBtn');
-  const menu = document.getElementById('langMenu');
+  const wrap =
+    document.getElementById('langWrap');
+
+  const btn =
+    document.getElementById('langBtn');
+
+  const menu =
+    document.getElementById('langMenu');
 
   if (wrap && btn && menu) {
-    const openMenu = () => { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); };
-    const closeMenu = () => { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); };
-    const toggleMenu = () => { menu.classList.contains('hidden') ? openMenu() : closeMenu(); };
+    const openMenu = () => {
+      menu.classList.remove('hidden');
 
-    btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(); });
+      btn.setAttribute(
+        'aria-expanded',
+        'true'
+      );
+    };
 
-    menu.querySelectorAll('[data-lang]').forEach((item) => {
-      item.addEventListener('click', (e) => {
-        e.preventDefault();
-        const lang = item.getAttribute('data-lang');
-        setLanguage(lang);
-        closeMenu();
+    const closeMenu = () => {
+      menu.classList.add('hidden');
+
+      btn.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+    };
+
+    const toggleMenu = () => {
+      menu.classList.contains('hidden')
+        ? openMenu()
+        : closeMenu();
+    };
+
+    btn.addEventListener(
+      'click',
+      (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        toggleMenu();
+      }
+    );
+
+    menu
+      .querySelectorAll('[data-lang]')
+      .forEach((item) => {
+        item.addEventListener(
+          'click',
+          (event) => {
+            event.preventDefault();
+
+            const lang =
+              item.getAttribute(
+                'data-lang'
+              );
+
+            setLanguage(lang);
+            closeMenu();
+          }
+        );
       });
-    });
 
-    document.addEventListener('click', (e) => { if (!wrap.contains(e.target)) closeMenu(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    document.addEventListener(
+      'click',
+      (event) => {
+        if (!wrap.contains(event.target)) {
+          closeMenu();
+        }
+      }
+    );
+
+    document.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      }
+    );
   }
 
-  // Mobile menu language buttons
-  document.querySelectorAll('.lang-item-mobile[data-lang]').forEach((item) => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      setLanguage(item.getAttribute('data-lang'));
+  document
+    .querySelectorAll(
+      '.lang-item-mobile[data-lang]'
+    )
+    .forEach((item) => {
+      item.addEventListener(
+        'click',
+        (event) => {
+          event.preventDefault();
+
+          setLanguage(
+            item.getAttribute(
+              'data-lang'
+            )
+          );
+        }
+      );
     });
-  });
 }
 
 function init() {
+  wireCookieConsentUI();
   wireLanguageUI();
-  setLanguage(getPreferredLang());
+  setLanguage(
+    getPreferredLang()
+  );
 }
 
 window.translations = translations;
-window.getCurrentLanguage = () => currentLanguage;
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+window.getCurrentLanguage =
+  () => currentLanguage;
+
+if (
+  document.readyState === 'loading'
+) {
+  document.addEventListener(
+    'DOMContentLoaded',
+    init
+  );
 } else {
   init();
 }

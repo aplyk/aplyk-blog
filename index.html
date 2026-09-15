@@ -526,8 +526,9 @@
         <h4 data-i18n="footerLegal">Legal</h4>
         <ul>
           <li><a href="#" class="privacy-policy-link" data-i18n="footerPrivacy">Privacy Policy</a></li>
-          <li><a href="#" data-i18n="footerTerms">Terms of Service</a></li>
-          <li><a href="#" data-i18n="footerCookies">Cookie Policy</a></li>
+          <li><a href="#" class="terms-of-service-link" data-i18n="footerTerms">Terms of Service</a></li>
+          <li><a href="#" class="cookie-policy-link" data-i18n="footerCookies">Cookie Policy</a></li>
+          <li><button type="button" class="cookie-settings-link js-cookie-settings" data-i18n="footerCookieSettings">Cookie Settings</button></li>
           <li><a href="#" data-i18n="footerSecurity">Security</a></li>
         </ul>
       </div>
@@ -548,6 +549,100 @@
     </div>
   </div>
 </footer>
+
+
+<!-- ===================== COOKIE CONSENT ===================== -->
+<div id="cookieBanner" class="cookie-banner" role="region" aria-label="Cookie preferences" data-i18n="cookieBannerAria" data-i18n-attribute="aria-label" hidden>
+  <div class="cookie-banner-inner">
+    <div class="cookie-banner-copy">
+      <div class="cookie-banner-icon" aria-hidden="true">
+        <span class="material-symbols-outlined">cookie</span>
+      </div>
+      <div>
+        <h2 data-i18n="cookieTitle">Your privacy choices</h2>
+        <p data-i18n="cookieText" data-i18n-html="true">
+          We use strictly necessary storage to make Aplyk work. With your permission, we may also use preference, analytics and marketing technologies. You can accept, reject or choose what you allow. Read our <a href="#" class="cookie-policy-link">Cookie Policy</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="cookie-banner-actions">
+      <button type="button" id="cookieRejectAll" class="cookie-btn cookie-btn-choice" data-i18n="cookieReject">Reject non-essential</button>
+      <button type="button" id="cookieAcceptAll" class="cookie-btn cookie-btn-choice" data-i18n="cookieAccept">Accept all</button>
+      <button type="button" id="cookieManage" class="cookie-btn cookie-btn-manage" data-i18n="cookieManage">Manage preferences</button>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePreferences" class="cookie-preferences" role="dialog" aria-modal="true" aria-labelledby="cookiePreferencesTitle" aria-hidden="true">
+  <div class="cookie-preferences-backdrop" data-cookie-close></div>
+  <div class="cookie-preferences-dialog">
+    <button type="button" class="cookie-preferences-close" data-cookie-close aria-label="Close cookie settings" data-i18n="cookieClose" data-i18n-attribute="aria-label">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <div class="cookie-preferences-heading">
+      <span class="cookie-kicker" data-i18n="cookieKicker">Privacy controls</span>
+      <h2 id="cookiePreferencesTitle" data-i18n="cookiePreferencesTitle">Cookie preferences</h2>
+      <p data-i18n="cookiePreferencesText">Choose which optional technologies Aplyk may use. Strictly necessary storage is always active because it is required for essential website functions and to remember your privacy choice.</p>
+    </div>
+
+    <div class="cookie-category-list">
+      <div class="cookie-category">
+        <div>
+          <div class="cookie-category-title">
+            <h3 data-i18n="cookieNecessaryTitle">Strictly necessary</h3>
+            <span class="cookie-always-on" data-i18n="cookieAlwaysOn">Always on</span>
+          </div>
+          <p data-i18n="cookieNecessaryText">Required for core website functions and for storing your cookie-consent choice.</p>
+        </div>
+        <label class="cookie-switch is-disabled" aria-label="Strictly necessary cookies are always enabled">
+          <input type="checkbox" checked disabled>
+          <span class="cookie-slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-category">
+        <div>
+          <h3 data-i18n="cookiePreferencesCategoryTitle">Preferences</h3>
+          <p data-i18n="cookiePreferencesCategoryText">Allows Aplyk to remember optional choices, such as your preferred website language between visits.</p>
+        </div>
+        <label class="cookie-switch">
+          <input type="checkbox" id="cookiePreferencesToggle">
+          <span class="cookie-slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-category">
+        <div>
+          <h3 data-i18n="cookieAnalyticsTitle">Analytics</h3>
+          <p data-i18n="cookieAnalyticsText">Would allow us to measure website usage and improve the service. Aplyk currently does not load an analytics tracker on this homepage.</p>
+        </div>
+        <label class="cookie-switch">
+          <input type="checkbox" id="cookieAnalyticsToggle">
+          <span class="cookie-slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-category">
+        <div>
+          <h3 data-i18n="cookieMarketingTitle">Marketing</h3>
+          <p data-i18n="cookieMarketingText">Would allow advertising or campaign-measurement technologies. Aplyk currently does not load a marketing tracker on this homepage.</p>
+        </div>
+        <label class="cookie-switch">
+          <input type="checkbox" id="cookieMarketingToggle">
+          <span class="cookie-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="cookie-preferences-actions">
+      <button type="button" id="cookiePreferencesReject" class="cookie-btn cookie-btn-choice" data-i18n="cookieReject">Reject non-essential</button>
+      <button type="button" id="cookiePreferencesAccept" class="cookie-btn cookie-btn-choice" data-i18n="cookieAccept">Accept all</button>
+      <button type="button" id="cookieSavePreferences" class="cookie-btn cookie-btn-save" data-i18n="cookieSave">Save preferences</button>
+    </div>
+  </div>
+</div>
 
 <script>
   document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -619,8 +714,7 @@
     item.addEventListener('click', () => { setTimeout(setVideoSourceForLanguage, 0); });
   });
 
-  // Open automatically on first load
-  window.addEventListener('DOMContentLoaded', () => { openVideo(); });
+  // The intro video now opens only when the visitor chooses “See how it works”.
 
   // ===== Book a demo modal =====
   const demoModal = document.getElementById('demo-modal');
