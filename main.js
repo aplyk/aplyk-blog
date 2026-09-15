@@ -444,6 +444,7 @@ function setLanguage(lang) {
     langLabel.textContent = currentLanguage.toUpperCase();
   }
 
+  //Link to privacy policy, Terms of Service, Cookie policy and security documents.
   document
     .querySelectorAll('.privacy-policy-link')
     .forEach((link) => {
@@ -470,6 +471,13 @@ function setLanguage(lang) {
           ? './Resources/Documents/Cookies/cookie-policy-es.html'
           : './Resources/Documents/Cookies/cookie-policy-en.html';
     });
+
+  document.querySelectorAll('.security-link').forEach((link) => {
+  link.href =
+    currentLanguage === 'es'
+      ? './Resources/Documents/Security/security-es.html'
+      : './Resources/Documents/Security/security-en.html';
+  });
 
   if (hasConsent('preferences')) {
     try {

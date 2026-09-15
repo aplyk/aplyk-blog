@@ -849,7 +849,7 @@
           <a href="#" class="terms-of-service-link hover:text-accent transition-colors" data-blog-i18n="terms">Términos de servicio</a>
           <a href="#" class="cookie-policy-link hover:text-accent transition-colors" data-blog-i18n="cookies">Política de cookies</a>
           <button type="button" class="js-cookie-settings text-left hover:text-accent transition-colors" data-blog-i18n="cookieSettings">Configuración de cookies</button>
-          <a href="#" class="hover:text-accent transition-colors" data-blog-i18n="security">Seguridad</a>
+          <a href="#" class="security-link hover:text-accent transition-colors" data-blog-i18n="security">Seguridad</a>
         </div>
       </div>
 
@@ -1034,6 +1034,11 @@
         link.href = blogLanguage === 'es'
           ? './Resources/Documents/Cookies/cookie-policy-es.html'
           : './Resources/Documents/Cookies/cookie-policy-en.html';
+      });
+      document.querySelectorAll('.security-link').forEach(link => {
+        link.href = blogLanguage === 'es'
+          ? './Resources/Documents/Security/security-es.html'
+          : './Resources/Documents/Security/security-en.html';
       });
     }
 
