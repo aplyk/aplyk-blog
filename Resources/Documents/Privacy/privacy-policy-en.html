@@ -196,7 +196,7 @@
               <li>Work-related data: CV, experience, availability, ratings and performance reviews.</li>
               <li>Identity and right-to-work verification documentation, processed through our verification provider (Didit).</li>
               <li>Location data during clock-in/clock-out (GPS) while you are on an active shift.</li>
-              <li>Bank details required to pay you for completed shifts.</li>
+              <li>Bank details, only in occasional cases where Aplyk pays bonuses or incentives directly to the professional. Aplyk does not pay wages or payroll: pay for shifts is paid directly by the hiring company.</li>
               <li>App usage data and communications with support.</li>
             </ul>
             <p class="font-semibold text-primary/90 mt-2">If you are a company (client)</p>
@@ -237,7 +237,7 @@
                 <tr><td class="px-4 py-3">Verify identity and right to work</td><td class="px-4 py-3">Compliance with a legal obligation / performance of a contract</td></tr>
                 <tr><td class="px-4 py-3">AI-assisted matching between shifts and professionals</td><td class="px-4 py-3">Performance of a contract and legitimate interest</td></tr>
                 <tr><td class="px-4 py-3">Record clock-ins via geolocation during a shift</td><td class="px-4 py-3">Performance of a contract</td></tr>
-                <tr><td class="px-4 py-3">Process payments and invoicing</td><td class="px-4 py-3">Performance of a contract / legal obligation</td></tr>
+                <tr><td class="px-4 py-3">Invoice and collect Aplyk's commission from the company, and manage occasional bonuses to professionals</td><td class="px-4 py-3">Performance of a contract / legal obligation</td></tr>
                 <tr><td class="px-4 py-3">Support communications</td><td class="px-4 py-3">Performance of a contract</td></tr>
                 <tr><td class="px-4 py-3">Marketing (newsletter, updates)</td><td class="px-4 py-3">Consent, revocable at any time</td></tr>
                 <tr><td class="px-4 py-3">Fraud prevention and platform security</td><td class="px-4 py-3">Legitimate interest</td></tr>
@@ -303,7 +303,6 @@
               <li><strong>Payment and billing providers</strong>, to process payments and payouts.</li>
               <li><strong>Technology infrastructure providers</strong> (cloud hosting, email delivery, support), under data-processing agreements in line with Art. 28 GDPR.</li>
               <li><strong>Public authorities</strong>, where there is a legal obligation to do so.</li>
-              <li><strong>Partner Temporary Staffing Agencies (ETTs)</strong>, in cases where a shift is managed through an ETT partner, and only to the extent necessary for that purpose.</li>
             </ul>
           </div>
         </section>
@@ -488,7 +487,7 @@
           <ul class="flex flex-col gap-3">
             <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">About us</a></li>
             <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Careers</a></li>
-            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="../../../blog.html">Blog</a></li>
+            <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="./blog.html">Blog</a></li>
             <li><a class="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-300 text-sm" href="#">Contact support</a></li>
           </ul>
         </div>
@@ -518,7 +517,7 @@
 
       <!-- Footer Bottom -->
       <div class="border-t border-white/10 pt-8 text-center text-sm text-slate-400">
-        <p>© 2026 Aplyk. All rights reserved.</p>
+        <p>© <span id="currentYear"></span> <span data-i18n="footerRights">aplyk. All rights reserved.</span></p>
       </div>
     </div>
   </footer>
@@ -535,6 +534,8 @@
 
   <script>
     // Mobile menu toggle
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenuBtn && mobileMenu) {
