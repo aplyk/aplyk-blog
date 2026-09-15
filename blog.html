@@ -77,6 +77,169 @@
         height: 0;
       }
     }
+
+    .site-footer-blog { border-radius: 40px 40px 0 0; overflow: hidden; }
+    .cookie-banner[hidden] { display:none !important; }
+    .cookie-banner { position:fixed; left:20px; right:20px; bottom:20px; z-index:5000; }
+    .cookie-banner-inner {
+      width:min(100%,1180px); margin:auto; display:grid; grid-template-columns:1fr auto;
+      gap:24px; align-items:center; padding:22px; background:#fff; color:#1C2E3D;
+      border:1px solid rgba(42,82,111,.14); border-radius:24px;
+      box-shadow:0 24px 70px rgba(22,40,58,.24);
+    }
+    .cookie-copy h2 { margin:0 0 6px; font-size:19px; font-weight:800; color:#2A526F; }
+    .cookie-copy p { margin:0; color:#64798C; font-size:13.5px; line-height:1.55; max-width:760px; }
+    .cookie-copy a { color:#D97529; font-weight:800; text-decoration:underline; text-underline-offset:2px; }
+    .cookie-actions,.cookie-preferences-actions { display:flex; gap:10px; flex-wrap:wrap; }
+    .cookie-btn { min-height:44px; padding:0 18px; border-radius:999px; border:1.5px solid transparent; font-size:13px; font-weight:800; cursor:pointer; }
+    .cookie-btn-choice { background:#2A526F; color:#fff; border-color:#2A526F; }
+    .cookie-btn-manage { background:#fff; color:#2A526F; border-color:rgba(42,82,111,.28); }
+    .cookie-btn-save { background:#F28A3A; color:#fff; border-color:#F28A3A; }
+    .cookie-preferences { position:fixed; inset:0; z-index:5100; display:none; align-items:center; justify-content:center; padding:20px; }
+    .cookie-preferences.is-open { display:flex; }
+    .cookie-preferences-backdrop { position:absolute; inset:0; background:rgba(22,40,58,.64); backdrop-filter:blur(4px); }
+    .cookie-preferences-dialog {
+      position:relative; z-index:1; width:min(100%,720px); max-height:calc(100vh - 40px); overflow-y:auto;
+      padding:32px; border-radius:28px; background:#fff; box-shadow:0 30px 80px rgba(0,0,0,.30);
+    }
+    .cookie-preferences-close {
+      position:absolute; top:16px; right:16px; width:38px; height:38px; display:flex; align-items:center;
+      justify-content:center; border-radius:50%; border:1px solid rgba(42,82,111,.14); background:#fff; color:#2A526F;
+    }
+    .cookie-preferences-heading { padding-right:44px; margin-bottom:24px; }
+    .cookie-preferences-heading h2 { color:#2A526F; font-size:28px; font-weight:800; margin:0 0 9px; }
+    .cookie-preferences-heading p { color:#64798C; font-size:14px; line-height:1.6; }
+    .cookie-kicker { color:#D97529; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .cookie-category-list { display:flex; flex-direction:column; gap:12px; margin:24px 0; }
+    .cookie-category { display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; padding:18px; border:1px solid rgba(42,82,111,.14); border-radius:18px; }
+    .cookie-category h3 { margin:0 0 5px; color:#2A526F; font-size:15px; font-weight:800; }
+    .cookie-category p { margin:0; color:#64798C; font-size:12.5px; line-height:1.55; }
+    .cookie-always-on { display:inline-flex; margin-left:8px; padding:3px 9px; border-radius:999px; background:#EBF3F8; color:#2A526F; font-size:10px; font-weight:800; }
+    .cookie-switch { position:relative; width:48px; height:28px; flex:0 0 48px; }
+    .cookie-switch input { position:absolute; opacity:0; pointer-events:none; }
+    .cookie-slider { position:absolute; inset:0; border-radius:999px; background:#C7D0D8; cursor:pointer; }
+    .cookie-slider::after { content:""; position:absolute; width:22px; height:22px; top:3px; left:3px; border-radius:50%; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.18); transition:transform .2s ease; }
+    .cookie-switch input:checked + .cookie-slider { background:#2A526F; }
+    .cookie-switch input:checked + .cookie-slider::after { transform:translateX(20px); }
+    .cookie-switch.is-disabled .cookie-slider { opacity:.78; cursor:not-allowed; }
+    @media (max-width:900px) { .cookie-banner-inner { grid-template-columns:1fr; } }
+    @media (max-width:640px) {
+      .cookie-banner { left:10px; right:10px; bottom:10px; }
+      .cookie-banner-inner { padding:18px; border-radius:20px; }
+      .cookie-actions,.cookie-preferences-actions { display:grid; grid-template-columns:1fr; width:100%; }
+      .cookie-btn { width:100%; }
+      .cookie-preferences { padding:10px; }
+      .cookie-preferences-dialog { padding:26px 18px 20px; max-height:calc(100vh - 20px); border-radius:22px; }
+    }
+
+
+    /* Floating CTA island — aligned with homepage design */
+    .blog-cta-section {
+      background: #fff;
+      padding: 54px 0 88px;
+    }
+
+    .blog-cta-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+      padding: 54px 34px;
+      border-radius: 36px;
+      background: #2A526F;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 20px 48px rgba(42,82,111,.16);
+    }
+
+    .blog-cta-card::before {
+      content: "";
+      position: absolute;
+      top: -130px;
+      right: -90px;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(242,138,58,.34), transparent 70%);
+      pointer-events: none;
+    }
+
+    .blog-cta-copy,
+    .blog-cta-button {
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-cta-copy h2 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: clamp(28px, 3.5vw, 38px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .blog-cta-copy p {
+      margin: 0;
+      max-width: 620px;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .blog-cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: #F28A3A;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(242,138,58,.28);
+      transition: transform .2s ease, background .2s ease;
+      white-space: nowrap;
+    }
+
+    .blog-cta-button:hover {
+      background: #D97529;
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 900px) {
+      .blog-cta-card {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: 54px 58px;
+      }
+
+      .blog-cta-copy p {
+        max-width: 560px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .blog-cta-section {
+        padding: 36px 0 64px;
+      }
+
+      .blog-cta-card {
+        border-radius: 28px;
+        padding: 38px 24px;
+      }
+
+      .blog-cta-button {
+        width: 100%;
+      }
+    }
+
   </style>
 </head>
 
@@ -95,10 +258,10 @@
       </a>
 
       <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
-        <a class="nav-link" href="./index.html#companies">Empresas</a>
-        <a class="nav-link" href="./index.html#workers">Profesionales</a>
-        <a class="nav-link" href="./index.html#faq">FAQ</a>
-        <a class="nav-link active" href="./blog.html">Blog</a>
+        <a class="nav-link" href="./index.html#companies" data-blog-i18n="navCompanies">Empresas</a>
+        <a class="nav-link" href="./index.html#workers" data-blog-i18n="navWorkers">Profesionales</a>
+        <a class="nav-link" href="./index.html#faq" data-blog-i18n="navFaq">FAQ</a>
+        <a class="nav-link active" href="./blog.html" data-blog-i18n="navBlog">Blog</a>
       </nav>
 
       <div class="flex items-center gap-2 sm:gap-4 shrink-0">
@@ -106,7 +269,7 @@
           type="button"
           class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide"
         >
-          <span class="truncate">Iniciar sesión</span>
+          <span class="truncate" data-blog-i18n="login">Iniciar sesión</span>
         </button>
 
         <a
@@ -115,6 +278,20 @@
         >
           Reservar una demo
         </a>
+
+
+        <div class="relative hidden md:block" id="blogLangWrap">
+          <button id="blogLangBtn" type="button"
+            class="flex items-center gap-1 rounded-lg h-9 px-4 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold"
+            aria-haspopup="true" aria-expanded="false">
+            <span id="blogLangLabel">ES</span>
+            <span class="material-symbols-outlined" style="font-size:18px;">expand_more</span>
+          </button>
+          <div id="blogLangMenu" class="hidden absolute right-0 mt-2 w-40 overflow-hidden rounded-xl bg-white border border-slate-200 shadow-xl">
+            <button type="button" data-lang="es" class="blog-lang-item block w-full px-4 py-3 text-left text-sm font-bold text-primary hover:bg-slate-50">Español (ES)</button>
+            <button type="button" data-lang="en" class="blog-lang-item block w-full px-4 py-3 text-left text-sm font-bold text-primary hover:bg-slate-50">English (EN)</button>
+          </div>
+        </div>
 
         <button
           id="mobileMenuBtn"
@@ -133,15 +310,19 @@
 <div id="mobileMenu" class="md:hidden hidden border-b border-white/10 bg-primary/95 backdrop-blur-sm shadow-md">
   <nav class="px-6 py-4 flex flex-col gap-3" aria-label="Menú móvil">
 
-    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./index.html#companies">Para empresas </a>
-    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./index.html#workers">Para profesionales </a>
-    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./index.html#faq">FAQ </a>
-    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./blog.html"> Blog </a>
+    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./index.html#companies" data-blog-i18n="navCompanies">Empresas</a>
+    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./index.html#workers" data-blog-i18n="navWorkers">Profesionales</a>
+    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./index.html#faq" data-blog-i18n="navFaq">FAQ</a>
+    <a class="text-white/80 hover:text-white text-sm font-semibold" href="./blog.html" data-blog-i18n="navBlog">Blog</a>
 
     <div class="mt-2 pt-4 border-t border-white/10 flex flex-col gap-3">
 
-      <a href="#"class="flex items-center justify-center rounded-lg h-10 px-5 border border-white/20 text-white text-sm font-bold hover:bg-white/10 transition-colors">Iniciar sesión</a>
-      <a href="./index.html#demo" class="flex items-center justify-center rounded-lg h-10 px-5 bg-accent text-white text-sm font-bold hover:opacity-90 transition-opacity">Reservar una demo</a>
+      <a href="#" class="flex items-center justify-center rounded-lg h-10 px-5 border border-white/20 text-white text-sm font-bold hover:bg-white/10 transition-colors" data-blog-i18n="login">Iniciar sesión</a>
+      <a href="./index.html#demo" class="flex items-center justify-center rounded-lg h-10 px-5 bg-accent text-white text-sm font-bold hover:opacity-90 transition-opacity" data-blog-i18n="bookDemo">Reservar una demo</a>
+      <div class="flex gap-3 pt-1">
+        <button type="button" data-lang="es" class="blog-lang-item-mobile text-white/80 hover:text-white text-sm font-bold">ES</button>
+        <button type="button" data-lang="en" class="blog-lang-item-mobile text-white/80 hover:text-white text-sm font-bold">EN</button>
+      </div>
     </div>
   </nav>
 
@@ -154,13 +335,13 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-1.5 mb-6">
         <span class="w-2 h-2 rounded-full bg-accent"></span>
-        <span class="text-accent text-xs font-bold uppercase tracking-widest">Recursos y tendencias</span>
+        <span class="text-accent text-xs font-bold uppercase tracking-widest" data-blog-i18n="resources">Recursos y tendencias</span>
       </div>
       <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight mb-4">
-        Blog de Aplyk
+        <span data-blog-i18n="blogTitle">Blog de Aplyk</span>
       </h1>
       <p class="text-white/70 text-lg max-w-xl mx-auto leading-relaxed">
-        Guías prácticas, tendencias del sector y novedades sobre gestión de personal temporal impulsada por IA.
+        <span data-blog-i18n="blogLead">Guías prácticas, tendencias del sector y novedades sobre gestión de personal temporal impulsada por IA.</span>
       </p>
     </div>
   </section>
@@ -168,11 +349,11 @@
   <!-- CATEGORÍAS -->
   <section class="bg-white border-b border-slate-100 px-6 lg:px-12 py-4 sticky top-20 sm:top-[88px] z-20">
     <div class="max-w-6xl mx-auto flex gap-3 flex-wrap">
-      <button onclick="filterPosts('all')" id="cat-all" class="cat-btn tag bg-primary text-white">Todos</button>
-      <button onclick="filterPosts('empresas')" id="cat-empresas" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer">Empresas</button>
-      <button onclick="filterPosts('trabajadores')" id="cat-trabajadores" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer">Trabajadores</button>
-      <button onclick="filterPosts('tecnologia')" id="cat-tecnologia" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer">Tecnología</button>
-      <button onclick="filterPosts('sector')" id="cat-sector" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer">Sector</button>
+      <button onclick="filterPosts('all')" id="cat-all" class="cat-btn tag bg-primary text-white" data-blog-i18n="catAll">Todos</button>
+      <button onclick="filterPosts('empresas')" id="cat-empresas" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer" data-blog-i18n="catCompanies">Empresas</button>
+      <button onclick="filterPosts('trabajadores')" id="cat-trabajadores" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer" data-blog-i18n="catWorkers">Trabajadores</button>
+      <button onclick="filterPosts('tecnologia')" id="cat-tecnologia" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer" data-blog-i18n="catTech">Tecnología</button>
+      <button onclick="filterPosts('sector')" id="cat-sector" class="cat-btn tag bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer" data-blog-i18n="catSector">Sector</button>
     </div>
   </section>
 
@@ -180,7 +361,7 @@
   <main class="max-w-6xl mx-auto px-6 lg:px-12 py-16">
 
     <!-- POST DESTACADO (Featured) -->
-    <a id="featured-post" href="./posts/diferencias-entre-una-plataforma-de-empleo-temporal-y-una-agencia-tradicional/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+    <a id="featured-post" href="./posts/diferencias-entre-una-plataforma-de-empleo-temporal-y-una-agencia-tradicional/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas tecnologia">
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="bg-primary/5 min-h-[260px] h-[260px] flex items-center justify-center overflow-hidden">
           <img
@@ -193,7 +374,7 @@
         <div class="p-8 lg:p-10 flex flex-col justify-center gap-4">
           <div class="flex items-center gap-3">
             <span class="tag bg-accent/15 text-accent">Tecnología</span>
-            <span class="tag bg-primary/10 text-primary">Destacado</span>
+            <span class="tag bg-primary/10 text-primary" data-blog-i18n="featured">Destacado</span>
           </div>
 
           <h2 class="text-2xl font-extrabold text-primary leading-tight group-hover:text-accent transition-colors">
@@ -283,7 +464,7 @@
     </a>
 
 
-      <a href="./posts/contratacion-temporal-en-almacenes-retos-y-oportunidades/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+      <a href="./posts/contratacion-temporal-en-almacenes-retos-y-oportunidades/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas sector">
         <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
           <img
             src="./posts/contratacion-temporal-en-almacenes-retos-y-oportunidades/caratula.png"
@@ -312,7 +493,7 @@
       </a>
 
 
-      <a href="./posts/por-que-el-matching-en-tiempo-real-es-el-futuro-del-trabajo-temporal/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+      <a href="./posts/por-que-el-matching-en-tiempo-real-es-el-futuro-del-trabajo-temporal/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas tecnologia">
         <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
           <img
             src="./posts/por-que-el-matching-en-tiempo-real-es-el-futuro-del-trabajo-temporal/caratula.png"
@@ -398,7 +579,7 @@
         </div>
       </a>
 
-      <a href="./posts/por-que-la-hosteleria-necesita-soluciones-de-contratacion-mas-rapidas/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+      <a href="./posts/por-que-la-hosteleria-necesita-soluciones-de-contratacion-mas-rapidas/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas sector">
         <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
           <img
             src="./posts/por-que-la-hosteleria-necesita-soluciones-de-contratacion-mas-rapidas/caratula.png"
@@ -428,7 +609,7 @@
 
 
 
-      <a href="./posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="tecnologia">
+      <a href="./posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas tecnologia">
         <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
           <img
             src="./posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/caratula.png"
@@ -593,7 +774,7 @@
       </div>
     </a>
 
-      <a href="./posts/como-contratar-trabajadores-temporales-sin-agencias/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas">
+      <a href="./posts/como-contratar-trabajadores-temporales-sin-agencias/index.html" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card" data-category="empresas tecnologia">
         <div class="min-h-[180px] overflow-hidden">
           <img
             src="./posts/como-contratar-trabajadores-temporales-sin-agencias/caratula.png"
@@ -620,19 +801,24 @@
     <!-- EMPTY STATE (oculto por defecto) -->
     <div id="empty-state" class="hidden text-center py-20">
       <span class="material-symbols-outlined text-slate-300" style="font-size:48px;">article</span>
-      <p class="text-slate-400 mt-4">No hay posts en esta categoría todavía.</p>
+      <p class="text-slate-400 mt-4" data-blog-i18n="empty">No hay posts en esta categoría todavía.</p>
     </div>
 
   </main>
 
   <!-- CTA -->
-  <section class="bg-primary text-white py-16 px-6 lg:px-12">
-    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
-      <h2 class="text-3xl font-extrabold">¿Listo para probarlo?</h2>
-      <p class="text-white/70 text-lg">Reserva una demo y te mostramos cómo Aplyk puede transformar tu gestión de personal temporal.</p>
-      <div>
-        <a href="./index.html#demo" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
-          Reservar una demo
+  <section class="blog-cta-section">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+      <div class="blog-cta-card">
+        <div class="blog-cta-copy">
+          <h2 data-blog-i18n="ctaTitle">¿Listo para probarlo?</h2>
+          <p data-blog-i18n="ctaText">
+            Reserva una demo y te mostramos cómo Aplyk puede transformar tu gestión de personal temporal.
+          </p>
+        </div>
+
+        <a href="./index.html#demo" class="blog-cta-button">
+          <span data-blog-i18n="bookDemo">Reservar una demo</span>
           <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
         </a>
       </div>
@@ -640,22 +826,108 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-primary-dark text-white py-8 px-6 lg:px-12 border-t border-white/10">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src="./images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-8 w-auto object-contain">
+  <footer class="site-footer-blog bg-primary text-white px-6 lg:px-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 py-12">
+      <div>
+        <img src="./images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-10 w-auto object-contain mb-4">
+        <p class="text-white/60 text-sm leading-relaxed" data-blog-i18n="footerTagline">Plataforma de personal temporal impulsada por IA, diseñada para operaciones rápidas y eficientes.</p>
       </div>
-      <!-- <p class="text-slate-400 text-sm">© 2026 Aplyk. Todos los derechos reservados.</p> -->
-       <p class="text-slate-400 text-sm">
-          © <span id="currentYear"></span> aplyk. All rights reserved.
-      </p>
-      <div class="flex gap-6 text-sm text-slate-400">
-        <a href="./index.html" class="hover:text-white transition-colors">Inicio</a>
-        <a href="#" class="hover:text-white transition-colors">Privacidad</a>
-        <a href="#" class="hover:text-white transition-colors">Términos</a>
+
+      <div>
+        <h3 class="text-white text-sm font-extrabold mb-4" data-blog-i18n="footerSolutions">Soluciones</h3>
+        <div class="flex flex-col gap-3 text-sm text-white/60">
+          <a href="./index.html#companies" class="hover:text-accent transition-colors" data-blog-i18n="navCompanies">Empresas</a>
+          <a href="./index.html#workers" class="hover:text-accent transition-colors" data-blog-i18n="navWorkers">Profesionales</a>
+          <a href="./index.html#faq" class="hover:text-accent transition-colors" data-blog-i18n="navFaq">FAQ</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-white text-sm font-extrabold mb-4" data-blog-i18n="footerLegal">Legal</h3>
+        <div class="flex flex-col gap-3 text-sm text-white/60">
+          <a href="#" class="privacy-policy-link hover:text-accent transition-colors" data-blog-i18n="privacy">Política de privacidad</a>
+          <a href="#" class="terms-of-service-link hover:text-accent transition-colors" data-blog-i18n="terms">Términos de servicio</a>
+          <a href="#" class="cookie-policy-link hover:text-accent transition-colors" data-blog-i18n="cookies">Política de cookies</a>
+          <button type="button" class="js-cookie-settings text-left hover:text-accent transition-colors" data-blog-i18n="cookieSettings">Configuración de cookies</button>
+          <a href="#" class="hover:text-accent transition-colors" data-blog-i18n="security">Seguridad</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-white text-sm font-extrabold mb-4" data-blog-i18n="footerCompany">Empresa</h3>
+        <div class="flex flex-col gap-3 text-sm text-white/60">
+          <a href="./index.html" class="hover:text-accent transition-colors" data-blog-i18n="home">Inicio</a>
+          <a href="./blog.html" class="hover:text-accent transition-colors" data-blog-i18n="navBlog">Blog</a>
+        </div>
       </div>
     </div>
+
+    <div class="max-w-6xl mx-auto border-t border-white/10 py-6 flex flex-col sm:flex-row gap-3 items-center justify-between text-sm text-white/50">
+      <p>© <span id="currentYear"></span> <span data-blog-i18n="rights">aplyk. Todos los derechos reservados.</span></p>
+      <span data-blog-i18n="status">Plataforma disponible 24/7</span>
+    </div>
   </footer>
+
+
+  <!-- COOKIE CONSENT -->
+  <div id="cookieBanner" class="cookie-banner" role="region" aria-label="Preferencias de cookies" hidden>
+    <div class="cookie-banner-inner">
+      <div class="cookie-copy">
+        <h2 data-blog-i18n="cookieTitle">Tus opciones de privacidad</h2>
+        <p data-blog-i18n-html="cookieText">Utilizamos almacenamiento estrictamente necesario para que Aplyk funcione. Con tu permiso, también podremos utilizar tecnologías de preferencias, analítica y marketing. Puedes aceptar, rechazar o elegir qué autorizas. Consulta nuestra <a href="#" class="cookie-policy-link">Política de Cookies</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookieRejectAll" class="cookie-btn cookie-btn-choice" data-blog-i18n="cookieReject">Rechazar no esenciales</button>
+        <button type="button" id="cookieAcceptAll" class="cookie-btn cookie-btn-choice" data-blog-i18n="cookieAccept">Aceptar todas</button>
+        <button type="button" id="cookieManage" class="cookie-btn cookie-btn-manage" data-blog-i18n="cookieManage">Configurar preferencias</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookiePreferences" class="cookie-preferences" role="dialog" aria-modal="true" aria-labelledby="cookiePreferencesTitle" aria-hidden="true">
+    <div class="cookie-preferences-backdrop" data-cookie-close></div>
+    <div class="cookie-preferences-dialog">
+      <button type="button" class="cookie-preferences-close" data-cookie-close aria-label="Cerrar configuración de cookies">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="cookie-preferences-heading">
+        <span class="cookie-kicker" data-blog-i18n="cookieKicker">Controles de privacidad</span>
+        <h2 id="cookiePreferencesTitle" data-blog-i18n="cookiePreferencesTitle">Preferencias de cookies</h2>
+        <p data-blog-i18n="cookiePreferencesText">Elige qué tecnologías opcionales puede utilizar Aplyk. El almacenamiento estrictamente necesario permanece siempre activo.</p>
+      </div>
+
+      <div class="cookie-category-list">
+        <div class="cookie-category">
+          <div>
+            <h3><span data-blog-i18n="cookieNecessaryTitle">Estrictamente necesarias</span><span class="cookie-always-on" data-blog-i18n="cookieAlwaysOn">Siempre activas</span></h3>
+            <p data-blog-i18n="cookieNecessaryText">Necesarias para funciones esenciales del sitio y para guardar tu elección sobre cookies.</p>
+          </div>
+          <label class="cookie-switch is-disabled"><input type="checkbox" checked disabled><span class="cookie-slider"></span></label>
+        </div>
+
+        <div class="cookie-category">
+          <div><h3 data-blog-i18n="cookiePreferencesCategoryTitle">Preferencias</h3><p data-blog-i18n="cookiePreferencesCategoryText">Permite recordar opciones voluntarias, como el idioma preferido del sitio.</p></div>
+          <label class="cookie-switch"><input type="checkbox" id="cookiePreferencesToggle"><span class="cookie-slider"></span></label>
+        </div>
+
+        <div class="cookie-category">
+          <div><h3 data-blog-i18n="cookieAnalyticsTitle">Analítica</h3><p data-blog-i18n="cookieAnalyticsText">Permitiría medir el uso del sitio web. Actualmente este blog no carga un rastreador analítico.</p></div>
+          <label class="cookie-switch"><input type="checkbox" id="cookieAnalyticsToggle"><span class="cookie-slider"></span></label>
+        </div>
+
+        <div class="cookie-category">
+          <div><h3 data-blog-i18n="cookieMarketingTitle">Marketing</h3><p data-blog-i18n="cookieMarketingText">Permitiría tecnologías publicitarias o de medición. Actualmente este blog no carga un rastreador de marketing.</p></div>
+          <label class="cookie-switch"><input type="checkbox" id="cookieMarketingToggle"><span class="cookie-slider"></span></label>
+        </div>
+      </div>
+
+      <div class="cookie-preferences-actions">
+        <button type="button" id="cookiePreferencesReject" class="cookie-btn cookie-btn-choice" data-blog-i18n="cookieReject">Rechazar no esenciales</button>
+        <button type="button" id="cookiePreferencesAccept" class="cookie-btn cookie-btn-choice" data-blog-i18n="cookieAccept">Aceptar todas</button>
+        <button type="button" id="cookieSavePreferences" class="cookie-btn cookie-btn-save" data-blog-i18n="cookieSave">Guardar preferencias</button>
+      </div>
+    </div>
+  </div>
 
   <button
     id="backToTop"
@@ -667,6 +939,188 @@
   </button>
 
   <script>
+    const BLOG_LANG_KEY = 'aplyk_lang';
+    const BLOG_CONSENT_KEY = 'aplyk_cookie_consent_v1';
+    const BLOG_CONSENT_VERSION = 1;
+    let blogLanguage = 'es';
+
+    const blogTranslations = {
+      es: {
+        pageTitle:'Blog — Aplyk',navCompanies:'Empresas',navWorkers:'Profesionales',navFaq:'FAQ',navBlog:'Blog',
+        login:'Iniciar sesión',bookDemo:'Reservar una demo',resources:'Recursos y tendencias',blogTitle:'Blog de Aplyk',
+        blogLead:'Guías prácticas, tendencias del sector y novedades sobre gestión de personal temporal impulsada por IA.',
+        catAll:'Todos',catCompanies:'Empresas',catWorkers:'Trabajadores',catTech:'Tecnología',catSector:'Sector',featured:'Destacado',
+        empty:'No hay posts en esta categoría todavía.',ctaTitle:'¿Listo para probarlo?',
+        ctaText:'Reserva una demo y te mostramos cómo Aplyk puede transformar tu gestión de personal temporal.',
+        footerTagline:'Plataforma de personal temporal impulsada por IA, diseñada para operaciones rápidas y eficientes.',
+        footerSolutions:'Soluciones',footerLegal:'Legal',footerCompany:'Empresa',privacy:'Política de privacidad',
+        terms:'Términos de servicio',cookies:'Política de cookies',cookieSettings:'Configuración de cookies',home:'Inicio',
+        rights:'aplyk. Todos los derechos reservados.',status:'Plataforma disponible 24/7',
+        cookieTitle:'Tus opciones de privacidad',
+        cookieText:'Utilizamos almacenamiento estrictamente necesario para que Aplyk funcione. Con tu permiso, también podremos utilizar tecnologías de preferencias, analítica y marketing. Puedes aceptar, rechazar o elegir qué autorizas. Consulta nuestra <a href="#" class="cookie-policy-link">Política de Cookies</a>.',
+        cookieReject:'Rechazar no esenciales',cookieAccept:'Aceptar todas',cookieManage:'Configurar preferencias',
+        cookieKicker:'Controles de privacidad',cookiePreferencesTitle:'Preferencias de cookies',
+        cookiePreferencesText:'Elige qué tecnologías opcionales puede utilizar Aplyk. El almacenamiento estrictamente necesario permanece siempre activo.',
+        cookieNecessaryTitle:'Estrictamente necesarias',cookieAlwaysOn:'Siempre activas',
+        cookieNecessaryText:'Necesarias para funciones esenciales del sitio y para guardar tu elección sobre cookies.',
+        cookiePreferencesCategoryTitle:'Preferencias',cookiePreferencesCategoryText:'Permite recordar opciones voluntarias, como el idioma preferido del sitio.',
+        cookieAnalyticsTitle:'Analítica',cookieAnalyticsText:'Permitiría medir el uso del sitio web. Actualmente este blog no carga un rastreador analítico.',
+        cookieMarketingTitle:'Marketing',cookieMarketingText:'Permitiría tecnologías publicitarias o de medición. Actualmente este blog no carga un rastreador de marketing.',
+        cookieSave:'Guardar preferencias',
+        security: 'Seguridad'
+      },
+      en: {
+        pageTitle:'Blog — Aplyk',navCompanies:'Companies',navWorkers:'Workers',navFaq:'FAQ',navBlog:'Blog',
+        login:'Login',bookDemo:'Book a demo',resources:'Resources & trends',blogTitle:'Aplyk Blog',
+        blogLead:'Practical guides, industry trends and insights into AI-powered temporary workforce management.',
+        catAll:'All',catCompanies:'Companies',catWorkers:'Workers',catTech:'Technology',catSector:'Industry',featured:'Featured',
+        empty:'There are no posts in this category yet.',ctaTitle:'Ready to see it in action?',
+        ctaText:'Book a demo and discover how Aplyk can transform temporary workforce management.',
+        footerTagline:'AI-powered temporary workforce platform designed for fast and efficient operations.',
+        footerSolutions:'Solutions',footerLegal:'Legal',footerCompany:'Company',privacy:'Privacy Policy',
+        terms:'Terms of Service',cookies:'Cookie Policy',cookieSettings:'Cookie Settings',home:'Home',
+        rights:'aplyk. All rights reserved.',status:'Platform available 24/7',
+        cookieTitle:'Your privacy choices',
+        cookieText:'We use strictly necessary storage to make Aplyk work. With your permission, we may also use preference, analytics and marketing technologies. You can accept, reject or choose what you allow. Read our <a href="#" class="cookie-policy-link">Cookie Policy</a>.',
+        cookieReject:'Reject non-essential',cookieAccept:'Accept all',cookieManage:'Manage preferences',
+        cookieKicker:'Privacy controls',cookiePreferencesTitle:'Cookie preferences',
+        cookiePreferencesText:'Choose which optional technologies Aplyk may use. Strictly necessary storage is always active.',
+        cookieNecessaryTitle:'Strictly necessary',cookieAlwaysOn:'Always on',
+        cookieNecessaryText:'Required for essential website functions and for storing your cookie-consent choice.',
+        cookiePreferencesCategoryTitle:'Preferences',cookiePreferencesCategoryText:'Allows optional choices, such as the preferred website language, to be remembered.',
+        cookieAnalyticsTitle:'Analytics',cookieAnalyticsText:'Would allow us to measure website usage. This blog currently does not load an analytics tracker.',
+        cookieMarketingTitle:'Marketing',cookieMarketingText:'Would allow advertising or campaign-measurement technologies. This blog currently does not load a marketing tracker.',
+        cookieSave:'Save preferences',
+        security: 'Security'
+      }
+    };
+
+    function getBlogConsent() {
+      try {
+        const raw = localStorage.getItem(BLOG_CONSENT_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        return parsed && parsed.version === BLOG_CONSENT_VERSION ? parsed : null;
+      } catch (_) { return null; }
+    }
+
+    function blogHasConsent(category) {
+      return Boolean(getBlogConsent()?.[category] === true);
+    }
+
+    function detectBlogLanguage() {
+      if (blogHasConsent('preferences')) {
+        try {
+          const saved = localStorage.getItem(BLOG_LANG_KEY);
+          if (saved === 'es' || saved === 'en') return saved;
+        } catch (_) {}
+      }
+      const languages = Array.isArray(navigator.languages) && navigator.languages.length ? navigator.languages : [navigator.language];
+      return languages.some(lang => String(lang || '').toLowerCase().startsWith('es')) ? 'es' : 'en';
+    }
+
+    function setBlogLegalLinks() {
+      document.querySelectorAll('.privacy-policy-link').forEach(link => {
+        link.href = blogLanguage === 'es'
+          ? './Resources/Documents/Privacy/privacy-policy-es.html'
+          : './Resources/Documents/Privacy/privacy-policy-en.html';
+      });
+      document.querySelectorAll('.terms-of-service-link').forEach(link => {
+        link.href = blogLanguage === 'es'
+          ? './Resources/Documents/Terms/terms-of-service-es.html'
+          : './Resources/Documents/Terms/terms-of-service-en.html';
+      });
+      document.querySelectorAll('.cookie-policy-link').forEach(link => {
+        link.href = blogLanguage === 'es'
+          ? './Resources/Documents/Cookies/cookie-policy-es.html'
+          : './Resources/Documents/Cookies/cookie-policy-en.html';
+      });
+    }
+
+    function setBlogLanguage(lang) {
+      blogLanguage = lang === 'en' ? 'en' : 'es';
+      const dict = blogTranslations[blogLanguage];
+      document.documentElement.lang = blogLanguage;
+      document.title = dict.pageTitle;
+
+      document.querySelectorAll('[data-blog-i18n]').forEach(el => {
+        const key = el.dataset.blogI18n;
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll('[data-blog-i18n-html]').forEach(el => {
+        const key = el.dataset.blogI18nHtml;
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+
+      const label = document.getElementById('blogLangLabel');
+      if (label) label.textContent = blogLanguage.toUpperCase();
+
+      setBlogLegalLinks();
+
+      if (blogHasConsent('preferences')) {
+        try { localStorage.setItem(BLOG_LANG_KEY, blogLanguage); } catch (_) {}
+      }
+    }
+
+    function saveBlogConsent(preferences, analytics, marketing) {
+      const consent = {
+        version:BLOG_CONSENT_VERSION, necessary:true,
+        preferences:Boolean(preferences), analytics:Boolean(analytics), marketing:Boolean(marketing),
+        updatedAt:new Date().toISOString()
+      };
+
+      try {
+        localStorage.setItem(BLOG_CONSENT_KEY, JSON.stringify(consent));
+        if (consent.preferences) localStorage.setItem(BLOG_LANG_KEY, blogLanguage);
+        else localStorage.removeItem(BLOG_LANG_KEY);
+      } catch (_) {}
+
+      window.aplykConsent = consent;
+      document.dispatchEvent(new CustomEvent('aplyk:consentchange', { detail:consent }));
+      document.getElementById('cookieBanner').hidden = true;
+      closeCookiePreferences();
+    }
+
+    function openCookiePreferences() {
+      const consent = getBlogConsent();
+      document.getElementById('cookiePreferencesToggle').checked = Boolean(consent?.preferences);
+      document.getElementById('cookieAnalyticsToggle').checked = Boolean(consent?.analytics);
+      document.getElementById('cookieMarketingToggle').checked = Boolean(consent?.marketing);
+      const panel = document.getElementById('cookiePreferences');
+      panel.classList.add('is-open');
+      panel.setAttribute('aria-hidden','false');
+    }
+
+    function closeCookiePreferences() {
+      const panel = document.getElementById('cookiePreferences');
+      panel.classList.remove('is-open');
+      panel.setAttribute('aria-hidden','true');
+    }
+
+    function wireCookieConsent() {
+      const existing = getBlogConsent();
+      document.getElementById('cookieBanner').hidden = Boolean(existing);
+      window.aplykConsent = existing || {
+        version:BLOG_CONSENT_VERSION,necessary:true,preferences:false,analytics:false,marketing:false
+      };
+
+      document.getElementById('cookieAcceptAll').addEventListener('click',()=>saveBlogConsent(true,true,true));
+      document.getElementById('cookieRejectAll').addEventListener('click',()=>saveBlogConsent(false,false,false));
+      document.getElementById('cookieManage').addEventListener('click',openCookiePreferences);
+      document.querySelectorAll('.js-cookie-settings').forEach(el=>el.addEventListener('click',openCookiePreferences));
+      document.querySelectorAll('[data-cookie-close]').forEach(el=>el.addEventListener('click',closeCookiePreferences));
+      document.getElementById('cookiePreferencesAccept').addEventListener('click',()=>saveBlogConsent(true,true,true));
+      document.getElementById('cookiePreferencesReject').addEventListener('click',()=>saveBlogConsent(false,false,false));
+      document.getElementById('cookieSavePreferences').addEventListener('click',()=>{
+        saveBlogConsent(
+          document.getElementById('cookiePreferencesToggle').checked,
+          document.getElementById('cookieAnalyticsToggle').checked,
+          document.getElementById('cookieMarketingToggle').checked
+        );
+      });
+    }
+
     function filterPosts(cat) {
       const buttons = document.querySelectorAll('.cat-btn');
       const active = document.getElementById('cat-' + cat);
@@ -674,26 +1128,30 @@
       const cards = document.querySelectorAll('#posts-grid a[data-category]');
       const empty = document.getElementById('empty-state');
 
-      buttons.forEach((button) => {
-        button.classList.remove('bg-primary', 'text-white');
-        button.classList.add('bg-slate-100', 'text-slate-600');
+      buttons.forEach(button=>{
+        button.classList.remove('bg-primary','text-white');
+        button.classList.add('bg-slate-100','text-slate-600');
+        button.setAttribute('aria-pressed', 'false');
       });
 
       if (active) {
-        active.classList.add('bg-primary', 'text-white');
-        active.classList.remove('bg-slate-100', 'text-slate-600');
+        active.classList.add('bg-primary','text-white');
+        active.classList.remove('bg-slate-100','text-slate-600');
+        active.setAttribute('aria-pressed', 'true');
       }
 
       let visibleCount = 0;
 
       if (featured) {
-        const showFeatured = cat === 'all' || featured.dataset.category === cat;
+        const featuredCategories = (featured.dataset.category || '').split(/\s+/).filter(Boolean);
+        const showFeatured = cat === 'all' || featuredCategories.includes(cat);
         featured.style.display = showFeatured ? '' : 'none';
         if (showFeatured) visibleCount++;
       }
 
-      cards.forEach((card) => {
-        const showCard = cat === 'all' || card.dataset.category === cat;
+      cards.forEach(card=>{
+        const cardCategories = (card.dataset.category || '').split(/\s+/).filter(Boolean);
+        const showCard = cat === 'all' || cardCategories.includes(cat);
         card.style.display = showCard ? '' : 'none';
         if (showCard) visibleCount++;
       });
@@ -705,36 +1163,67 @@
       }
     }
 
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+    document.addEventListener('DOMContentLoaded',()=>{
+      wireCookieConsent();
+      setBlogLanguage(detectBlogLanguage());
+      filterPosts('all');
 
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        const isOpening = mobileMenu.classList.contains('hidden');
-        mobileMenu.classList.toggle('hidden');
-        mobileMenuBtn.setAttribute('aria-expanded', String(isOpening));
+      const langWrap=document.getElementById('blogLangWrap');
+      const langBtn=document.getElementById('blogLangBtn');
+      const langMenu=document.getElementById('blogLangMenu');
+
+      langBtn?.addEventListener('click',event=>{
+        event.stopPropagation();
+        langMenu.classList.toggle('hidden');
+        langBtn.setAttribute('aria-expanded',String(!langMenu.classList.contains('hidden')));
       });
 
-      mobileMenu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.querySelectorAll('.blog-lang-item,.blog-lang-item-mobile').forEach(item=>{
+        item.addEventListener('click',()=>{
+          setBlogLanguage(item.dataset.lang);
+          langMenu?.classList.add('hidden');
+          langBtn?.setAttribute('aria-expanded','false');
         });
       });
-    }
 
-    const backToTopButton = document.getElementById('backToTop');
-
-    if (backToTopButton) {
-      backToTopButton.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.addEventListener('click',event=>{
+        if (langWrap && !langWrap.contains(event.target)) {
+          langMenu?.classList.add('hidden');
+          langBtn?.setAttribute('aria-expanded','false');
+        }
       });
-    }
 
-    const currentYear = document.getElementById('currentYear');
-    if (currentYear) {
-      currentYear.textContent = new Date().getFullYear();
-    }
+      const mobileMenuBtn=document.getElementById('mobileMenuBtn');
+      const mobileMenu=document.getElementById('mobileMenu');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click',()=>{
+          const isOpening=mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded',String(isOpening));
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link=>{
+          link.addEventListener('click',()=>{
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded','false');
+          });
+        });
+      }
+
+      document.getElementById('backToTop')?.addEventListener('click',()=>{
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+
+      document.getElementById('currentYear').textContent=new Date().getFullYear();
+
+      document.addEventListener('keydown',event=>{
+        if (event.key==='Escape') {
+          closeCookiePreferences();
+          langMenu?.classList.add('hidden');
+        }
+      });
+    });
   </script>
 
 </body>
