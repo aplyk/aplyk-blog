@@ -343,6 +343,14 @@ function setLanguage(lang) {
   const langLabel = document.getElementById('langLabel');
   if (langLabel) langLabel.textContent = currentLanguage.toUpperCase();
 
+    // Privacy Policy links
+  document.querySelectorAll('.privacy-policy-link').forEach((link) => {
+    link.href =
+      currentLanguage === 'es'
+        ? './Resources/Documents/Privacy/privacy-policy-es.html'
+        : './Resources/Documents/Privacy/privacy-policy-en.html';
+  });
+
   try { localStorage.setItem(STORAGE_KEY, currentLanguage); } catch (_) {}
 }
 
