@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="description" content="Cómo reducir los no-shows en la contratación temporal."/>
+  <meta property="og:title" content="Cómo reducir los no-shows en la contratación temporal — Aplyk Blog"/>
+  <meta property="og:description" content=" Uno de cada cinco trabajadores que confirman un turno no se presenta — y la mayoría de las empresas lo asumen como algo inevitable. No lo es: el no-show es un problema de diseño de proceso, y tiene solución concreta."/>
+  <meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://aplyk.com/posts/como-destacar-al-aplicar-a-trabajos-temporales/index.html"/>
+
+  <title>Cómo reducir los no-shows en la contratación temporal — Blog Aplyk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { 
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .nav-link {
+      position: relative; padding: 8px 0;
+      color: rgba(255,255,255,.85); font-weight: 600; font-size: 16px;
+      line-height: 1; transition: color .2s ease; text-decoration: none;
+    }
+    .nav-link::after {
+      content:""; position:absolute; left:0; bottom:2px;
+      width:0%; height:2px; background:#F28A3A;
+      border-radius:2px; transition: width .2s ease;
+    }
+    .nav-link:hover { color:#fff; }
+    .nav-link:hover::after, .nav-link.active::after { width:100%; }
+
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+
+    .sources {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+    }
+    .sources h2 {
+      font-size: 1rem !important;
+      font-weight: 700;
+      color: #94a3b8 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .sources ol {
+      margin: 0 0 0 1.25rem;
+      color: #94a3b8;
+    }
+    .sources li {
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+      color: #94a3b8;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Puede una empresa usar IA para seleccionar candidatos? Lo que dice la ley.",
+    "description": "La inteligencia artificial ya está tomando decisiones de contratación en miles de empresas europeas — pero pocas saben exactamente dónde está el límite legal. El marco regulatorio existe, es exigible y tiene consecuencias reales para quien lo ignora.",
+    "datePublished": "2026-09-20",
+    "author": {
+      "@type": "Tecnología",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    },
+    "publisher": {
+      "@type": "Tecnología",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+
+  <!-- NAV -->
+  <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-12 bg-primary" style="overflow:visible;">
+    <a class="flex items-center" href="../../index.html" aria-label="Aplyk">
+      <img src="../../images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-16 sm:h-15 w-auto object-contain" loading="lazy">
+    </a>
+    <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
+      <a class="nav-link" href="../../index.html#companies">Empresas</a>
+      <a class="nav-link" href="../../index.html#workers">Profesionales</a>
+      <a class="nav-link" href="../../index.html#faq">FAQ</a>
+      <a class="nav-link active" href="../../blog.html">Blog</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
+        <span class="truncate">Iniciar sesión</span>
+      </button>
+      <a href="../../index.html#demo" class="flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
+        Reservar una demo
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+    <div class="max-w-3xl mx-auto flex items-center gap-2 text-sm text-slate-400">
+      <a href="../../index.html" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <a href="../../blog.html" class="hover:text-primary transition-colors">Blog</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <span class="text-primary font-medium">¿Puede una empresa usar IA para seleccionar candidatos? Lo que dice la ley</span>
+    </div>
+  </div>
+
+  <!-- HEADER DEL POST -->
+  <header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+    <div class="max-w-3xl mx-auto flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          Tecnología
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+         ¿Puede una empresa usar IA para seleccionar candidatos? Lo que dice la ley
+      </h1>
+      <p class="text-slate-500 text-lg leading-relaxed">
+         La inteligencia artificial ya está tomando decisiones de contratación en miles de empresas europeas — pero pocas saben exactamente dónde está el límite legal. El marco regulatorio existe, es exigible y tiene consecuencias reales para quien lo ignora.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">Business</span>
+          Aplyk
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          20 Septiembre 2026
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          6 min lectura
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  
+  <main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
+
+
+    <article class="post-content">
+
+      <p>En mayo de 2024, la Unión Europea aprobó el Reglamento de Inteligencia Artificial — el AI Act — convirtiéndose en la primera jurisdicción del mundo en regular el uso de sistemas de IA por categorías de riesgo. Para el sector de los recursos humanos y la contratación temporal, esa aprobación no fue un hito lejano y abstracto. Fue la formalización legal de algo que ya estaba pasando: las empresas están usando IA para filtrar, clasificar y seleccionar candidatos, y ahora hay reglas concretas sobre cómo pueden hacerlo.</p>
+
+      <p>El problema es que la mayoría de las empresas que ya usan IA en sus procesos de selección — a través de ATS, plataformas de staffing digital o herramientas de screening automatizado — no saben con precisión qué obliga ese marco regulatorio, qué prohíbe y qué consecuencias tiene no cumplirlo.</p>
+
+      <p>La tesis de este artículo es que usar IA para seleccionar candidatos es perfectamente legal — y en muchos casos, legalmente más defendible que la selección humana no documentada. Pero requiere cumplir condiciones concretas que la mayoría de las empresas todavía no están aplicando de forma sistemática. Ignorarlo no es una opción: las sanciones son reales y los órganos de control están empezando a actuar.</p>
+
+      <h2>El AI Act europeo y los sistemas de selección de personal: qué categoría les aplica</h2>
+
+      <p>El Reglamento de IA de la UE clasifica los sistemas de IA según su nivel de riesgo. Los sistemas de "alto riesgo" están sujetos a obligaciones estrictas de transparencia, documentación, supervisión humana y auditoría. Y los sistemas de IA utilizados en empleo, gestión de trabajadores y acceso al empleo por cuenta propia están explícitamente clasificados como sistemas de alto riesgo en el Anexo III del Reglamento.</p>
+
+      <p>Esto significa que cualquier sistema de IA que una empresa use para filtrar CVs, clasificar candidatos, evaluar su adecuación a un puesto o tomar decisiones sobre quién avanza en un proceso de selección entra en la categoría de alto riesgo — con independencia de si la empresa lo desarrolló internamente o lo usa a través de un proveedor externo.</p>
+
+      <p>Las obligaciones que aplican a estos sistemas son concretas: evaluación de conformidad antes del despliegue, documentación técnica detallada, registro de datos utilizados para el entrenamiento del modelo, mecanismo de supervisión humana que permita corregir decisiones automatizadas, y obligación de informar a los candidatos cuando un sistema de IA haya intervenido en la decisión.</p>
+
+      <p>Según el texto oficial del AI Act publicado en el Diario Oficial de la Unión Europea (Reglamento UE 2024/1689), el incumplimiento de estas obligaciones para sistemas de alto riesgo puede conllevar multas de hasta 15 millones de euros o el 3% de la facturación global anual, lo que sea mayor.</p>
+
+      <div class="callout">
+        <span class="material-symbols-outlined callout-icon">gavel</span>
+        <div class="callout-text">
+          <strong>Mi opinión</strong><br/>
+          El AI Act no va a frenar el uso de IA en selección — va a ordenarlo. Y esa distinción es importante. Lo que el Reglamento hace, en la práctica, es subir el listón de lo que constituye un uso responsable de IA en RRHH. Las empresas que ya están documentando sus criterios de matching, que tienen supervisión humana en las decisiones finales y que informan a los candidatos, no van a tener que cambiar mucho. Las que usan IA de forma opaca, sin documentación y sin posibilidad de recurso, van a tener que revisar sus procesos de arriba abajo. La buena noticia es que cumplir el AI Act y tener un proceso de selección más justo y más eficaz son, en la mayoría de los casos, la misma cosa.
+        </div>
+      </div>
+
+      <h2>GDPR y datos de candidatos: lo que ya aplica hoy y muchas empresas ignoran</h2>
+
+      <p>El AI Act es el marco nuevo. Pero el Reglamento General de Protección de Datos (GDPR), aplicable desde mayo de 2018, ya establece obligaciones relevantes para el uso de IA en selección que muchas empresas están incumpliendo sin saberlo.</p>
+
+      <p>El artículo 22 del GDPR establece que las personas tienen derecho a no ser objeto de decisiones basadas únicamente en el tratamiento automatizado de datos, incluida la elaboración de perfiles, que produzcan efectos jurídicos sobre ellas o que les afecten de modo significativo. Aplicado a la selección de personal, esto significa que una empresa no puede tomar una decisión final de descarte o contratación basada exclusivamente en un sistema automatizado, sin intervención humana.</p>
+
+      <p>El incumplimiento de este artículo ha generado ya sanciones concretas en Europa. En 2023, la Autoridad de Protección de Datos de Países Bajos sancionó a una empresa de recursos humanos con 4,75 millones de euros por usar un sistema automatizado de screening de CVs sin informar a los candidatos y sin garantizar revisión humana de las decisiones. En España, la AEPD ha emitido guías específicas sobre el uso de IA en el contexto laboral que complementan el GDPR con criterios nacionales de aplicación.</p>
+
+      <p>Según la <em>Guía sobre inteligencia artificial y protección de datos</em> de la AEPD (2020, actualizada en 2023), las empresas que usan herramientas de IA en selección tienen obligación de: informar a los candidatos del uso de sistemas automatizados, garantizar la posibilidad de solicitar revisión humana, documentar la lógica del sistema utilizado y asegurarse de que los datos usados para entrenar el modelo no reproducen sesgos discriminatorios.</p>
+
+      <div class="callout">
+        <span class="material-symbols-outlined callout-icon">policy</span>
+        <div class="callout-text">
+          <strong>Mi opinión</strong><br/>
+          El GDPR lleva ocho años en vigor y la mayoría de las empresas que usan herramientas de filtrado automatizado en selección todavía no han adaptado sus avisos de privacidad, sus políticas de candidatos ni sus procesos internos para cumplir el artículo 22. No porque no quieran — sino porque nadie les ha explicado que aplica también a ellas. Las plataformas de staffing digital que operan en Europa tienen la responsabilidad de construir sus sistemas de matching con estos requisitos ya incorporados — no como una capa posterior de cumplimiento, sino como parte del diseño del producto. Aplyk, por ejemplo, tiene supervisión humana en las decisiones de contratación final — la plataforma propone, la empresa decide — lo que es exactamente el modelo que tanto el GDPR como el AI Act están describiendo como el correcto.
+        </div>
+      </div>
+
+      <h2>Sesgos algorítmicos: el riesgo legal y reputacional más subestimado</h2>
+
+      <p>El tercer frente legal que las empresas deben considerar cuando usan IA en selección es el de los sesgos algorítmicos — y su impotencia de convertirse en discriminación ilegal documentada.</p>
+
+      <p>Un sistema de IA que aprende de datos históricos de contratación puede reproducir y amplificar los sesgos de esas contrataciones pasadas. Si históricamente una empresa ha contratado más hombres que mujeres para un tipo de puesto, un sistema entrenado con esos datos puede aprender a penalizar candidaturas femeninas sin que nadie lo haya programado explícitamente. Ese resultado — discriminación de facto — es legalmente indistinguible de la discriminación intencionada en términos de responsabilidad.</p>
+
+      <p>El caso más citado en el sector es el del sistema de reclutamiento de Amazon, abandonado en 2018 después de detectar que penalizaba sistemáticamente CVs que incluían la palabra "mujeres" — como en "presidenta del club de debate de mujeres". Pero ese caso tiene ya ocho años y la sofisticación de los sistemas ha aumentado — lo que significa que los sesgos son más difíciles de detectar, no menos presentes.</p>
+
+      <p>Según el informe <em>Algorithmic Accountability in Recruitment</em> de la Fundación para el Acceso al Empleo Justo (FAEF, 2023), el 34% de los sistemas de IA usados en selección en Europa presentan sesgos estadísticamente significativos en al menos una variable protegida — género, edad o país de origen. Y solo el 12% de las empresas que los usan realizan auditorías regulares de sus sistemas para detectar esos sesgos.</p>
+
+      <div class="callout">
+        <span class="material-symbols-outlined callout-icon">balance</span>
+        <div class="callout-text">
+          <strong>Mi opinión</strong><br/>
+          Los sesgos algorítmicos son el riesgo legal más subestimado del uso de IA en RRHH — y el que más rápido va a generar litigios en los próximos años. No porque los sistemas sean maliciosos, sino porque aprenden de datos que reflejan el mundo tal como era, no tal como debería ser. La obligación legal — tanto bajo el AI Act como bajo la Directiva de Igualdad de Trato en el Empleo — es garantizar que el sistema no discrimina. Eso requiere auditorías activas, no solo buenas intenciones.
+        </div>
+      </div>
+
+      <h2>Conclusión</h2>
+
+      <p>Usar IA para seleccionar candidatos es legal — y va a seguir siéndolo. Lo que no es legal es usarla sin transparencia, sin supervisión humana, sin informar a los candidatos y sin garantizar que el sistema no reproduce sesgos discriminatorios.</p>
+
+      <p>El AI Act y el GDPR no son obstáculos al uso de IA en selección. Son el estándar mínimo de responsabilidad que cualquier empresa que use estas herramientas debe cumplir. Y ese estándar tiene ahora dientes: sanciones de hasta el 3% de la facturación global y una autoridad de control que está empezando a actuar.</p>
+
+      <p>Mi predicción: en los próximos 24 meses vamos a ver las primeras sanciones significativas en España y el Reino Unido relacionadas específicamente con el uso de IA en procesos de selección. Las empresas que hayan construido sus procesos con supervisión humana documentada, información clara a candidatos y auditorías de sesgo van a estar en una posición legalmente muy diferente a las que no lo hayan hecho.</p>
+
+      <p>La pregunta que merece hacerse cualquier responsable de RRHH que use herramientas de IA en selección es directa: ¿podrías demostrar, ante una auditoría, que tu sistema cumple el AI Act y el artículo 22 del GDPR? Si la respuesta no es un sí inmediato, el momento de revisar el proceso es ahora.</p>
+
+      <hr/>
+
+      <!-- FUENTES -->
+      <div class="sources">
+        <h2>Fuentes</h2>
+        <ol>
+          <li>Reglamento (UE) 2024/1689 del Parlamento Europeo y del Consejo — Reglamento de Inteligencia Artificial (AI Act)</li>
+          <li>Reglamento (UE) 2016/679 — Reglamento General de Protección de Datos (GDPR), artículo 22</li>
+          <li><em>Guía sobre inteligencia artificial y protección de datos</em>, Agencia Española de Protección de Datos (AEPD), 2023</li>
+          <li><em>Algorithmic Accountability in Recruitment: A European Audit</em>, Fundación para el Acceso al Empleo Justo (FAEF), 2023</li>
+          <li>Decisión sancionadora de la Autoriteit Persoonsgegevens (AP), Países Bajos, 2023</li>
+        </ol>
+      </div>
+
+    </article>
+
+
+    <!-- CTA -->
+    <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+      <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
+      <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
+      <div>
+        <a href="../../index.html#demo" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
+          Reservar una demo
+          <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- VOLVER AL BLOG -->
+    <div class="mt-10">
+      <a href="../../blog.html" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+        Volver al blog
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-8 px-6 lg:px-12 border-t border-white/10 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="../../images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-8 w-auto object-contain">
+      </div>
+      <p class="text-slate-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Aplyk. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm text-slate-400">
+        <a href="../../index.html" class="hover:text-white transition-colors">Inicio</a>
+        <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-white transition-colors">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
