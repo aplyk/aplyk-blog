@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="description" content="Cómo reducir los no-shows en la contratación temporal."/>
+  <meta property="og:title" content="Cómo reducir los no-shows en la contratación temporal — Aplyk Blog"/>
+  <meta property="og:description" content=" Uno de cada cinco trabajadores que confirman un turno no se presenta — y la mayoría de las empresas lo asumen como algo inevitable. No lo es: el no-show es un problema de diseño de proceso, y tiene solución concreta."/>
+  <meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://aplyk.com/posts/como-destacar-al-aplicar-a-trabajos-temporales/index.html"/>
+
+  <title>Cómo reducir los no-shows en la contratación temporal — Blog Aplyk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { 
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .nav-link {
+      position: relative; padding: 8px 0;
+      color: rgba(255,255,255,.85); font-weight: 600; font-size: 16px;
+      line-height: 1; transition: color .2s ease; text-decoration: none;
+    }
+    .nav-link::after {
+      content:""; position:absolute; left:0; bottom:2px;
+      width:0%; height:2px; background:#F28A3A;
+      border-radius:2px; transition: width .2s ease;
+    }
+    .nav-link:hover { color:#fff; }
+    .nav-link:hover::after, .nav-link.active::after { width:100%; }
+
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+
+    .sources {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+    }
+    .sources h2 {
+      font-size: 1rem !important;
+      font-weight: 700;
+      color: #94a3b8 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .sources ol {
+      margin: 0 0 0 1.25rem;
+      color: #94a3b8;
+    }
+    .sources li {
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+      color: #94a3b8;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Act y Recursos Humanos: qué cambia para las empresas que utilizan IA en contratación.",
+    "description": "El AI Act europeo no es una amenaza abstracta para el futuro — es un marco regulatorio vigente que ya impone obligaciones concretas a cualquier empresa que use sistemas de IA para seleccionar, filtrar o gestionar candidatos. Ignorarlo no es una opción: las sanciones son reales y los plazos de adaptación están corriendo.",
+    "datePublished": "2026-09-22",
+    "author": {
+      "@type": "Tecnología",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    },
+    "publisher": {
+      "@type": "Tecnología",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+
+  <!-- NAV -->
+  <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-12 bg-primary" style="overflow:visible;">
+    <a class="flex items-center" href="../../index.html" aria-label="Aplyk">
+      <img src="../../images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-16 sm:h-15 w-auto object-contain" loading="lazy">
+    </a>
+    <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
+      <a class="nav-link" href="../../index.html#companies">Empresas</a>
+      <a class="nav-link" href="../../index.html#workers">Profesionales</a>
+      <a class="nav-link" href="../../index.html#faq">FAQ</a>
+      <a class="nav-link active" href="../../blog.html">Blog</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
+        <span class="truncate">Iniciar sesión</span>
+      </button>
+      <a href="../../index.html#demo" class="flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
+        Reservar una demo
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+    <div class="max-w-3xl mx-auto flex items-center gap-2 text-sm text-slate-400">
+      <a href="../../index.html" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <a href="../../blog.html" class="hover:text-primary transition-colors">Blog</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <span class="text-primary font-medium">AI Act y Recursos Humanos: qué cambia para las empresas que utilizan IA en contratación</span>
+    </div>
+  </div>
+
+  <!-- HEADER DEL POST -->
+  <header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+    <div class="max-w-3xl mx-auto flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          Tecnología
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+         AI Act y Recursos Humanos: qué cambia para las empresas que utilizan IA en contratación
+      </h1>
+      <p class="text-slate-500 text-lg leading-relaxed">
+         El AI Act europeo no es una amenaza abstracta para el futuro — es un marco regulatorio vigente que ya impone obligaciones concretas a cualquier empresa que use sistemas de IA para seleccionar, filtrar o gestionar candidatos. Ignorarlo no es una opción: las sanciones son reales y los plazos de adaptación están corriendo.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">Business</span>
+          Aplyk
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          22 Septiembre 2026
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          6 min lectura
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  
+  <main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
+
+    <article class="post-content">
+
+      <p>En agosto de 2026, entró en plena aplicación el núcleo del Reglamento de Inteligencia Artificial de la Unión Europea — el AI Act. Para la mayoría de los departamentos de RRHH en España y el Reino Unido, esa fecha pasó sin demasiada atención. Un error.</p>
+
+      <p>El AI Act no regula la tecnología en abstracto. Regula usos concretos de la IA en contextos concretos. Y uno de los contextos que clasifica explícitamente como de "alto riesgo" es el empleo: los sistemas de IA usados para filtrar candidatos, clasificar perfiles, evaluar la adecuación a un puesto o tomar decisiones sobre contratación están sujetos a las obligaciones más estrictas del Reglamento.</p>
+
+      <p>Esto aplica a las herramientas que ya está usando tu empresa. No a las que podrías usar en el futuro.</p>
+
+      <p>El 63% de las empresas europeas con más de 50 empleados usa algún tipo de herramienta automatizada en sus procesos de selección, según el informe <em>HR Technology Adoption in Europe</em> de Gartner (2024). La mayoría de ellas no sabe que esa herramienta puede estar clasificada como sistema de IA de alto riesgo bajo el AI Act — y que usar un sistema de alto riesgo sin cumplir sus obligaciones puede conllevar sanciones de hasta 15 millones de euros o el 3% de la facturación global anual.</p>
+
+      <p>La tesis de este artículo es simple: el AI Act no frena la innovación en RRHH. La ordena. Y las empresas que entiendan qué cambia exactamente van a tener ventaja sobre las que reaccionen tarde.</p>
+
+      <h2>Qué clasifica el AI Act como sistema de alto riesgo en RRHH</h2>
+
+      <p>El Reglamento de IA (UE 2024/1689) establece en su Anexo III una lista de ámbitos donde los sistemas de IA se consideran de alto riesgo por defecto. El punto 4 de ese anexo es claro: los sistemas de IA destinados a ser utilizados para la contratación o selección de personas físicas, en particular para publicar anuncios de empleo selectivos, analizar y filtrar solicitudes de empleo y currículos, y evaluar a los candidatos en el curso de entrevistas o pruebas, están clasificados como sistemas de alto riesgo.</p>
+
+      <p>Esto significa que una empresa que usa un ATS con filtrado automático de CVs, una herramienta de screening de candidatos, una plataforma de matching basada en algoritmos o un sistema de puntuación de perfiles está operando un sistema de IA de alto riesgo — con independencia de si lo ha desarrollado internamente o lo usa a través de un proveedor externo.</p>
+
+      <p>Las obligaciones que aplican son cinco: evaluación de conformidad antes del despliegue, documentación técnica del sistema, sistema de registro de actividad — logs —, mecanismo de supervisión humana efectiva que permita corregir o anular decisiones automatizadas, e información activa al candidato cuando un sistema de IA haya participado en una decisión que le afecta.</p>
+
+      <p>Estas obligaciones no son opcionales ni se activan solo si hay una inspección. Son requisitos estructurales que deben estar implementados mientras el sistema esté en uso.</p>
+
+      <div class="callout">
+        <span class="material-symbols-outlined callout-icon">gavel</span>
+        <div class="callout-text">
+          <strong>Mi opinión</strong><br/>
+          Lo que más me preocupa de la situación actual no es que las empresas no quieran cumplir — es que la mayoría genuinamente no sabe que tienen que cumplir algo. La cadena de responsabilidad entre el proveedor de la herramienta y la empresa que la usa es compleja, y muchos departamentos de RRHH asumen que si la herramienta viene de un proveedor conocido, el cumplimiento es responsabilidad de ese proveedor. No es así: el AI Act establece obligaciones tanto para el desarrollador del sistema como para el desplegador — es decir, la empresa que lo usa en su proceso de selección. Ese malentendido va a generar los primeros conflictos legales cuando las autoridades de control empiecen a actuar.
+        </div>
+      </div>
+
+      <h2>Las tres obligaciones que más van a cambiar el día a día de RRHH</h2>
+
+      <p>De todas las obligaciones del AI Act para sistemas de alto riesgo, hay tres que tienen impacto operativo inmediato en los procesos de selección.</p>
+
+      <p><strong>Supervisión humana efectiva.</strong> El artículo 14 del AI Act exige que los sistemas de alto riesgo estén diseñados de forma que puedan ser supervisados eficazmente por personas físicas durante su uso, y que esa supervisión incluya la capacidad de desconectar, ignorar o corregir las decisiones del sistema.</p>
+
+      <p>Aplicado a selección de personal, esto significa que ninguna decisión de descarte o avance en el proceso puede ser exclusivamente automatizada sin que exista un mecanismo real — no solo formal — de revisión humana.</p>
+
+      <p>Esto está directamente alineado con el artículo 22 del GDPR, que desde 2018 ya establecía el derecho a no ser objeto de decisiones basadas únicamente en tratamiento automatizado. El AI Act no reemplaza al GDPR en este punto — lo refuerza y lo hace más exigible.</p>
+
+      <p><strong>Transparencia con el candidato.</strong> El artículo 13 del AI Act exige que los sistemas de alto riesgo operen con un nivel suficiente de transparencia que permita a los desplegadores interpretar la salida del sistema y usarla adecuadamente.</p>
+
+      <p>En la práctica, esto implica que las empresas deben ser capaces de explicar, en términos comprensibles, cómo funciona el sistema que usaron en el proceso de selección — y comunicarlo activamente al candidato cuando le afecta una decisión.</p>
+
+      <p>Según el informe <em>Transparency in AI-Assisted Hiring</em> de la OCDE (2024), solo el 18% de las empresas europeas que usan herramientas de IA en selección informan activamente a los candidatos de ello. El 82% restante está incumpliendo una obligación que existe desde la entrada en vigor del GDPR — y que el AI Act ahora hace más visible y más exigible.</p>
+
+      <p><strong>Gestión de sesgos y evaluación de riesgos.</strong> El artículo 9 del AI Act exige que los desplegadores de sistemas de alto riesgo implementen un sistema de gestión de riesgos que incluya la identificación y mitigación de sesgos potenciales del sistema.</p>
+
+      <p>Para RRHH, esto significa que no basta con usar una herramienta de selección — hay que poder demostrar que se ha evaluado si esa herramienta produce resultados sesgados por género, edad, origen u otras variables protegidas.</p>
+
+      <p>El caso de referencia sigue siendo el sistema de Amazon abandonado en 2018 tras detectar que penalizaba candidaturas femeninas. Pero los sistemas actuales son más sofisticados y los sesgos más difíciles de detectar — lo que no significa que no existan.</p>
+
+      <div class="callout">
+        <span class="material-symbols-outlined callout-icon">balance</span>
+        <div class="callout-text">
+          <strong>Mi opinión</strong><br/>
+          La obligación de gestión de sesgos es la que más va a costar implementar a las empresas que usan herramientas de terceros, porque requiere acceso a información técnica sobre el modelo que muchos proveedores no comparten fácilmente. Plataformas como Aplyk, donde el matching se basa en datos de rendimiento verificado — puntualidad, valoraciones post-turno, tasa de finalización — y no en variables demográficas ni en filtrado por palabras clave, tienen un perfil de riesgo de sesgo estructuralmente más bajo que los sistemas basados en CVs no estructurados. Pero incluso así, la obligación de evaluación y documentación aplica.
+        </div>
+      </div>
+
+      <h2>Plazos de aplicación y qué tiene que hacer una empresa ahora</h2>
+
+      <p>El AI Act tiene un calendario de aplicación escalonado. Las prohibiciones absolutas — sistemas de riesgo inaceptable — entraron en vigor en febrero de 2025. Las obligaciones para sistemas de alto riesgo — que incluyen los de RRHH — son de plena aplicación desde agosto de 2026. Las sanciones, por tanto, son ya exigibles.</p>
+
+      <p>Para una empresa que usa herramientas de IA en selección, el plan de acción inmediato tiene cuatro pasos: inventariar qué herramientas usa y si entran en la categoría de alto riesgo, revisar los contratos con proveedores para entender qué obligaciones asume cada parte, actualizar los avisos de privacidad y los procesos de comunicación con candidatos para reflejar el uso de IA, e implementar un mecanismo documentado de supervisión humana en las decisiones de selección.</p>
+
+      <p>Según la <em>Guía práctica de implementación del AI Act para empresas</em> publicada por la Agencia Española de Supervisión de la Inteligencia Artificial (AESIA, 2025), las empresas que acrediten haber iniciado un proceso de adaptación documentado antes de recibir una inspección tienen un tratamiento significativamente más favorable en los procedimientos sancionadores. La buena fe documentada importa.</p>
+
+      <div class="callout">
+        <span class="material-symbols-outlined callout-icon">fact_check</span>
+        <div class="callout-text">
+          <strong>Mi opinión</strong><br/>
+          El mayor riesgo para muchas empresas no es usar IA — es no saber exactamente dónde la están usando, qué hace cada herramienta y quién tiene la responsabilidad de supervisarla. El primer paso no debería ser comprar más tecnología ni rehacer todo el proceso de selección. Debería ser hacer un inventario real de las herramientas existentes y documentar cómo interviene la IA en cada decisión.
+        </div>
+      </div>
+
+      <h2>Conclusión</h2>
+
+      <p>El AI Act no es el fin de la IA en RRHH. Es el principio de una nueva forma de usarla — con más transparencia, más documentación y más supervisión humana real. Para las empresas que ya estaban haciendo las cosas bien, el impacto es mínimo. Para las que usaban la IA como caja negra sin accountability, el cambio es sustancial.</p>
+
+      <p>Mi predicción: en los próximos 18 meses vamos a ver las primeras sanciones significativas en España y el Reino Unido relacionadas con el AI Act aplicado a RRHH. No necesariamente las mayores empresas — sino las que presenten casos más claros de uso de IA sin supervisión humana documentada o sin información al candidato. Esos primeros casos van a generar un efecto de concienciación en el sector mucho más rápido que cualquier campaña regulatoria.</p>
+
+      <p>La pregunta que merece hacerse cualquier responsable de RRHH hoy es concreta: ¿puedes demostrar, ante una auditoría, que cada herramienta de IA que usas en selección tiene supervisión humana real, informa al candidato y ha pasado por una evaluación de riesgos de sesgo? Si la respuesta no es un sí inmediato, el momento de actuar es ahora.</p>
+
+      <hr/>
+
+      <!-- FUENTES -->
+      <div class="sources">
+        <h2>Fuentes</h2>
+        <ol>
+          <li>Reglamento (UE) 2024/1689 del Parlamento Europeo y del Consejo — Reglamento de Inteligencia Artificial (AI Act), agosto 2024</li>
+          <li><em>HR Technology Adoption in Europe 2024</em>, Gartner, 2024</li>
+          <li><em>Transparency in AI-Assisted Hiring Practices</em>, OCDE, 2024</li>
+          <li><em>Guía práctica de implementación del AI Act para empresas</em>, Agencia Española de Supervisión de la Inteligencia Artificial (AESIA), 2025</li>
+          <li>Reglamento (UE) 2016/679 — GDPR, artículo 22</li>
+        </ol>
+      </div>
+
+    </article>
+
+
+
+    <!-- CTA -->
+    <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+      <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
+      <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
+      <div>
+        <a href="../../index.html#demo" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
+          Reservar una demo
+          <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- VOLVER AL BLOG -->
+    <div class="mt-10">
+      <a href="../../blog.html" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+        Volver al blog
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-8 px-6 lg:px-12 border-t border-white/10 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="../../images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-8 w-auto object-contain">
+      </div>
+      <p class="text-slate-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Aplyk. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm text-slate-400">
+        <a href="../../index.html" class="hover:text-white transition-colors">Inicio</a>
+        <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-white transition-colors">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
