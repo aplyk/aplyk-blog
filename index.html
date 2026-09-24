@@ -710,13 +710,14 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo(); });
 
   // Keep the video in sync if the person switches language while it's open
-  document.querySelectorAll('#langMenu [data-lang], .lang-item-mobile[data-lang]').forEach((item) => {
-    item.addEventListener('click', () => { setTimeout(setVideoSourceForLanguage, 0); });
-  });
+ document.querySelectorAll('#langMenu [data-lang], .lang-item-mobile[data-lang]').forEach((item) => {
+  item.addEventListener('click', () => { setTimeout(setVideoSourceForLanguage, 0); });
+});
 
-  // The intro video now opens only when the visitor chooses “See how it works”.
+// Open automatically on first load
+window.addEventListener('DOMContentLoaded', () => { openVideo(); });
 
-  // ===== Book a demo modal =====
+// ===== Book a demo modal =====
   const demoModal = document.getElementById('demo-modal');
   const demoForm = document.getElementById('demo-form');
   const demoStatus = document.getElementById('demo-form-status');
