@@ -1,41 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
- 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aplyk.com/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aplyk.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aplyk.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://aplyk.com/es.html" />
   </url>
- 
   <url>
-    <loc>https://aplyk.com/es.html</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aplyk.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aplyk.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://aplyk.com/es.html" />
+    <loc>https://aplyk.com/blog</loc>
   </url>
- 
+  
   <url>
-    <loc>https://empresas.aplyk.com/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://aplyk.com/posts/que-obligaciones-tiene-una-empresa-cuando-utiliza-algoritmos-para-contratar-trabajadores/</loc>
+    <lastmod>2026-09-27</lastmod>
   </url>
- 
+
   <url>
-    <loc>https://candidatos.aplyk.com/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://aplyk.com/posts/ai-act-y-recursos-humanos-que-cambia-para-las-empresas-que-utilizan-ia-en-contratacion/</loc>
+    <lastmod>2026-09-22</lastmod>
   </url>
- 
+  <url>
+    <loc>https://aplyk.com/posts/como-contratar-trabajadores-temporales-sin-agencias/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/como-destacar-al-aplicar-a-trabajos-temporales/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/como-la-tecnologia-esta-cambiando-la-contratacion-temporal/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/como-los-trabajos-temporales-pueden-ayudarte-a-generar-ingresos-mas-rapido/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/como-reducir-los-no-shows-en-la-contratacion-temporal/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/contratacion-temporal-en-almacenes-retos-y-oportunidades/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/diferencias-entre-una-plataforma-de-empleo-temporal-y-una-agencia-tradicional/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/los-principales-problemas-al-contratar-personal-temporal/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/por-que-el-matching-en-tiempo-real-es-el-futuro-del-trabajo-temporal/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/por-que-la-contratacion-temporal-sigue-siendo-demasiado-lenta/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/por-que-la-hosteleria-necesita-soluciones-de-contratacion-mas-rapidas/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/por-que-muchos-trabajadores-aplican-a-ofertas-y-no-reciben-ninguna-respuesta/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/puede-una-empresa-usar-ia-para-seleccionar-candidatos-lo-que-dice-la-ley/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/que-buscan-realmente-los-trabajadores-temporales-en-una-empresa/</loc>
+  </url>
+  <url>
+    <loc>https://aplyk.com/posts/que-sectores-dependen-mas-de-los-trabajadores-temporales/</loc>
+  </url>
 </urlset>
- 
