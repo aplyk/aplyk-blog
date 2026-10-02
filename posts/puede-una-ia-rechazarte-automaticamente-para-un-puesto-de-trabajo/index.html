@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="description" content="¿Puede una IA rechazarte automáticamente para un puesto de trabajo?."/>
+  <meta property="og:title" content="¿Puede una IA rechazarte automáticamente para un puesto de trabajo? — Aplyk Blog"/>
+  <meta property="og:description" content="Millones de candidaturas son descartadas cada año por algoritmos antes de que ningún humano las haya visto. La pregunta ya no es si ocurre — es si es legal, y qué pueden hacer los candidatos al respecto."/>
+  <meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://aplyk.com/posts/puede-una-ia-rechazarte-automaticamente-para-un-puesto-de-trabajo/index.html"/>
+
+  <title>¿Puede una IA rechazarte automáticamente para un puesto de trabajo? — Blog Aplyk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { 
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .nav-link {
+      position: relative; padding: 8px 0;
+      color: rgba(255,255,255,.85); font-weight: 600; font-size: 16px;
+      line-height: 1; transition: color .2s ease; text-decoration: none;
+    }
+    .nav-link::after {
+      content:""; position:absolute; left:0; bottom:2px;
+      width:0%; height:2px; background:#F28A3A;
+      border-radius:2px; transition: width .2s ease;
+    }
+    .nav-link:hover { color:#fff; }
+    .nav-link:hover::after, .nav-link.active::after { width:100%; }
+
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+
+    .sources {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+    }
+    .sources h2 {
+      font-size: 1rem !important;
+      font-weight: 700;
+      color: #94a3b8 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .sources ol {
+      margin: 0 0 0 1.25rem;
+      color: #94a3b8;
+    }
+    .sources li {
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+      color: #94a3b8;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "  <title>¿Puede una IA rechazarte automáticamente para un puesto de trabajo? — Blog Aplyk</title>.",
+    "description": "Millones de candidaturas son descartadas cada año por algoritmos antes de que ningún humano las haya visto. La pregunta ya no es si ocurre — es si es legal, y qué pueden hacer los candidatos al respecto.",
+    "datePublished": "2026-09-30",
+    "author": {
+      "@type": "Trabajadores",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    },
+    "publisher": {
+      "@type": "Trabajadores",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+
+  <!-- NAV -->
+  <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-12 bg-primary" style="overflow:visible;">
+    <a class="flex items-center" href="../../index.html" aria-label="Aplyk">
+      <img src="../../images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-16 sm:h-15 w-auto object-contain" loading="lazy">
+    </a>
+    <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
+      <a class="nav-link" href="../../index.html#companies">Empresas</a>
+      <a class="nav-link" href="../../index.html#workers">Profesionales</a>
+      <a class="nav-link" href="../../index.html#faq">FAQ</a>
+      <a class="nav-link active" href="../../blog.html">Blog</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
+        <span class="truncate">Iniciar sesión</span>
+      </button>
+      <a href="../../index.html#demo" class="flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
+        Reservar una demo
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+    <div class="max-w-3xl mx-auto flex items-center gap-2 text-sm text-slate-400">
+      <a href="../../index.html" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <a href="../../blog.html" class="hover:text-primary transition-colors">Blog</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <span class="text-primary font-medium">AI Act y Recursos Humanos: qué cambia para las empresas que utilizan IA en contratación</span>
+    </div>
+  </div>
+
+  <!-- HEADER DEL POST -->
+  <header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+    <div class="max-w-3xl mx-auto flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          Trabajadores
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+         ¿Puede una IA rechazarte automáticamente para un puesto de trabajo?
+      </h1>
+      <p class="text-slate-500 text-lg leading-relaxed">
+         Millones de candidaturas son descartadas cada año por algoritmos antes de que ningún humano las haya visto. La pregunta ya no es si ocurre — es si es legal, y qué pueden hacer los candidatos al respecto.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">Business</span>
+          Aplyk
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          30 Septiembre 2026
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          5 min lectura
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  
+  
+<main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
+
+  
+<article class="post-content">
+
+  <p>Envías tu candidatura. Pasan las horas. Llega un email automático: "Tras revisar tu perfil, hemos decidido continuar con otros candidatos." Lo que no te dicen es que ningún humano ha visto tu CV. La decisión la tomó un algoritmo en milisegundos, basándose en criterios que nadie te ha explicado y que tú no puedes ver ni cuestionar.</p>
+
+  <p>Esto no es ciencia ficción. Según el informe <em>Hidden Workers: Untapped Talent</em> de Harvard Business School (2021), el 88% de los empleadores que usan sistemas ATS admiten que estos descartan candidatos cualificados de forma automática antes de que ningún reclutador los revise. En muchos casos, la decisión de rechazo es completamente automatizada — sin intervención humana en ningún punto del proceso.</p>
+
+  <p>La pregunta que cada vez más candidatos y reguladores se están haciendo es directa: ¿puede una IA rechazarte automáticamente para un puesto de trabajo? La respuesta corta es que ocurre constantemente. La respuesta legal es más matizada — y más favorable al candidato de lo que la mayoría sabe.</p>
+
+  <p>La tesis de este artículo es que el rechazo automatizado sin supervisión humana ni información al candidato no solo es éticamente cuestionable — en muchos casos es directamente ilegal bajo la normativa europea vigente.</p>
+
+  <h2>Lo que dice la ley: el artículo 22 del GDPR lleva ocho años en vigor</h2>
+
+  <p>El marco legal que protege a los candidatos frente al rechazo automatizado no es nuevo ni está pendiente de aplicación. El artículo 22 del Reglamento General de Protección de Datos (GDPR, UE 2016/679), en vigor desde mayo de 2018, establece con claridad que toda persona tiene derecho a no ser objeto de una decisión basada únicamente en el tratamiento automatizado de sus datos, incluida la elaboración de perfiles, cuando dicha decisión produzca efectos jurídicos sobre ella o le afecte significativamente de modo similar.</p>
+
+  <p>Un rechazo en un proceso de selección cumple perfectamente esta definición: produce un efecto significativo sobre el candidato. Eso significa que, bajo el GDPR, una empresa no puede rechazar automáticamente a un candidato basándose exclusivamente en un sistema automatizado sin ofrecerle tres garantías: información de que se ha usado un sistema automatizado, posibilidad de solicitar intervención humana que revise la decisión, y derecho a impugnar la decisión ante la empresa.</p>
+
+  <p>El AI Act europeo, en plena aplicación desde agosto de 2026, refuerza y amplía estas obligaciones clasificando los sistemas de IA usados en selección de personal como sistemas de alto riesgo — con requisitos adicionales de transparencia, documentación y supervisión humana.</p>
+
+  <div class="callout">
+    <span class="material-symbols-outlined callout-icon">gavel</span>
+    <div class="callout-text">
+      <strong>Mi opinión</strong><br/>
+      Lo que me resulta más llamativo de esta situación no es que las empresas usen IA para filtrar candidatos — es perfectamente razonable y, bien hecho, más objetivo que la selección puramente humana. Lo que resulta inexplicable es que ocho años después de que el GDPR entrara en vigor, la mayoría de las empresas sigan sin informar a los candidatos de que un sistema automatizado interviene en su proceso, sin ofrecer revisión humana y sin mecanismo de impugnación. No es desconocimiento del mercado — es que nadie ha sentido la presión regulatoria todavía. Eso está a punto de cambiar.
+    </div>
+  </div>
+
+  <h2>Cómo funciona el rechazo automatizado en la práctica</h2>
+
+  <p>Entender cómo opera técnicamente el rechazo automatizado ayuda a entender por qué es tan frecuente y por qué es tan difícil de detectar para el candidato.</p>
+
+  <p>Los sistemas ATS — Applicant Tracking Systems — filtran candidaturas en función de palabras clave, formatos de CV, requisitos mínimos declarados y criterios predefinidos. Un candidato que ha trabajado tres años gestionando inventario en un almacén puede ser automáticamente descartado porque su CV no incluye el acrónimo "WMS" (Warehouse Management System) — aunque ese sea exactamente el software que ha usado durante esos tres años sin saber cómo se llamaba técnicamente.</p>
+
+  <p>Más allá de los ATS, los sistemas de scoring y ranking de candidatos asignan puntuaciones basadas en múltiples variables — experiencia, cualificaciones, proximidad geográfica, historial de comportamiento en plataformas anteriores — y descartan automáticamente a quienes no superan un umbral predefinido. En muchos casos, ese umbral no ha sido revisado por un humano desde que se configuró el sistema.</p>
+
+  <p>Según el análisis <em>Automated Decision-Making in Recruitment</em> de la Agencia de los Derechos Fundamentales de la UE (FRA, 2023), el 43% de los sistemas de selección automatizada en Europa operan sin ningún mecanismo de revisión humana sobre las decisiones de descarte. No hay nadie que revise por qué el algoritmo rechazó a un candidato concreto — ni siquiera la empresa que usa el sistema.</p>
+
+  <div class="callout">
+    <span class="material-symbols-outlined callout-icon">visibility_off</span>
+    <div class="callout-text">
+      <strong>Mi opinión</strong><br/>
+      El problema más subestimado del rechazo automatizado no es el sesgo — aunque existe y es real. Es la opacidad. Un candidato rechazado por un humano puede intuir, aunque sea vagamente, qué puede mejorar. Un candidato rechazado por un algoritmo no tiene información útil sobre por qué ocurrió ni qué puede hacer diferente. Eso crea un ciclo de frustración que no ayuda ni al candidato ni al mercado laboral. Las plataformas que rompen ese ciclo — mostrando al candidato su puntuación, explicando qué variables la componen y qué puede hacer para mejorarla — están construyendo algo mucho más valioso que eficiencia operativa: están construyendo confianza. Aplyk, por ejemplo, muestra al trabajador su valoración acumulada y su historial de turnos completados de forma transparente, dándole información real sobre su posición en el mercado y qué puede hacer para mejorarla — exactamente lo contrario de la caja negra del rechazo automatizado tradicional.
+    </div>
+  </div>
+
+  <h2>Qué puede hacer un candidato si cree que ha sido rechazado automáticamente</h2>
+
+  <p>La buena noticia para los candidatos es que la normativa les da herramientas concretas para actuar — aunque pocas personas las conocen y menos aún las usan.</p>
+
+  <p>Bajo el artículo 22 del GDPR, cualquier candidato puede ejercer los siguientes derechos frente a la empresa que le ha rechazado:</p>
+
+  <p><strong>Derecho a solicitar intervención humana:</strong> el candidato puede pedir explícitamente que un humano revise la decisión de descarte. La empresa está obligada a responder en un plazo máximo de un mes.</p>
+
+  <p><strong>Derecho a conocer la lógica aplicada:</strong> el candidato puede solicitar información sobre la lógica del sistema automatizado que intervino en la decisión — qué criterios usó, qué datos analizó, por qué produjo ese resultado.</p>
+
+  <p><strong>Derecho a impugnar la decisión:</strong> el candidato puede presentar alegaciones contra la decisión automatizada y solicitar que sea revisada.</p>
+
+  <p>Si la empresa no responde o no ofrece estas garantías, el candidato puede presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) en España, o ante el regulador equivalente en su país. Las sanciones por incumplimiento del artículo 22 pueden llegar hasta 20 millones de euros o el 4% de la facturación global anual de la empresa.</p>
+
+  <p>En la práctica, muy pocos candidatos ejercen estos derechos — en parte porque no los conocen, en parte porque el proceso puede resultar intimidante. Pero el marco legal existe, es exigible y está siendo cada vez más conocido.</p>
+
+  <div class="callout">
+    <span class="material-symbols-outlined callout-icon">how_to_reg</span>
+    <div class="callout-text">
+      <strong>Mi opinión</strong><br/>
+      La situación actual es la de un derecho ampliamente incumplido por las empresas y ampliamente desconocido por los candidatos. Eso va a cambiar en los próximos años por dos vías simultáneas: más candidatos que conocen sus derechos y los ejercen, y más presión regulatoria sobre las empresas que no cumplen. Las primeras sanciones significativas relacionadas con el artículo 22 en contextos de selección van a tener un efecto de concienciación enorme en el sector.
+    </div>
+  </div>
+
+  <h2>Conclusión</h2>
+
+  <p>Una IA puede participar en el proceso de selección de candidatos — ordenando, puntuando, sugiriendo. Lo que no puede hacer legalmente es rechazarte de forma completamente automatizada, sin que ningún humano haya revisado la decisión, sin informarte de que un sistema automatizado intervino y sin ofrecerte la posibilidad de solicitar revisión.</p>
+
+  <p>Eso no es lo que está ocurriendo en la mayoría de los procesos de selección automatizados hoy. Y esa brecha entre lo que permite la ley y lo que hacen las empresas es la que los reguladores europeos van a empezar a cerrar con más determinación en los próximos 18 meses.</p>
+
+  <p>Mi predicción: la primera oleada de sanciones relacionadas con el artículo 22 del GDPR aplicado a selección de personal va a llegar antes de 2028. Cuando eso ocurra, tanto las empresas como los candidatos van a entender que el rechazo automatizado sin garantías no es un modelo sostenible — ni legal ni reputacionalmente.</p>
+
+  <p>Si eres candidato y crees que has sido rechazado automáticamente sin revisión humana, tienes derechos concretos y ejercibles. El primer paso es solicitarlos por escrito a la empresa. El segundo, si no responden, es la AEPD.</p>
+
+  <hr/>
+
+  <!-- FUENTES -->
+  <div class="sources">
+    <h2>Fuentes</h2>
+    <ol>
+      <li><em>Hidden Workers: Untapped Talent</em>, Harvard Business School / Accenture, 2021</li>
+      <li>Reglamento (UE) 2016/679 — GDPR, artículo 22</li>
+      <li>Reglamento (UE) 2024/1689 — AI Act, Anexo III</li>
+      <li><em>Automated Decision-Making in Recruitment: Risks and Safeguards</em>, Agencia de los Derechos Fundamentales de la UE (FRA), 2023</li>
+      <li><em>Guía sobre el uso de la inteligencia artificial en el ámbito laboral</em>, AEPD, 2023</li>
+    </ol>
+  </div>
+
+</article>
+
+
+  <!-- CTA -->
+  <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+    <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
+    <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
+    <div>
+      <a href="../../index.html#demo" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
+        Reservar una demo
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- VOLVER AL BLOG -->
+  <div class="mt-10">
+    <a href="../../blog.html" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+      Volver al blog
+    </a>
+  </div>
+
+</main>
+
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-8 px-6 lg:px-12 border-t border-white/10 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="../../images/LogoBlue_LightBlueBG.png" alt="Aplyk" class="h-8 w-auto object-contain">
+      </div>
+      <p class="text-slate-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Aplyk. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm text-slate-400">
+        <a href="../../index.html" class="hover:text-white transition-colors">Inicio</a>
+        <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-white transition-colors">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
