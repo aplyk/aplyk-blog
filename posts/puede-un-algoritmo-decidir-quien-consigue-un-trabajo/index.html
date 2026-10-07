@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="description" content="¿Puede un algoritmo decidir quién consigue un trabajo?."/>
+  <meta property="og:title" content="¿Puede una IA rechazarte automáticamente para un puesto de trabajo? — Aplyk Blog"/>
+  <meta property="og:description" content="Los algoritmos ya están tomando decisiones de contratación en millones de procesos de selección — pero la pregunta relevante no es si pueden hacerlo, sino si lo están haciendo bien, con qué límites y quién es responsable cuando se equivocan."/>
+  <meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://aplyk.com/posts/puede-un-algoritmo-decidir-quien-consigue-un-trabajo/index.html"/>
+
+  <title>¿Puede un algoritmo decidir quién consigue un trabajo? — Blog Aplyk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { 
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="../../shared-components.css"/>
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+
+    .sources {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+    }
+    .sources h2 {
+      font-size: 1rem !important;
+      font-weight: 700;
+      color: #94a3b8 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .sources ol {
+      margin: 0 0 0 1.25rem;
+      color: #94a3b8;
+    }
+    .sources li {
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+      color: #94a3b8;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "  <title>¿Puede un algoritmo decidir quién consigue un trabajo? — Blog Aplyk</title>.",
+    "description": "Los algoritmos ya están tomando decisiones de contratación en millones de procesos — pero la pregunta que importa no es si pueden hacerlo, sino cuándo es legítimo, cuándo no lo es y qué ocurre cuando nadie supervisa lo que deciden.",
+    "datePublished": "2026-10-07",
+    "author": {
+      "@type": "Tecnología",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    },
+    "publisher": {
+      "@type": "Tecnología",
+      "name": "Aplyk",
+      "url": "https://aplyk.com"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+
+  <!-- SHARED NAV -->
+  <div id="site-header"></div>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+    <div class="max-w-3xl mx-auto flex items-center gap-2 text-sm text-slate-400">
+      <a href="../../index.html" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <a href="../../blog.html" class="hover:text-primary transition-colors">Blog</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <span class="text-primary font-medium">¿Puede un algoritmo decidir quién consigue un trabajo?</span>
+    </div>
+  </div>
+
+  <!-- HEADER DEL POST -->
+  <header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+    <div class="max-w-3xl mx-auto flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          Tecnología
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+         ¿Puede un algoritmo decidir quién consigue un trabajo?
+      </h1>
+      <p class="text-slate-500 text-lg leading-relaxed">
+         Los algoritmos ya están tomando decisiones de contratación en millones de procesos — pero la pregunta que importa no es si pueden hacerlo, sino cuándo es legítimo, cuándo no lo es y qué ocurre cuando nadie supervisa lo que deciden.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">Business</span>
+          Aplyk
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          07 Octubre 2026
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          5 min lectura
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  
+  
+<main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
+
+
+    <article class="post-content">
+        <p>Imagina que envías tu candidatura un martes por la mañana. Hay café en la mesa, el CV revisado por quinta vez, la carta de presentación ajustada al milímetro. A los tres minutos, llega el email: "Tras revisar tu perfil, hemos decidido continuar con otros candidatos." Tres minutos. Ningún humano ha leído nada.</p>
+
+        <p>Lo que ocurrió en esos tres minutos — aunque nadie te lo explica — es que un algoritmo escaneó tu CV en busca de palabras clave, comprobó si tu historial encajaba con un patrón predefinido y te descartó automáticamente. Sin matices, sin contexto, sin posibilidad de que alguien viera que tenías exactamente la experiencia que buscaban pero la habías descrito con palabras distintas a las que el sistema esperaba.</p>
+
+        <p>Según el informe <em>State of AI in Talent Acquisition</em> de LinkedIn (2024), el 74% de los responsables de selección en Europa usan alguna herramienta de IA en sus procesos. No es una tendencia emergente — es el estándar actual. Y sin embargo, la mayoría de los candidatos no saben qué está pasando mientras esperan respuesta, y la mayoría de las empresas no saben exactamente qué está decidiendo el sistema que usan.</p>
+
+        <p>La tesis de este artículo es que los algoritmos pueden hacer cosas valiosas en selección — y también cosas peligrosas. La diferencia está en cómo se usan, qué se supervisa y quién asume la responsabilidad cuando algo falla.</p>
+
+        <h2>Lo que el algoritmo hace mejor que cualquier humano</h2>
+
+        <p>Hay algo genuinamente satisfactorio en ver cómo un sistema bien diseñado encuentra al candidato adecuado en segundos — no porque sea magia, sino porque hace con precisión lo que un humano hace con esfuerzo y fatiga creciente.</p>
+
+        <p>Un reclutador que revisa doscientos CVs en una mañana aplica criterios distintos en el CV número 8 y en el número 187. El hambre, el cansancio, la hora del día — todo eso afecta a la evaluación de forma documentada y medible. Un algoritmo no tiene ese problema. Aplica el mismo criterio al candidato número uno y al número diez mil con idéntica consistencia.</p>
+
+        <p>Según el estudio <em>Algorithmic vs. Human Decision-Making in Hiring</em> de la Universidad de Cornell (2022), los sistemas de scoring algorítmico predicen el rendimiento laboral futuro con una precisión un 25% mayor que la evaluación humana no estructurada en puestos de media cualificación. El dato no es sorprendente cuando se analiza el mecanismo: el algoritmo no tiene favoritos, no se deja llevar por el carisma en la foto del perfil y no está de peor humor después de una reunión difícil.</p>
+
+        <p>En el trabajo temporal específicamente — donde los perfiles son concretos, los requisitos están bien definidos y la velocidad de cobertura es crítica — el matching algorítmico tiene un valor operativo claro. Cruzar disponibilidad, proximidad, experiencia verificada y historial de rendimiento en tiempo real es algo que ningún proceso manual puede replicar con la misma velocidad.</p>
+
+        <div class="callout">
+          <span class="material-symbols-outlined callout-icon">psychology</span>
+          <div class="callout-text">
+            <strong>Mi opinión</strong><br/>
+            Lo que hace bien el algoritmo en selección es exactamente lo que los humanos hacemos peor bajo presión: ser consistentes. Y en un mercado donde la velocidad y el volumen son las variables que más presionan los procesos de selección, esa consistencia tiene un valor real. El problema no es que los algoritmos sean objetivos — es que se confunde "consistente" con "correcto". Un sistema que aplica siempre el mismo criterio incorrecto es consistentemente malo. Y eso es exactamente lo que ocurre cuando el algoritmo se entrena con datos sesgados.
+          </div>
+        </div>
+
+        <h2>Cuando el algoritmo aprende lo equivocado</h2>
+
+        <p>En 2018, Amazon abandonó en silencio un sistema de IA que había desarrollado para automatizar la selección de candidatos. El motivo: el algoritmo había aprendido a penalizar a las mujeres. No porque nadie lo programara así — sino porque aprendió de los patrones históricos de contratación de la empresa, donde los hombres habían sido consistentemente preferidos durante años. El sistema reprodujo ese sesgo con precisión matemática.</p>
+
+        <p>El caso de Amazon es el más citado, pero no es una excepción. El informe <em>Algorithmic Bias in European Recruitment</em> de la Agencia de los Derechos Fundamentales de la UE (FRA, 2024) identificó sesgos estadísticamente significativos en al menos una variable protegida — género, edad u origen — en el 38% de los sistemas de selección automatizada auditados en Europa.</p>
+
+        <p>Aquí está el mecanismo concreto que genera ese problema: si durante años una empresa ha contratado más personas de un perfil demográfico concreto para un tipo de puesto, el algoritmo interpreta ese patrón como una señal de éxito y empieza a favorecerlo. No distingue entre "este perfil funciona mejor" y "este perfil fue históricamente preferido por razones que no tienen que ver con el rendimiento". El algoritmo amplifica lo que le das — bueno o malo.</p>
+
+        <div class="callout">
+          <span class="material-symbols-outlined callout-icon">visibility</span>
+          <div class="callout-text">
+            <strong>Mi opinión</strong><br/>
+            Hay algo profundamente inquietante en la imagen de un sistema que discrimina sin saberlo y a escala. No hay intención maliciosa, no hay nadie que pueda ser señalado como responsable directo — y sin embargo el daño es real y medible para los candidatos afectados. El miedo legítimo de cualquier trabajador frente a un proceso automatizado no es irracional: si el sistema aprendió de datos sesgados, puedes ser descartado no por lo que eres o lo que sabes hacer, sino por variables que no controlas y que nadie te va a explicar. Ese miedo solo se reduce de una manera: con transparencia. Saber qué variables evalúa el sistema, cómo puedes mejorar tu posición en él y qué ocurre con esa evaluación con el tiempo. Plataformas como Aplyk, que muestran al trabajador su valoración acumulada, su historial verificado y los criterios que determinan su posición en el sistema, están construyendo exactamente eso: un proceso donde el candidato no está a oscuras.
+          </div>
+        </div>
+
+        <h2>El límite legal: qué puede y qué no puede decidir un algoritmo</h2>
+
+        <p>El artículo 22 del GDPR, en vigor desde mayo de 2018, establece que ninguna persona puede ser objeto de una decisión que le afecte significativamente basada únicamente en tratamiento automatizado. Aplicado a selección, significa que el algoritmo puede participar — ordenar, puntuar, sugerir — pero no puede ser el único responsable de un rechazo sin que exista posibilidad de intervención humana.</p>
+
+        <p>El AI Act europeo, en plena aplicación desde agosto de 2026, va más lejos: clasifica los sistemas de IA usados en selección como sistemas de alto riesgo, con obligaciones de documentación técnica, transparencia hacia el candidato, supervisión humana efectiva y auditoría continua de sesgos.</p>
+
+        <p>Y aquí está el dato que más debería preocupar a cualquier empresa que usa herramientas de selección automatizada: según el informe <em>AI Liability in European Employment Law</em> de Eurofound (2024), el 67% de las empresas europeas que usan IA en selección no han realizado ninguna auditoría de los resultados de esas herramientas. Están operando sistemas de alto riesgo sin verificar que funcionan correctamente — y asumiendo una responsabilidad legal que la mayoría no ha cuantificado.</p>
+
+        <p>El marco regulatorio no prohíbe el algoritmo. Establece las condiciones bajo las que su uso es legal: transparencia con el candidato, supervisión humana real sobre la decisión final y capacidad de impugnar el resultado. Tres condiciones que la mayoría de los procesos actuales no cumplen.</p>
+
+        <div class="callout">
+          <span class="material-symbols-outlined callout-icon">balance</span>
+          <div class="callout-text">
+            <strong>Mi opinión</strong><br/>
+            La distinción que emerge de la normativa entre algoritmos que apoyan decisiones humanas y algoritmos que las reemplazan es la más importante del sector en este momento. No porque sea una exigencia burocrática — sino porque es la diferencia entre un sistema que funciona bien y uno que falla silenciosamente durante años antes de que alguien lo detecte. El modelo correcto es el que permite que el algoritmo haga lo que hace bien — procesar, ordenar, puntuar — mientras una persona mantiene el control real sobre la decisión final. Ese modelo es más eficiente, más justo y más sostenible regulatoriamente. Y es el modelo al que el mercado va a converger, voluntariamente o por presión regulatoria.
+          </div>
+        </div>
+
+        <h2>Conclusión</h2>
+
+        <p>Un algoritmo puede participar en la decisión de quién consigue un trabajo — y hacerlo de forma valiosa. Puede procesar volumen con consistencia, reducir sesgos humanos en la evaluación y acelerar procesos que de otra forma llevarían días. Pero no puede reemplazar la decisión humana sin consecuencias legales y sin riesgo real de perpetuar discriminaciones que nadie programó conscientemente.</p>
+
+        <p>Lo tranquilizador — y esto merece decirse con claridad — es que el marco para hacerlo bien ya existe. No hay que esperar nueva legislación ni nuevas tecnologías. El GDPR, el AI Act y los principios de diseño responsable de IA dan una hoja de ruta clara: transparencia con el candidato, supervisión humana real y auditoría continua de resultados.</p>
+
+        <p>Mi predicción: antes de 2028 veremos en España el primer caso mediático de sanción a una empresa por discriminación algorítmica en selección. Ese caso va a cambiar la conversación de forma permanente — para candidatos que entenderán que tienen derechos exigibles, y para empresas que entenderán que la opacidad algorítmica tiene un coste real.</p>
+
+        <p>El algoritmo no va a desaparecer de los procesos de selección. Va a tener que aprender a rendir cuentas. Y eso, para quienes buscan trabajo y para quienes contratan, es una buena noticia.</p>
+
+        <hr/>
+
+        <!-- FUENTES -->
+        <div class="sources">
+          <h2>Fuentes</h2>
+          <ol>
+            <li><em>State of AI in Talent Acquisition</em>, LinkedIn, 2024</li>
+            <li><em>Algorithmic vs. Human Decision-Making in Hiring</em>, Cornell University ILR School, 2022</li>
+            <li>Reglamento (UE) 2016/679 — GDPR, artículo 22</li>
+            <li>Reglamento (UE) 2024/1689 — AI Act, Anexo III</li>
+            <li><em>Algorithmic Bias in European Recruitment Systems</em>, FRA (Agencia de los Derechos Fundamentales de la UE), 2024</li>
+            <li><em>AI Liability in European Employment Law</em>, Eurofound, 2024</li>
+          </ol>
+        </div>
+    </article>
+
+
+
+
+  <!-- CTA -->
+  <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+    <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
+    <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
+    <div>
+      <a href="../../index.html#demo" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
+        Reservar una demo
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- VOLVER AL BLOG -->
+  <div class="mt-10">
+    <a href="../../blog.html" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+      Volver al blog
+    </a>
+  </div>
+
+</main>
+
+
+  <!-- SHARED FOOTER -->
+  <div id="site-footer"></div>
+
+  <script src="../../components.js"></script>
+
+</body>
+</html>
