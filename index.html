@@ -52,6 +52,16 @@
 <button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">
 <span class="material-symbols-outlined">arrow_upward</span>
 </button>
+<!-- ===================== MOBILE CONTACT / DEMO ACTIONS ===================== -->
+<div class="mobile-contact-actions" id="mobileContactActions" aria-label="Quick contact">
+  <a class="mobile-contact-btn mobile-contact-call" id="mobileCallBtn" href="tel:+34681870145" aria-label="Call Aplyk">
+    <span class="material-symbols-outlined" aria-hidden="true">call</span>
+  </a>
+  <a class="mobile-contact-btn mobile-contact-whatsapp" id="mobileWhatsAppBtn" href="https://wa.me/34681870145" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Aplyk">
+    <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+  </a>
+</div>
+<button class="mobile-demo-bar js-open-demo" id="mobileDemoBar" type="button" data-i18n="bookDemo">Book a demo</button>
 <!-- ===================== INTRO VIDEO MODAL ===================== -->
 <div aria-hidden="true" class="video-modal" id="videoModal">
 <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
@@ -612,6 +622,32 @@
     toggleBackToTop();
     window.addEventListener('scroll', toggleBackToTop);
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // ===== Mobile fixed CTA: hide it whenever another demo CTA is actually visible =====
+  const mobileDemoBar = document.getElementById('mobileDemoBar');
+  if (mobileDemoBar && 'IntersectionObserver' in window) {
+    const visibleDemoButtons = new Set();
+    const syncMobileDemoBar = () => {
+      const isMobile = window.matchMedia('(max-width: 960px)').matches;
+      mobileDemoBar.classList.toggle('is-hidden', !isMobile || visibleDemoButtons.size > 0);
+    };
+
+    const demoVisibilityObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === mobileDemoBar) return;
+        if (entry.isIntersecting && entry.intersectionRatio > 0) visibleDemoButtons.add(entry.target);
+        else visibleDemoButtons.delete(entry.target);
+      });
+      syncMobileDemoBar();
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.js-open-demo').forEach((el) => {
+      if (el !== mobileDemoBar) demoVisibilityObserver.observe(el);
+    });
+
+    window.addEventListener('resize', syncMobileDemoBar);
+    syncMobileDemoBar();
   }
 
   // ===== Intro video modal =====

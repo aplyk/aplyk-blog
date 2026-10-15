@@ -72,6 +72,8 @@ const translations = {
     aboutCtaCompanies: "Hire Professionals",
     login: "Login",
     bookDemo: "Book a demo",
+    mobileCallLabel: "Call Aplyk UK",
+    mobileWhatsAppLabel: "WhatsApp Aplyk UK",
     closeVideo: "Close video",
 
     heroEyebrow: "AI-powered · Real-time matching",
@@ -311,6 +313,8 @@ const translations = {
     aboutCtaCompanies: "Contratar profesionales",
     login: "Iniciar sesión",
     bookDemo: "Reservar una demo",
+    mobileCallLabel: "Llamar a Aplyk España",
+    mobileWhatsAppLabel: "WhatsApp Aplyk España",
     closeVideo: "Cerrar vídeo",
 
     heroEyebrow: "Impulsado por IA · Matching en tiempo real",
@@ -544,6 +548,28 @@ function getPreferredLang() {
   return detectBrowserLang();
 }
 
+function updateMobileContactLinks(lang) {
+  const isSpanish = lang === 'es';
+  const phone = isSpanish ? '+34681870145' : '+447784185475';
+  const whatsapp = isSpanish ? '34681870145' : '447784185475';
+  const dict = translations[isSpanish ? 'es' : 'en'];
+
+  const callButton = document.getElementById('mobileCallBtn');
+  const whatsappButton = document.getElementById('mobileWhatsAppBtn');
+
+  if (callButton) {
+    callButton.href = `tel:${phone}`;
+    callButton.setAttribute('aria-label', dict.mobileCallLabel);
+    callButton.title = dict.mobileCallLabel;
+  }
+
+  if (whatsappButton) {
+    whatsappButton.href = `https://wa.me/${whatsapp}`;
+    whatsappButton.setAttribute('aria-label', dict.mobileWhatsAppLabel);
+    whatsappButton.title = dict.mobileWhatsAppLabel;
+  }
+}
+
 function setLanguage(lang) {
   currentLanguage = translations[lang] ? lang : 'en';
 
@@ -554,6 +580,8 @@ function setLanguage(lang) {
   if (dict.pageTitle) {
     document.title = document.body?.dataset.page === 'about' ? dict.aboutPageTitle : dict.pageTitle;
   }
+
+  updateMobileContactLinks(currentLanguage);
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.getAttribute('data-i18n');
