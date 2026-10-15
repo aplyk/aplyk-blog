@@ -1065,6 +1065,13 @@ body { background: #FFFFFF; }
     font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
   }
 
+  .mobile-whatsapp-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    display: block;
+  }
+
   .mobile-contact-call { background: var(--orange); }
   .mobile-contact-whatsapp { background: #25D366; }
 
