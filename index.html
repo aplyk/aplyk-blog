@@ -84,7 +84,6 @@
 <input autocomplete="off" id="demo-website" name="_honey" tabindex="-1" type="text"/>
 </div>
 <div class="form-grid">
-<div class="form-status" id="demo-form-status" role="status"></div>
 <div class="form-field">
 <label data-i18n="demoNameLabel" for="demo-name">Full name</label>
 <input autocomplete="name" data-i18n="demoNamePh" data-i18n-attribute="placeholder" id="demo-name" name="Full name" required="" type="text"/>
@@ -110,7 +109,15 @@
 </div>
 <div class="form-field full">
 <label data-i18n="demoPhoneLabel" for="demo-phone">Phone (optional)</label>
-<input autocomplete="tel" data-i18n="demoPhonePh" data-i18n-attribute="placeholder" id="demo-phone" name="Phone" type="tel"/>
+<div class="phone-input-group">
+<select aria-label="Country code" id="demo-phone-country" name="Phone country">
+<option value="ES" data-code="+34">🇪🇸 +34</option>
+<option value="GB" data-code="+44">🇬🇧 +44</option>
+</select>
+<input autocomplete="tel" id="demo-phone" inputmode="tel" maxlength="20" placeholder="600 000 000" type="tel" required/>
+</div>
+<input id="demo-phone-full" name="Phone" type="hidden" value=""/>
+<p class="field-error" id="demo-phone-error" aria-live="polite"></p>
 </div>
 <p class="form-note" data-i18n="demoFormNote">Your information will be sent to info@aplyk.com.</p>
 <div class="form-actions">
@@ -119,6 +126,14 @@
 </div>
 </div>
 </form>
+<div aria-live="polite" class="demo-success" id="demo-success" hidden>
+<div aria-hidden="true" class="demo-success-icon">
+<span class="material-symbols-outlined">check</span>
+</div>
+<h2 data-i18n="demoSuccessTitle">Request sent</h2>
+<p data-i18n="demoSuccessText">Thank you for contacting Aplyk. We've received your request and will be in touch shortly.</p>
+<button class="btn-primary" data-close-demo="" data-i18n="demoSuccessClose" type="button">Close</button>
+</div>
 </div>
 </div>
 <!-- ===================== NAV ===================== -->
@@ -648,18 +663,46 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
 // ===== Book a demo modal =====
   const demoModal = document.getElementById('demo-modal');
   const demoForm = document.getElementById('demo-form');
-  const demoStatus = document.getElementById('demo-form-status');
+  const demoHeading = demoModal?.querySelector('.modal-heading');
+  const demoSuccess = document.getElementById('demo-success');
+  const demoPhone = document.getElementById('demo-phone');
+  const demoPhoneCountry = document.getElementById('demo-phone-country');
+  const demoPhoneFull = document.getElementById('demo-phone-full');
+  const demoPhoneError = document.getElementById('demo-phone-error');
   let lastFocused = null;
 
-  const openDemo = (trigger) => {
+  const demoDict = () => {
+    const lang = (window.getCurrentLanguage && window.getCurrentLanguage()) || 'en';
+    return (window.translations && window.translations[lang]) || {};
+  };
+
+  const showDemoForm = () => {
+    if (demoHeading) demoHeading.hidden = false;
+    if (demoForm) demoForm.hidden = false;
+    if (demoSuccess) demoSuccess.hidden = true;
+  };
+
+  const showDemoSuccess = () => {
+    if (demoHeading) demoHeading.hidden = true;
+    if (demoForm) demoForm.hidden = true;
+    if (demoSuccess) demoSuccess.hidden = false;
+  };
+
+  const openDemo = (trigger, mode = 'form') => {
     if (!demoModal) return;
     closeVideo();
     lastFocused = trigger || document.activeElement;
+    mode === 'success' ? showDemoSuccess() : showDemoForm();
     demoModal.classList.add('is-open');
     demoModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    requestAnimationFrame(() => document.getElementById('demo-name')?.focus());
+    requestAnimationFrame(() => {
+      (mode === 'success'
+        ? demoSuccess?.querySelector('[data-close-demo]')
+        : document.getElementById('demo-name'))?.focus();
+    });
   };
+
   const closeDemo = () => {
     if (!demoModal) return;
     demoModal.classList.remove('is-open');
@@ -668,8 +711,72 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
     if (lastFocused) lastFocused.focus();
   };
 
+  const clearPhoneError = () => {
+    if (!demoPhone || !demoPhoneError) return;
+    demoPhone.setCustomValidity('');
+    demoPhoneError.textContent = '';
+    demoPhone.closest('.phone-input-group')?.classList.remove('has-error');
+  };
+
+  const normalisePhone = () => {
+    if (!demoPhone || !demoPhoneCountry) return { valid: true, full: '' };
+
+    const raw = demoPhone.value.trim();
+    if (!raw) return { valid: true, full: '' };
+
+    let digits = raw.replace(/[^0-9]/g, '');
+    const country = demoPhoneCountry.value;
+
+    if (country === 'ES') {
+      if (digits.startsWith('0034')) digits = digits.slice(4);
+      else if (digits.startsWith('34') && digits.length > 9) digits = digits.slice(2);
+
+      const valid = /^[6789]\d{8}$/.test(digits);
+      return { valid, full: valid ? `+34${digits}` : '' };
+    }
+
+    if (country === 'GB') {
+      if (digits.startsWith('0044')) digits = digits.slice(4);
+      else if (digits.startsWith('44') && digits.length > 10) digits = digits.slice(2);
+      if (digits.startsWith('0')) digits = digits.slice(1);
+
+      const valid = /^[1-9]\d{9}$/.test(digits);
+      return { valid, full: valid ? `+44${digits}` : '' };
+    }
+
+    return { valid: false, full: '' };
+  };
+
+  const validatePhone = () => {
+    if (!demoPhone) return true;
+    clearPhoneError();
+
+    const result = normalisePhone();
+    if (result.valid) {
+      if (demoPhoneFull) demoPhoneFull.value = result.full;
+      return true;
+    }
+
+    const dict = demoDict();
+    const message = demoPhoneCountry?.value === 'GB'
+      ? (dict.demoPhoneInvalidGB || 'Enter a valid UK phone number (10 digits after +44).')
+      : (dict.demoPhoneInvalidES || 'Enter a valid Spanish phone number (9 digits).');
+
+    demoPhone.setCustomValidity(message);
+    if (demoPhoneError) demoPhoneError.textContent = message;
+    demoPhone.closest('.phone-input-group')?.classList.add('has-error');
+    demoPhone.reportValidity();
+    return false;
+  };
+
+  const updatePhoneUi = () => {
+    if (!demoPhone || !demoPhoneCountry) return;
+    demoPhone.placeholder = demoPhoneCountry.value === 'GB' ? '7700 900000' : '600 000 000';
+    clearPhoneError();
+  };
+
   document.querySelectorAll('.js-open-demo').forEach((el) => {
-    el.addEventListener('click', (e) => { e.preventDefault(); openDemo(el); });
+    el.addEventListener('click', (e) => { e.preventDefault(); openDemo(el, 'form'); });
   });
   document.querySelectorAll('[data-close-demo]').forEach((el) => {
     el.addEventListener('click', closeDemo);
@@ -678,8 +785,20 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
     if (e.key === 'Escape' && demoModal?.classList.contains('is-open')) closeDemo();
   });
 
+  demoPhoneCountry?.addEventListener('change', updatePhoneUi);
+  demoPhone?.addEventListener('input', clearPhoneError);
+  demoPhone?.addEventListener('blur', () => {
+    if (demoPhone.value.trim()) validatePhone();
+  });
+  updatePhoneUi();
+
   if (demoForm) {
-    demoForm.addEventListener('submit', () => {
+    demoForm.addEventListener('submit', (event) => {
+      if (!validatePhone()) {
+        event.preventDefault();
+        return;
+      }
+
       const nextInput = document.getElementById('demo-form-next');
       if (!nextInput) return;
       const targetUrl = new URL(window.location.href);
@@ -689,11 +808,11 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
   }
 
   const demoUrl = new URL(window.location.href);
-  if (demoUrl.searchParams.get('demo_submitted') === '1' && demoStatus) {
-    const lang = (window.getCurrentLanguage && window.getCurrentLanguage()) || 'en';
-    demoStatus.textContent = (window.translations && window.translations[lang]?.demoSubmitted) || 'Thank you. Your request has been sent.';
-    demoStatus.classList.add('is-visible');
-    openDemo();
+  if (demoUrl.searchParams.get('demo_submitted') === '1') {
+    openDemo(null, 'success');
+    demoForm?.reset();
+    if (demoPhoneFull) demoPhoneFull.value = '';
+    updatePhoneUi();
     demoUrl.searchParams.delete('demo_submitted');
     window.history.replaceState({}, '', demoUrl.pathname + demoUrl.search + demoUrl.hash);
   }

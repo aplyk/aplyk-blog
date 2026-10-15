@@ -227,12 +227,17 @@ const translations = {
     demoIndOther: "Other",
     demoEmailLabel: "Work email",
     demoEmailPh: "you@company.com",
-    demoPhoneLabel: "Phone (optional)",
-    demoPhonePh: "+34 600 000 000",
+    demoPhoneLabel: "Phone",
+    demoPhonePh: "600 000 000",
+    demoPhoneInvalidES: "Enter a valid Spanish phone number (9 digits).",
+    demoPhoneInvalidGB: "Enter a valid UK phone number (10 digits after +44).",
     demoFormNote: "Your information will be sent to info@aplyk.com.",
     demoCancel: "Cancel",
     demoSubmit: "Send request",
-    demoSubmitted: "Thank you. Your request has been sent — we'll be in touch shortly."
+    demoSubmitted: "Thank you. Your request has been sent — we'll be in touch shortly.",
+    demoSuccessTitle: "Request sent",
+    demoSuccessText: "Thank you for contacting Aplyk. We've received your request and will be in touch shortly.",
+    demoSuccessClose: "Close"
   },
 
   es: {
@@ -461,12 +466,17 @@ const translations = {
     demoIndOther: "Otro",
     demoEmailLabel: "Correo corporativo",
     demoEmailPh: "tu@empresa.com",
-    demoPhoneLabel: "Teléfono (opcional)",
-    demoPhonePh: "+34 600 000 000",
+    demoPhoneLabel: "Teléfono",
+    demoPhonePh: "600 000 000",
+    demoPhoneInvalidES: "Introduce un número de teléfono español válido (9 dígitos).",
+    demoPhoneInvalidGB: "Introduce un número de teléfono del Reino Unido válido (10 dígitos después de +44).",
     demoFormNote: "Tu información se enviará a info@aplyk.com.",
     demoCancel: "Cancelar",
     demoSubmit: "Enviar solicitud",
-    demoSubmitted: "Gracias. Tu solicitud se ha enviado — nos pondremos en contacto contigo enseguida."
+    demoSubmitted: "Gracias. Tu solicitud se ha enviado — nos pondremos en contacto contigo enseguida.",
+    demoSuccessTitle: "Solicitud enviada",
+    demoSuccessText: "Gracias por contactar con Aplyk. Hemos recibido tu solicitud y nos pondremos en contacto contigo enseguida.",
+    demoSuccessClose: "Cerrar"
   }
 };
 
