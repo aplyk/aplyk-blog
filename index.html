@@ -78,7 +78,7 @@
 <input name="_subject" type="hidden" value="New Aplyk demo request"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
-<input id="demo-form-next" name="_next" type="hidden" value=""/>
+<input id="demo-form-next" name="_next" type="hidden" value="https://aplyk.com/?demo_submitted=1"/>
 <div aria-hidden="true" class="honeypot">
 <label for="demo-website">Website</label>
 <input autocomplete="off" id="demo-website" name="_honey" tabindex="-1" type="text"/>
@@ -792,20 +792,20 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
   });
   updatePhoneUi();
 
-  if (demoForm) {
-    demoForm.addEventListener('submit', (event) => {
-      if (!validatePhone()) {
-        event.preventDefault();
-        return;
-      }
+  // if (demoForm) {
+  //   demoForm.addEventListener('submit', (event) => {
+  //     if (!validatePhone()) {
+  //       event.preventDefault();
+  //       return;
+  //     }
 
-      const nextInput = document.getElementById('demo-form-next');
-      if (!nextInput) return;
-      const targetUrl = new URL(window.location.href);
-      targetUrl.searchParams.set('demo_submitted', '1');
-      nextInput.value = targetUrl.toString();
-    });
-  }
+  //     const nextInput = document.getElementById('demo-form-next');
+  //     if (!nextInput) return;
+  //     const targetUrl = new URL(window.location.href);
+  //     targetUrl.searchParams.set('demo_submitted', '1');
+  //     nextInput.value = targetUrl.toString();
+  //   });
+  // }
 
   const demoUrl = new URL(window.location.href);
   if (demoUrl.searchParams.get('demo_submitted') === '1') {
