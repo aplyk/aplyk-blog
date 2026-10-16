@@ -21,10 +21,136 @@
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px} .policy-card{background:var(--soft);border-radius:16px;padding:18px}
     table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #e7edf1}
     th{background:var(--soft);color:var(--navy)} .table-wrap{overflow-x:auto;border:1px solid #e7edf1;border-radius:14px}
-    footer{background:var(--navy-deep);color:rgba(255,255,255,.68);padding:26px 20px} footer .wrap{display:flex;gap:22px;justify-content:space-between;flex-wrap:wrap}
-    footer a{color:#fff} @media(max-width:650px){.grid{grid-template-columns:1fr} section{padding:22px}}
+    footer{
+      background:var(--navy);
+      color:#fff;
+      padding:80px 24px 40px;
+    }
+
+    .footer-inner{
+      max-width:1280px;
+      margin:0 auto;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:32px;
+      margin-bottom:64px;
+    }
+
+    .footer-brand img{
+      height:48px;
+      width:auto;
+    }
+
+    .footer-brand p,
+    .footer-column p{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-column h4{
+      color:#fff;
+      font-size:18px;
+      margin:0 0 16px;
+    }
+
+    .footer-column ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .footer-column a{
+      color:#cbd5e1;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    .footer-column a:hover{
+      color:var(--orange);
+    }
+
+    .footer-column a.active{
+      font-weight:700;
+    }
+
+    .footer-socials{
+      display:flex;
+      gap:16px;
+      margin-top:16px;
+    }
+
+    .footer-socials a{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:rgba(255,255,255,.1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .footer-socials img{
+      width:20px;
+      height:20px;
+      object-fit:contain;
+      filter:brightness(0) invert(1);
+    }
+
+    .footer-newsletter{
+      display:flex;
+      gap:8px;
+      margin-top:8px;
+    }
+
+    .footer-newsletter input{
+      min-width:0;
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.1);
+      color:#fff;
+    }
+
+    .footer-newsletter button{
+      border:0;
+      border-radius:8px;
+      background:var(--orange);
+      color:#fff;
+      padding:10px 14px;
+      cursor:pointer;
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.1);
+      padding-top:32px;
+      text-align:center;
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:650px){
+      .grid{grid-template-columns:1fr}
+      section{padding:22px}
+      .footer-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
 <body>
 <header>
   <div class="wrap">
@@ -50,6 +176,81 @@
     <section><h2>6. Contact</h2><p>If you have questions about this policy or Aplyk’s use of storage technologies, contact <a href="mailto:info@aplyk.com">info@aplyk.com</a>.</p></section>
   </div>
 </main>
-<footer><div class="wrap"><span>© 2026 Aplyk</span><span><a href="../../../index.html">Home</a> · <a href="../Privacy/privacy-policy-en.html">Privacy Policy</a></span></div></footer>
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="../../../index.html" aria-label="aplyk">
+          <img src="../../../images/LogoBlue_LightBlueBG.png" alt="aplyk Logo">
+        </a>
+
+        <p>
+          The AI-powered workforce platform built for modern agility and compliance.
+        </p>
+
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/aplyk/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src="../../../images/linkedin.png" alt="LinkedIn">
+          </a>
+
+          <a href="#" aria-label="Twitter">
+            <img src="../../../images/twitter.png" alt="Twitter">
+          </a>
+
+          <a href="https://www.instagram.com/aplyk.app?utm_source=qr&igsh=MTNleTNmcjNldzcx" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="../../../images/instagram.png" alt="Instagram">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="../../../index.html#companies">For companies</a></li>
+          <li><a href="../../../index.html#workers">For professionals</a></li>
+          <li><a href="../../../index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="../../../blog.html">Blog</a></li>
+          <li><a href="#">Contact support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../Privacy/privacy-policy-en.html">Privacy Policy</a></li>
+          <li><a href="../Terms/terms-of-service-en.html">Terms of Service</a></li>
+          <li><a class="active" href="./cookie-policy-en.html">Cookie Policy</a></li>
+          <li><a href="../Security/security-en.html">Security</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Stay up to date</h4>
+        <p>Get the latest trends straight to your inbox.</p>
+
+        <div class="footer-newsletter">
+          <input type="email" placeholder="you@email.com">
+          <button type="button">→</button>
+        </div>
+      </div>
+
+    </div>
+
+  <div class="footer-bottom">
+    <p>© <span id="currentYear"></span> Aplyk. All rights reserved.</p>
+  </div>
+
+  </div>
+</footer>
 </body>
 </html>
