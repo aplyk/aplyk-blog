@@ -753,12 +753,12 @@
 
   if (mobileContactActions && mobileContactDeleteZone) {
     const CONTACT_HIDDEN_KEY = 'aplyk_mobile_contact_hidden';
-    const dragThreshold = 6;
-    let pointerId = null;
+    const dragThreshold = 8;
     let startX = 0;
     let startY = 0;
     let startLeft = 0;
     let startTop = 0;
+    let currentTouchId = null;
     let isDragging = false;
     let suppressNextClick = false;
 
@@ -772,10 +772,10 @@
 
     const positionForDragging = () => {
       const rect = mobileContactActions.getBoundingClientRect();
-      mobileContactActions.style.left = `${rect.left}px`;
-      mobileContactActions.style.top = `${rect.top}px`;
       mobileContactActions.style.right = 'auto';
       mobileContactActions.style.transform = 'none';
+      mobileContactActions.style.left = `${rect.left}px`;
+      mobileContactActions.style.top = `${rect.top}px`;
       return rect;
     };
 
@@ -797,6 +797,29 @@
       return cx >= deleteRect.left && cx <= deleteRect.right && cy >= deleteRect.top && cy <= deleteRect.bottom;
     };
 
+    const moveTo = (clientX, clientY) => {
+      const dx = clientX - startX;
+      const dy = clientY - startY;
+
+      if (!isDragging && Math.hypot(dx, dy) < dragThreshold) return;
+
+      if (!isDragging) {
+        isDragging = true;
+        suppressNextClick = true;
+        mobileContactActions.classList.add('is-dragging');
+        showDeleteZone();
+      }
+
+      const rect = mobileContactActions.getBoundingClientRect();
+      const margin = 8;
+      const maxLeft = Math.max(margin, window.innerWidth - rect.width - margin);
+      const maxTop = Math.max(margin, window.innerHeight - rect.height - margin);
+
+      mobileContactActions.style.left = `${clamp(startLeft + dx, margin, maxLeft)}px`;
+      mobileContactActions.style.top = `${clamp(startTop + dy, margin, maxTop)}px`;
+      mobileContactDeleteZone.classList.toggle('is-active', isOverDeleteZone());
+    };
+
     const snapToEdge = () => {
       const rect = mobileContactActions.getBoundingClientRect();
       const margin = 8;
@@ -813,49 +836,7 @@
       mobileContactActions.style.transform = 'none';
     };
 
-    mobileContactActions.addEventListener('pointerdown', (event) => {
-      if (!window.matchMedia('(max-width: 960px)').matches || mobileContactActions.classList.contains('is-dismissed')) return;
-      if (event.pointerType === 'mouse' && event.button !== 0) return;
-
-      const rect = positionForDragging();
-      pointerId = event.pointerId;
-      startX = event.clientX;
-      startY = event.clientY;
-      startLeft = rect.left;
-      startTop = rect.top;
-      isDragging = false;
-      mobileContactActions.setPointerCapture?.(pointerId);
-    });
-
-    mobileContactActions.addEventListener('pointermove', (event) => {
-      if (event.pointerId !== pointerId) return;
-
-      const dx = event.clientX - startX;
-      const dy = event.clientY - startY;
-
-      if (!isDragging && Math.hypot(dx, dy) < dragThreshold) return;
-
-      if (!isDragging) {
-        isDragging = true;
-        suppressNextClick = true;
-        mobileContactActions.classList.add('is-dragging');
-        showDeleteZone();
-      }
-
-      event.preventDefault();
-      const rect = mobileContactActions.getBoundingClientRect();
-      const margin = 8;
-      const maxLeft = Math.max(margin, window.innerWidth - rect.width - margin);
-      const maxTop = Math.max(margin, window.innerHeight - rect.height - margin);
-
-      mobileContactActions.style.left = `${clamp(startLeft + dx, margin, maxLeft)}px`;
-      mobileContactActions.style.top = `${clamp(startTop + dy, margin, maxTop)}px`;
-      mobileContactDeleteZone.classList.toggle('is-active', isOverDeleteZone());
-    }, { passive: false });
-
-    const finishDrag = (event) => {
-      if (event.pointerId !== pointerId) return;
-
+    const finishDrag = () => {
       if (isDragging) {
         if (isOverDeleteZone()) {
           mobileContactActions.classList.add('is-dismissed');
@@ -867,13 +848,72 @@
 
       mobileContactActions.classList.remove('is-dragging');
       hideDeleteZone();
-      try { mobileContactActions.releasePointerCapture?.(pointerId); } catch (_) {}
-      pointerId = null;
+      currentTouchId = null;
       isDragging = false;
     };
 
-    mobileContactActions.addEventListener('pointerup', finishDrag);
-    mobileContactActions.addEventListener('pointercancel', finishDrag);
+    // Touch handling: deliberately separate from pointer events because mobile
+    // browsers can otherwise treat the call/WhatsApp anchors as native gestures.
+    mobileContactActions.addEventListener('touchstart', (event) => {
+      if (!window.matchMedia('(max-width: 960px)').matches || mobileContactActions.classList.contains('is-dismissed')) return;
+      if (event.touches.length !== 1) return;
+
+      const touch = event.touches[0];
+      const rect = positionForDragging();
+      currentTouchId = touch.identifier;
+      startX = touch.clientX;
+      startY = touch.clientY;
+      startLeft = rect.left;
+      startTop = rect.top;
+      isDragging = false;
+    }, { passive: true });
+
+    mobileContactActions.addEventListener('touchmove', (event) => {
+      const touch = Array.from(event.touches).find((item) => item.identifier === currentTouchId);
+      if (!touch) return;
+
+      const dx = touch.clientX - startX;
+      const dy = touch.clientY - startY;
+      if (isDragging || Math.hypot(dx, dy) >= dragThreshold) {
+        event.preventDefault();
+      }
+      moveTo(touch.clientX, touch.clientY);
+    }, { passive: false });
+
+    mobileContactActions.addEventListener('touchend', (event) => {
+      const ended = Array.from(event.changedTouches).some((item) => item.identifier === currentTouchId);
+      if (ended) finishDrag();
+    }, { passive: true });
+
+    mobileContactActions.addEventListener('touchcancel', finishDrag, { passive: true });
+
+    // Mouse support for desktop responsive testing.
+    let mouseActive = false;
+    const onMouseMove = (event) => {
+      if (!mouseActive) return;
+      event.preventDefault();
+      moveTo(event.clientX, event.clientY);
+    };
+    const onMouseUp = () => {
+      if (!mouseActive) return;
+      mouseActive = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+      finishDrag();
+    };
+
+    mobileContactActions.addEventListener('mousedown', (event) => {
+      if (!window.matchMedia('(max-width: 960px)').matches || event.button !== 0) return;
+      const rect = positionForDragging();
+      startX = event.clientX;
+      startY = event.clientY;
+      startLeft = rect.left;
+      startTop = rect.top;
+      isDragging = false;
+      mouseActive = true;
+      document.addEventListener('mousemove', onMouseMove, { passive: false });
+      document.addEventListener('mouseup', onMouseUp);
+    });
 
     mobileContactActions.addEventListener('click', (event) => {
       if (!suppressNextClick) return;
@@ -881,6 +921,10 @@
       event.stopPropagation();
       suppressNextClick = false;
     }, true);
+
+    mobileContactActions.querySelectorAll('a, img').forEach((el) => {
+      el.setAttribute('draggable', 'false');
+    });
   }
 
   // ===== Mobile fixed CTA: hide it whenever another demo CTA is actually visible =====
