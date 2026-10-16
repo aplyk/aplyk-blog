@@ -781,7 +781,7 @@
       }
 
       const rect = mobileContactActions.getBoundingClientRect();
-      const margin = 8;
+      const margin = 16;
       const demoBarHeight = document.getElementById('mobileDemoBar')?.getBoundingClientRect().height || 0;
       const maxLeft = Math.max(margin, window.innerWidth - rect.width - margin);
       const maxTop = Math.max(margin, window.innerHeight - demoBarHeight - rect.height - margin);
@@ -792,7 +792,7 @@
 
     const snapToEdge = () => {
       const rect = mobileContactActions.getBoundingClientRect();
-      const margin = 8;
+      const margin = 16;
       const demoBarHeight = document.getElementById('mobileDemoBar')?.getBoundingClientRect().height || 0;
       const maxTop = Math.max(margin, window.innerHeight - demoBarHeight - rect.height - margin);
       const top = clamp(rect.top, margin, maxTop);
