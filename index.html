@@ -501,10 +501,82 @@
 <div class="footer-col">
 <h4 data-i18n="footerStay">Stay updated</h4>
 <p data-i18n="footerStayText" style="color:rgba(255,255,255,.62); font-size:14px; margin-bottom:14px;">Get the latest workforce trends directly to your inbox.</p>
-<form class="footer-form">
+
+<!-- <form class="footer-form">
 <input data-i18n="footerEmailPh" data-i18n-attribute="placeholder" placeholder="Enter your email" type="email"/>
 <button type="button"><span data-i18n="footerSubscribe">Subscribe</span> <span class="material-symbols-outlined" style="font-size:16px;">send</span></button>
+</form> -->
+<form
+  class="footer-form"
+  id="newsletter-form"
+  action="https://formsubmit.co/info@aplyk.com"
+  method="POST"
+>
+  <input
+    type="hidden"
+    name="_subject"
+    value="[NEWSLETTER] New Aplyk subscription"
+  />
+
+  <input
+    type="hidden"
+    name="_template"
+    value="table"
+  />
+
+  <input
+    type="hidden"
+    name="_captcha"
+    value="false"
+  />
+
+  <input
+    type="hidden"
+    name="_next"
+    id="newsletter-form-next"
+    value="https://aplyk.com/?newsletter_submitted=1"
+  />
+
+  <div class="honeypot" aria-hidden="true">
+    <label for="newsletter-website">Website</label>
+    <input
+      type="text"
+      name="_honey"
+      id="newsletter-website"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+
+  <input
+    id="newsletter-email"
+    name="Email"
+    type="email"
+    required
+    autocomplete="email"
+    data-i18n="footerEmailPh"
+    data-i18n-attribute="placeholder"
+    placeholder="Enter your email"
+  />
+
+  <button type="submit">
+    <span data-i18n="footerSubscribe">Subscribe</span>
+    <span
+      class="material-symbols-outlined"
+      style="font-size:16px;"
+    >send</span>
+  </button>
 </form>
+
+<p
+  id="newsletter-success"
+  data-i18n="newsletterSuccess"
+  hidden
+  style="margin-top:10px; color:rgba(255,255,255,.75); font-size:13px;"
+>
+  Thank you. Your subscription request has been received.
+</p>
+
 </div>
 </div>
 <div class="footer-bottom">
@@ -851,6 +923,26 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
     updatePhoneUi();
     demoUrl.searchParams.delete('demo_submitted');
     window.history.replaceState({}, '', demoUrl.pathname + demoUrl.search + demoUrl.hash);
+  }
+    // ===== Newsletter confirmation =====
+  const newsletterUrl = new URL(window.location.href);
+  const newsletterSuccess = document.getElementById('newsletter-success');
+
+  if (
+    newsletterUrl.searchParams.get('newsletter_submitted') === '1' &&
+    newsletterSuccess
+  ) {
+    newsletterSuccess.hidden = false;
+
+    newsletterUrl.searchParams.delete('newsletter_submitted');
+
+    window.history.replaceState(
+      {},
+      '',
+      newsletterUrl.pathname +
+      newsletterUrl.search +
+      newsletterUrl.hash
+    );
   }
 </script>
 </body>

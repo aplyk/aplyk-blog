@@ -210,6 +210,7 @@ const translations = {
     footerStayText: "Get the latest workforce trends directly to your inbox.",
     footerEmailPh: "Enter your email",
     footerSubscribe: "Subscribe",
+    newsletterSuccess: "Thank you. Your subscription request has been received.",
     footerRights: "aplyk. All rights reserved.",
     footerStatus: "Platform available 24/7",
 
@@ -451,6 +452,7 @@ const translations = {
     footerStayText: "Recibe las últimas tendencias directamente en tu email.",
     footerEmailPh: "Introduce tu email",
     footerSubscribe: "Suscribirse",
+    newsletterSuccess: "Gracias. Hemos recibido tu solicitud de suscripción.",
     footerRights: "aplyk. Todos los derechos reservados.",
     footerStatus: "Plataforma disponible 24/7",
 
