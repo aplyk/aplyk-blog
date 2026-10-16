@@ -1049,7 +1049,7 @@ body { background: #FFFFFF; }
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 14px 0 0 14px;
+    border-radius: 50%;
     color: #fff;
     box-shadow: 0 12px 28px rgba(22, 40, 58, .22);
     transition: width .2s ease, transform .2s ease, filter .2s ease;
@@ -1057,25 +1057,28 @@ body { background: #FFFFFF; }
 
   .mobile-contact-btn:hover,
   .mobile-contact-btn:focus-visible {
-    width: 54px;
-    transform: translateX(0);
+    width: 48px;
+    transform: scale(1.06);
     filter: brightness(.96);
   }
 
   .mobile-contact-btn .material-symbols-outlined {
-    font-size: 25px;
+    font-size: 28px;
     font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
   }
 
   .mobile-whatsapp-icon {
-    width: 25px;
-    height: 25px;
+    width: 34px;
+    height: 34px;
     object-fit: contain;
     display: block;
   }
 
   .mobile-contact-call { background: var(--orange); }
-  .mobile-contact-whatsapp { background: #25D366; }
+  .mobile-contact-whatsapp {
+    background: #29A71A;
+    border-radius: 50%;
+  }
 
   .mobile-demo-bar {
     position: fixed;

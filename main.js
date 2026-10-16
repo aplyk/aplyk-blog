@@ -1052,6 +1052,10 @@ function wireLanguageUI() {
               'data-lang'
             )
           );
+
+          document
+            .getElementById('mobileMenu')
+            ?.classList.add('hidden');
         }
       );
     });

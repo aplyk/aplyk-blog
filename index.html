@@ -61,6 +61,9 @@
     <img src="./images/whatsapp.png" alt="" class="mobile-whatsapp-icon" aria-hidden="true">
   </a>
 </div>
+<div class="mobile-contact-delete-zone" id="mobileContactDeleteZone" aria-hidden="true">
+  <span class="material-symbols-outlined" aria-hidden="true">delete</span>
+</div>
 <button class="mobile-demo-bar js-open-demo" id="mobileDemoBar" type="button" data-i18n="bookDemo">Book a demo</button>
 <!-- ===================== INTRO VIDEO MODAL ===================== -->
 <div aria-hidden="true" class="video-modal" id="videoModal">
@@ -742,6 +745,142 @@
     toggleBackToTop();
     window.addEventListener('scroll', toggleBackToTop);
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // ===== Draggable mobile contact bubbles =====
+  const mobileContactActions = document.getElementById('mobileContactActions');
+  const mobileContactDeleteZone = document.getElementById('mobileContactDeleteZone');
+
+  if (mobileContactActions && mobileContactDeleteZone) {
+    const CONTACT_HIDDEN_KEY = 'aplyk_mobile_contact_hidden';
+    const dragThreshold = 6;
+    let pointerId = null;
+    let startX = 0;
+    let startY = 0;
+    let startLeft = 0;
+    let startTop = 0;
+    let isDragging = false;
+    let suppressNextClick = false;
+
+    try {
+      if (sessionStorage.getItem(CONTACT_HIDDEN_KEY) === '1') {
+        mobileContactActions.classList.add('is-dismissed');
+      }
+    } catch (_) {}
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const positionForDragging = () => {
+      const rect = mobileContactActions.getBoundingClientRect();
+      mobileContactActions.style.left = `${rect.left}px`;
+      mobileContactActions.style.top = `${rect.top}px`;
+      mobileContactActions.style.right = 'auto';
+      mobileContactActions.style.transform = 'none';
+      return rect;
+    };
+
+    const showDeleteZone = () => {
+      mobileContactDeleteZone.classList.add('is-visible');
+      mobileContactDeleteZone.setAttribute('aria-hidden', 'false');
+    };
+
+    const hideDeleteZone = () => {
+      mobileContactDeleteZone.classList.remove('is-visible', 'is-active');
+      mobileContactDeleteZone.setAttribute('aria-hidden', 'true');
+    };
+
+    const isOverDeleteZone = () => {
+      const bubbleRect = mobileContactActions.getBoundingClientRect();
+      const deleteRect = mobileContactDeleteZone.getBoundingClientRect();
+      const cx = bubbleRect.left + bubbleRect.width / 2;
+      const cy = bubbleRect.top + bubbleRect.height / 2;
+      return cx >= deleteRect.left && cx <= deleteRect.right && cy >= deleteRect.top && cy <= deleteRect.bottom;
+    };
+
+    const snapToEdge = () => {
+      const rect = mobileContactActions.getBoundingClientRect();
+      const margin = 8;
+      const demoBarHeight = document.getElementById('mobileDemoBar')?.getBoundingClientRect().height || 0;
+      const maxTop = Math.max(margin, window.innerHeight - demoBarHeight - rect.height - margin);
+      const top = clamp(rect.top, margin, maxTop);
+      const left = rect.left + rect.width / 2 < window.innerWidth / 2
+        ? margin
+        : window.innerWidth - rect.width - margin;
+
+      mobileContactActions.style.left = `${left}px`;
+      mobileContactActions.style.top = `${top}px`;
+      mobileContactActions.style.right = 'auto';
+      mobileContactActions.style.transform = 'none';
+    };
+
+    mobileContactActions.addEventListener('pointerdown', (event) => {
+      if (!window.matchMedia('(max-width: 960px)').matches || mobileContactActions.classList.contains('is-dismissed')) return;
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+      const rect = positionForDragging();
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      startY = event.clientY;
+      startLeft = rect.left;
+      startTop = rect.top;
+      isDragging = false;
+      mobileContactActions.setPointerCapture?.(pointerId);
+    });
+
+    mobileContactActions.addEventListener('pointermove', (event) => {
+      if (event.pointerId !== pointerId) return;
+
+      const dx = event.clientX - startX;
+      const dy = event.clientY - startY;
+
+      if (!isDragging && Math.hypot(dx, dy) < dragThreshold) return;
+
+      if (!isDragging) {
+        isDragging = true;
+        suppressNextClick = true;
+        mobileContactActions.classList.add('is-dragging');
+        showDeleteZone();
+      }
+
+      event.preventDefault();
+      const rect = mobileContactActions.getBoundingClientRect();
+      const margin = 8;
+      const maxLeft = Math.max(margin, window.innerWidth - rect.width - margin);
+      const maxTop = Math.max(margin, window.innerHeight - rect.height - margin);
+
+      mobileContactActions.style.left = `${clamp(startLeft + dx, margin, maxLeft)}px`;
+      mobileContactActions.style.top = `${clamp(startTop + dy, margin, maxTop)}px`;
+      mobileContactDeleteZone.classList.toggle('is-active', isOverDeleteZone());
+    }, { passive: false });
+
+    const finishDrag = (event) => {
+      if (event.pointerId !== pointerId) return;
+
+      if (isDragging) {
+        if (isOverDeleteZone()) {
+          mobileContactActions.classList.add('is-dismissed');
+          try { sessionStorage.setItem(CONTACT_HIDDEN_KEY, '1'); } catch (_) {}
+        } else {
+          snapToEdge();
+        }
+      }
+
+      mobileContactActions.classList.remove('is-dragging');
+      hideDeleteZone();
+      try { mobileContactActions.releasePointerCapture?.(pointerId); } catch (_) {}
+      pointerId = null;
+      isDragging = false;
+    };
+
+    mobileContactActions.addEventListener('pointerup', finishDrag);
+    mobileContactActions.addEventListener('pointercancel', finishDrag);
+
+    mobileContactActions.addEventListener('click', (event) => {
+      if (!suppressNextClick) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressNextClick = false;
+    }, true);
   }
 
   // ===== Mobile fixed CTA: hide it whenever another demo CTA is actually visible =====
