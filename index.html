@@ -781,7 +781,7 @@
       }
 
       const rect = mobileContactActions.getBoundingClientRect();
-      const margin = 16;
+      const margin = 8;
       const demoBarHeight = document.getElementById('mobileDemoBar')?.getBoundingClientRect().height || 0;
       const maxLeft = Math.max(margin, window.innerWidth - rect.width - margin);
       const maxTop = Math.max(margin, window.innerHeight - demoBarHeight - rect.height - margin);
@@ -792,18 +792,29 @@
 
     const snapToEdge = () => {
       const rect = mobileContactActions.getBoundingClientRect();
-      const margin = 16;
-      const demoBarHeight = document.getElementById('mobileDemoBar')?.getBoundingClientRect().height || 0;
-      const maxTop = Math.max(margin, window.innerHeight - demoBarHeight - rect.height - margin);
-      const top = clamp(rect.top, margin, maxTop);
-      const left = rect.left + rect.width / 2 < window.innerWidth / 2
-        ? margin
-        : window.innerWidth - rect.width - margin;
+      const margin = 8;
+      const demoBarHeight =
+        document.getElementById('mobileDemoBar')?.getBoundingClientRect().height || 0;
 
-      mobileContactActions.style.left = `${left}px`;
+      const maxTop = Math.max(
+        margin,
+        window.innerHeight - demoBarHeight - rect.height - margin
+      );
+
+      const top = clamp(rect.top, margin, maxTop);
+      const snapRight =
+        rect.left + rect.width / 2 >= document.documentElement.clientWidth / 2;
+
       mobileContactActions.style.top = `${top}px`;
-      mobileContactActions.style.right = 'auto';
       mobileContactActions.style.transform = 'none';
+
+      if (snapRight) {
+        mobileContactActions.style.left = 'auto';
+        mobileContactActions.style.right = `${margin}px`;
+      } else {
+        mobileContactActions.style.right = 'auto';
+        mobileContactActions.style.left = `${margin}px`;
+      }
     };
 
     const finishDrag = () => {
