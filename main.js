@@ -212,7 +212,8 @@ const translations = {
     footerSubscribe: "Subscribe",
     newsletterSuccess: "Thank you. Your subscription request has been received.",
     newsletterSuccessTitle: "You're subscribed",
-  newsletterSuccessText: "Thank you for subscribing to Aplyk. We'll keep you updated with the latest workforce insights and news.",
+    newsletterSuccessText: "Thank you for subscribing to Aplyk. We'll keep you updated with the latest workforce insights and news.",
+    newsletterSuccessClose: "Close",
     footerRights: "aplyk. All rights reserved.",
     footerStatus: "Platform available 24/7",
 
@@ -457,6 +458,7 @@ const translations = {
     newsletterSuccess: "Gracias. Hemos recibido tu solicitud de suscripción.",
     newsletterSuccessTitle: "Ya estás suscrito",
     newsletterSuccessText: "Gracias por suscribirte a Aplyk. Te mantendremos al día con las últimas novedades y tendencias sobre el mercado laboral.",
+    newsletterSuccessClose: "Cerrar",
     footerRights: "aplyk. Todos los derechos reservados.",
     footerStatus: "Plataforma disponible 24/7",
 

@@ -146,6 +146,61 @@
 </div>
 </div>
 </div>
+
+
+<!-- ===================== NEWSLETTER SUCCESS MODAL ===================== -->
+<div
+  id="newsletter-success-modal"
+  class="modal"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-labelledby="newsletter-success-title"
+>
+  <div class="modal-backdrop" data-close-newsletter></div>
+
+  <div class="modal-dialog">
+
+    <button
+      class="modal-close"
+      type="button"
+      data-close-newsletter
+      aria-label="Close"
+    >
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <div class="demo-success">
+
+      <div class="demo-success-icon" aria-hidden="true">
+        <span class="material-symbols-outlined">check</span>
+      </div>
+
+      <h2
+        id="newsletter-success-title"
+        data-i18n="newsletterSuccessTitle"
+      >
+        You're subscribed
+      </h2>
+
+      <p data-i18n="newsletterSuccessText">
+        Thank you for subscribing to Aplyk. We'll keep you updated with the latest workforce insights and news.
+      </p>
+
+      <button
+        class="btn-primary"
+        type="button"
+        data-close-newsletter
+        data-i18n="newsletterSuccessClose"
+      >
+        Close
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
 <!-- ===================== NAV ===================== -->
 <div class="site-nav aplyk-shared-nav" data-header="shared-v1">
 <div class="wrap nav-inner">
@@ -568,24 +623,7 @@
   </button>
 </form>
 
-<div
-  id="newsletter-success"
-  class="newsletter-success"
-  hidden
-  aria-live="polite"
->
-  <div class="newsletter-success-icon" aria-hidden="true">
-    <span class="material-symbols-outlined">check_circle</span>
-  </div>
 
-  <h3 data-i18n="newsletterSuccessTitle">
-    You're subscribed
-  </h3>
-
-  <p data-i18n="newsletterSuccessText">
-    Thank you for subscribing to Aplyk. We'll keep you updated with the latest workforce insights and news.
-  </p>
-</div>
 
 </div>
 </div>
@@ -775,8 +813,19 @@
   item.addEventListener('click', () => { setTimeout(setVideoSourceForLanguage, 0); });
 });
 
-// Open automatically on first load
-window.addEventListener('DOMContentLoaded', () => { openVideo(); });
+// Open intro video only once per browser session
+const suppressIntroVideo =
+  new URLSearchParams(window.location.search).has('newsletter_submitted') ||
+  new URLSearchParams(window.location.search).has('demo_submitted');
+
+const introVideoSeen = sessionStorage.getItem('aplyk_intro_video_seen');
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (!suppressIntroVideo && !introVideoSeen) {
+    sessionStorage.setItem('aplyk_intro_video_seen', '1');
+    openVideo();
+  }
+});
 
 // ===== Book a demo modal =====
   const demoModal = document.getElementById('demo-modal');
@@ -910,20 +959,6 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
   });
   updatePhoneUi();
 
-  // if (demoForm) {
-  //   demoForm.addEventListener('submit', (event) => {
-  //     if (!validatePhone()) {
-  //       event.preventDefault();
-  //       return;
-  //     }
-
-  //     const nextInput = document.getElementById('demo-form-next');
-  //     if (!nextInput) return;
-  //     const targetUrl = new URL(window.location.href);
-  //     targetUrl.searchParams.set('demo_submitted', '1');
-  //     nextInput.value = targetUrl.toString();
-  //   });
-  // }
 
   const demoUrl = new URL(window.location.href);
   if (demoUrl.searchParams.get('demo_submitted') === '1') {
@@ -934,52 +969,57 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
     demoUrl.searchParams.delete('demo_submitted');
     window.history.replaceState({}, '', demoUrl.pathname + demoUrl.search + demoUrl.hash);
   }
-    // ===== Newsletter confirmation =====
-  const newsletterUrl = new URL(window.location.href);
-  const newsletterSuccess = document.getElementById('newsletter-success');
+ // ===== Newsletter success modal =====
+const newsletterModal = document.getElementById('newsletter-success-modal');
 
+const openNewsletterSuccess = () => {
+  if (!newsletterModal) return;
+
+  closeVideo();
+
+  newsletterModal.classList.add('is-open');
+  newsletterModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+};
+
+const closeNewsletterSuccess = () => {
+  if (!newsletterModal) return;
+
+  newsletterModal.classList.remove('is-open');
+  newsletterModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+};
+
+document.querySelectorAll('[data-close-newsletter]').forEach((el) => {
+  el.addEventListener('click', closeNewsletterSuccess);
+});
+
+document.addEventListener('keydown', (e) => {
   if (
-    newsletterUrl.searchParams.get('newsletter_submitted') === '1' &&
-    newsletterSuccess
+    e.key === 'Escape' &&
+    newsletterModal?.classList.contains('is-open')
   ) {
-    newsletterSuccess.hidden = false;
-
-    newsletterUrl.searchParams.delete('newsletter_submitted');
-
-    window.history.replaceState(
-      {},
-      '',
-      newsletterUrl.pathname +
-      newsletterUrl.search +
-      newsletterUrl.hash
-    );
+    closeNewsletterSuccess();
   }
+});
 
-  // ===== Newsletter confirmation =====
-  const newsletterUrl = new URL(window.location.href);
-  const newsletterSuccess = document.getElementById('newsletter-success');
-  const newsletterForm = document.getElementById('newsletter-form');
+const newsletterUrl = new URL(window.location.href);
 
-  if (
-    newsletterUrl.searchParams.get('newsletter_submitted') === '1' &&
-    newsletterSuccess
-  ) {
-    if (newsletterForm) {
-      newsletterForm.hidden = true;
-    }
+if (newsletterUrl.searchParams.get('newsletter_submitted') === '1') {
+  openNewsletterSuccess();
 
-    newsletterSuccess.hidden = false;
+  document.getElementById('newsletter-form')?.reset();
 
-    newsletterUrl.searchParams.delete('newsletter_submitted');
+  newsletterUrl.searchParams.delete('newsletter_submitted');
 
-    window.history.replaceState(
-      {},
-      '',
-      newsletterUrl.pathname +
-      newsletterUrl.search +
-      newsletterUrl.hash
-    );
-  }
+  window.history.replaceState(
+    {},
+    '',
+    newsletterUrl.pathname +
+    newsletterUrl.search +
+    newsletterUrl.hash
+  );
+}
 </script>
 </body>
 </html>
