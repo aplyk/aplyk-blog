@@ -61,9 +61,6 @@
     <img src="./images/whatsapp.png" alt="" class="mobile-whatsapp-icon" aria-hidden="true">
   </a>
 </div>
-<div class="mobile-contact-delete-zone" id="mobileContactDeleteZone" aria-hidden="true">
-  <span class="material-symbols-outlined" aria-hidden="true">delete</span>
-</div>
 <button class="mobile-demo-bar js-open-demo" id="mobileDemoBar" type="button" data-i18n="bookDemo">Book a demo</button>
 <!-- ===================== INTRO VIDEO MODAL ===================== -->
 <div aria-hidden="true" class="video-modal" id="videoModal">
@@ -749,11 +746,10 @@
 
   // ===== Draggable mobile contact bubbles =====
   const mobileContactActions = document.getElementById('mobileContactActions');
-  const mobileContactDeleteZone = document.getElementById('mobileContactDeleteZone');
 
-  if (mobileContactActions && mobileContactDeleteZone) {
+  if (mobileContactActions) {
     const CONTACT_HIDDEN_KEY = 'aplyk_mobile_contact_hidden';
-    const dragThreshold = 8;
+    const dragThreshold = 10;
     let startX = 0;
     let startY = 0;
     let startLeft = 0;
@@ -761,6 +757,7 @@
     let currentTouchId = null;
     let isDragging = false;
     let suppressNextClick = false;
+    let deleteZone = null;
 
     try {
       if (sessionStorage.getItem(CONTACT_HIDDEN_KEY) === '1') {
@@ -779,19 +776,28 @@
       return rect;
     };
 
-    const showDeleteZone = () => {
-      mobileContactDeleteZone.classList.add('is-visible');
-      mobileContactDeleteZone.setAttribute('aria-hidden', 'false');
+    const createDeleteZone = () => {
+      if (deleteZone) return;
+      deleteZone = document.createElement('div');
+      deleteZone.className = 'mobile-contact-delete-zone';
+      deleteZone.setAttribute('aria-hidden', 'true');
+      deleteZone.innerHTML = '<span aria-hidden="true">×</span>';
+      document.body.appendChild(deleteZone);
+      requestAnimationFrame(() => deleteZone?.classList.add('is-visible'));
     };
 
-    const hideDeleteZone = () => {
-      mobileContactDeleteZone.classList.remove('is-visible', 'is-active');
-      mobileContactDeleteZone.setAttribute('aria-hidden', 'true');
+    const removeDeleteZone = () => {
+      if (!deleteZone) return;
+      const zone = deleteZone;
+      zone.classList.remove('is-visible', 'is-active');
+      deleteZone = null;
+      window.setTimeout(() => zone.remove(), 180);
     };
 
     const isOverDeleteZone = () => {
+      if (!deleteZone) return false;
       const bubbleRect = mobileContactActions.getBoundingClientRect();
-      const deleteRect = mobileContactDeleteZone.getBoundingClientRect();
+      const deleteRect = deleteZone.getBoundingClientRect();
       const cx = bubbleRect.left + bubbleRect.width / 2;
       const cy = bubbleRect.top + bubbleRect.height / 2;
       return cx >= deleteRect.left && cx <= deleteRect.right && cy >= deleteRect.top && cy <= deleteRect.bottom;
@@ -807,7 +813,7 @@
         isDragging = true;
         suppressNextClick = true;
         mobileContactActions.classList.add('is-dragging');
-        showDeleteZone();
+        createDeleteZone();
       }
 
       const rect = mobileContactActions.getBoundingClientRect();
@@ -817,7 +823,7 @@
 
       mobileContactActions.style.left = `${clamp(startLeft + dx, margin, maxLeft)}px`;
       mobileContactActions.style.top = `${clamp(startTop + dy, margin, maxTop)}px`;
-      mobileContactDeleteZone.classList.toggle('is-active', isOverDeleteZone());
+      deleteZone?.classList.toggle('is-active', isOverDeleteZone());
     };
 
     const snapToEdge = () => {
@@ -847,13 +853,11 @@
       }
 
       mobileContactActions.classList.remove('is-dragging');
-      hideDeleteZone();
+      removeDeleteZone();
       currentTouchId = null;
       isDragging = false;
     };
 
-    // Touch handling: deliberately separate from pointer events because mobile
-    // browsers can otherwise treat the call/WhatsApp anchors as native gestures.
     mobileContactActions.addEventListener('touchstart', (event) => {
       if (!window.matchMedia('(max-width: 960px)').matches || mobileContactActions.classList.contains('is-dismissed')) return;
       if (event.touches.length !== 1) return;
@@ -874,9 +878,7 @@
 
       const dx = touch.clientX - startX;
       const dy = touch.clientY - startY;
-      if (isDragging || Math.hypot(dx, dy) >= dragThreshold) {
-        event.preventDefault();
-      }
+      if (isDragging || Math.hypot(dx, dy) >= dragThreshold) event.preventDefault();
       moveTo(touch.clientX, touch.clientY);
     }, { passive: false });
 
@@ -887,7 +889,6 @@
 
     mobileContactActions.addEventListener('touchcancel', finishDrag, { passive: true });
 
-    // Mouse support for desktop responsive testing.
     let mouseActive = false;
     const onMouseMove = (event) => {
       if (!mouseActive) return;
