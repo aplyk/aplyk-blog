@@ -568,14 +568,24 @@
   </button>
 </form>
 
-<p
+<div
   id="newsletter-success"
-  data-i18n="newsletterSuccess"
+  class="newsletter-success"
   hidden
-  style="margin-top:10px; color:rgba(255,255,255,.75); font-size:13px;"
+  aria-live="polite"
 >
-  Thank you. Your subscription request has been received.
-</p>
+  <div class="newsletter-success-icon" aria-hidden="true">
+    <span class="material-symbols-outlined">check_circle</span>
+  </div>
+
+  <h3 data-i18n="newsletterSuccessTitle">
+    You're subscribed
+  </h3>
+
+  <p data-i18n="newsletterSuccessText">
+    Thank you for subscribing to Aplyk. We'll keep you updated with the latest workforce insights and news.
+  </p>
+</div>
 
 </div>
 </div>
@@ -932,6 +942,32 @@ window.addEventListener('DOMContentLoaded', () => { openVideo(); });
     newsletterUrl.searchParams.get('newsletter_submitted') === '1' &&
     newsletterSuccess
   ) {
+    newsletterSuccess.hidden = false;
+
+    newsletterUrl.searchParams.delete('newsletter_submitted');
+
+    window.history.replaceState(
+      {},
+      '',
+      newsletterUrl.pathname +
+      newsletterUrl.search +
+      newsletterUrl.hash
+    );
+  }
+
+  // ===== Newsletter confirmation =====
+  const newsletterUrl = new URL(window.location.href);
+  const newsletterSuccess = document.getElementById('newsletter-success');
+  const newsletterForm = document.getElementById('newsletter-form');
+
+  if (
+    newsletterUrl.searchParams.get('newsletter_submitted') === '1' &&
+    newsletterSuccess
+  ) {
+    if (newsletterForm) {
+      newsletterForm.hidden = true;
+    }
+
     newsletterSuccess.hidden = false;
 
     newsletterUrl.searchParams.delete('newsletter_submitted');
