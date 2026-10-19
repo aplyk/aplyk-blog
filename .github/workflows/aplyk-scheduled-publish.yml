@@ -1,0 +1,79 @@
+name: Aplyk scheduled publishing
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aplyk-scheduled-publishing
+  cancel-in-progress: false
+
+jobs:
+  publish-due-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Publish due Aplyk content
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin '+refs/heads/scheduled/*:refs/remotes/origin/scheduled/*' || true
+          python3 - <<'PY'
+          import json, subprocess, datetime, sys
+
+          def run(*args, check=True):
+              cp = subprocess.run(args, text=True, capture_output=True)
+              if check and cp.returncode != 0:
+                  raise RuntimeError((cp.stderr or cp.stdout).strip())
+              return cp
+
+          now = datetime.datetime.now(datetime.timezone.utc)
+          refs = run('git','for-each-ref','--format=%(refname:short)','refs/remotes/origin/scheduled/', check=False).stdout.splitlines()
+          failed = False
+          for ref in refs:
+              if not ref.startswith('origin/scheduled/'):
+                  continue
+              branch = ref[len('origin/'):]
+              meta_cp = run('git','show',f'{ref}:.aplyk-schedule.json', check=False)
+              if meta_cp.returncode != 0:
+                  print(f'Skipping {branch}: no schedule metadata')
+                  continue
+              try:
+                  meta = json.loads(meta_cp.stdout)
+                  due = datetime.datetime.fromisoformat(meta['publish_at_utc'].replace('Z','+00:00'))
+              except Exception as exc:
+                  print(f'Invalid metadata on {branch}: {exc}')
+                  failed = True
+                  continue
+              if due > now:
+                  print(f'Not due: {branch} -> {due.isoformat()}')
+                  continue
+              target = meta.get('target_branch','main')
+              commit = meta['content_commit']
+              print(f'Publishing {branch} to {target}; content commit {commit}')
+              try:
+                  run('git','fetch','origin',target)
+                  run('git','checkout','-B',target,f'origin/{target}')
+                  cp = run('git','cherry-pick',commit, check=False)
+                  if cp.returncode != 0:
+                      run('git','cherry-pick','--abort',check=False)
+                      raise RuntimeError((cp.stderr or cp.stdout).strip())
+                  run('git','push','origin',target)
+                  run('git','push','origin','--delete',branch)
+                  print(f'Published and removed schedule branch: {branch}')
+              except Exception as exc:
+                  print(f'ERROR publishing {branch}: {exc}')
+                  failed = True
+          if failed:
+              sys.exit(1)
+          PY
