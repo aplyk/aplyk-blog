@@ -1031,33 +1031,116 @@ body { background: #FFFFFF; }
 
 
 /* =========================================================
-   MOBILE QUICK CONTACT + STICKY DEMO CTA
+   QUICK CONTACT + MOBILE STICKY DEMO CTA
    ========================================================= */
-.mobile-contact-actions,
 .mobile-demo-bar { display: none; }
+
+/* Desktop: fixed tabs that expand towards the left on hover. */
+@media (min-width: 961px) {
+  body .mobile-contact-actions {
+    display: flex !important;
+    position: fixed !important;
+    left: auto !important;
+    right: 0 !important;
+    top: 55% !important;
+    transform: translateY(-50%) !important;
+    z-index: 980 !important;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+}
+
+.mobile-contact-actions {
+  position: fixed;
+  right: 0;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 980;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.mobile-contact-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  overflow: hidden;
+  padding: 0 12px;
+  border-radius: 16px 0 0 16px;
+  color: #fff;
+  white-space: nowrap;
+  box-shadow: 0 12px 28px rgba(22, 40, 58, .22);
+  transition: width .22s ease, filter .2s ease, box-shadow .2s ease;
+}
+
+.mobile-contact-btn:hover,
+.mobile-contact-btn:focus-visible {
+  width: 142px;
+  filter: brightness(.96);
+  box-shadow: 0 14px 30px rgba(22, 40, 58, .28);
+}
+
+.mobile-contact-btn .material-symbols-outlined {
+  flex: 0 0 24px;
+  width: 24px;
+  font-size: 25px;
+  text-align: center;
+  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+}
+
+.mobile-whatsapp-icon {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+.mobile-contact-btn::after {
+  opacity: 0;
+  transform: translateX(6px);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  transition: opacity .16s ease .04s, transform .18s ease .04s;
+}
+
+.mobile-contact-call::after { content: "Call"; }
+html[lang="es"] .mobile-contact-call::after { content: "Llamar"; }
+.mobile-contact-whatsapp::after { content: "WhatsApp"; }
+
+.mobile-contact-btn:hover::after,
+.mobile-contact-btn:focus-visible::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-contact-call { background: var(--orange); }
+.mobile-contact-whatsapp { background: #29A71A; }
 
 @media (max-width: 960px) {
   .mobile-contact-actions {
-    position: fixed;
-    right: 0;
+    right: 8px;
     top: 55%;
     transform: translateY(-50%);
-    z-index: 980;
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 8px;
   }
 
   .mobile-contact-btn {
     width: 48px;
     height: 48px;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    gap: 0;
+    padding: 0;
     border-radius: 50%;
-    color: #fff;
-    box-shadow: 0 12px 28px rgba(22, 40, 58, .22);
-    transition: width .2s ease, transform .2s ease, filter .2s ease;
+    transition: transform .2s ease, filter .2s ease;
   }
 
   .mobile-contact-btn:hover,
@@ -1068,22 +1151,21 @@ body { background: #FFFFFF; }
   }
 
   .mobile-contact-btn .material-symbols-outlined {
+    flex-basis: auto;
+    width: auto;
     font-size: 28px;
     font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
   }
 
   .mobile-whatsapp-icon {
+    flex-basis: auto;
     width: 34px;
     height: 34px;
-    object-fit: contain;
-    display: block;
   }
 
-  .mobile-contact-call { background: var(--orange); }
-  .mobile-contact-whatsapp {
-    background: #29A71A;
-    border-radius: 50%;
-  }
+  .mobile-contact-btn::after { display: none !important; }
+
+  .mobile-contact-whatsapp { border-radius: 50%; }
 
   .mobile-demo-bar {
     position: fixed;
