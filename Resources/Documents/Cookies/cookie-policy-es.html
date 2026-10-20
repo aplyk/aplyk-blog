@@ -187,39 +187,81 @@
 <div class="relative z-10 flex w-full flex-col">
 <!-- Navigation -->
 <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-12">
-<a aria-label="aplyk" class="brand flex items-center" href="../../../index.html">
-<img alt="aplyk" class="h-16 sm:h-15 lg:h-15 w-auto object-contain" loading="lazy" src="../../../images/LogoBlue_LightBlueBG.png"/>
-</a>
-<!-- Desktop Menu -->
-<nav aria-label="Primary" class="hidden md:flex flex-1 justify-center gap-8">
-<a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#companies">Empresas</a>
-<a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#workers">Profesionales</a>
-<a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#faq">FAQ</a>
-<a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../blog.html">Blog</a>
-</nav>
-<!-- Actions -->
-<div class="flex items-center gap-4">
-<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
-<span class="truncate">Iniciar sesión</span>
-</button>
-<a class="flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity" href="../../../index.html#demo">
+        <a class="brand flex items-center" href="../../../index.html" aria-label="aplyk">
+          <img src="../../../images/LogoBlue_LightBlueBG.png" alt="aplyk" class="h-16 sm:h-15 lg:h-15 w-auto object-contain" loading="lazy">
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#companies">Empresas</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#workers">Profesionales</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#faq">FAQ</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../blog.html">Blog</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../about.html">Sobre nosotros</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+          <button type="button" class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
+            <span class="truncate">Iniciar sesión</span>
+          </button>
+
+          <a href="../../../index.html#demo" class="hidden md:flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
             Reservar una demo
           </a>
-<!-- Mobile Menu Button -->
-<button aria-label="Abrir menú" class="md:hidden flex items-center justify-center text-white" id="mobileMenuBtn">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</header>
-<!-- Mobile Menu -->
-<div class="md:hidden hidden border-b border-white/10 bg-primary/95 backdrop-blur-sm" id="mobileMenu">
-<div class="px-6 py-4 flex flex-col gap-3">
-<a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../index.html#companies">Para empresas</a>
-<a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../index.html#workers">Para profesionales</a>
-<a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../blog.html">Blog</a>
-</div>
-</div>
-<!-- Page Hero -->
+
+          <div class="relative hidden md:block" id="langWrap">
+            <button id="langBtn" type="button"
+              class="flex items-center gap-1 h-9 px-3 rounded-lg border border-white/20 hover:bg-white/10 text-white text-sm font-bold transition-colors"
+              aria-haspopup="true" aria-expanded="false">
+              <span id="langLabel">ES</span>
+              <span class="material-symbols-outlined" style="font-size:18px; line-height:0;">expand_more</span>
+            </button>
+
+            <div id="langMenu"
+              class="hidden absolute right-0 top-full mt-2 min-w-[150px] rounded-lg bg-white shadow-xl overflow-hidden z-50"
+              role="menu" aria-label="Language selector">
+              <a href="./cookie-policy-es.html" class="block px-4 py-3 text-sm font-semibold text-primary hover:bg-slate-100">Español (ES)</a>
+              <a href="./cookie-policy-en.html" class="block px-4 py-3 text-sm font-semibold text-primary hover:bg-slate-100">English (EN)</a>
+            </div>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden flex items-center justify-center text-white" id="mobileMenuBtn" aria-label="Abrir menú">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden border-b border-white/10 bg-primary/95 backdrop-blur-sm" id="mobileMenu">
+        <nav class="px-6 py-5 flex flex-col gap-4" aria-label="Mobile menu">
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../index.html#companies">Empresas</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../index.html#workers">Profesionales</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../index.html#faq">FAQ</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../blog.html">Blog</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../about.html">Sobre nosotros</a>
+
+          <div class="mt-2 pt-4 border-t border-white/10 flex flex-col gap-3">
+            <button type="button"
+              class="w-full flex items-center justify-center rounded-lg h-10 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold">
+              Iniciar sesión
+            </button>
+
+            <a href="../../../index.html#demo"
+              class="w-full flex items-center justify-center rounded-lg h-10 px-5 bg-accent text-white text-sm font-bold hover:opacity-90 transition-opacity">
+              Reservar una demo
+            </a>
+
+            <div class="flex gap-4 mt-1">
+              <a href="./cookie-policy-es.html" class="text-white/80 hover:text-white text-sm font-bold">ES</a>
+              <a href="./cookie-policy-en.html" class="text-white/80 hover:text-white text-sm font-bold">EN</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Page Hero -->
 <div class="px-6 py-12 lg:px-12 lg:py-16">
 <div class="mx-auto max-w-4xl">
 <div class="flex items-center gap-2 mb-4">
@@ -388,6 +430,29 @@
       mobileMenu.classList.toggle('hidden');
     });
   }
+</script>
+
+
+<script>
+  (() => {
+    const langBtn = document.getElementById('langBtn');
+    const langMenu = document.getElementById('langMenu');
+
+    if (langBtn && langMenu) {
+      langBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isHidden = langMenu.classList.toggle('hidden');
+        langBtn.setAttribute('aria-expanded', String(!isHidden));
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!langMenu.contains(event.target) && event.target !== langBtn) {
+          langMenu.classList.add('hidden');
+          langBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  })();
 </script>
 
 </body>
