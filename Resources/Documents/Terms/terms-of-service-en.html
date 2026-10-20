@@ -495,12 +495,63 @@
         <div class="lg:col-span-1 flex flex-col gap-4">
           <h4 class="text-white font-bold text-lg">Stay up to date</h4>
           <p class="text-slate-300 text-sm">Get the latest trends straight to your inbox.</p>
-          <div class="flex gap-2 mt-1">
-            <input type="email" placeholder="you@email.com" class="flex-1 rounded-lg px-4 py-2 bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent" />
-            <button class="px-4 py-2 bg-accent hover:bg-accent-cta-hover text-white rounded-lg text-sm font-bold transition-colors">
-              <span class="material-symbols-outlined text-[18px]">send</span>
-            </button>
-          </div>
+          
+        <form
+          class="flex gap-2 mt-1"
+          action="https://formsubmit.co/info@aplyk.com"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="[NEWSLETTER] New Aplyk subscription"
+          />
+
+          <input
+            type="hidden"
+            name="_template"
+            value="table"
+          />
+
+          <input
+            type="hidden"
+            name="_captcha"
+            value="false"
+          />
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://aplyk.com/?newsletter_submitted=1"
+          />
+
+          <input
+            type="text"
+            name="_honey"
+            tabindex="-1"
+            autocomplete="off"
+            style="display:none"
+          />
+
+          <input
+            type="email"
+            name="Email"
+            required
+            autocomplete="email"
+            placeholder="you@email.com"
+            class="flex-1 rounded-lg px-4 py-2 bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent"
+          />
+
+          <button
+            type="submit"
+            aria-label="Subscribe"
+            class="px-4 py-2 bg-accent hover:bg-accent-cta-hover text-white rounded-lg text-sm font-bold transition-colors"
+          >
+            <span class="material-symbols-outlined text-[18px]">send</span>
+          </button>
+        </form>
+
+
         </div>
 
       </div>
