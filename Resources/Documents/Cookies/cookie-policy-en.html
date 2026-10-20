@@ -9,13 +9,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "highlight": "#BCD2E2",
+            "soft-blue": "#BCD2E2",
+            "accent": "#F28A3A",
+            "accent-cta": "#F28A3A",
+            "accent-cta-hover": "#d97529",
+            "background-light": "#f9fafb",
+            "background-dark": "#22262a",
+            "faq-bg": "#ebf3f8"
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"],
+            "body": ["Manrope", "sans-serif"]
+          },
+          backgroundImage: {
+            "tech-pattern": "radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px)"
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
     :root{--navy:#2A526F;--navy-deep:#1E3B50;--orange:#F28A3A;--muted:#64798C;--soft:#EBF3F8;--line:rgba(42,82,111,.14)}
     *{box-sizing:border-box} body{margin:0;font-family:Manrope,sans-serif;color:#1C2E3D;background:#f9fafb;line-height:1.65}
-    a{color:var(--orange);font-weight:700} header{background:var(--navy);color:#fff;padding:28px 20px 54px}
-    .wrap{width:min(calc(100% - 40px),920px);margin:auto} nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:52px}
-    nav a{color:#fff;text-decoration:none} .brand{font-size:23px;font-weight:800} h1{font-size:clamp(38px,6vw,58px);line-height:1.05;margin:0 0 12px}
-    header p{margin:0;color:rgba(255,255,255,.68)} main{padding:54px 0 80px} .intro{font-size:18px;color:#43586a;margin-bottom:34px}
+    a{color:var(--orange);font-weight:700}
+    .wrap{width:min(calc(100% - 40px),920px);margin:auto}
+    main{padding:54px 0 80px} .intro{font-size:18px;color:#43586a;margin-bottom:34px}
     section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;margin-bottom:18px;box-shadow:0 10px 30px rgba(42,82,111,.06)}
     h2{color:var(--navy);font-size:24px;margin:0 0 14px} h3{color:var(--navy);font-size:16px;margin:0 0 6px} p{margin:0;color:#556b7c}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px} .policy-card{background:var(--soft);border-radius:16px;padding:18px}
@@ -148,17 +179,71 @@
     }
   </style>
 </head>
-<script>
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
-</script>
 <body>
-<header>
-  <div class="wrap">
-    <nav><a class="brand" href="../../../index.html">aplyk</a><a href="../../../index.html">Back to Aplyk</a></nav>
-    <h1>Cookie Policy</h1>
-    <p>Last updated: September 2026</p>
+<!-- HEADER -->
+  <div class="relative w-full bg-primary text-white overflow-x-clip">
+    <div class="absolute inset-0 z-0 pointer-events-none bg-tech-pattern [background-size:24px_24px] opacity-20"></div>
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] rounded-full bg-blue-400/10 blur-3xl pointer-events-none z-0"></div>
+
+    <div class="relative z-10 flex w-full flex-col">
+      <!-- Navigation -->
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-12">
+        <a class="brand flex items-center" href="../../../index.html" aria-label="aplyk">
+          <img src="../../../images/LogoBlue_LightBlueBG.png" alt="aplyk" class="h-16 sm:h-15 lg:h-15 w-auto object-contain" loading="lazy">
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex flex-1 justify-center gap-8" aria-label="Primary">
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#companies">Companies</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#workers">Professionals</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../index.html#faq">FAQ</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold transition-colors" href="../../../blog.html">Blog</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+          <button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-5 border border-white/20 hover:bg-white/10 transition-colors text-white text-sm font-bold tracking-wide">
+            <span class="truncate">Log in</span>
+          </button>
+          <a href="../../../index.html#demo" class="flex items-center justify-center rounded-lg h-9 px-5 bg-accent text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
+            Book a demo
+          </a>
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden flex items-center justify-center text-white" id="mobileMenuBtn" aria-label="Open menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden border-b border-white/10 bg-primary/95 backdrop-blur-sm" id="mobileMenu">
+        <div class="px-6 py-4 flex flex-col gap-3">
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../index.html#companies">For companies</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../index.html#workers">For professionals</a>
+          <a class="text-white/80 hover:text-white text-sm font-semibold" href="../../../blog.html">Blog</a>
+        </div>
+      </div>
+
+      <!-- Page Hero -->
+      <div class="px-6 py-12 lg:px-12 lg:py-16">
+        <div class="mx-auto max-w-4xl">
+          <div class="flex items-center gap-2 mb-4">
+            <a href="../../../index.html" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
+            <span class="text-white/30 text-sm">/</span>
+            <span class="text-accent-light text-sm font-semibold">Cookie Policy</span>
+          </div>
+          <h1 class="text-white text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+            Cookie Policy
+          </h1>
+          <p class="mt-4 text-white/60 text-lg">
+            Last updated: September 2026
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-</header>
+
+  
 <main>
   <div class="wrap">
     <p class="intro">This Cookie Policy explains how Aplyk uses cookies, local storage and similar technologies on aplyk.com. The current homepage does not load third-party analytics or advertising trackers. The consent manager is nevertheless designed to keep those categories disabled unless and until a visitor authorises them.</p>
@@ -252,5 +337,19 @@
 
   </div>
 </footer>
+
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
+
 </body>
 </html>
