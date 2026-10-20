@@ -966,7 +966,8 @@
 // Open intro video only once per browser session
 const suppressIntroVideo =
   new URLSearchParams(window.location.search).has('newsletter_submitted') ||
-  new URLSearchParams(window.location.search).has('demo_submitted');
+  new URLSearchParams(window.location.search).has('demo_submitted') ||
+  new URLSearchParams(window.location.search).has('demo');
 
 const introVideoSeen = sessionStorage.getItem('aplyk_intro_video_seen');
 
@@ -1111,12 +1112,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   const demoUrl = new URL(window.location.href);
-  if (demoUrl.searchParams.get('demo_submitted') === '1') {
+  const demoSubmitted = demoUrl.searchParams.get('demo_submitted') === '1';
+  const demoRequested = demoUrl.searchParams.get('demo') === '1';
+
+  if (demoSubmitted) {
     openDemo(null, 'success');
     demoForm?.reset();
     if (demoPhoneFull) demoPhoneFull.value = '';
     updatePhoneUi();
     demoUrl.searchParams.delete('demo_submitted');
+    window.history.replaceState({}, '', demoUrl.pathname + demoUrl.search + demoUrl.hash);
+  } else if (demoRequested) {
+    // Open the existing Book a Demo form immediately when visitors
+    // arrive from article CTAs such as https://aplyk.com/?demo=1.
+    openDemo(null, 'form');
+    demoUrl.searchParams.delete('demo');
     window.history.replaceState({}, '', demoUrl.pathname + demoUrl.search + demoUrl.hash);
   }
  // ===== Newsletter success modal =====
