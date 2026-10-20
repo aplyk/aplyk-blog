@@ -133,6 +133,73 @@
       .article-sidebar { grid-template-columns:1fr; }
       .article-section:nth-of-type(even) { padding:1.15rem; }
     }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: #2a526f;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(42, 82, 111, 0.22);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+    }
+    .back-to-top:hover {
+      background: #1e3b50;
+      transform: translateY(-2px);
+    }
+    .back-to-top:focus-visible {
+      outline: 3px solid rgba(242, 138, 58, .45);
+      outline-offset: 3px;
+    }
+    .back-to-top .material-symbols-outlined {
+      font-size: 24px;
+      line-height: 1;
+    }
+    @media (max-width: 640px) {
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+
+    .article-image {
+      margin: 2.2rem 0 2.8rem;
+    }
+    .article-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(42, 82, 111, 0.10);
+    }
+    .article-image--split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .article-image--wide {
+      margin-left: -48px;
+      margin-right: -48px;
+    }
+    @media (max-width: 960px) {
+      .article-image--wide {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
 </style>
 <script type="application/ld+json">
   {
@@ -154,7 +221,11 @@
   }
   </script>
 </head>
-<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+<body id="top" class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+<!-- BACK TO TOP -->
+<button aria-label="Volver arriba" class="back-to-top" id="backToTop" type="button">
+  <span class="material-symbols-outlined">arrow_upward</span>
+</button>
 <!-- SHARED NAV -->
 <div id="site-header"></div>
 <!-- BREADCRUMB -->
@@ -216,7 +287,12 @@
           Hay algo llamativo en el contraste entre la atención que las empresas dedican a proteger sus propios datos y la negligencia con la que gestionan los datos de las personas que aspiraron a trabajar en ellas. Un candidato que envió su CV hace tres años no solo tiene derecho a que esos datos se borren — tiene derecho a saber que los han borrado si lo solicita. El tratamiento de datos de candidatos no seleccionados es uno de los puntos ciegos más comunes en el cumplimiento del GDPR — y uno de los más fáciles de resolver con un proceso sencillo y bien documentado.
         </div>
 </div>
-</section><section class="article-section" id="section-2"><h2>Cuándo puede una empresa conservar los datos más tiempo</h2>
+</section>
+
+<figure class="article-image article-image--split">
+  <img src="./1/caratula_lkn.png" alt="Ilustración del artículo Cuánto tiempo puede conservar una empresa los datos de un candidato" loading="lazy"/>
+</figure>
+<section class="article-section" id="section-2"><h2>Cuándo puede una empresa conservar los datos más tiempo</h2>
 <p>El principio de limitación no significa que los datos deban borrarse automáticamente al terminar el proceso de selección. Hay supuestos en los que la conservación durante un período más largo está justificada — pero requieren una base legal explícita.</p>
 <p>El primero y más común es el consentimiento del candidato para formar parte de una bolsa de empleo o base de datos de futuros procesos. Si la empresa ha informado al candidato de esta finalidad y ha obtenido su consentimiento específico, puede conservar los datos durante el período acordado — generalmente entre uno y dos años, según las guías de la AEPD. Ese consentimiento debe ser revocable en cualquier momento y la empresa debe tener el mecanismo para hacerlo efectivo.</p>
 <p>El segundo supuesto es la defensa de reclamaciones legales. Si existe una reclamación por discriminación en el proceso de selección, la empresa puede necesitar conservar la documentación del proceso durante el tiempo en que esa reclamación pueda ser ejercida — hasta cuatro años en algunos supuestos bajo la normativa laboral española. Este es un caso de conservación justificada por interés legítimo, no por consentimiento del candidato.</p>
@@ -234,7 +310,12 @@
 <p><strong>El segundo paso es definir plazos.</strong> No hay que inventarlos — la AEPD tiene guías concretas y muchos proveedores de software de RRHH tienen configuraciones de retención automática que pueden alinearse con esos plazos. La clave es que el plazo esté documentado y justificado, no que sea arbitrariamente corto o largo.</p>
 <p><strong>El tercer paso es el borrado efectivo.</strong> No solo del CV en la bandeja de entrada — también de copias de seguridad, de sistemas de análisis y, si se ha usado un proveedor de verificación de identidad como Didit u otros similares, de los datos almacenados en sus sistemas. El borrado parcial no cumple el GDPR — el candidato tiene derecho a que sus datos desaparezcan completamente, no a que alguien los mueva a una carpeta de archivo.</p>
 <p>Según la <em>Guía práctica sobre retención de datos en procesos de selección</em> de la AEPD (2023), las empresas que tienen documentado su proceso de retención y borrado — aunque no sea perfecto — reciben un tratamiento significativamente más favorable en los procedimientos de inspección que las que no tienen ningún proceso definido. La buena fe documentada importa.</p>
-</section><section class="article-conclusion" id="conclusion"><h2>Conclusión</h2>
+</section>
+
+<figure class="article-image article-image--wide">
+  <img src="./2/caratula_lkn.png" alt="Ilustración del artículo Cuánto tiempo puede conservar una empresa los datos de un candidato" loading="lazy"/>
+</figure>
+<section class="article-conclusion" id="conclusion"><h2>Conclusión</h2>
 <p>La pregunta de cuánto tiempo puede conservar una empresa los datos de un candidato tiene respuesta: el tiempo necesario para la finalidad del tratamiento, con consentimiento explícito si se quiere extender ese plazo, y con proceso documentado de borrado cuando ese plazo vence. No hay ambigüedad en la normativa — solo una brecha enorme entre lo que la ley exige y lo que la mayoría de las empresas hacen.</p>
 <p>El problema es resoluble. No requiere grandes inversiones ni transformaciones tecnológicas. Requiere decidir cuánto tiempo es razonable conservar los datos de cada tipo de candidato, documentarlo, y asegurarse de que alguien es responsable de ejecutar el borrado cuando llega el momento.</p>
 <p>Mi predicción: en los próximos dos años, la retención indebida de datos de candidatos va a convertirse en uno de los focos prioritarios de las inspecciones de la AEPD — especialmente a medida que más candidatos conozcan su derecho de supresión y empiecen a ejercerlo. Las empresas que tengan su política definida y documentada van a resolver esas solicitudes en minutos. Las que no la tengan van a enfrentarse a un proceso de gestión de reclamaciones mucho más costoso que haber ordenado el sistema desde el principio.</p>
@@ -270,6 +351,24 @@
 </main>
 <!-- SHARED FOOTER -->
 <div id="shared-footer"></div>
+
+<script>
+  const backToTop = document.getElementById('backToTop');
+
+  if (backToTop) {
+    const toggleBackToTop = () => {
+      backToTop.style.display = window.scrollY > 480 ? 'flex' : 'none';
+    };
+
+    toggleBackToTop();
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
+
 <script src="../../components.js"></script><script src="/Resources/shared/footer.js"></script>
 </body>
 </html>

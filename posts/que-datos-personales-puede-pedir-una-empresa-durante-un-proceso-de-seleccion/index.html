@@ -133,6 +133,73 @@
       .article-sidebar { grid-template-columns:1fr; }
       .article-section:nth-of-type(even) { padding:1.15rem; }
     }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: #2a526f;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(42, 82, 111, 0.22);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+    }
+    .back-to-top:hover {
+      background: #1e3b50;
+      transform: translateY(-2px);
+    }
+    .back-to-top:focus-visible {
+      outline: 3px solid rgba(242, 138, 58, .45);
+      outline-offset: 3px;
+    }
+    .back-to-top .material-symbols-outlined {
+      font-size: 24px;
+      line-height: 1;
+    }
+    @media (max-width: 640px) {
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+
+    .article-image {
+      margin: 2.2rem 0 2.8rem;
+    }
+    .article-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(42, 82, 111, 0.10);
+    }
+    .article-image--split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .article-image--wide {
+      margin-left: -48px;
+      margin-right: -48px;
+    }
+    @media (max-width: 960px) {
+      .article-image--wide {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
 </style>
 <script type="application/ld+json">
   {
@@ -154,7 +221,11 @@
   }
   </script>
 </head>
-<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+<body id="top" class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+<!-- BACK TO TOP -->
+<button aria-label="Volver arriba" class="back-to-top" id="backToTop" type="button">
+  <span class="material-symbols-outlined">arrow_upward</span>
+</button>
 <!-- SHARED NAV -->
 <div id="site-header"></div>
 <!-- BREADCRUMB -->
@@ -213,7 +284,12 @@
       Si un dato no cambia a quién vas a llamar, no lo pidas todavía. El candidato lo nota como se nota una carta corta en un buen restaurante, que se lee de un vistazo y deja ganas de pedir. Un formulario breve también es más fácil de rellenar, de revisar y de defender.
     </div>
 </div>
-</section><section class="article-section" id="section-2"><h2>Lo que no se pregunta, aunque se pregunte mucho</h2>
+</section>
+
+<figure class="article-image article-image--split">
+  <img src="./1/caratula_lkn.png" alt="Ilustración del artículo Qué datos personales puede pedir una empresa durante un proceso de selección" loading="lazy"/>
+</figure>
+<section class="article-section" id="section-2"><h2>Lo que no se pregunta, aunque se pregunte mucho</h2>
 <p>El artículo 9 del RGPD prohíbe, en principio, tratar datos sobre origen étnico o racial, opiniones políticas, convicciones religiosas, afiliación sindical, datos genéticos, biométricos dirigidos a identificar, salud, vida sexual u orientación sexual. El Estatuto de los Trabajadores reconoce el derecho a no ser discriminado en el empleo (art. 4.2.c) y declara nulas las decisiones discriminatorias (art. 17.1). La Ley 15/2022 de igualdad de trato extiende esa protección al acceso al empleo.</p>
 <p>Los datos sobre condenas e infracciones penales (art. 10 RGPD) solo pueden tratarse si una norma lo permite, como el certificado de delitos de naturaleza sexual para trabajar con menores (Ley Orgánica 1/1996, art. 13.5). En el Reino Unido, la Equality Act 2010 (sección 60) limita, con excepciones, las preguntas sobre salud antes de hacer una oferta. Y el incumplimiento no es simbólico: las sanciones del RGPD pueden llegar a 20 millones de euros o al 4 % de la facturación anual (art. 83.5).</p>
 <div class="callout">
@@ -232,7 +308,12 @@
       Mi lectura es que el vídeo y la verificación digital no son el problema. El problema es acumular sin límite. Lo que cambia en las plataformas modernas es el reparto: verificar una vez, de forma estructurada, en lugar de que cada empresa reciba fotocopias por correo y las deje en una carpeta compartida. Aplyk, que opera en País Vasco, Cantabria y Greater Manchester, plantea la verificación de identidad como parte del registro y usa la ubicación para confirmar la entrada al turno. La empresa recibe un perfil ya validado, no un archivo adjunto. No es una ETT y no elimina las obligaciones de nadie: quien use una plataforma sigue necesitando saber qué datos se tratan, con qué base y durante cuánto tiempo. Pero menos copias circulando significa menos superficie de riesgo.
     </div>
 </div>
-</section><section class="article-conclusion" id="conclusion"><h2>Conclusión</h2>
+</section>
+
+<figure class="article-image article-image--wide">
+  <img src="./2/caratula_lkn.png" alt="Ilustración del artículo Qué datos personales puede pedir una empresa durante un proceso de selección" loading="lazy"/>
+</figure>
+<section class="article-conclusion" id="conclusion"><h2>Conclusión</h2>
 <p>La ley no te pide adivinar qué está permitido. Te pide una razón por cada dato y un momento por cada razón. Con eso, la mayoría de los problemas desaparecen antes de empezar.</p>
 <p>Mi predicción: antes de 2030, en España, el formulario por capas será lo normal. Pedir DNI, IBAN o datos familiares antes de una oferta se verá como mala práctica, y las inspecciones y auditorías, también las de herramientas con IA, mirarán primero qué se pidió y cuándo.</p>
 <p>Hay salida y es corta. Esta semana, abre tu formulario de candidatura y pregunta por cada campo: ¿cambia a quién llamo? Tacha lo que no. En media hora tendrás un proceso más breve, más fácil de explicar y con menos riesgo.</p>
@@ -273,6 +354,24 @@
 </main>
 <!-- SHARED FOOTER -->
 <div id="shared-footer"></div>
+
+<script>
+  const backToTop = document.getElementById('backToTop');
+
+  if (backToTop) {
+    const toggleBackToTop = () => {
+      backToTop.style.display = window.scrollY > 480 ? 'flex' : 'none';
+    };
+
+    toggleBackToTop();
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
+
 <script src="../../components.js"></script><script src="/Resources/shared/footer.js"></script>
 </body>
 </html>
