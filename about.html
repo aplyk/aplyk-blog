@@ -39,6 +39,15 @@
 <button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">
 <span class="material-symbols-outlined">arrow_upward</span>
 </button>
+<!-- ===================== QUICK CONTACT ACTIONS ===================== -->
+<div class="mobile-contact-actions" id="mobileContactActions" aria-label="Quick contact">
+  <a class="mobile-contact-btn mobile-contact-call" id="mobileCallBtn" href="tel:+34681870145" aria-label="Call Aplyk">
+    <span class="material-symbols-outlined" aria-hidden="true">call</span>
+  </a>
+  <a class="mobile-contact-btn mobile-contact-whatsapp" id="mobileWhatsAppBtn" href="https://wa.me/34681870145" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Aplyk">
+    <img src="./images/whatsapp.png" alt="" class="mobile-whatsapp-icon" aria-hidden="true">
+  </a>
+</div>
 <!-- ===================== INTRO VIDEO MODAL ===================== -->
 <!-- ===================== BOOK A DEMO MODAL ===================== -->
 <!-- ===================== NAV ===================== -->
@@ -139,9 +148,59 @@
 <div class="footer-col">
 <h4 data-i18n="footerStay">Stay updated</h4>
 <p data-i18n="footerStayText" style="color:rgba(255,255,255,.62); font-size:14px; margin-bottom:14px;">Get the latest workforce trends directly to your inbox.</p>
-<form class="footer-form">
-<input data-i18n="footerEmailPh" data-i18n-attribute="placeholder" placeholder="Enter your email" type="email"/>
-<button type="button"><span data-i18n="footerSubscribe">Subscribe</span> <span class="material-symbols-outlined" style="font-size:16px;">send</span></button>
+<form
+  class="footer-form"
+  id="newsletter-form"
+  action="https://formsubmit.co/info@aplyk.com"
+  method="POST"
+>
+  <input
+    type="hidden"
+    name="_subject"
+    value="[NEWSLETTER] New Aplyk subscription"
+  />
+
+  <input
+    type="hidden"
+    name="_template"
+    value="table"
+  />
+
+  <input
+    type="hidden"
+    name="_captcha"
+    value="false"
+  />
+
+  <input
+    type="hidden"
+    name="_next"
+    value="https://aplyk.com/?newsletter_submitted=1"
+  />
+
+  <input
+    type="text"
+    name="_honey"
+    tabindex="-1"
+    autocomplete="off"
+    style="display:none"
+  />
+
+  <input
+    id="newsletter-email"
+    name="Email"
+    type="email"
+    required
+    autocomplete="email"
+    data-i18n="footerEmailPh"
+    data-i18n-attribute="placeholder"
+    placeholder="Enter your email"
+  />
+
+  <button type="submit">
+    <span data-i18n="footerSubscribe">Subscribe</span>
+    <span class="material-symbols-outlined" style="font-size:16px;">send</span>
+  </button>
 </form>
 </div>
 </div>
