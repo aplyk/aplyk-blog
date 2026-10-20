@@ -47,7 +47,9 @@
 }
 </script>
 <script defer="" src="./main.js"></script>
-<link href="./header.css" rel="stylesheet"/></head>
+<link href="./header.css" rel="stylesheet"/>
+<link rel="stylesheet" href="/Resources/shared/footer.css">
+</head>
 <body id="top">
 <button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">
 <span class="material-symbols-outlined">arrow_upward</span>
@@ -505,134 +507,11 @@
 </div>
 </div>
 </section>
+
 <!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
-<div class="wrap">
-<div class="footer-grid">
-<div class="footer-brand">
-<a aria-label="aplyk" class="footer-wordmark" href="#top">
-<img alt="aplyk Logo" loading="lazy" src="./images/LogoBlue_LightBlueBG.png"/>
-</a>
-<p data-i18n="footerTagline">AI-powered temporary workforce platform designed for fast and efficient operations.</p>
-<div class="social-row">
-<a aria-label="LinkedIn" class="social-btn" href="https://www.linkedin.com/company/aplyk/?viewAsMember=true">
-<img alt="LinkedIn" src="./images/linkedin.png"/>
-</a>
-<a aria-label="Twitter" class="social-btn" href="#">
-<img alt="Twitter" src="./images/twitter.png"/>
-</a>
-<a aria-label="Instagram" class="social-btn" href="https://www.instagram.com/aplyk.app?utm_source=qr&amp;igsh=MTNleTNmcjNldzcx">
-<img alt="Instagram" src="./images/instagram.png"/>
-</a>
-</div>
-</div>
-<div class="footer-col">
-<h4 data-i18n="footerSolutions">Solutions</h4>
-<ul>
-<li><a data-i18n="navCompanies" href="#companies">For Companies</a></li>
-<li><a data-i18n="navWorkers" href="#workers">For Workers</a></li>
-<li><a data-i18n="navFaq" href="#faq">FAQ</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4 data-i18n="footerCompany">Company</h4>
-<ul>
-<li><a data-i18n="footerAbout" href="./about.html">About Us</a></li>
-<li><a data-i18n="footerCareers" href="#">Careers</a></li>
-<li><a data-i18n="navBlog" href="./blog.html">Blog</a></li>
-<li><a data-i18n="footerContact" href="#">Contact Support</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4 data-i18n="footerLegal">Legal</h4>
-<ul>
-<li><a class="privacy-policy-link" data-i18n="footerPrivacy" href="#">Privacy Policy</a></li>
-<li><a class="terms-of-service-link" data-i18n="footerTerms" href="#">Terms of Service</a></li>
-<li><a class="cookie-policy-link" data-i18n="footerCookies" href="#">Cookie Policy</a></li>
-<li><button class="cookie-settings-link js-cookie-settings" data-i18n="footerCookieSettings" type="button">Cookie Settings</button></li>
-<li> <a class="security-link" data-i18n="footerSecurity" href="#">Security</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4 data-i18n="footerStay">Stay updated</h4>
-<p data-i18n="footerStayText" style="color:rgba(255,255,255,.62); font-size:14px; margin-bottom:14px;">Get the latest workforce trends directly to your inbox.</p>
+<!-- ===================== SHARED FOOTER ===================== -->
+<div id="shared-footer"></div>
 
-<!-- <form class="footer-form">
-<input data-i18n="footerEmailPh" data-i18n-attribute="placeholder" placeholder="Enter your email" type="email"/>
-<button type="button"><span data-i18n="footerSubscribe">Subscribe</span> <span class="material-symbols-outlined" style="font-size:16px;">send</span></button>
-</form> -->
-<form
-  class="footer-form"
-  id="newsletter-form"
-  action="https://formsubmit.co/info@aplyk.com"
-  method="POST"
->
-  <input
-    type="hidden"
-    name="_subject"
-    value="[NEWSLETTER] New Aplyk subscription"
-  />
-
-  <input
-    type="hidden"
-    name="_template"
-    value="table"
-  />
-
-  <input
-    type="hidden"
-    name="_captcha"
-    value="false"
-  />
-
-  <input
-    type="hidden"
-    name="_next"
-    id="newsletter-form-next"
-    value="https://aplyk.com/?newsletter_submitted=1"
-  />
-
-  <div class="honeypot" aria-hidden="true">
-    <label for="newsletter-website">Website</label>
-    <input
-      type="text"
-      name="_honey"
-      id="newsletter-website"
-      tabindex="-1"
-      autocomplete="off"
-    />
-  </div>
-
-  <input
-    id="newsletter-email"
-    name="Email"
-    type="email"
-    required
-    autocomplete="email"
-    data-i18n="footerEmailPh"
-    data-i18n-attribute="placeholder"
-    placeholder="Enter your email"
-  />
-
-  <button type="submit">
-    <span data-i18n="footerSubscribe">Subscribe</span>
-    <span
-      class="material-symbols-outlined"
-      style="font-size:16px;"
-    >send</span>
-  </button>
-</form>
-
-
-
-</div>
-</div>
-<div class="footer-bottom">
-<p>© <span id="currentYear"></span> <span data-i18n="footerRights">aplyk. All rights reserved.</span></p>
-<div class="status-dot"><span class="d"></span><span data-i18n="footerStatus">Platform available 24/7</span></div>
-</div>
-</div>
-</footer>
 <!-- ===================== COOKIE CONSENT ===================== -->
 <div aria-label="Cookie preferences" class="cookie-banner" data-i18n="cookieBannerAria" data-i18n-attribute="aria-label" hidden="" id="cookieBanner" role="region">
 <div class="cookie-banner-inner">
@@ -718,7 +597,7 @@
 </div>
 </div>
 <script>
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
+  // document.getElementById('currentYear').textContent = new Date().getFullYear();
 
   const btn = document.getElementById('mobileMenuBtn');
   const menu = document.getElementById('mobileMenu');
@@ -1181,5 +1060,7 @@ if (newsletterUrl.searchParams.get('newsletter_submitted') === '1') {
   );
 }
 </script>
+
+<script src="/Resources/shared/footer.js"></script>
 </body>
 </html>
