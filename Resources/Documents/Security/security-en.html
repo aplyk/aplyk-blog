@@ -496,10 +496,55 @@ main{padding:54px 0 80px}
         <h4>Stay up to date</h4>
         <p>Get the latest trends straight to your inbox.</p>
 
-        <div class="footer-newsletter">
-          <input type="email" placeholder="you@email.com">
-          <button type="button">→</button>
-        </div>
+                <form
+          class="footer-newsletter"
+          action="https://formsubmit.co/info@aplyk.com"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="[NEWSLETTER] New Aplyk subscription"
+          >
+
+          <input
+            type="hidden"
+            name="_template"
+            value="table"
+          >
+
+          <input
+            type="hidden"
+            name="_captcha"
+            value="false"
+          >
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://aplyk.com/?newsletter_submitted=1"
+          >
+
+          <input
+            type="text"
+            name="_honey"
+            tabindex="-1"
+            autocomplete="off"
+            style="display:none"
+          >
+
+          <input
+            type="email"
+            name="Email"
+            required
+            autocomplete="email"
+            placeholder="tu@email.com"
+          >
+
+          <button type="submit" aria-label="Suscribirse">
+            →
+          </button>
+        </form>
       </div>
 
     </div>
