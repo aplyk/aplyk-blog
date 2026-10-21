@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="description" content="Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesg"/>
+  <meta property="og:title" content="Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar — Aplyk Blog"/>
+  <meta property="og:description" content="Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesg"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/"/>
+  <meta property="og:image" content="https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/1/caratula_lkn.png"/>
+  <meta property="article:published_time" content="2026-10-22"/>
+  <link rel="canonical" href="https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/"/>
+
+  <title>Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar — Blog Aplyk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { 
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="../../shared-components.css"/>
+  <link rel="stylesheet" href="/Resources/shared/footer.css">
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+
+    .article-image {
+      margin: 2.5rem 0;
+    }
+    .article-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(42, 82, 111, 0.10);
+    }
+
+    .sources {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+    }
+    .sources h2 {
+      font-size: 1rem !important;
+      font-weight: 700;
+      color: #94a3b8 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .sources ol {
+      margin: 0 0 0 1.25rem;
+      color: #94a3b8;
+    }
+    .sources li {
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+      color: #94a3b8;
+    }
+
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 3rem; align-items: center; }
+    .article-hero-media { background: linear-gradient(145deg,#f8fafc,#eef4f8); border: 1px solid #e2e8f0; border-radius: 24px; padding: 14px; box-shadow: 0 18px 45px rgba(42,82,111,.10); }
+    .article-hero-media img { width:100%; height:auto; display:block; border-radius:16px; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+    .article-section { margin:0 0 2.6rem; padding-top:.25rem; scroll-margin-top:110px; }
+    .article-section h2 { position:relative; }
+    .article-section h2::before { content:""; display:block; width:42px; height:4px; background:#F28A3A; border-radius:999px; margin-bottom:.8rem; }
+    .article-section:nth-of-type(even) { background:#f8fbfd; border:1px solid #edf2f7; border-radius:18px; padding:1.4rem 1.5rem 1.1rem; }
+    .article-image { margin:2.2rem 0 2.8rem; }
+    .article-image--split { display:grid; grid-template-columns:minmax(0, 1fr); }
+    .article-image--wide { margin-left:-48px; margin-right:-48px; }
+    .article-conclusion { margin-top:3rem; padding:1.8rem; border-radius:18px; background:#fff7ef; border:1px solid #fde4cb; }
+    .article-conclusion h2 { margin-top:0 !important; }
+    .sources details { background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:1rem 1.1rem; }
+    .sources summary { cursor:pointer; color:#2a526f; font-weight:800; }
+    .sources ol { margin-top:1rem; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+    @media (max-width: 960px) {
+      .article-hero-grid { grid-template-columns:1fr; gap:2rem; }
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+      .article-image--wide { margin-left:0; margin-right:0; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+      .article-section:nth-of-type(even) { padding:1.15rem; }
+    }
+
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: #2a526f;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(42, 82, 111, 0.22);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+    }
+    .back-to-top:hover {
+      background: #1e3b50;
+      transform: translateY(-2px);
+    }
+    .back-to-top:focus-visible {
+      outline: 3px solid rgba(242, 138, 58, .45);
+      outline-offset: 3px;
+    }
+    .back-to-top .material-symbols-outlined {
+      font-size: 24px;
+      line-height: 1;
+    }
+    @media (max-width: 640px) {
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar",
+  "description": "Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesg",
+  "datePublished": "2026-10-22",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/"
+  },
+  "image": [
+    "https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/1/caratula_lkn.png"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "Aplyk",
+    "url": "https://aplyk.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aplyk",
+    "url": "https://aplyk.com"
+  }
+}
+  </script>
+</head>
+
+<body id="top" class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+
+  <!-- BACK TO TOP -->
+  <button aria-label="Volver arriba" class="back-to-top" id="backToTop" type="button">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <!-- SHARED NAV -->
+  <div id="site-header"></div>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+    <div class="article-shell flex items-center gap-2 text-sm text-slate-400">
+      <a href="../../index.html" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <a href="../../blog.html" class="hover:text-primary transition-colors">Blog</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <span class="text-primary font-medium">Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar</span>
+    </div>
+  </div>
+
+  <!-- HEADER DEL POST -->
+  <header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+    <div class="article-shell article-hero-grid">
+      <div class="flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          Tecnología
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+         Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar
+      </h1>
+      <p class="text-slate-500 text-lg leading-relaxed">
+         Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesgo deja huellas medibles, y saber qué pedir a tu proveedor cabe en una página.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">Business</span>
+          Aplyk
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          22 Octubre 2026
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          8 min lectura
+        </span>
+      </div>
+      </div>
+      <div class="article-hero-media">
+        <img src="./1/caratula_lkn.png" alt="Imagen principal del artículo" loading="eager"/>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  
+  
+<main class="article-shell px-6 xl:px-0 py-12">
+  <div class="article-layout">
+    <article class="post-content">
+
+<div class="article-intro"><p>Un algoritmo no tiene prejuicios. Aprende los de tus datos. Es una frase cómoda de repetir y bastante incómoda de verificar, sobre todo un lunes a las 7:40, con el café enfriándose junto al teclado mientras una columna de puntuaciones ordena a trescientos candidatos antes de que hayas abierto el correo. Esa rapidez es real, y es un alivio. Lo que no se ve en la pantalla es de dónde salen los criterios que producen el orden.</p>
+<p>Este artículo defiende una tesis concreta: el sesgo algorítmico en selección no es un fallo exótico de laboratorio, sino una consecuencia previsible de entrenar sistemas con historiales de contratación humanos. La regulación europea y británica ya lo trata como un riesgo que deben saber gestionar las empresas que usan estas herramientas, no solo quienes las fabrican.</p>
+<p>Repasaremos qué ocurrió en casos documentados, qué encontró el regulador británico al auditar herramientas reales, cómo clasifica la Comisión Europea los sistemas de selección y de asignación de turnos, y qué es exigible hoy en España. Mi opinión, por adelantado: el aplazamiento del AI Act hasta diciembre de 2027 es una ventana de preparación, no una excusa, y las preguntas que merece hacer a tu proveedor caben en una sola página.</p></div>
+
+<section class="article-section" id="section-1">
+<h2>Cuando el historial de contratación se convierte en criterio</h2>
+<p>El caso más citado sigue siendo el de Amazon. Según Reuters, un equipo de la compañía llevaba desde 2014 construyendo programas para revisar currículos, y su herramienta puntuaba a los candidatos de una a cinco estrellas. En 2015 comprobaron que no valoraba de forma neutral en cuanto al género los puestos técnicos: los modelos se habían entrenado con currículos recibidos durante diez años, en su mayoría de hombres. El sistema penalizaba la palabra «women&#x27;s» y rebajaba a las graduadas de dos universidades femeninas. Los reclutadores consultaban sus recomendaciones, pero, según las fuentes de Reuters, nunca se basaban solo en ellas.</p>
+<p>El segundo caso está en los tribunales. En Mobley contra Workday, un solicitante alega que las herramientas de cribado algorítmico del proveedor discriminan por raza, edad y discapacidad. El 16 de mayo de 2025, un tribunal federal de California concedió la certificación preliminar de una acción colectiva por discriminación de edad, y en julio de 2025 precisó que el colectivo incluía a quienes fueron puntuados o cribados con las funciones de IA HiredScore. No he localizado una sentencia sobre el fondo, y conviene decirlo. Lo llamativo es que el pleito se dirige contra el proveedor del software, no contra las empresas que lo usan.</p>
+<p>Mi lectura es que ambos casos enseñan lo mismo, y no es que «la IA sea mala». Un sistema que aprende de quién fue contratado aprende, por construcción, el pasado de la empresa. Y la salvaguarda favorita del sector, «siempre hay una persona al final», estaba presente en Amazon y no bastó. En trabajo temporal, con rotación alta y decisiones que se toman en minutos, creo que el riesgo es mayor, porque hay menos tiempo para que alguien se pregunte por qué la lista sale en ese orden. La parte tranquilizadora: el sesgo deja huellas medibles, siempre que alguien decida buscarlas.</p>
+</section>
+
+<figure class="article-image article-image--split">
+  <img src="./1/caratula_lkn.png" alt="Ilustración del artículo Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar — enfoque PLACER" loading="lazy"/>
+</figure>
+
+<section class="article-section" id="section-2">
+<h2>Lo que encontró el regulador británico al abrir las herramientas</h2>
+<p>Entre agosto de 2023 y mayo de 2024, la autoridad británica de protección de datos (ICO) auditó, con consentimiento de los proveedores, herramientas de IA para captar, cribar y seleccionar candidatos. Publicó sus conclusiones en noviembre de 2024. Los auditores hicieron 296 recomendaciones: el 97 % se aceptó, el 3 % se aceptó parcialmente y ninguna se rechazó.</p>
+<p>Los hallazgos son concretos. Hubo casos de falta de pruebas de precisión. Algunas herramientas incluían una función de búsqueda que permitía a los reclutadores filtrar candidatos por características protegidas. Otras estimaban género o etnia a partir de la solicitud o incluso del nombre, un dato inferido que el ICO considera insuficientemente fiable para vigilar el sesgo. Entre quienes sí medían el impacto, muchos usaban la regla de los cuatro quintos: la tasa de selección de cualquier grupo debe alcanzar al menos el 80 % de la del grupo con mayor tasa. El ICO añade una advertencia: cuando la IA decide sin intervención humana, acertar más que el azar normalmente no basta.</p>
+<p>Lo que más me llama la atención es lo cotidiano del problema. No hablamos de ciencia ficción, sino de una casilla de búsqueda con «género» u «origen» a un clic de distancia, o de una hoja de cálculo que adivina el sexo por el nombre. La regla de los cuatro quintos me parece útil como alarma, pero no como sello de calidad: superarla no demuestra que un sistema sea justo. Aun así, esa cifra del 97 % me tranquiliza más que cualquier folleto comercial. Cuando alguien mira con método, el sector sabe corregirse, y el propio informe recoge buenas prácticas replicables, como ofrecer a cada reclutador una versión propia del modelo o preguntar los datos demográficos directamente a los candidatos, de forma opcional.</p>
+</section>
+
+<section class="article-section" id="section-3">
+<h2>Selección y turnos: dos usos que Bruselas ya trata como alto riesgo</h2>
+<p>El AI Act (Reglamento (UE) 2024/1689) incluye en su Anexo III, punto 4, los sistemas de IA destinados a reclutar o seleccionar personas y los destinados a gestionar relaciones laborales. La Comisión Europea publica ejemplos concretos en su AI Act Service Desk. Una herramienta automática de emparejamiento y ranking que analiza y filtra candidatos se clasifica como de alto riesgo aunque los reclutadores puedan revisarla o anularla, porque sus puntuaciones son un insumo principal de la decisión. Y un optimizador que reparte turnos puntuando a cada trabajador por puntualidad, historial de ausencias, aceptación de ofertas y valoraciones también encaja: los peor clasificados reciben turnos menos importantes y posiblemente menos turnos.</p>
+<p>El calendario cambió este verano. El Digital Omnibus, en vigor desde julio de 2026, aplaza las obligaciones del Anexo III del 2 de agosto de 2026 al 2 de diciembre de 2027, y los sistemas comercializados antes de esa fecha solo quedarán sujetos si después se modifican sustancialmente. El mismo texto amplía la base del RGPD para tratar datos de categoría especial al detectar y corregir sesgos, con criterio de estricta necesidad y salvaguardas, sin convertir esa detección en obligación. Es un marco general para la UE, sujeto a su aplicación en cada caso.</p>
+<p>Leo el ejemplo de los turnos como un pliego de diseño para todo el trabajo temporal. Cualquier plataforma que asigne ofertas según historial de asistencia y valoraciones tiene que poder explicar por qué una persona recibe una oferta antes que otra. Plataformas como Aplyk, que combinan emparejamiento con IA y valoraciones tras cada turno, se mueven justo en ese terreno, y la cuestión interesante no es si usan IA, sino cómo demuestran que el orden es justo. Un historial de rechazos puede reflejar desinterés, pero también una guardería sin plaza ese día, y un sistema que no distingue ambas cosas castiga la conciliación. Es una hipótesis mía, no un dato, y por eso hay que medirla.</p>
+</section>
+
+<figure class="article-image article-image--wide">
+  <img src="./2/caratula_lkn.png" alt="Ilustración del artículo Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar — enfoque CONFORT" loading="lazy"/>
+</figure>
+
+<section class="article-section" id="section-4">
+<h2>España no espera a 2027: lo que ya puede pedírsete</h2>
+<p>En España, el artículo 64.4.d del Estatuto de los Trabajadores, vigente desde 2021, reconoce a la representación legal de las personas trabajadoras el derecho a ser informada sobre los parámetros, reglas e instrucciones de los algoritmos o sistemas de IA que inciden en las condiciones de trabajo, el acceso y el mantenimiento del empleo, incluida la elaboración de perfiles. Según el análisis de Cuatrecasas, el Real Decreto 723/2026, de 9 de septiembre, en vigor desde el 5 de octubre de 2026, añade un deber de información individual: por escrito y antes de iniciar la relación laboral, sobre la existencia y las pautas de funcionamiento de los sistemas algorítmicos usados en decisiones laborales. Ese análisis subraya que no se limita a los sistemas de alto riesgo, y que podrían intervenir la Inspección de Trabajo, la AEPD y la AESIA.</p>
+<p>Esto describe el marco general en España a fecha de 21 de octubre de 2026. Su aplicación depende de cada caso, por ejemplo de quién ostente la condición de empleador, así que conviene validarlo con un profesional laboral antes de decidir.</p>
+<p>Mi propuesta práctica es bajar todo esto a una página, que se pueda leer de un vistazo y llevar a la próxima reunión con un proveedor:</p>
+<ol><li>¿Con qué datos se entrenó y se probó, y representan a las personas que de verdad se presentan a mis ofertas?</li><li>¿Mide el impacto por grupos y me entrega el informe por escrito?</li><li>¿Infiere género, edad u origen a partir del nombre o del perfil?</li><li>¿Qué puede hacer una persona para impugnar un resultado, y quién lo revisa?</li><li>¿Qué dice el contrato sobre quién informa a candidatos y a representantes?</li></ol>
+<p>No hace falta ser ingeniero para formularlas. Hace falta, sobre todo, escuchar con atención si la respuesta llega con datos o con adjetivos.</p>
+</section>
+
+<section class="article-conclusion" id="conclusion"><h2>Conclusión</h2><p>La frase con la que empezamos admite ahora un matiz: un algoritmo no tiene prejuicios, pero tampoco una memoria distinta de la tuya. Amazon y Workday, la auditoría del ICO y los ejemplos de la Comisión Europea apuntan en la misma dirección. El riesgo no está en usar IA para ordenar candidatos o turnos, sino en no poder explicar ni medir el orden que produce.</p>
+<p>Mi predicción, y es una apuesta, no un dato: antes de que termine 2028, pedir a un proveedor de software de selección un informe de impacto por grupos será tan rutinario en una compra como pedir sus certificaciones de seguridad. Quien llegue a esa conversación sin respuestas partirá en desventaja.</p>
+<p>Por eso el aplazamiento a diciembre de 2027 conviene leerlo como margen de maniobra, y no como alivio definitivo. Esta semana basta una tarea: envía las cinco preguntas a uno solo de tus proveedores y revisa qué información das hoy a tu comité de empresa. Si las respuestas llegan con datos, tienes una herramienta que podrás defender. Si no llegan, tienes una decisión de compra mucho más clara que antes de preguntar.</p></section>
+
+<div class="sources"><details><summary>Fuentes y base documental</summary><ol><li><a href="https://ai-act-service-desk.ec.europa.eu/en/employment-0" target="_blank" rel="noopener noreferrer">Employment (Guidelines on the classification of high-risk AI systems, Annex III point 4), European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://cy.ico.org.uk/media2/migrated/4031620/ai-in-recruitment-outcomes-report.pdf" target="_blank" rel="noopener noreferrer">AI tools in recruitment: Audit outcomes report, Information Commissioner&#x27;s Office (ICO), Reino Unido, 2024-11</a></li>
+<li><a href="https://mediawell.ssrc.org/?p=49279" target="_blank" rel="noopener noreferrer">Amazon Scraps Secret AI Recruiting Tool that Showed Bias Against Women (extracto de Reuters), Social Science Research Council (reproduce a Reuters), 2018-10-10</a></li>
+<li><a href="https://www.euronews.com/2018/10/10/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women" target="_blank" rel="noopener noreferrer">Amazon scraps secret AI recruiting tool that showed bias against women, Reuters (reproducido por Euronews), 2018-10-10</a></li>
+<li><a href="https://www.orrick.com/en/Insights/2026/07/EU-AI-Act-Update-Digital-Omnibus-Finalizes-8-Compliance-Changes" target="_blank" rel="noopener noreferrer">EU AI Act Update: Digital Omnibus Finalizes 8 Compliance Changes, Orrick, Herrington &amp; Sutcliffe LLP, 2026-07-29</a></li>
+<li><a href="https://www.cuatrecasas.com/es/latam/laboral/art/laboral-obligacion-informacion-algoritmica" target="_blank" rel="noopener noreferrer">Nueva obligación de información algorítmica en el ámbito laboral, Cuatrecasas, 2026-09-28</a></li>
+<li><a href="https://www.maynardnexsen.com/publication-emerging-liability-for-ai-driven-hiring-tools-key-developments-in-mobley-v-workday-inc" target="_blank" rel="noopener noreferrer">Emerging Liability for AI-Driven Hiring Tools: Key Developments in Mobley v. Workday, Inc., Maynard Nexsen, 2026-04-23</a></li></ol></details></div>
+
+    </article>
+
+    <aside class="article-sidebar" aria-label="Navegación del artículo">
+      <div class="article-side-card">
+        <h3>En este artículo</h3>
+        <nav class="article-toc">
+          <a href="#section-1">Cuando el historial de contratación se convierte en criterio</a>
+          <a href="#section-2">Lo que encontró el regulador británico al abrir las herramientas</a>
+          <a href="#section-3">Selección y turnos: dos usos que Bruselas ya trata como alto riesgo</a>
+          <a href="#section-4">España no espera a 2027: lo que ya puede pedírsete</a>
+          <a href="#conclusion">Conclusión</a>
+        </nav>
+      </div>
+      <div class="article-side-card sidebar-cta">
+        <h3>Aplyk</h3>
+        <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+        <a href="../../index.html?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+    <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
+    <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
+    <div>
+      <a href="../../index.html?demo=1" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
+        Reservar una demo
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- VOLVER AL BLOG -->
+  <div class="mt-10">
+    <a href="../../blog.html" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+      Volver al blog
+    </a>
+  </div>
+
+</main>
+
+
+  <!-- SHARED FOOTER -->
+  <div id="shared-footer"></div>
+
+
+  <script>
+    // Back-to-top button: same behaviour as the main Aplyk landing page.
+    const backToTop = document.getElementById('backToTop');
+
+    if (backToTop) {
+      const toggleBackToTop = () => {
+        backToTop.style.display = window.scrollY > 480 ? 'flex' : 'none';
+      };
+
+      toggleBackToTop();
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+
+  <!-- components.js is retained because it loads the shared article header -->
+  <script src="../../components.js"></script>
+  <script src="/Resources/shared/footer.js"></script>
+
+</body>
+</html>
