@@ -1,4 +1,4 @@
-// Aplyk contact widget - FSM v7.0
+// Aplyk contact widget - FSM v8.0
 // Logic-only update. Visual structure and CSS behaviour intentionally unchanged.
 
 (() => {
@@ -11,6 +11,7 @@
     pollingTimer: null,
     bookingInProgress: false,
     assistantName: null,
+    handledRequestStatuses: Object.create(null),
   };
 
   state.assistantName =
@@ -646,6 +647,10 @@
   ========================================================= */
 
   function startCallPolling(requestId) {
+    Object.keys(state.handledRequestStatuses)
+      .filter((key) => key.startsWith(`${requestId}:`))
+      .forEach((key) => delete state.handledRequestStatuses[key]);
+
     if (state.pollingTimer) {
       clearInterval(
         state.pollingTimer
@@ -674,11 +679,17 @@
               data.status ||
               data.estado;
 
+            const statusKey = `${requestId}:${status}`;
+            if (state.handledRequestStatuses[statusKey]) {
+              return;
+            }
+
             if (
               status === 'availability_available' ||
               status === 'accepted' ||
               status === 'aceptada'
             ) {
+              state.handledRequestStatuses[statusKey] = true;
               stopPolling();
               hideCalendar();
 
@@ -697,8 +708,10 @@
               status === 'availability_expired' ||
               status === 'rejected' ||
               status === 'rechazada' ||
-              status === 'timeout'
+              status === 'timeout' ||
+              status === 'stale_request'
             ) {
+              state.handledRequestStatuses[statusKey] = true;
               stopPolling();
 
               if (data.reply) {
