@@ -667,26 +667,26 @@
               data.estado;
 
             if (
+              status === 'availability_available' ||
               status === 'accepted' ||
               status === 'aceptada'
             ) {
               stopPolling();
               hideCalendar();
 
-              addMessage(
-                data.reply ||
-                t(
-                  'Perfecto. Te llamaremos ahora.',
-                  'Perfect. We will call you now.'
-                ),
-                'bot'
-              );
+              if (data.reply) {
+                addMessage(
+                  data.reply,
+                  'bot'
+                );
+              }
 
               return;
             }
 
             if (
-              data.calendar_needed ||
+              status === 'availability_unavailable' ||
+              status === 'availability_expired' ||
               status === 'rejected' ||
               status === 'rechazada' ||
               status === 'timeout'
@@ -700,7 +700,21 @@
                 );
               }
 
+              return;
+            }
+
+            if (data.calendar_needed) {
+              stopPolling();
+
+              if (data.reply) {
+                addMessage(
+                  data.reply,
+                  'bot'
+                );
+              }
+
               await loadCalendar(0);
+              return;
             }
 
           } catch (error) {
