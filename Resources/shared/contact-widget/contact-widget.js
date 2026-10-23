@@ -137,24 +137,6 @@
           </span>
         </a>
 
-        <!-- AI AGENT + CALL -->
-        <button
-          class="aplyk-contact-action aplyk-contact-chat"
-          id="aplykContactChatButton"
-          type="button"
-        >
-          <span
-            class="material-symbols-outlined"
-            aria-hidden="true"
-          >
-            forum
-          </span>
-
-          <span class="aplyk-contact-action-label">
-            ${t('Hablar', 'Talk')}
-          </span>
-        </button>
-
         <!-- ORIGINAL BOOK A DEMO FORM -->
         <button
           class="aplyk-contact-action aplyk-contact-form"
@@ -174,6 +156,21 @@
         </button>
 
       </div>
+
+      <!-- INDEPENDENT AI CHAT BUBBLE -->
+      <button
+        class="aplyk-chat-bubble"
+        id="aplykContactChatButton"
+        type="button"
+        aria-label="${t('Hablar con Aplyk', 'Talk to Aplyk')}"
+      >
+        <span
+          class="material-symbols-outlined"
+          aria-hidden="true"
+        >
+          forum
+        </span>
+      </button>
 
       <!-- CHAT PANEL -->
       <section
