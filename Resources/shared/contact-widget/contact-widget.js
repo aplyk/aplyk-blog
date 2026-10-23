@@ -6,7 +6,13 @@
     conversationId: getOrCreateConversationId(),
     week: 0,
     pollingTimer: null,
+    assistantName: null,
   };
+
+  state.assistantName =
+    getSavedAssistantName(
+      state.conversationId
+    );
 
   /* =========================================================
      BASIC HELPERS
@@ -39,6 +45,57 @@
 
   function t(es, en) {
     return getLanguage() === 'es' ? es : en;
+  }
+
+  function getAssistantNameStorageKey(
+    conversationId
+  ) {
+    return (
+      'aplyk_contact_assistant_name_' +
+      conversationId
+    );
+  }
+
+  function getSavedAssistantName(
+    conversationId
+  ) {
+    const saved =
+      sessionStorage.getItem(
+        getAssistantNameStorageKey(
+          conversationId
+        )
+      );
+
+    return ['Kyla', 'Nerea'].includes(saved)
+      ? saved
+      : null;
+  }
+
+  function getDisplayAssistantName() {
+    return (
+      state.assistantName ||
+      (getLanguage() === 'es'
+        ? 'Nerea'
+        : 'Kyla')
+    );
+  }
+
+  function lockAssistantName() {
+    if (!state.assistantName) {
+      state.assistantName =
+        getLanguage() === 'es'
+          ? 'Nerea'
+          : 'Kyla';
+
+      sessionStorage.setItem(
+        getAssistantNameStorageKey(
+          state.conversationId
+        ),
+        state.assistantName
+      );
+    }
+
+    return state.assistantName;
   }
 
   /* =========================================================
@@ -80,6 +137,24 @@
           </span>
         </a>
 
+        <!-- AI AGENT + CALL -->
+        <button
+          class="aplyk-contact-action aplyk-contact-chat"
+          id="aplykContactChatButton"
+          type="button"
+        >
+          <span
+            class="material-symbols-outlined"
+            aria-hidden="true"
+          >
+            forum
+          </span>
+
+          <span class="aplyk-contact-action-label">
+            ${t('Hablar', 'Talk')}
+          </span>
+        </button>
+
         <!-- ORIGINAL BOOK A DEMO FORM -->
         <button
           class="aplyk-contact-action aplyk-contact-form"
@@ -100,21 +175,6 @@
 
       </div>
 
-      <!-- INDEPENDENT AI CHAT BUBBLE -->
-      <button
-        class="aplyk-chat-bubble"
-        id="aplykContactChatButton"
-        type="button"
-        aria-label="${t('Hablar con Aplyk', 'Talk to Aplyk')}"
-      >
-        <span
-          class="material-symbols-outlined"
-          aria-hidden="true"
-        >
-          forum
-        </span>
-      </button>
-
       <!-- CHAT PANEL -->
       <section
         class="aplyk-chat-panel"
@@ -125,12 +185,12 @@
         <header class="aplyk-chat-header">
 
           <div>
-            <strong>Aplyk Assistant</strong>
+            <strong>${getDisplayAssistantName()}</strong>
 
             <span>
               ${t(
-                '¿En qué podemos ayudarte?',
-                'How can we help you?'
+                '¿En qué puedo ayudarte?',
+                'How can I help you?'
               )}
             </span>
           </div>
@@ -159,8 +219,8 @@
           id="aplykInitialBotMessage"
         >
           ${t(
-            'Hola. Soy el asistente de Aplyk. ¿En qué puedo ayudarte?',
-            'Hi. I’m Aplyk’s assistant. How can I help you?'
+            'Hola, soy ' + getDisplayAssistantName() + '. ¿En qué puedo ayudarte?',
+            'Hi, I’m ' + getDisplayAssistantName() + '. How can I help you?'
           )}
         </div>
         </div>
@@ -298,13 +358,32 @@
         );
     }
 
+    const chatHeaderTitle =
+      document.querySelector('.aplyk-chat-header strong');
+
+    const chatHeaderSubtitle =
+      document.querySelector('.aplyk-chat-header span');
+
+    if (chatHeaderTitle) {
+      chatHeaderTitle.textContent =
+        getDisplayAssistantName();
+    }
+
+    if (chatHeaderSubtitle) {
+      chatHeaderSubtitle.textContent =
+        t(
+          '¿En qué puedo ayudarte?',
+          'How can I help you?'
+        );
+    }
+
     const initialMessage = document.getElementById('aplykInitialBotMessage');
 
     if (initialMessage) {
       initialMessage.textContent =
         t(
-          'Hola. Soy el asistente de Aplyk. ¿En qué puedo ayudarte?',
-          'Hi. I’m Aplyk’s assistant. How can I help you?'
+          'Hola, soy ' + getDisplayAssistantName() + '. ¿En qué puedo ayudarte?',
+          'Hi, I’m ' + getDisplayAssistantName() + '. How can I help you?'
         );
     }
 
@@ -365,6 +444,9 @@
   }
 
   function openChat() {
+    lockAssistantName();
+    updateWidgetLanguage();
+
     const panel =
       document.getElementById('aplykChatPanel');
 
@@ -432,6 +514,8 @@
   async function handleChatSubmit(event) {
     event.preventDefault();
 
+    lockAssistantName();
+
     const input =
       document.getElementById('aplykChatInput');
 
@@ -463,6 +547,8 @@
               message,
               conversation_id:
                 state.conversationId,
+              assistant_name:
+                state.assistantName,
             }),
           }
         );
@@ -494,7 +580,13 @@
       }
 
       if (
-        data.show_calendar === true
+        data.calendar_needed ||
+        data.show_calendar ||
+        data.solicita_agendar_llamada === true ||
+        (
+          Array.isArray(data.calendar_slots) &&
+          data.calendar_slots.length > 0
+        )
       ) {
         await loadCalendar(0);
       }
@@ -595,6 +687,7 @@
             }
 
             if (
+              data.calendar_needed ||
               status === 'rejected' ||
               status === 'rechazada' ||
               status === 'timeout'
@@ -608,11 +701,7 @@
                 );
               }
 
-              if (
-                data.show_calendar === true
-              ) {
-                await loadCalendar(0);
-              }
+              await loadCalendar(0);
             }
 
           } catch (error) {
