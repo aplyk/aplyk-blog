@@ -576,6 +576,7 @@
         null;
 
       if (requestId) {
+        hideCalendar();
         startCallPolling(requestId);
       }
 
@@ -673,6 +674,7 @@
               status === 'aceptada'
             ) {
               stopPolling();
+              hideCalendar();
 
               addMessage(
                 data.reply ||
@@ -726,6 +728,20 @@
     );
 
     state.pollingTimer = null;
+  }
+
+  function hideCalendar() {
+    const container =
+      document.getElementById(
+        'aplykCalendarContainer'
+      );
+
+    if (!container) {
+      return;
+    }
+
+    container.hidden = true;
+    container.innerHTML = '';
   }
 
   /* =========================================================
@@ -1104,14 +1120,7 @@
         'bot'
       );
 
-      const calendar =
-        document.getElementById(
-          'aplykCalendarContainer'
-        );
-
-      if (calendar) {
-        calendar.hidden = true;
-      }
+      hideCalendar();
 
     } catch (error) {
       console.error(
