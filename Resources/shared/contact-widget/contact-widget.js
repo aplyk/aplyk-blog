@@ -1,3 +1,6 @@
+// Aplyk contact widget - FSM v7.0
+// Logic-only update. Visual structure and CSS behaviour intentionally unchanged.
+
 (() => {
   const API_BASE =
     'https://aplyk-ai-agent.jlzorrillauk.workers.dev';
@@ -6,6 +9,7 @@
     conversationId: getOrCreateConversationId(),
     week: 0,
     pollingTimer: null,
+    bookingInProgress: false,
     assistantName: null,
   };
 
@@ -554,10 +558,13 @@
         await response.json();
 
       if (!response.ok) {
-        throw new Error(
+        const error = new Error(
           data?.error ||
           'Request failed'
         );
+        error.userMessage = data?.user_message || null;
+        error.code = data?.code || null;
+        throw error;
       }
 
       if (data.reply) {
@@ -596,6 +603,7 @@
       );
 
       addMessage(
+        error?.userMessage ||
         t(
           'Ha ocurrido un error. Inténtalo de nuevo.',
           'Something went wrong. Please try again.'
@@ -1060,6 +1068,12 @@
   ========================================================= */
 
   async function bookSlot(start) {
+    if (state.bookingInProgress) {
+      return;
+    }
+
+    state.bookingInProgress = true;
+
     const buttons =
       document.querySelectorAll(
         '.aplyk-slot-button'
@@ -1096,12 +1110,12 @@
         await response.json();
 
       if (!response.ok) {
-
         if (
-          data.error ===
-          'That slot is no longer available.'
+          data.code === 'slot_unavailable' ||
+          data.error === 'That slot is no longer available.'
         ) {
           addMessage(
+            data.user_message ||
             t(
               'Ese hueco acaba de dejar de estar disponible. Te muestro los horarios actualizados.',
               'That time has just become unavailable. Here are the updated times.'
@@ -1116,10 +1130,28 @@
           return;
         }
 
-        throw new Error(
-          data?.error ||
-          'Booking failed'
+        if (data.code === 'booking_contact_validation_failed') {
+          hideCalendar();
+          addMessage(
+            data.user_message ||
+            t(
+              'Falta algún dato necesario para reservar la llamada.',
+              'Some information required to book the call is missing.'
+            ),
+            'bot'
+          );
+          return;
+        }
+
+        addMessage(
+          data.user_message ||
+          t(
+            'No se pudo reservar la llamada. Inténtalo de nuevo.',
+            'The call could not be booked. Please try again.'
+          ),
+          'bot'
         );
+        return;
       }
 
       addMessage(
@@ -1141,13 +1173,15 @@
 
       addMessage(
         t(
-          'No se pudo reservar la llamada. Inténtalo de nuevo.',
-          'The call could not be booked. Please try again.'
+          'No se pudo conectar con el sistema de reservas. Inténtalo de nuevo en unos segundos.',
+          'The booking system could not be reached. Please try again in a few seconds.'
         ),
         'bot'
       );
 
     } finally {
+      state.bookingInProgress = false;
+
       buttons.forEach(
         (button) =>
           button.disabled = false
