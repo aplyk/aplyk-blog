@@ -5,16 +5,6 @@
 <head>
 
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJPWFRY9ZM"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-VJPWFRY9ZM');
-  </script>
-
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta
@@ -41,6 +31,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/Resources/shared/cookie-consent.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -250,108 +241,6 @@
   <!-- ===================== SHARED FOOTER ===================== -->
   <div id="shared-footer"></div>
 
-  <!-- ===================== COOKIE CONSENT ===================== -->
-  <div aria-label="Cookie preferences" class="cookie-banner" data-i18n="cookieBannerAria"
-    data-i18n-attribute="aria-label" hidden="" id="cookieBanner" role="region">
-    <div class="cookie-banner-inner">
-      <div class="cookie-banner-copy">
-        <div aria-hidden="true" class="cookie-banner-icon">
-          <span class="material-symbols-outlined">cookie</span>
-        </div>
-        <div>
-          <h2 data-i18n="cookieTitle">Your privacy choices</h2>
-          <p data-i18n="cookieText" data-i18n-html="true">
-            We use strictly necessary storage to make Aplyk work. With your permission, we may also use preference,
-            analytics and marketing technologies. You can accept, reject or choose what you allow. Read our <a
-              class="cookie-policy-link" href="#">Cookie Policy</a>.
-          </p>
-        </div>
-      </div>
-      <div class="cookie-banner-actions">
-        <button class="cookie-btn cookie-btn-choice" data-i18n="cookieReject" id="cookieRejectAll" type="button">Reject
-          non-essential</button>
-        <button class="cookie-btn cookie-btn-choice" data-i18n="cookieAccept" id="cookieAcceptAll" type="button">Accept
-          all</button>
-        <button class="cookie-btn cookie-btn-manage" data-i18n="cookieManage" id="cookieManage" type="button">Manage
-          preferences</button>
-      </div>
-    </div>
-  </div>
-  <div aria-hidden="true" aria-labelledby="cookiePreferencesTitle" aria-modal="true" class="cookie-preferences"
-    id="cookiePreferences" role="dialog">
-    <div class="cookie-preferences-backdrop" data-cookie-close=""></div>
-    <div class="cookie-preferences-dialog">
-      <button aria-label="Close cookie settings" class="cookie-preferences-close" data-cookie-close=""
-        data-i18n="cookieClose" data-i18n-attribute="aria-label" type="button">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-      <div class="cookie-preferences-heading">
-        <span class="cookie-kicker" data-i18n="cookieKicker">Privacy controls</span>
-        <h2 data-i18n="cookiePreferencesTitle" id="cookiePreferencesTitle">Cookie preferences</h2>
-        <p data-i18n="cookiePreferencesText">Choose which optional technologies Aplyk may use. Strictly necessary
-          storage is always active because it is required for essential website functions and to remember your privacy
-          choice.</p>
-      </div>
-      <div class="cookie-category-list">
-        <div class="cookie-category">
-          <div>
-            <div class="cookie-category-title">
-              <h3 data-i18n="cookieNecessaryTitle">Strictly necessary</h3>
-              <span class="cookie-always-on" data-i18n="cookieAlwaysOn">Always on</span>
-            </div>
-            <p data-i18n="cookieNecessaryText">Required for core website functions and for storing your cookie-consent
-              choice.</p>
-          </div>
-          <label aria-label="Strictly necessary cookies are always enabled" class="cookie-switch is-disabled">
-            <input checked="" disabled="" type="checkbox" />
-            <span class="cookie-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-category">
-          <div>
-            <h3 data-i18n="cookiePreferencesCategoryTitle">Preferences</h3>
-            <p data-i18n="cookiePreferencesCategoryText">Allows Aplyk to remember optional choices, such as your
-              preferred website language between visits.</p>
-          </div>
-          <label class="cookie-switch">
-            <input id="cookiePreferencesToggle" type="checkbox" />
-            <span class="cookie-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-category">
-          <div>
-            <h3 data-i18n="cookieAnalyticsTitle">Analytics</h3>
-            <p data-i18n="cookieAnalyticsText">Would allow us to measure website usage and improve the service. Aplyk
-              currently does not load an analytics tracker on this homepage.</p>
-          </div>
-          <label class="cookie-switch">
-            <input id="cookieAnalyticsToggle" type="checkbox" />
-            <span class="cookie-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-category">
-          <div>
-            <h3 data-i18n="cookieMarketingTitle">Marketing</h3>
-            <p data-i18n="cookieMarketingText">Would allow advertising or campaign-measurement technologies. Aplyk
-              currently does not load a marketing tracker on this homepage.</p>
-          </div>
-          <label class="cookie-switch">
-            <input id="cookieMarketingToggle" type="checkbox" />
-            <span class="cookie-slider"></span>
-          </label>
-        </div>
-      </div>
-      <div class="cookie-preferences-actions">
-        <button class="cookie-btn cookie-btn-choice" data-i18n="cookieReject" id="cookiePreferencesReject"
-          type="button">Reject non-essential</button>
-        <button class="cookie-btn cookie-btn-choice" data-i18n="cookieAccept" id="cookiePreferencesAccept"
-          type="button">Accept all</button>
-        <button class="cookie-btn cookie-btn-save" data-i18n="cookieSave" id="cookieSavePreferences" type="button">Save
-          preferences</button>
-      </div>
-    </div>
-  </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const b = document.getElementById('mobileMenuBtn');
@@ -401,6 +290,7 @@
 
   <script src="/Resources/shared/footer.js"></script>
   <script src="./Resources/shared/contact-widget/contact-widget.js" defer></script>
+  <script src="/Resources/shared/cookie-consent.js"></script>
 </body>
 
 </html>

@@ -493,34 +493,23 @@ const translations = {
 };
 
 const STORAGE_KEY = 'aplyk_lang';
-const CONSENT_STORAGE_KEY = 'aplyk_cookie_consent_v1';
-const CONSENT_VERSION = 1;
-
 let currentLanguage = 'en';
 
-function getCookieConsent() {
+function getSharedConsent() {
+  if (window.AplykCookieConsent?.get) {
+    return window.AplykCookieConsent.get();
+  }
+
   try {
-    const raw = localStorage.getItem(CONSENT_STORAGE_KEY);
-
-    if (!raw) return null;
-
-    const parsed = JSON.parse(raw);
-
-    if (parsed && parsed.version === CONSENT_VERSION) {
-      return parsed;
-    }
-  } catch (_) {}
-
-  return null;
+    const raw = localStorage.getItem('aplyk_cookie_consent_v1');
+    return raw ? JSON.parse(raw) : null;
+  } catch (_) {
+    return null;
+  }
 }
 
 function hasConsent(category) {
-  const consent = getCookieConsent();
-
-  return Boolean(
-    consent &&
-    consent[category] === true
-  );
+  return Boolean(getSharedConsent()?.[category] === true);
 }
 
 function detectBrowserLang() {
@@ -660,300 +649,20 @@ function setLanguage(lang) {
     } catch (_) {}
   }
 
-  refreshCookieUI();
 }
 
-function saveCookieConsent(
-  preferences,
-  analytics,
-  marketing
-) {
-  const consent = {
-    version: CONSENT_VERSION,
-    necessary: true,
-    preferences: Boolean(preferences),
-    analytics: Boolean(analytics),
-    marketing: Boolean(marketing),
-    updatedAt: new Date().toISOString()
-  };
+
+document.addEventListener('aplyk:consentchange', (event) => {
+  const consent = event.detail;
 
   try {
-    localStorage.setItem(
-      CONSENT_STORAGE_KEY,
-      JSON.stringify(consent)
-    );
-
-    if (consent.preferences) {
-      localStorage.setItem(
-        STORAGE_KEY,
-        currentLanguage
-      );
+    if (consent?.preferences) {
+      localStorage.setItem(STORAGE_KEY, currentLanguage);
     } else {
       localStorage.removeItem(STORAGE_KEY);
     }
   } catch (_) {}
-
-  applyCookieConsent(consent);
-  hideCookieBanner();
-  closeCookiePreferences();
-}
-
-function applyCookieConsent(consent) {
-  const detail =
-    consent ||
-    getCookieConsent() || {
-      version: CONSENT_VERSION,
-      necessary: true,
-      preferences: false,
-      analytics: false,
-      marketing: false
-    };
-
-  window.aplykConsent = detail;
-
-  document.dispatchEvent(
-    new CustomEvent(
-      'aplyk:consentchange',
-      {
-        detail
-      }
-    )
-  );
-}
-
-function showCookieBanner() {
-  const banner =
-    document.getElementById('cookieBanner');
-
-  if (banner) {
-    banner.hidden = false;
-  }
-}
-
-function hideCookieBanner() {
-  const banner =
-    document.getElementById('cookieBanner');
-
-  if (banner) {
-    banner.hidden = true;
-  }
-}
-
-function openCookiePreferences() {
-  const panel =
-    document.getElementById(
-      'cookiePreferences'
-    );
-
-  if (!panel) return;
-
-  const consent = getCookieConsent();
-
-  const preferenceToggle =
-    document.getElementById(
-      'cookiePreferencesToggle'
-    );
-
-  const analyticsToggle =
-    document.getElementById(
-      'cookieAnalyticsToggle'
-    );
-
-  const marketingToggle =
-    document.getElementById(
-      'cookieMarketingToggle'
-    );
-
-  if (preferenceToggle) {
-    preferenceToggle.checked =
-      Boolean(consent?.preferences);
-  }
-
-  if (analyticsToggle) {
-    analyticsToggle.checked =
-      Boolean(consent?.analytics);
-  }
-
-  if (marketingToggle) {
-    marketingToggle.checked =
-      Boolean(consent?.marketing);
-  }
-
-  panel.classList.add('is-open');
-
-  panel.setAttribute(
-    'aria-hidden',
-    'false'
-  );
-
-  requestAnimationFrame(() => {
-    panel
-      .querySelector(
-        '.cookie-preferences-close'
-      )
-      ?.focus();
-  });
-}
-
-function closeCookiePreferences() {
-  const panel =
-    document.getElementById(
-      'cookiePreferences'
-    );
-
-  if (!panel) return;
-
-  panel.classList.remove('is-open');
-
-  panel.setAttribute(
-    'aria-hidden',
-    'true'
-  );
-}
-
-function refreshCookieUI() {
-  document
-    .querySelectorAll('.cookie-policy-link')
-    .forEach((link) => {
-      link.href =
-        currentLanguage === 'es'
-          ? './Resources/Documents/Cookies/cookie-policy-es.html'
-          : './Resources/Documents/Cookies/cookie-policy-en.html';
-    });
-}
-
-function wireCookieConsentUI() {
-  document
-    .getElementById('cookieAcceptAll')
-    ?.addEventListener(
-      'click',
-      () => {
-        saveCookieConsent(
-          true,
-          true,
-          true
-        );
-      }
-    );
-
-  document
-    .getElementById('cookieRejectAll')
-    ?.addEventListener(
-      'click',
-      () => {
-        saveCookieConsent(
-          false,
-          false,
-          false
-        );
-      }
-    );
-
-  document
-    .getElementById('cookieManage')
-    ?.addEventListener(
-      'click',
-      openCookiePreferences
-    );
-
-  document
-    .querySelectorAll(
-      '.js-cookie-settings'
-    )
-    .forEach((el) => {
-      el.addEventListener(
-        'click',
-        (event) => {
-          event.preventDefault();
-          openCookiePreferences();
-        }
-      );
-    });
-
-  document
-    .querySelectorAll(
-      '[data-cookie-close]'
-    )
-    .forEach((el) => {
-      el.addEventListener(
-        'click',
-        closeCookiePreferences
-      );
-    });
-
-  document
-    .getElementById(
-      'cookiePreferencesAccept'
-    )
-    ?.addEventListener(
-      'click',
-      () => {
-        saveCookieConsent(
-          true,
-          true,
-          true
-        );
-      }
-    );
-
-  document
-    .getElementById(
-      'cookiePreferencesReject'
-    )
-    ?.addEventListener(
-      'click',
-      () => {
-        saveCookieConsent(
-          false,
-          false,
-          false
-        );
-      }
-    );
-
-  document
-    .getElementById(
-      'cookieSavePreferences'
-    )
-    ?.addEventListener(
-      'click',
-      () => {
-        saveCookieConsent(
-          document.getElementById(
-            'cookiePreferencesToggle'
-          )?.checked,
-
-          document.getElementById(
-            'cookieAnalyticsToggle'
-          )?.checked,
-
-          document.getElementById(
-            'cookieMarketingToggle'
-          )?.checked
-        );
-      }
-    );
-
-  document.addEventListener(
-    'keydown',
-    (event) => {
-      if (event.key === 'Escape') {
-        closeCookiePreferences();
-      }
-    }
-  );
-
-  const consent =
-    getCookieConsent();
-
-  if (consent) {
-    applyCookieConsent(consent);
-    hideCookieBanner();
-  } else {
-    applyCookieConsent(null);
-    showCookieBanner();
-  }
-}
+});
 
 function wireLanguageUI() {
   const wrap =
@@ -1062,7 +771,6 @@ function wireLanguageUI() {
 }
 
 function init() {
-  wireCookieConsentUI();
   wireLanguageUI();
   setLanguage(
     getPreferredLang()
