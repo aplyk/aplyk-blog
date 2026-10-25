@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://aplyk.com/posts/por-que-la-hosteleria-necesita-soluciones-de-contratacion-mas-rapidas/"/>
   <link rel="canonical" href="https://aplyk.com/posts/por-que-la-hosteleria-necesita-soluciones-de-contratacion-mas-rapidas/"/>
 
-  <title>Por qué la hostelería necesita soluciones de contratación más rápidas — Blog Aplyk</title>
+  <title>Contratación rápida en hostelería | Aplyk</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -116,6 +116,68 @@
       margin-bottom: 0.35rem;
       color: #94a3b8;
     }
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+    .article-toc a.active { color:#F28A3A; border-left-color:#F28A3A; font-weight:800; }
+    .article-section { scroll-margin-top:110px; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li { margin: 0 !important; list-style: none !important; }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -210,8 +272,8 @@
 
   <!-- CONTENIDO -->
   
-  <main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
-
+  <main class="article-shell px-6 xl:px-0 py-12">
+  <div class="article-layout">
   <article class="post-content">
 
     <p>En hostelería, el tiempo entre que se detecta una baja de última hora y el momento en que el turno empieza es, en muchos establecimientos, inferior a dos horas. En ese margen, el responsable tiene que encontrar un sustituto, confirmar su disponibilidad, verificar que tiene experiencia suficiente para el puesto y asegurarse de que llega a tiempo. Con el modelo de agencia tradicional, ese proceso tarda entre 24 y 48 horas. La matemática no funciona.</p>
@@ -220,7 +282,7 @@
 
     <p>La tesis de este artículo es que la hostelería no tiene un problema de escasez de personal temporal — tiene un problema de velocidad y de infraestructura de contratación. Y ese problema tiene solución, pero no con las herramientas que la mayoría del sector sigue usando.</p>
 
-    <h2>La estructura del problema: variabilidad extrema y márgenes que no perdonan</h2>
+    <section class="article-section" id="section-1"><h2>La estructura del problema: variabilidad extrema y márgenes que no perdonan</h2>
 
     <p>La hostelería opera bajo una combinación de factores que ningún otro sector replica en la misma intensidad: demanda altamente variable por día, franja horaria, climatología y temporada; márgenes operativos ajustados que no permiten sobredimensionar plantillas fijas; y un cliente final que experimenta el impacto de la falta de personal de forma inmediata y directa.</p>
 
@@ -236,7 +298,9 @@
       </div>
     </div>
 
-    <h2>El coste real de un turno sin cubrir en hostelería</h2>
+    </section>
+
+    <section class="article-section" id="section-2"><h2>El coste real de un turno sin cubrir en hostelería</h2>
 
     <p>En logística o almacén, un turno sin cubrir genera una pérdida de productividad que afecta internamente a la operación. En hostelería, esa pérdida es visible para el cliente en tiempo real: tiempos de espera más largos, errores en el servicio, experiencia degradada. El impacto en reputación y en repetición de visita es inmediato y medible.</p>
 
@@ -254,7 +318,9 @@
       </div>
     </div>
 
-    <h2>Por qué la velocidad es estructuralmente más importante en hostelería que en otros sectores</h2>
+    </section>
+
+    <section class="article-section" id="section-3"><h2>Por qué la velocidad es estructuralmente más importante en hostelería que en otros sectores</h2>
 
     <p>En logística, una necesidad de personal con 48 horas de antelación es urgente pero gestionable. En hostelería, una necesidad con 48 horas de antelación es casi siempre el escenario ideal — la realidad suele ser cuatro horas o menos.</p>
 
@@ -272,7 +338,9 @@
       </div>
     </div>
 
-    <h2>Conclusión</h2>
+    </section>
+
+    <section class="article-section" id="conclusion"><h2>Conclusión</h2>
 
     <p>La hostelería no necesita que le expliquen que tiene un problema de contratación temporal. Lo vive cada fin de semana, cada puente, cada temporada alta. Lo que necesita son soluciones que operen a la velocidad que su modelo de negocio exige — no soluciones diseñadas para otros sectores con otros ritmos.</p>
 
@@ -281,6 +349,8 @@
     <p>Mi predicción: en los próximos dos años, la digitalización de la contratación temporal en hostelería va a dejar de ser una ventaja competitiva para convertirse en un estándar operativo. Los establecimientos que no hayan hecho la transición para entonces van a competir en desventaja por los mejores perfiles eventuales del sector — que ya están eligiendo con qué empresas trabajar en función de la experiencia que les ofrece la plataforma.</p>
 
     <p>La pregunta para cualquier responsable de un establecimiento hostelero es directa: ¿cuántos turnos críticos sin cubrir necesitas antes de cambiar las herramientas?</p>
+
+    </section>
 
     <hr/>
 
@@ -296,11 +366,39 @@
       </ol>
     </div>
 
+    <section aria-labelledby="related-articles-title" class="related-articles">
+      <h2 id="related-articles-title">Artículos relacionados</h2>
+      <ul>
+        <li><a href="/posts/que-sectores-dependen-mas-de-los-trabajadores-temporales/">Qué sectores dependen más de los trabajadores temporales</a></li>
+        <li><a href="/posts/los-principales-problemas-al-contratar-personal-temporal/">Los principales problemas al contratar personal temporal</a></li>
+        <li><a href="/posts/por-que-la-contratacion-temporal-sigue-siendo-demasiado-lenta/">Por qué la contratación temporal sigue siendo demasiado lenta</a></li>
+        <li><a href="/posts/como-reducir-los-no-shows-en-la-contratacion-temporal/">Cómo reducir los no-shows en la contratación temporal</a></li>
+        <li><a href="/posts/como-la-tecnologia-esta-cambiando-la-contratacion-temporal/">Cómo la tecnología está cambiando la contratación temporal</a></li>
+      </ul>
+    </section>
+
   </article>
 
-
+  <aside aria-label="Navegación del artículo" class="article-sidebar">
+    <div class="article-side-card">
+      <h3>En este artículo</h3>
+      <nav class="article-toc">
+        <a href="#section-1">Variabilidad y márgenes</a>
+        <a href="#section-2">Coste de un turno sin cubrir</a>
+        <a href="#section-3">Por qué la velocidad importa más</a>
+        <a href="#conclusion">Conclusión</a>
+      </nav>
+    </div>
+    <div class="article-side-card sidebar-cta">
+      <h3>Aplyk</h3>
+      <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+      <a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+    </div>
+  </aside>
+  </div>
 
     <!-- CTA -->
+
     <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
       <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
       <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
@@ -335,6 +433,46 @@
       </div>
     </div>
   </footer>
+
+
+  <script>
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          setActiveTocLink(link.getAttribute('href').slice(1));
+        });
+      });
+
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) currentSection = section;
+        });
+
+        if (currentSection) setActiveTocLink(currentSection.id);
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
+  </script>
 
 </body>
 </html>
