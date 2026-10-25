@@ -4,16 +4,17 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta name="description" content="Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesgo deja huellas medibles, y saber qué pedir a tu proveedor cabe en una página."/>
-  <meta property="og:title" content="Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar — Aplyk Blog"/>
-  <meta property="og:description" content="Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesgo deja huellas medibles, y saber qué pedir a tu proveedor cabe en una página."/>
+  <meta name="description" content="Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesg"/>
+  <meta property="og:title" content="Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar | Aplyk"/>
+  <meta property="og:description" content="Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesg"/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/"/>
   <meta property="og:image" content="https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/1/caratula_lkn.png"/>
   <meta property="article:published_time" content="2026-10-22"/>
+  <meta property="og:url" content="https://aplyk.com/posts/cuanto-tiempo-puede-conservar-una-empresa-los-datos-de-un-candidato/"/>
   <link rel="canonical" href="https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/"/>
 
-  <title>Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar — Blog Aplyk</title>
+  <title>Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar | Aplyk</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -42,6 +43,7 @@
 
   <link rel="stylesheet" href="../../shared-components.css"/>
   <link rel="stylesheet" href="/Resources/shared/footer.css">
+  <link rel="stylesheet" href="/Resources/shared/cookie-consent.css">
 
   <style>
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
@@ -133,6 +135,12 @@
     .article-toc { display:flex; flex-direction:column; gap:.7rem; }
     .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
     .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+
+    .article-toc a.active {
+      color:#F28A3A;
+      border-left-color:#F28A3A;
+      font-weight:800;
+    }
     .article-section { margin:0 0 2.6rem; padding-top:.25rem; scroll-margin-top:110px; }
     .article-section h2 { position:relative; }
     .article-section h2::before { content:""; display:block; width:42px; height:4px; background:#F28A3A; border-radius:999px; margin-bottom:.8rem; }
@@ -201,6 +209,48 @@
       }
     }
 
+
+    /* Related articles: text-only to keep the page lightweight */
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li {
+      margin: 0 !important;
+      list-style: none !important;
+    }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -208,7 +258,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar",
-  "description": "Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesgo deja huellas medibles, y saber qué pedir a tu proveedor cabe en una página.",
+  "description": "Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesg",
   "datePublished": "2026-10-22",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -220,12 +270,12 @@
   "author": {
     "@type": "Organization",
     "name": "Aplyk",
-    "url": "https://aplyk.com/"
+    "url": "https://aplyk.com"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Aplyk",
-    "url": "https://aplyk.com/"
+    "url": "https://aplyk.com"
   }
 }
   </script>
@@ -269,7 +319,7 @@
       </p>
       <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
         <span class="flex items-center gap-1.5">
-          <span class="material-symbols-outlined" style="font-size:16px;">business</span>
+          <span class="material-symbols-outlined" style="font-size:16px;">Business</span>
           Aplyk
         </span>
         <span class="flex items-center gap-1.5">
@@ -349,6 +399,8 @@
 <li><a href="https://www.cuatrecasas.com/es/latam/laboral/art/laboral-obligacion-informacion-algoritmica" target="_blank" rel="noopener noreferrer">Nueva obligación de información algorítmica en el ámbito laboral, Cuatrecasas, 2026-09-28</a></li>
 <li><a href="https://www.maynardnexsen.com/publication-emerging-liability-for-ai-driven-hiring-tools-key-developments-in-mobley-v-workday-inc" target="_blank" rel="noopener noreferrer">Emerging Liability for AI-Driven Hiring Tools: Key Developments in Mobley v. Workday, Inc., Maynard Nexsen, 2026-04-23</a></li></ol></details></div>
 
+<section class="related-articles" aria-labelledby="related-articles-title"><h2 id="related-articles-title">Artículos relacionados</h2><ul><li><a href="/posts/puede-una-empresa-usar-ia-para-seleccionar-candidatos-lo-que-dice-la-ley/">¿Puede una empresa usar IA para seleccionar candidatos? Lo que dice la ley</a></li><li><a href="/posts/ia-cv-y-privacidad-que-ocurre-con-tus-datos-cuando-un-algoritmo-analiza-tu-candidatura/">IA, CV y privacidad: qué ocurre con tus datos cuando un algoritmo analiza tu candidatura</a></li><li><a href="/posts/puede-un-algoritmo-decidir-quien-consigue-un-trabajo/">¿Puede un algoritmo decidir quién consigue un trabajo?</a></li><li><a href="/posts/ai-act-y-recursos-humanos-que-cambia-para-las-empresas-que-utilizan-ia-en-contratacion/">AI Act y Recursos Humanos: qué cambia para las empresas que utilizan IA en contratación</a></li></ul></section>
+
     </article>
 
     <aside class="article-sidebar" aria-label="Navegación del artículo">
@@ -413,11 +465,62 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
+
+
+    // Article table of contents: highlight the section currently being read.
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      // Immediate feedback when a TOC item is clicked.
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const sectionId = link.getAttribute('href').slice(1);
+          setActiveTocLink(sectionId);
+        });
+      });
+
+      // Keep the TOC in sync while the reader scrolls.
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) {
+            currentSection = section;
+          }
+        });
+
+        if (currentSection) {
+          setActiveTocLink(currentSection.id);
+        }
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
   </script>
 
   <!-- components.js is retained because it loads the shared article header -->
   <script src="../../components.js"></script>
   <script src="/Resources/shared/footer.js"></script>
 
+  <script src="/Resources/shared/cookie-consent.js"></script>
 </body>
 </html>
