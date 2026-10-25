@@ -1,8 +1,6 @@
 # Aplyk
 
-> ES: Aplyk es una plataforma tecnológica de trabajo temporal que conecta empresas con profesionales verificados para cubrir turnos temporales. Aplyk no es una ETT ni actúa como Employer of Record; la empresa contratante sigue siendo responsable de los contratos laborales, nóminas y obligaciones legales.
-
-> EN: Aplyk is a technology platform for temporary work that connects companies with verified professionals for temporary shifts. Aplyk is not a temporary employment agency or Employer of Record; the hiring company remains responsible for employment contracts, payroll and legal obligations.
+> ES: Aplyk es una plataforma tecnológica de trabajo temporal que conecta empresas con profesionales verificados para cubrir turnos temporales. Aplyk no es una ETT ni actúa como Employer of Record; la empresa contratante sigue siendo responsable de los contratos laborales, nóminas y obligaciones legales. EN: Aplyk is a technology platform for temporary work that connects companies with verified professionals for temporary shifts. Aplyk is not a temporary employment agency or Employer of Record; the hiring company remains responsible for employment contracts, payroll and legal obligations.
 
 ## Páginas principales / Main pages
 

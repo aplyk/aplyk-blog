@@ -1,0 +1,43 @@
+# Aplyk
+
+> ES: Aplyk es una plataforma tecnológica de trabajo temporal que conecta empresas con profesionales verificados para cubrir turnos temporales. Aplyk no es una ETT ni actúa como Employer of Record; la empresa contratante sigue siendo responsable de los contratos laborales, nóminas y obligaciones legales.
+
+> EN: Aplyk is a technology platform for temporary work that connects companies with verified professionals for temporary shifts. Aplyk is not a temporary employment agency or Employer of Record; the hiring company remains responsible for employment contracts, payroll and legal obligations.
+
+## Páginas principales / Main pages
+
+- Inicio / Home: https://aplyk.com/
+- Empresas / Companies: https://aplyk.com/#companies
+- Profesionales / Professionals: https://aplyk.com/#workers
+- FAQ: https://aplyk.com/#faq
+- Sobre Aplyk / About Aplyk: https://aplyk.com/about
+- Blog: https://aplyk.com/blog
+- Sitemap: https://aplyk.com/sitemap.xml
+
+## Temas principales / Main topics
+
+- Trabajo temporal / Temporary staffing and temporary work
+- Trabajo por horas y por turnos / Hourly and shift work
+- Personal para hostelería / Hospitality staffing
+- Personal para logística y almacenes / Logistics and warehouse staffing
+- Matching asistido por IA entre empresas y profesionales / AI-assisted matching between companies and professionals
+- Tecnología aplicada a la contratación temporal / Temporary staffing technology
+- Alternativas a las ETT tradicionales / Alternatives to traditional temporary employment agencies
+- Disponibilidad, confirmación de turnos y control horario / Worker availability, shift confirmation and time tracking
+- Uso responsable de IA en selección y contratación / Responsible use of AI in recruitment and candidate selection
+
+## Enfoque geográfico / Geographic focus
+
+ES: El foco inicial de Aplyk en España incluye Cantabria y País Vasco, con especial atención a Santander, Torrelavega, Castro Urdiales, Laredo, Bilbao, Vitoria-Gasteiz, San Sebastián/Donostia, Barakaldo, Getxo, Portugalete y Santurtzi.
+
+EN: Aplyk's initial Spanish focus includes Cantabria and the Basque Country, including Santander, Torrelavega, Castro Urdiales, Laredo, Bilbao, Vitoria-Gasteiz, San Sebastián/Donostia, Barakaldo, Getxo, Portugalete and Santurtzi.
+
+## Información importante / Important information
+
+ES: Aplyk proporciona tecnología para el matching y la gestión del trabajo temporal. No actúa como empleador legal ni gestiona nóminas. Las empresas siguen siendo responsables de los contratos laborales, nóminas y obligaciones legales aplicables.
+
+EN: Aplyk provides technology for matching and managing temporary work. It does not act as the legal employer and does not manage payroll. Companies remain responsible for employment contracts, payroll and applicable legal obligations.
+
+## Contenido / Content
+
+- Blog y recursos / Articles and resources: https://aplyk.com/blog
