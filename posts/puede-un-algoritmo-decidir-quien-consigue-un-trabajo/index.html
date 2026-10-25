@@ -105,6 +105,68 @@
       margin-bottom: 0.35rem;
       color: #94a3b8;
     }
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+    .article-toc a.active { color:#F28A3A; border-left-color:#F28A3A; font-weight:800; }
+    .article-section { scroll-margin-top:110px; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li { margin: 0 !important; list-style: none !important; }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -182,9 +244,8 @@
   <!-- CONTENIDO -->
   
   
-<main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
-
-
+<main class="article-shell px-6 xl:px-0 py-12">
+  <div class="article-layout">
     <article class="post-content">
         <p>Imagina que envías tu candidatura un martes por la mañana. Hay café en la mesa, el CV revisado por quinta vez, la carta de presentación ajustada al milímetro. A los tres minutos, llega el email: "Tras revisar tu perfil, hemos decidido continuar con otros candidatos." Tres minutos. Ningún humano ha leído nada.</p>
 
@@ -194,7 +255,7 @@
 
         <p>La tesis de este artículo es que los algoritmos pueden hacer cosas valiosas en selección — y también cosas peligrosas. La diferencia está en cómo se usan, qué se supervisa y quién asume la responsabilidad cuando algo falla.</p>
 
-        <h2>Lo que el algoritmo hace mejor que cualquier humano</h2>
+        <section class="article-section" id="section-1"><h2>Lo que el algoritmo hace mejor que cualquier humano</h2>
 
         <p>Hay algo genuinamente satisfactorio en ver cómo un sistema bien diseñado encuentra al candidato adecuado en segundos — no porque sea magia, sino porque hace con precisión lo que un humano hace con esfuerzo y fatiga creciente.</p>
 
@@ -212,7 +273,9 @@
           </div>
         </div>
 
-        <h2>Cuando el algoritmo aprende lo equivocado</h2>
+        </section>
+
+        <section class="article-section" id="section-2"><h2>Cuando el algoritmo aprende lo equivocado</h2>
 
         <p>En 2018, Amazon abandonó en silencio un sistema de IA que había desarrollado para automatizar la selección de candidatos. El motivo: el algoritmo había aprendido a penalizar a las mujeres. No porque nadie lo programara así — sino porque aprendió de los patrones históricos de contratación de la empresa, donde los hombres habían sido consistentemente preferidos durante años. El sistema reprodujo ese sesgo con precisión matemática.</p>
 
@@ -228,7 +291,9 @@
           </div>
         </div>
 
-        <h2>El límite legal: qué puede y qué no puede decidir un algoritmo</h2>
+        </section>
+
+        <section class="article-section" id="section-3"><h2>El límite legal: qué puede y qué no puede decidir un algoritmo</h2>
 
         <p>El artículo 22 del GDPR, en vigor desde mayo de 2018, establece que ninguna persona puede ser objeto de una decisión que le afecte significativamente basada únicamente en tratamiento automatizado. Aplicado a selección, significa que el algoritmo puede participar — ordenar, puntuar, sugerir — pero no puede ser el único responsable de un rechazo sin que exista posibilidad de intervención humana.</p>
 
@@ -246,7 +311,9 @@
           </div>
         </div>
 
-        <h2>Conclusión</h2>
+        </section>
+
+        <section class="article-section" id="conclusion"><h2>Conclusión</h2>
 
         <p>Un algoritmo puede participar en la decisión de quién consigue un trabajo — y hacerlo de forma valiosa. Puede procesar volumen con consistencia, reducir sesgos humanos en la evaluación y acelerar procesos que de otra forma llevarían días. Pero no puede reemplazar la decisión humana sin consecuencias legales y sin riesgo real de perpetuar discriminaciones que nadie programó conscientemente.</p>
 
@@ -255,6 +322,8 @@
         <p>Mi predicción: antes de 2028 veremos en España el primer caso mediático de sanción a una empresa por discriminación algorítmica en selección. Ese caso va a cambiar la conversación de forma permanente — para candidatos que entenderán que tienen derechos exigibles, y para empresas que entenderán que la opacidad algorítmica tiene un coste real.</p>
 
         <p>El algoritmo no va a desaparecer de los procesos de selección. Va a tener que aprender a rendir cuentas. Y eso, para quienes buscan trabajo y para quienes contratan, es una buena noticia.</p>
+
+        </section>
 
         <hr/>
 
@@ -270,12 +339,39 @@
             <li><em>AI Liability in European Employment Law</em>, Eurofound, 2024</li>
           </ol>
         </div>
+        <section aria-labelledby="related-articles-title" class="related-articles">
+          <h2 id="related-articles-title">Artículos relacionados</h2>
+          <ul>
+            <li><a href="/posts/tus-derechos-cuando-una-empresa-utiliza-ia-para-evaluar-tu-candidatura/">Tus derechos cuando una empresa utiliza IA para evaluar tu candidatura</a></li>
+            <li><a href="/posts/puede-una-empresa-usar-ia-para-seleccionar-candidatos-lo-que-dice-la-ley/">¿Puede una empresa usar IA para seleccionar candidatos? Lo que dice la ley</a></li>
+            <li><a href="/posts/que-obligaciones-tiene-una-empresa-cuando-utiliza-algoritmos-para-contratar-trabajadores/">Qué obligaciones tiene una empresa cuando utiliza algoritmos para contratar trabajadores</a></li>
+            <li><a href="/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/">Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar</a></li>
+            <li><a href="/posts/ia-cv-y-privacidad-que-ocurre-con-tus-datos-cuando-un-algoritmo-analiza-tu-candidatura/">IA, CV y privacidad: qué ocurre con tus datos cuando un algoritmo analiza tu candidatura</a></li>
+          </ul>
+        </section>
+
     </article>
 
-
-
+    <aside aria-label="Navegación del artículo" class="article-sidebar">
+      <div class="article-side-card">
+        <h3>En este artículo</h3>
+        <nav class="article-toc">
+          <a href="#section-1">Lo que el algoritmo hace mejor</a>
+          <a href="#section-2">Cuando aprende lo equivocado</a>
+          <a href="#section-3">El límite legal</a>
+          <a href="#conclusion">Conclusión</a>
+        </nav>
+      </div>
+      <div class="article-side-card sidebar-cta">
+        <h3>Aplyk</h3>
+        <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+        <a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+      </div>
+    </aside>
+  </div>
 
   <!-- CTA -->
+
   <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
     <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
     <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
@@ -302,6 +398,46 @@
   <div id="site-footer"></div>
 
   <script src="../../components.js"></script>
+
+
+  <script>
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          setActiveTocLink(link.getAttribute('href').slice(1));
+        });
+      });
+
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) currentSection = section;
+        });
+
+        if (currentSection) setActiveTocLink(currentSection.id);
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
+  </script>
 
 </body>
 </html>

@@ -116,6 +116,68 @@
       margin-bottom: 0.35rem;
       color: #94a3b8;
     }
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+    .article-toc a.active { color:#F28A3A; border-left-color:#F28A3A; font-weight:800; }
+    .article-section { scroll-margin-top:110px; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li { margin: 0 !important; list-style: none !important; }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -210,7 +272,8 @@
 
   <!-- CONTENIDO -->
   
-  <main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
+  <main class="article-shell px-6 xl:px-0 py-12">
+    <div class="article-layout">
     <article class="post-content">
 
   <p>El trabajo temporal no se distribuye de forma uniforme en la economía. Hay sectores donde es una herramienta puntual para gestionar picos de demanda, y hay sectores donde es, sencillamente, el modelo operativo. Sin trabajadores temporales, no funcionan. No de forma degradada — no funcionan.</p>
@@ -221,7 +284,7 @@
 
   <p>La tesis de este artículo es que entender qué sectores dependen más del trabajo temporal, y por qué, es imprescindible para cualquier empresa o plataforma que quiera operar en este mercado con criterio. Los patrones son claros, los datos los respaldan, y las tendencias apuntan a que esa dependencia va a crecer, no a reducirse.</p>
 
-  <h2>Logística y almacén: el sector que más ha crecido en demanda de temporales</h2>
+  <section class="article-section" id="section-1"><h2>Logística y almacén: el sector que más ha crecido en demanda de temporales</h2>
 
   <p>Si hay un sector que ha experimentado una transformación radical en su dependencia del trabajo temporal en los últimos diez años, es la logística y el almacenamiento. El auge del comercio electrónico ha convertido lo que antes era una demanda estacional — concentrada en navidades y rebajas — en una demanda estructuralmente variable, con picos que pueden multiplicar por tres o por cuatro las necesidades de personal en cuestión de días.</p>
 
@@ -237,7 +300,9 @@
     </div>
   </div>
 
-  <h2>Hostelería y restauración: temporalidad estructural con un problema de reputación</h2>
+  </section>
+
+   <section class="article-section" id="section-2"><h2>Hostelería y restauración: temporalidad estructural con un problema de reputación</h2>
 
   <p>La hostelería es, en términos absolutos, el sector con mayor volumen de contratos temporales en España. Según los datos del SEPE (2023), el sector de hostelería y restauración concentró más del 22% de todos los contratos eventuales firmados en el año — más de 4 millones de contratos, con una duración media inferior a 30 días.</p>
 
@@ -253,7 +318,9 @@
     </div>
   </div>
 
-  <h2>Agricultura: el sector más invisible y más dependiente</h2>
+  </section>
+
+   <section class="article-section" id="section-3"><h2>Agricultura: el sector más invisible y más dependiente</h2>
 
   <p>Si la logística y la hostelería son los sectores más visibles en el debate sobre trabajo temporal, la agricultura es el más dependiente y, paradójicamente, el menos atendido por las soluciones tecnológicas del sector.</p>
 
@@ -269,7 +336,9 @@
     </div>
   </div>
 
-  <h2>Conclusión</h2>
+  </section>
+
+   <section class="article-section" id="conclusion"><h2>Conclusión</h2>
 
   <p>Logística, hostelería y agricultura concentran la mayor parte de la demanda de trabajo temporal en España y en Europa. Los tres tienen en común una variabilidad de demanda que no puede resolverse con plantillas fijas, perfiles de media cualificación con curvas de aprendizaje cortas, y una presión creciente sobre los márgenes operativos que hace que la eficiencia en la contratación sea una variable competitiva crítica.</p>
 
@@ -278,6 +347,8 @@
   <p>Mi predicción: en los próximos tres años, veremos la primera plataforma de staffing digital especializada en el sector agrícola español con escala real. Y cuando eso ocurra, va a transformar un sector que lleva décadas operando con las mismas herramientas de contratación que usaba su abuelo.</p>
 
   <p>La pregunta relevante para cualquier empresa de estos sectores es simple: ¿tu proceso de contratación temporal está a la altura de la dependencia que tienes de ese talento?</p>
+
+  </section>
 
   <hr/>
 
@@ -293,9 +364,39 @@
     </ol>
   </div>
 
+  <section aria-labelledby="related-articles-title" class="related-articles">
+    <h2 id="related-articles-title">Artículos relacionados</h2>
+    <ul>
+      <li><a href="/posts/contratacion-temporal-en-almacenes-retos-y-oportunidades/">Contratación temporal en almacenes: retos y oportunidades</a></li>
+      <li><a href="/posts/por-que-la-hosteleria-necesita-soluciones-de-contratacion-mas-rapidas/">Por qué la hostelería necesita soluciones de contratación más rápidas</a></li>
+      <li><a href="/posts/los-principales-problemas-al-contratar-personal-temporal/">Los principales problemas al contratar personal temporal</a></li>
+      <li><a href="/posts/como-la-tecnologia-esta-cambiando-la-contratacion-temporal/">Cómo la tecnología está cambiando la contratación temporal</a></li>
+      <li><a href="/posts/por-que-la-contratacion-temporal-sigue-siendo-demasiado-lenta/">Por qué la contratación temporal sigue siendo demasiado lenta</a></li>
+    </ul>
+  </section>
+
 </article>
 
+    <aside aria-label="Navegación del artículo" class="article-sidebar">
+      <div class="article-side-card">
+        <h3>En este artículo</h3>
+        <nav class="article-toc">
+          <a href="#section-1">Logística y almacén</a>
+          <a href="#section-2">Hostelería y restauración</a>
+          <a href="#section-3">Agricultura</a>
+          <a href="#conclusion">Conclusión</a>
+        </nav>
+      </div>
+      <div class="article-side-card sidebar-cta">
+        <h3>Aplyk</h3>
+        <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+        <a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+      </div>
+    </aside>
+    </div>
+
     <!-- CTA -->
+
     <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
       <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
       <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
@@ -330,6 +431,46 @@
       </div>
     </div>
   </footer>
+
+
+  <script>
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          setActiveTocLink(link.getAttribute('href').slice(1));
+        });
+      });
+
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) currentSection = section;
+        });
+
+        if (currentSection) setActiveTocLink(currentSection.id);
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
+  </script>
 
 </body>
 </html>
