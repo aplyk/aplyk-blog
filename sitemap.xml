@@ -7,20 +7,14 @@
     <loc>https://aplyk.com/blog</loc>
   </url>
   <url>
-    <loc>https://aplyk.com/posts/como-evitar-discriminacion-cuando-utilizas-ia-para-contratar-personal/</loc>
-    <lastmod>2026-10-27</lastmod>
-  </url>
-
-
-  <url>
-    <loc>https://aplyk.com/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/</loc>
-    <lastmod>2026-10-22</lastmod>
-  </url>
-
-  <url>
     <loc>https://aplyk.com/posts/ia-cv-y-privacidad-que-ocurre-con-tus-datos-cuando-un-algoritmo-analiza-tu-candidatura/</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
+
+
+
+
+
 
   <url>
     <loc>https://aplyk.com/posts/cuanto-tiempo-puede-conservar-una-empresa-los-datos-de-un-candidato/</loc>
@@ -110,6 +104,6 @@
     <loc>https://aplyk.com/posts/que-sectores-dependen-mas-de-los-trabajadores-temporales/</loc>
   </url>
   <url>
-    <loc>https://aplyk.com/about</loc>
+    <loc>https://aplyk.com/about.html</loc>
   </url>
 </urlset>
