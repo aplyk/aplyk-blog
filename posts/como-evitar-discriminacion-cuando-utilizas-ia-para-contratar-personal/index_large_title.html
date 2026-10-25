@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Tu herramienta de selección hace exactamente lo que le pides, incluidos los filtros que nunca revisaste." name="description"/>
+<meta content="Cómo evitar discriminación cuando utilizas IA para contratar personal | Aplyk" property="og:title"/>
+<meta content="Tu herramienta de selección hace exactamente lo que le pides, incluidos los filtros que nunca revisaste." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://aplyk.com/posts/como-evitar-discriminacion-cuando-utilizas-ia-para-contratar-personal/" property="og:url"/>
+<meta content="https://aplyk.com/posts/como-evitar-discriminacion-cuando-utilizas-ia-para-contratar-personal/1/caratula_lkn.png" property="og:image"/>
+<meta content="2026-10-27" property="article:published_time"/>
+<link href="https://aplyk.com/posts/como-evitar-discriminacion-cuando-utilizas-ia-para-contratar-personal/" rel="canonical"/>
+<title>Cómo evitar discriminación cuando utilizas IA para contratar personal | Aplyk</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: { 
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+<link href="../../shared-components.css" rel="stylesheet"/>
+<link href="/Resources/shared/footer.css" rel="stylesheet"/>
+<link href="/Resources/shared/cookie-consent.css" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+
+    .article-image {
+      margin: 2.5rem 0;
+    }
+    .article-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(42, 82, 111, 0.10);
+    }
+
+    .sources {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+    }
+    .sources h2 {
+      font-size: 1rem !important;
+      font-weight: 700;
+      color: #94a3b8 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .sources ol {
+      margin: 0 0 0 1.25rem;
+      color: #94a3b8;
+    }
+    .sources li {
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+      color: #94a3b8;
+    }
+
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 3rem; align-items: center; }
+    .article-hero-media { background: linear-gradient(145deg,#f8fafc,#eef4f8); border: 1px solid #e2e8f0; border-radius: 24px; padding: 14px; box-shadow: 0 18px 45px rgba(42,82,111,.10); }
+    .article-hero-media img { width:100%; height:auto; display:block; border-radius:16px; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+
+    .article-toc a.active {
+      color:#F28A3A;
+      border-left-color:#F28A3A;
+      font-weight:800;
+    }
+    .article-section { margin:0 0 2.6rem; padding-top:.25rem; scroll-margin-top:110px; }
+    .article-section h2 { position:relative; }
+    .article-section h2::before { content:""; display:block; width:42px; height:4px; background:#F28A3A; border-radius:999px; margin-bottom:.8rem; }
+    .article-section:nth-of-type(even) { background:#f8fbfd; border:1px solid #edf2f7; border-radius:18px; padding:1.4rem 1.5rem 1.1rem; }
+    .article-image { margin:2.2rem 0 2.8rem; }
+    .article-image--split { display:grid; grid-template-columns:minmax(0, 1fr); }
+    .article-image--wide { margin-left:-48px; margin-right:-48px; }
+    .article-conclusion { margin-top:3rem; padding:1.8rem; border-radius:18px; background:#fff7ef; border:1px solid #fde4cb; }
+    .article-conclusion h2 { margin-top:0 !important; }
+    .sources details { background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:1rem 1.1rem; }
+    .sources summary { cursor:pointer; color:#2a526f; font-weight:800; }
+    .sources ol { margin-top:1rem; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+    @media (max-width: 960px) {
+      .article-hero-grid { grid-template-columns:1fr; gap:2rem; }
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+      .article-image--wide { margin-left:0; margin-right:0; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+      .article-section:nth-of-type(even) { padding:1.15rem; }
+    }
+
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: #2a526f;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(42, 82, 111, 0.22);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+    }
+    .back-to-top:hover {
+      background: #1e3b50;
+      transform: translateY(-2px);
+    }
+    .back-to-top:focus-visible {
+      outline: 3px solid rgba(242, 138, 58, .45);
+      outline-offset: 3px;
+    }
+    .back-to-top .material-symbols-outlined {
+      font-size: 24px;
+      line-height: 1;
+    }
+    @media (max-width: 640px) {
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+
+    /* Related articles: text-only to keep the page lightweight */
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li {
+      margin: 0 !important;
+      list-style: none !important;
+    }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cómo evitar discriminación cuando utilizas IA para contratar personal",
+  "description": "Tu herramienta de selección hace exactamente lo que le pides, incluidos los filtros que nunca revisaste.",
+  "datePublished": "2026-10-27",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aplyk.com/posts/como-evitar-discriminacion-cuando-utilizas-ia-para-contratar-personal/"
+  },
+  "image": [
+    "https://aplyk.com/posts/como-evitar-discriminacion-cuando-utilizas-ia-para-contratar-personal/1/caratula_lkn.png"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "Aplyk",
+    "url": "https://aplyk.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aplyk",
+    "url": "https://aplyk.com"
+  }
+}
+  </script>
+</head>
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden" id="top">
+<!-- BACK TO TOP -->
+<button aria-label="Volver arriba" class="back-to-top" id="backToTop" type="button">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<!-- SHARED NAV -->
+<div id="site-header"></div>
+<!-- BREADCRUMB -->
+<div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+<div class="article-shell flex items-center gap-2 text-sm text-slate-400">
+<a class="hover:text-primary transition-colors" href="/">Inicio</a>
+<span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="/blog">Blog</a>
+<span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+<span class="text-primary font-medium">Cómo evitar discriminación cuando utilizas IA para contratar personal</span>
+</div>
+</div>
+<!-- HEADER DEL POST -->
+<header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+<div class="article-shell article-hero-grid">
+<div class="flex flex-col gap-5">
+<div class="flex items-center gap-3">
+<span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          Empresas
+        </span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+         Cómo evitar discriminación cuando utilizas IA para contratar personal
+      </h1>
+<p class="text-slate-500 text-lg leading-relaxed">
+         Tu herramienta de selección hace exactamente lo que le pides, incluidos los filtros que nunca revisaste. Esto es lo que dicen la AEPD, el regulador británico y la Comisión Europea, y las seis preguntas que conviene hacer antes de comprar.
+      </p>
+<div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size:16px;">Business</span>
+          Aplyk
+        </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          27 Octubre 2026
+        </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          8 min lectura
+        </span>
+</div>
+</div>
+<div class="article-hero-media">
+<img alt="Imagen principal del artículo" loading="eager" src="./1/caratula_lkn.png"/>
+</div>
+</div>
+</header>
+<!-- CONTENIDO -->
+<main class="article-shell px-6 xl:px-0 py-12">
+<div class="article-layout">
+<article class="post-content">
+<div class="article-intro"><p>Un lunes por la mañana, la responsable de operaciones de un almacén abre el panel de su herramienta de selección de personal. Hay un selector de «años de experiencia» y una casilla que dice «sin huecos en el currículum». Mueve el selector, clic, y la lista de candidatos se ordena ante sus ojos con un movimiento fluido, casi táctil. Es satisfactorio. Lo que no ve es qué acaba de pedirle exactamente a la herramienta.</p>
+<p>Ahí está el nudo de la discriminación algorítmica. No necesitas prohibir la IA en la contratación de personal para evitar discriminar. Necesitas saber qué le estás pidiendo, con qué datos y quién revisa lo que responde. El regulador británico de protección de datos (ICO) auditó herramientas de reclutamiento de personal y encontró algunas que permitían filtrar candidatos por características protegidas. El filtro no lo inventó la máquina: venía en el menú.</p>
+<p>Mi tesis es que la discriminación con IA se previene con decisiones de diseño y de compra que cualquier empresa puede tomar, y que el marco regulatorio ya dice cuáles son.</p></div>
+<section class="article-section" id="section-1">
+<h2>Lo que le pides a la herramienta también cuenta</h2>
+<p>El ICO auditó entre agosto de 2023 y mayo de 2024 a desarrolladores de herramientas de reclutamiento y publicó los resultados en noviembre de 2024. Halló herramientas que permitían a los reclutadores filtrar candidatos por características protegidas y otras que estimaban el género o la etnia a partir de la solicitud o solo del nombre.</p><p>Según el informe, esa deducción no es lo bastante precisa para vigilar el sesgo y se hacía a menudo sin base legal y sin conocimiento del candidato. Algunas herramientas recogían mucha más información de la necesaria y la conservaban indefinidamente para crear grandes bases de candidatos.</p><p>Los ejemplos de la Comisión Europea añaden que una herramienta que puntúa y ordena candidatos puede llevar a una clasificación baja o a la exclusión de personas de cierto género o con discapacidad. Es una foto del Reino Unido en ese periodo, y las herramientas auditadas estaban pensadas para apoyar a reclutadores, no para decidir solas.</p>
+<p>Mi lectura: un algoritmo es un cocinero muy literal. Cocina lo que le pides, sin preguntar si la receta tiene sentido. Una casilla de «sin huecos en el currículum» se ejecuta con la misma eficacia sobre diez candidaturas que sobre diez mil. En mi experiencia, un hueco suele esconder una baja, el cuidado de un familiar o una temporada sin trabajo, y no siempre dice algo sobre cómo trabajará esa persona. Cada filtro es una decisión humana ejecutada a escala, y esa es la parte buena: es la que tú controlas.</p>
+</section>
+<figure class="article-image article-image--split">
+<img alt="Ilustración del artículo Cómo evitar discriminación cuando utilizas IA para contratar personal — enfoque PLACER" loading="lazy" src="./1/caratula_lkn.png"/>
+</figure>
+<section class="article-section" id="section-2">
+<h2>Qué dice la ley sobre decidir sin una persona</h2>
+<p>El artículo 22 del RGPD reconoce el derecho a no ser objeto de una decisión basada únicamente en un tratamiento automatizado, perfiles incluidos, que produzca efectos jurídicos o afecte de modo similar. Si la decisión se apoya en un contrato o en el consentimiento explícito, el responsable debe garantizar al menos la intervención humana, el derecho a expresar el punto de vista y a impugnar la decisión.</p><p>La guía de la AEPD, actualizada en diciembre de 2025, cita como ejemplo ser descartado de un proceso de selección. Admite una primera criba automática que excluya a quien no cumple un requisito esencial, como la titulación exigida, pero exige que la intervención humana sea significativa, hecha por una persona competente y autorizada para cambiar la decisión, y una evaluación de impacto al diseñar el algoritmo.</p><p>Afirma también que no es admisible que estos algoritmos produzcan discriminación y que, si lo hacen, hay que modificar su diseño. Y recuerda que pedir en una selección datos que den lugar a discriminaciones puede constituir una infracción administrativa muy grave (art. 16.1.c TRLISOS).</p><p>El 23 de septiembre de 2026, la AEPD advirtió a una empresa que estudia usar una IA que puntúa currículums: quien decide debe valorar la puntuación con criterio crítico y no limitarse a asumirla. Es una medida preventiva, no declara una infracción.</p>
+<p>El miedo que más escucho en las empresas es «¿y si me sancionan por algo que hacía mi herramienta sin que yo lo supiera?». Leyendo a la AEPD, los controles que pide son concretos y están a tu alcance: una persona con autoridad real, información clara y una evaluación previa. Un sello de «revisado» en una lista que nadie puede cambiar es teatro, no supervisión.</p>
+</section>
+<section class="article-section" id="section-3">
+<h2>El Reglamento de IA da obligaciones propias a quien usa la herramienta</h2>
+<p>Según los ejemplos orientativos del AI Act Service Desk de la Comisión Europea, las herramientas automatizadas de emparejamiento y ranking que filtran candidatos se clasifican como de alto riesgo (Anexo III, punto 4) aunque el reclutador pueda revisar y anular el resultado, porque sus puntuaciones son una entrada principal de la decisión.</p><p>El artículo 26 fija las obligaciones de quien las usa: asignar la supervisión humana a personas con competencia, formación y autoridad; vigilar el funcionamiento; garantizar que los datos de entrada sean pertinentes y representativos cuando los controla; conservar los registros al menos seis meses, salvo que otra norma, en particular de protección de datos, disponga otra cosa; informar a los representantes de los trabajadores y a los trabajadores afectados antes de usar el sistema en el centro de trabajo; e informar a las personas sobre las que se toman decisiones.</p><p>El Reglamento (UE) 2026/1744, publicado el 24 de julio de 2026, fijó el 2 de diciembre de 2027 como fecha de aplicación de estas obligaciones para el Anexo III, en lugar del 2 de agosto de 2026. Los resúmenes del Service Desk no son jurídicamente vinculantes.</p>
+<p>Mi opinión: el aplazamiento es tiempo con letra pequeña. Sirve para preparar a la persona que supervisa, decidir qué registros guardas y cómo explicas la herramienta, no para esperar. El RGPD ya se aplica hoy, y la AEPD lo está recordando ahora. Guardar registros y guardar pocos datos parecen objetivos opuestos, pero no lo son si decides qué guardas y por qué.</p>
+</section>
+<figure class="article-image article-image--wide">
+<img alt="Ilustración del artículo Cómo evitar discriminación cuando utilizas IA para contratar personal — enfoque CONFORT" loading="lazy" src="./2/caratula_lkn.png"/>
+</figure>
+<section class="article-section" id="section-4">
+<h2>Seis preguntas para hacer antes de comprar</h2>
+<p>El ICO publicó el 6 de noviembre de 2024 seis preguntas para quien va a contratar personal con herramientas de IA, pensadas para pedir garantías al proveedor. Primera: ¿se ha hecho una evaluación de impacto sobre protección de datos, idealmente en la fase de compra? Segunda: ¿cuál es la base jurídica del tratamiento?</p><p>Tercera: ¿están documentadas las responsabilidades de empresa y proveedor, con instrucciones claras y, si se desea, objetivos de precisión y sesgo? Cuarta: ¿ha mitigado el proveedor el sesgo, y puede enseñar la documentación? Quinta: ¿se informa a los candidatos de cómo se usa la herramienta, de la lógica implicada y de cómo impugnar una decisión automatizada? Sexta: ¿cómo se limita el tratamiento innecesario de datos?</p><p>El regulador recuerda que tanto la empresa como el proveedor tienen responsabilidad. Son pautas británicas; la referencia en España es el RGPD y la guía de la AEPD, y las preguntas sirven como lista de comprobación en ambos casos.</p>
+<p>Mi consejo es tratarlas como la mise en place de un cocinero: seis cuencos ordenados antes de encender el fuego. Con las preguntas por escrito, la reunión con el proveedor es más corta y más clara, y una respuesta evasiva se nota enseguida. Si el proveedor no puede enseñarte documentación sobre sesgo, ya tienes tu respuesta.</p>
+</section>
+<section class="article-section" id="section-5">
+<h2>Datos de rendimiento y valoraciones: el terreno del personal temporal</h2>
+<p>Los mismos ejemplos de la Comisión incluyen, en el punto 4(b), un planificador de turnos con IA que ordena a los trabajadores según puntualidad, ausencias y valoraciones.</p><p>Sobre la medición del sesgo, el ICO observó que muchos proveedores usaban el análisis de impacto adverso, a menudo con la regla de las cuatro quintas partes (la tasa de selección de un grupo debe ser al menos el 80 % de la del grupo con la tasa más alta), y repetían las pruebas. Es una práctica que cita el ICO, no un umbral legal.</p><p>El regulador recomienda recoger los datos demográficos directamente de los candidatos, de forma opcional, y no deducirlos. Y el Reglamento (UE) 2026/1744 añade un artículo 4 bis que permite, con condiciones estrictas, tratar categorías especiales de datos solo para detectar y corregir sesgos.</p>
+<p>Si trabajas con personal temporal, esto te toca de lleno, porque el emparejamiento suele apoyarse en rendimiento pasado y valoraciones. Plataformas como Aplyk, que opera en País Vasco, Cantabria y Greater Manchester, conectan empresas con trabajadores verificados mediante matching con IA, control horario por GPS y valoraciones tras el turno, incluidas las del trabajador a la empresa.</p><p>Eso traslada el foco del nombre y la trayectoria a lo ocurrido en el puesto, pero entra en el terreno que la Comisión cita, así que la vara de medir es la misma: qué datos de rendimiento usa y cómo se comprueba que no arrastra sesgos. Que no sea una ETT ni actúe como empleador legal no cambia la lista: haz las seis preguntas a cualquiera de las plataformas para reclutar personal que valores.</p>
+</section>
+<section class="article-conclusion" id="conclusion"><h2>Conclusión</h2><p>Prohibir la IA no evita discriminar, y usarla a ciegas tampoco. Lo que funciona es más modesto: saber qué le pides, con qué datos, quién revisa el resultado y cómo demuestras que has medido el sesgo. La selección de personal con IA no es un terreno sin ley, y casi todas las piezas que necesitas ya las han publicado la AEPD, el ICO y la Comisión Europea.</p>
+<p>Mi predicción: antes de que acabe 2027, en España, una empresa que use IA para su contratación de personal tendrá que poder enseñar su evaluación de impacto, la documentación de sesgo de su proveedor y a la persona que supervisa con autoridad real. Quien llegue con eso preparado lo verá como rutina. Quien no, como una urgencia.</p>
+<p>Esta semana, escribe las seis preguntas en una hoja y llévalas a tu próxima reunión con el proveedor. Si falta alguna respuesta, pídela por escrito. Si tu caso es concreto, consúltalo con un profesional del derecho laboral o de la protección de datos. No hace falta entender el modelo, pero sí saber qué le estás pidiendo. Y eso está en tu mano.</p></section>
+<div class="sources"><details><summary>Fuentes y base documental</summary><ol><li><a href="https://cy.ico.org.uk/media2/migrated/4031620/ai-in-recruitment-outcomes-report.pdf" rel="noopener noreferrer" target="_blank">AI tools in recruitment: Audit outcomes report, Information Commissioner's Office (ICO), Reino Unido, 2024-11</a></li>
+<li><a href="https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/11/thinking-of-using-ai-to-assist-recruitment-our-key-data-protection-considerations" rel="noopener noreferrer" target="_blank">Thinking of using AI to assist recruitment? Our key data protection considerations, Information Commissioner's Office (ICO), Reino Unido, 2024-11-06</a></li>
+<li><a href="https://www.aepd.es/es/documento/la-proteccion-de-datos-en-las-relaciones-laborales.pdf" rel="noopener noreferrer" target="_blank">La protección de datos en las relaciones laborales (guía actualizada en diciembre de 2025), Agencia Española de Protección de Datos (AEPD), 2025-12</a></li>
+<li><a href="https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/agencia-recuerda-garantias-para-utilizar-ia-en-analisis-curriculums" rel="noopener noreferrer" target="_blank">La Agencia recuerda las garantías para utilizar IA en el análisis de currículums, Agencia Española de Protección de Datos (AEPD), 2026-09-23</a></li>
+<li><a href="https://www.legislation.gov.uk/eur/2016/679/article/22/adopted" rel="noopener noreferrer" target="_blank">Regulation (EU) 2016/679 (GDPR), Article 22: Automated individual decision-making, including profiling (versión original adoptada), legislation.gov.uk (The National Archives, Reino Unido), reproduce el texto del Diario Oficial de la UE, 2016-04-27</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/node/464" rel="noopener noreferrer" target="_blank">AI Act Service Desk: Employment (ejemplos de clasificación de alto riesgo, Anexo III, punto 4), Comisión Europea, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26" rel="noopener noreferrer" target="_blank">Article 26: Obligations of deployers of high-risk AI systems, Comisión Europea, AI Act Service Desk (texto basado en la versión consolidada de EUR-Lex a 27 de julio de 2026), 2026-07-27</a></li>
+<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202601744" rel="noopener noreferrer" target="_blank">Regulation (EU) 2026/1744 of the European Parliament and of the Council of 8 July 2026 amending Regulations (EU) 2024/1689, (EU) 2018/1139 and (EU) 2023/1230 (Digital Omnibus on AI), Diario Oficial de la Unión Europea (EUR-Lex), 2026-07-24</a></li></ol></details></div>
+<section aria-labelledby="related-articles-title" class="related-articles"><h2 id="related-articles-title">Artículos relacionados</h2><ul><li><a href="/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/">Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar</a></li><li><a href="/posts/ai-act-y-recursos-humanos-que-cambia-para-las-empresas-que-utilizan-ia-en-contratacion/">AI Act y Recursos Humanos: qué cambia para las empresas que utilizan IA en contratación</a></li><li><a href="/posts/cuanto-tiempo-puede-conservar-una-empresa-los-datos-de-un-candidato/">Cuánto tiempo puede conservar una empresa los datos de un candidato</a></li><li><a href="/posts/que-datos-personales-puede-pedir-una-empresa-durante-un-proceso-de-seleccion/">Qué datos personales puede pedir una empresa durante un proceso de selección</a></li></ul></section>
+</article>
+<aside aria-label="Navegación del artículo" class="article-sidebar">
+<div class="article-side-card">
+<h3>En este artículo</h3>
+<nav class="article-toc">
+<a href="#section-1">Lo que le pides a la herramienta también cuenta</a>
+<a href="#section-2">Qué dice la ley sobre decidir sin una persona</a>
+<a href="#section-3">El Reglamento de IA da obligaciones propias a quien usa la herramienta</a>
+<a href="#section-4">Seis preguntas para hacer antes de comprar</a>
+<a href="#section-5">Datos de rendimiento y valoraciones: el terreno del personal temporal</a>
+<a href="#conclusion">Conclusión</a>
+</nav>
+</div>
+<div class="article-side-card sidebar-cta">
+<h3>Aplyk</h3>
+<p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+<a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+</div>
+</aside>
+</div>
+<!-- CTA -->
+<div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+<h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
+<p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
+<div>
+<a class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5" href="/?demo=1">
+        Reservar una demo
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- VOLVER AL BLOG -->
+<div class="mt-10">
+<a class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors" href="/blog">
+<span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+      Volver al blog
+    </a>
+</div>
+</main>
+<!-- SHARED FOOTER -->
+<div id="shared-footer"></div>
+<script>
+    // Back-to-top button: same behaviour as the main Aplyk landing page.
+    const backToTop = document.getElementById('backToTop');
+
+    if (backToTop) {
+      const toggleBackToTop = () => {
+        backToTop.style.display = window.scrollY > 480 ? 'flex' : 'none';
+      };
+
+      toggleBackToTop();
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+
+    // Article table of contents: highlight the section currently being read.
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      // Immediate feedback when a TOC item is clicked.
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const sectionId = link.getAttribute('href').slice(1);
+          setActiveTocLink(sectionId);
+        });
+      });
+
+      // Keep the TOC in sync while the reader scrolls.
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) {
+            currentSection = section;
+          }
+        });
+
+        if (currentSection) {
+          setActiveTocLink(currentSection.id);
+        }
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
+  </script>
+<!-- components.js is retained because it loads the shared article header -->
+<script src="../../components.js"></script>
+<script src="/Resources/shared/footer.js"></script>
+<script src="/Resources/shared/cookie-consent.js"></script>
+</body>
+</html>
