@@ -116,6 +116,68 @@
       margin-bottom: 0.35rem;
       color: #94a3b8;
     }
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+    .article-toc a.active { color:#F28A3A; border-left-color:#F28A3A; font-weight:800; }
+    .article-section { scroll-margin-top:110px; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li { margin: 0 !important; list-style: none !important; }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -210,10 +272,8 @@
 
   <!-- CONTENIDO -->
   
-  <main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
-
-
-
+  <main class="article-shell px-6 xl:px-0 py-12">
+    <div class="article-layout">
     <article class="post-content">
 
       <p>18%. Ese es el porcentaje medio de no-shows en la contratación temporal en Europa, según el informe <em>Temporary Workforce Management</em> de Staffing Industry Analysts (2023). Uno de cada cinco trabajadores que han confirmado un turno no aparece. Sin llamar, sin avisar, sin explicación.</p>
@@ -224,7 +284,7 @@
 
       <p>La tesis de este artículo es que el no-show es un problema de diseño, no de mercado. Y que reducirlo no requiere grandes inversiones — requiere cambiar cómo se gestiona el proceso antes, durante y después de cada turno.</p>
 
-      <h2>La causa real del no-show: ambigüedad en el compromiso</h2>
+      <section class="article-section" id="section-1"><h2>La causa real del no-show: ambigüedad en el compromiso</h2>
 
       <p>El primer factor que genera no-shows es la ambigüedad. Cuando un trabajador "confirma" un turno mediante un mensaje de WhatsApp, una respuesta de email o una conversación telefónica con la agencia, el nivel de compromiso percibido es significativamente menor que cuando confirma mediante una acción activa — tocar un botón, firmar un documento digital, recibir una confirmación con todos los detalles del turno.</p>
 
@@ -240,7 +300,9 @@
         </div>
       </div>
 
-      <h2>El segundo factor: la ausencia de historial de comportamiento</h2>
+      </section>
+
+      <section class="article-section" id="section-2"><h2>El segundo factor: la ausencia de historial de comportamiento</h2>
 
       <p>El segundo factor que perpetúa los no-shows es que, en la mayoría de los modelos de agencia tradicional, no hay consecuencias documentadas para un trabajador que falla. La agencia puede anotarlo internamente, pero ese dato rara vez está estructurado, rara vez se comparte entre empresas, y nunca llega al trabajador de forma que pueda influir en sus futuras oportunidades laborales.</p>
 
@@ -258,7 +320,9 @@
         </div>
       </div>
 
-      <h2>El tercer factor: la fricción entre la confirmación y el turno</h2>
+      </section>
+
+      <section class="article-section" id="section-3"><h2>El tercer factor: la fricción entre la confirmación y el turno</h2>
 
       <p>El tercer factor que genera no-shows es la distancia temporal y la falta de comunicación entre el momento en que el trabajador confirma y el momento en que tiene que aparecer. Si un trabajador confirma un turno para el próximo viernes y no recibe ninguna comunicación hasta el viernes por la mañana, la probabilidad de que algo haya cambiado en su vida — otra oferta, un imprevisto, simplemente un cambio de plan — es significativamente mayor que si ha recibido recordatorios activos.</p>
 
@@ -274,7 +338,9 @@
         </div>
       </div>
 
-      <h2>Conclusión</h2>
+      </section>
+
+      <section class="article-section" id="conclusion"><h2>Conclusión</h2>
 
       <p>El no-show es predecible, medible y reducible. Los tres factores que lo generan — ambigüedad en el compromiso, ausencia de historial de comportamiento y falta de comunicación activa entre confirmación y turno — tienen solución concreta con cambios de proceso que no requieren grandes inversiones, pero sí disciplina operativa y, en la mayoría de los casos, herramientas mejores que un grupo de WhatsApp.</p>
 
@@ -283,6 +349,8 @@
       <p>Mi predicción: en los próximos dos años, la tasa de no-show va a convertirse en un indicador de gestión visible y comparable entre proveedores de staffing. Las empresas van a poder exigir a sus plataformas y agencias que reporten ese dato — y elegir en función de él. Cuando eso ocurra, los modelos que no tienen proceso activo de gestión del compromiso van a quedar en evidencia rápidamente.</p>
 
       <p>La pregunta que merece hacerse cualquier responsable de operaciones es directa: ¿sabes cuál es tu tasa de no-show real? ¿Y sabes cuánto te está costando cada semana?</p>
+
+      </section>
 
       <hr/>
 
@@ -299,10 +367,39 @@
         <p><strong>Nota:</strong> Algunas fuentes pueden requerir acceso o registro en los portales de las organizaciones correspondientes. Los datos citados corresponden a publicaciones atribuidas a estas entidades.</p>
       </div>
 
+      <section aria-labelledby="related-articles-title" class="related-articles">
+        <h2 id="related-articles-title">Artículos relacionados</h2>
+        <ul>
+          <li><a href="/posts/los-principales-problemas-al-contratar-personal-temporal/">Los principales problemas al contratar personal temporal</a></li>
+          <li><a href="/posts/por-que-la-contratacion-temporal-sigue-siendo-demasiado-lenta/">Por qué la contratación temporal sigue siendo demasiado lenta</a></li>
+          <li><a href="/posts/por-que-la-hosteleria-necesita-soluciones-de-contratacion-mas-rapidas/">Por qué la hostelería necesita soluciones de contratación más rápidas</a></li>
+          <li><a href="/posts/contratacion-temporal-en-almacenes-retos-y-oportunidades/">Contratación temporal en almacenes: retos y oportunidades</a></li>
+          <li><a href="/posts/por-que-el-matching-en-tiempo-real-es-el-futuro-del-trabajo-temporal/">Por qué el matching en tiempo real es el futuro del trabajo temporal</a></li>
+        </ul>
+      </section>
+
     </article>
 
+    <aside aria-label="Navegación del artículo" class="article-sidebar">
+      <div class="article-side-card">
+        <h3>En este artículo</h3>
+        <nav class="article-toc">
+          <a href="#section-1">Ambigüedad en el compromiso</a>
+          <a href="#section-2">Historial de comportamiento</a>
+          <a href="#section-3">Fricción antes del turno</a>
+          <a href="#conclusion">Conclusión</a>
+        </nav>
+      </div>
+      <div class="article-side-card sidebar-cta">
+        <h3>Aplyk</h3>
+        <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+        <a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+      </div>
+    </aside>
+    </div>
 
     <!-- CTA -->
+
     <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
       <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
       <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
@@ -337,6 +434,46 @@
       </div>
     </div>
   </footer>
+
+
+  <script>
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          setActiveTocLink(link.getAttribute('href').slice(1));
+        });
+      });
+
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) currentSection = section;
+        });
+
+        if (currentSection) setActiveTocLink(currentSection.id);
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
+  </script>
 
 </body>
 </html>

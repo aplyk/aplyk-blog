@@ -10,7 +10,7 @@
 <meta content="article" property="og:type"/>
 <meta property="og:url" content="https://aplyk.com/posts/que-datos-personales-puede-pedir-una-empresa-durante-un-proceso-de-seleccion/"/>
 <link rel="canonical" href="https://aplyk.com/posts/que-datos-personales-puede-pedir-una-empresa-durante-un-proceso-de-seleccion/"/>
-<title>Qué datos personales puede pedir una empresa durante un proceso de selección — Blog Aplyk</title>
+<title>Qué datos puede pedir una empresa en selección | Aplyk</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
@@ -112,6 +112,7 @@
     .article-toc { display:flex; flex-direction:column; gap:.7rem; }
     .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
     .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+    .article-toc a.active { color:#F28A3A; border-left-color:#F28A3A; font-weight:800; }
     .article-section { margin:0 0 2.6rem; padding-top:.25rem; scroll-margin-top:110px; }
     .article-section h2 { position:relative; }
     .article-section h2::before { content:""; display:block; width:42px; height:4px; background:#F28A3A; border-radius:999px; margin-bottom:.8rem; }
@@ -199,6 +200,44 @@
         margin-left: 0;
         margin-right: 0;
       }
+    }
+
+
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li { margin: 0 !important; list-style: none !important; }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
     }
 
 </style>
@@ -337,6 +376,18 @@
 <li>Auditoría sobre herramientas de IA en selección, ICO, Reino Unido, 2024.</li>
 <li>Guías sobre protección de datos en las relaciones laborales, Agencia Española de Protección de Datos.</li>
 </ol></details></div>
+
+<section aria-labelledby="related-articles-title" class="related-articles">
+  <h2 id="related-articles-title">Artículos relacionados</h2>
+  <ul>
+    <li><a href="/posts/que-ocurre-con-tus-datos-despues-de-enviar-un-cv/">Qué ocurre con tus datos después de enviar un CV</a></li>
+    <li><a href="/posts/cuanto-tiempo-puede-conservar-una-empresa-los-datos-de-un-candidato/">Cuánto tiempo puede conservar una empresa los datos de un candidato</a></li>
+    <li><a href="/posts/ia-cv-y-privacidad-que-ocurre-con-tus-datos-cuando-un-algoritmo-analiza-tu-candidatura/">IA, CV y privacidad: qué ocurre con tus datos cuando un algoritmo analiza tu candidatura</a></li>
+    <li><a href="/posts/tus-derechos-cuando-una-empresa-utiliza-ia-para-evaluar-tu-candidatura/">Tus derechos cuando una empresa utiliza IA para evaluar tu candidatura</a></li>
+    <li><a href="/posts/puede-una-empresa-usar-ia-para-seleccionar-candidatos-lo-que-dice-la-ley/">¿Puede una empresa usar IA para seleccionar candidatos? Lo que dice la ley</a></li>
+  </ul>
+</section>
+
 </article><aside aria-label="Navegación del artículo" class="article-sidebar"><div class="article-side-card"><h3>En este artículo</h3><nav class="article-toc"><a href="#section-1">Cada dato tiene su momento</a><a href="#section-2">Lo que no se pregunta, aunque se pregunte mucho</a><a href="#section-3">Vídeo, algoritmos y verificación: los datos nuevos</a><a href="#conclusion">Conclusión</a></nav></div><div class="article-side-card sidebar-cta"><h3>Aplyk</h3><p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p><a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a></div></aside></div>
 <!-- CTA -->
 <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
@@ -374,6 +425,44 @@
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
+</script>
+
+
+<script>
+  const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+  const tocSections = tocLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActiveTocLink = (sectionId) => {
+    tocLinks.forEach(link => {
+      const isActive = link.getAttribute('href') === `#${sectionId}`;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  if (tocLinks.length && tocSections.length) {
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setActiveTocLink(link.getAttribute('href').slice(1));
+      });
+    });
+
+    const updateActiveTocFromScroll = () => {
+      const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+      let currentSection = tocSections[0];
+      tocSections.forEach(section => {
+        if (section.offsetTop <= referenceLine) currentSection = section;
+      });
+      if (currentSection) setActiveTocLink(currentSection.id);
+    };
+
+    updateActiveTocFromScroll();
+    window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+    window.addEventListener('resize', updateActiveTocFromScroll);
   }
 </script>
 

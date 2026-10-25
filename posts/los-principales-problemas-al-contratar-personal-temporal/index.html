@@ -116,6 +116,68 @@
       margin-bottom: 0.35rem;
       color: #94a3b8;
     }
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+    .article-toc a.active { color:#F28A3A; border-left-color:#F28A3A; font-weight:800; }
+    .article-section { scroll-margin-top:110px; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li { margin: 0 !important; list-style: none !important; }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -210,7 +272,8 @@
 
   <!-- CONTENIDO -->
   
-  <main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
+  <main class="article-shell px-6 xl:px-0 py-12">
+    <div class="article-layout">
     <article class="post-content">
 
       <p>Contratar personal temporal debería ser sencillo. Es, por definición, una necesidad concreta, acotada en el tiempo y con un perfil generalmente bien definido. Y sin embargo, el 68% de las empresas europeas que dependen del trabajo eventual afirman que el proceso de contratación temporal es uno de los tres mayores cuellos de botella operativos de su organización.</p>
@@ -221,7 +284,7 @@
 
       <p>La tesis de este artículo es que los problemas al contratar personal temporal no son aleatorios ni inevitables. Son sistemáticos, predecibles y, en su mayor parte, solucionables. Pero solo si se identifican con precisión. Eso es lo que vamos a hacer aquí.</p>
 
-      <h2>El no-show: el problema más costoso y el menos gestionado</h2>
+      <section class="article-section" id="section-1"><h2>El no-show: el problema más costoso y el menos gestionado</h2>
 
       <p>Si hay un problema que todos los responsables de operaciones mencionan cuando se habla de contratación temporal, es el no-show: el trabajador que confirma el turno y no aparece. Sin llamar, sin avisar, sin explicación.</p>
 
@@ -237,7 +300,9 @@
         </div>
       </div>
 
-      <h2>La velocidad: entre cuando se detecta la necesidad y cuando el trabajador está operativo</h2>
+      </section>
+
+      <section class="article-section" id="section-2"><h2>La velocidad: entre cuando se detecta la necesidad y cuando el trabajador está operativo</h2>
 
       <p>El segundo gran problema es la velocidad — o más precisamente, la falta de ella. Ya lo hemos mencionado en otros artículos, pero merece un análisis específico en el contexto de los problemas de contratación temporal porque es, junto con el no-show, el factor que más impacto operativo genera.</p>
 
@@ -253,7 +318,9 @@
         </div>
       </div>
 
-      <h2>La calidad del matching: cubrir el turno no es lo mismo que cubrirlo bien</h2>
+      </section>
+
+      <section class="article-section" id="section-3"><h2>La calidad del matching: cubrir el turno no es lo mismo que cubrirlo bien</h2>
 
       <p>El tercer problema es el más subestimado de todos, y el que más consecuencias tiene a largo plazo: la diferencia entre cubrir un turno y cubrirlo con el perfil adecuado.</p>
 
@@ -271,7 +338,9 @@
         </div>
       </div>
 
-      <h2>Conclusión</h2>
+      </section>
+
+      <section class="article-section" id="conclusion"><h2>Conclusión</h2>
 
       <p>Los tres problemas principales de la contratación temporal — el no-show, la velocidad y la calidad del matching — tienen algo en común: no son consecuencia de la escasez de trabajadores disponibles. Son consecuencia de procesos mal diseñados, herramientas inadecuadas y una falta crónica de datos estructurados sobre el rendimiento real del personal eventual.</p>
 
@@ -280,6 +349,8 @@
       <p>Mi predicción para los próximos dos años: las empresas que inviertan en digitalizar su proceso de contratación temporal — con confirmación activa, pool propio de talento verificado y sistema de valoración post-turno — van a tener tasas de no-show, velocidades de cobertura y calidad de matching que las separarán de forma visible de sus competidores. No como ventaja tecnológica, sino como ventaja operativa con impacto directo en cuenta de resultados.</p>
 
       <p>La pregunta que merece hacerse cualquier responsable de operaciones es esta: ¿cuánto te está costando cada semana no haber resuelto ya estos tres problemas?</p>
+
+      </section>
 
       <hr/>
 
@@ -295,9 +366,39 @@
         </ol>
       </div>
 
+      <section aria-labelledby="related-articles-title" class="related-articles">
+        <h2 id="related-articles-title">Artículos relacionados</h2>
+        <ul>
+          <li><a href="/posts/como-reducir-los-no-shows-en-la-contratacion-temporal/">Cómo reducir los no-shows en la contratación temporal</a></li>
+          <li><a href="/posts/por-que-la-contratacion-temporal-sigue-siendo-demasiado-lenta/">Por qué la contratación temporal sigue siendo demasiado lenta</a></li>
+          <li><a href="/posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/">Cómo la IA puede mejorar el matching entre empresas y candidatos</a></li>
+          <li><a href="/posts/por-que-el-matching-en-tiempo-real-es-el-futuro-del-trabajo-temporal/">Por qué el matching en tiempo real es el futuro del trabajo temporal</a></li>
+          <li><a href="/posts/diferencias-entre-una-plataforma-de-empleo-temporal-y-una-agencia-tradicional/">Diferencias entre una plataforma de empleo temporal y una agencia tradicional</a></li>
+        </ul>
+      </section>
+
 </article>
 
+    <aside aria-label="Navegación del artículo" class="article-sidebar">
+      <div class="article-side-card">
+        <h3>En este artículo</h3>
+        <nav class="article-toc">
+          <a href="#section-1">El problema del no-show</a>
+          <a href="#section-2">La falta de velocidad</a>
+          <a href="#section-3">La calidad del matching</a>
+          <a href="#conclusion">Conclusión</a>
+        </nav>
+      </div>
+      <div class="article-side-card sidebar-cta">
+        <h3>Aplyk</h3>
+        <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+        <a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+      </div>
+    </aside>
+    </div>
+
     <!-- CTA -->
+
     <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
       <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
       <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
@@ -332,6 +433,46 @@
       </div>
     </div>
   </footer>
+
+
+  <script>
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          setActiveTocLink(link.getAttribute('href').slice(1));
+        });
+      });
+
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) currentSection = section;
+        });
+
+        if (currentSection) setActiveTocLink(currentSection.id);
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
+  </script>
 
 </body>
 </html>

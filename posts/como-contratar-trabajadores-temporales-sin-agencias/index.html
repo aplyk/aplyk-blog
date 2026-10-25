@@ -111,6 +111,68 @@
       margin-bottom: 0.35rem;
       color: #94a3b8;
     }
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+    .article-toc a.active { color:#F28A3A; border-left-color:#F28A3A; font-weight:800; }
+    .article-section { scroll-margin-top:110px; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li { margin: 0 !important; list-style: none !important; }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+    }
+
   </style>
 <script type="application/ld+json">
 {
@@ -194,12 +256,13 @@
 </div>
 </header>
 <!-- CONTENIDO -->
-<main class="max-w-3xl mx-auto px-6 lg:px-0 py-12">
+<main class="article-shell px-6 xl:px-0 py-12">
+<div class="article-layout">
 <article class="post-content">
 <p>El 67% de las empresas europeas que recurren a trabajo temporal afirman que el proceso de contratación a través de agencias les lleva entre 48 y 72 horas desde que detectan la necesidad hasta que el trabajador está operativo. En sectores como la logística o la hostelería, donde un turno sin cubrir puede costar entre 300 y 800 euros en productividad perdida o en horas extra de otros empleados, ese margen de tiempo es simplemente inaceptable.</p>
 <p>La narrativa dominante durante décadas ha sido que las agencias de trabajo temporal son el único mecanismo fiable para cubrir picos de demanda con garantías. Eso era verdad en 2005. En 2025, esa afirmación es, como mínimo, discutible.</p>
 <p>La tesis de este artículo es directa: las empresas que siguen dependiendo exclusivamente de agencias para su personal temporal no tienen un problema de recursos humanos. Tienen un problema de modelo operativo. Y hay alternativas concretas, ya disponibles, que permiten reducir los tiempos de contratación a menos de dos horas sin sacrificar calidad ni cumplimiento normativo.</p>
-<h2>El tiempo es el problema real, no la falta de candidatos</h2>
+<section class="article-section" id="section-1"><h2>El tiempo es el problema real, no la falta de candidatos</h2>
 <p>Uno de los errores más habituales que veo en empresas medianas y grandes es confundir el síntoma con la enfermedad. Cuando un responsable de operaciones dice “no encontramos personal”, lo que en realidad está describiendo, la mayoría de las veces, es un proceso de contratación que tarda demasiado y pierde candidatos por el camino.</p>
 <p>Según el informe <em>Global Workforce Report</em> de Manpower Group (2023), el 72% de los empleadores a nivel global reportan dificultades para cubrir puestos — pero cuando se analiza el dato con más detalle, más de la mitad de esas dificultades están relacionadas con la velocidad del proceso, no con la escasez absoluta de perfiles. Los candidatos existen. Simplemente se van a otra oferta antes de que el proceso termine.</p>
 <p>En el trabajo temporal de baja y media cualificación — almacén, hostelería, logística, eventos — la ventana de decisión de un candidato es de horas, no de días. Un perfil que recibe dos ofertas simultáneas acepta la primera que confirma. Si tu proceso tiene tres pasos de validación, una llamada de la agencia y una autorización interna, ya has perdido.</p>
@@ -210,7 +273,8 @@
     Las agencias tradicionales tienen un incentivo estructural para no acelerar demasiado el proceso. Su modelo de negocio se basa en el volumen gestionado y en el margen sobre nómina — no en la velocidad de respuesta. No es una crítica moral, es un análisis de incentivos. Y por eso el cambio tiene que venir desde la empresa contratante, no desde la agencia.
   </div>
 </div>
-<h2>Qué está funcionando: tecnología de matching y bases de talento propias</h2>
+</section>
+<section class="article-section" id="section-2"><h2>Qué está funcionando: tecnología de matching y bases de talento propias</h2>
 <p>Las empresas que han reducido sus tiempos de contratación temporal de forma significativa en los últimos tres años tienen algo en común: han dejado de depender de un único proveedor y han empezado a construir o acceder a su propio pool de trabajadores verificados.</p>
 <p>El modelo es más simple de lo que parece. En lugar de llamar a una agencia cada vez que surge una necesidad, la empresa trabaja con una plataforma que mantiene una base de candidatos pre-validados — con documentación revisada, disponibilidad actualizada y valoraciones de turnos anteriores. Cuando se publica una necesidad, el matching se produce de forma automática y el trabajador confirma directamente desde su móvil.</p>
 <p>Plataformas como Aplyk, Instawork (en el mercado norteamericano) o Temper (Países Bajos) han demostrado que este modelo puede reducir el tiempo medio de cobertura de turno a menos de 90 minutos en entornos urbanos con suficiente oferta de trabajadores. El estudio <em>The Future of Flexible Work</em> de Deloitte (2022) identificó que las empresas que adoptan herramientas de staffing digital reducen sus costes de contratación temporal entre un 18% y un 35% en los primeros 12 meses.</p>
@@ -221,7 +285,8 @@
     El matching por IA no es magia. Funciona cuando hay masa crítica de datos — historial de rendimiento, puntualidad, valoraciones por turno. Eso significa que las primeras semanas de uso de cualquier plataforma son siempre las peores. Las empresas que abandonan después de dos semanas porque “no funciona igual que la agencia” están cometiendo exactamente el mismo error que quien abandona el gimnasio en enero. El valor se construye con datos acumulados, no con un solo turno.
   </div>
 </div>
-<h2>El cumplimiento normativo: el argumento que más usan las agencias para frenar el cambio</h2>
+</section>
+<section class="article-section" id="section-3"><h2>El cumplimiento normativo: el argumento que más usan las agencias para frenar el cambio</h2>
 <p>“Si no usas una ETT, ¿quién gestiona los contratos? ¿Y la Seguridad Social? ¿Y las bajas?”</p>
 <p>Esta es la objeción número uno que escucho de los responsables de RRHH cuando se plantea reducir la dependencia de agencias. Y es legítima — el cumplimiento normativo en materia laboral en España y en el Reino Unido tiene capas de complejidad que no se pueden ignorar.</p>
 <p>Pero hay que separar dos cosas. Una es la figura de la ETT como empleadora legal — empresa que contrata al trabajador, lo cede a una empresa usuaria y gestiona toda la relación laboral. Esa figura tiene un coste y una burocracia asociados. Otra cosa distinta es una plataforma tecnológica que conecta empresas con trabajadores autónomos o que facilita la gestión de contratos eventuales directos entre la empresa y el trabajador.</p>
@@ -233,11 +298,13 @@
     Dentro de tres a cinco años, la pregunta no será “¿usamos agencia o plataforma?” sino “¿qué parte del proceso queremos externalizar y qué parte queremos controlar directamente?”. Las empresas que empiecen a construir ese músculo operativo ahora tendrán una ventaja competitiva real cuando la escasez de perfiles en sectores como logística o construcción se agudice — que se agudizará.
   </div>
 </div>
-<h2>Conclusión</h2>
+</section>
+<section class="article-section" id="conclusion"><h2>Conclusión</h2>
 <p>Contratar trabajadores temporales más rápido sin agencias no es una utopía ni una apuesta arriesgada. Es una decisión operativa que ya están tomando empresas de todos los tamaños en Europa, con resultados documentados en velocidad, coste y calidad de matching.</p>
 <p>El cambio requiere tres cosas: aceptar que el modelo de agencia tiene limitaciones estructurales, invertir tiempo en construir o acceder a un pool de talento pre-validado, y automatizar los procesos administrativos que hoy ralentizan la contratación directa.</p>
 <p>Mi predicción para los próximos dos años: veremos una consolidación fuerte en el mercado de plataformas de staffing digital, con dos o tres actores dominantes por país y sector. Las empresas que ya estén integradas en esos ecosistemas cuando llegue esa consolidación habrán ganado acceso preferente a los mejores perfiles. Las que sigan llamando a la agencia el lunes por la mañana para cubrir el turno del martes, seguirán pagando el precio — en tiempo, en dinero y en rotación.</p>
 <p>La pregunta no es si el modelo va a cambiar. Es cuándo decides subirte al cambio.</p>
+</section>
 <hr/>
 <div class="sources">
 <h2>Fuentes</h2>
@@ -250,8 +317,40 @@
 <li>Dato sobre coste de turno no cubierto: dato de referencia del sector, estimación basada en análisis interno de operadores logísticos medianos en España</li>
 </ol>
 </div>
+
+<section aria-labelledby="related-articles-title" class="related-articles">
+  <h2 id="related-articles-title">Artículos relacionados</h2>
+  <ul>
+    <li><a href="/posts/diferencias-entre-una-plataforma-de-empleo-temporal-y-una-agencia-tradicional/">Diferencias entre una plataforma de empleo temporal y una agencia tradicional</a></li>
+    <li><a href="/posts/por-que-la-contratacion-temporal-sigue-siendo-demasiado-lenta/">Por qué la contratación temporal sigue siendo demasiado lenta</a></li>
+    <li><a href="/posts/como-la-tecnologia-esta-cambiando-la-contratacion-temporal/">Cómo la tecnología está cambiando la contratación temporal</a></li>
+    <li><a href="/posts/por-que-el-matching-en-tiempo-real-es-el-futuro-del-trabajo-temporal/">Por qué el matching en tiempo real es el futuro del trabajo temporal</a></li>
+    <li><a href="/posts/los-principales-problemas-al-contratar-personal-temporal/">Los principales problemas al contratar personal temporal</a></li>
+  </ul>
+</section>
+
 </article>
+
+<aside aria-label="Navegación del artículo" class="article-sidebar">
+  <div class="article-side-card">
+    <h3>En este artículo</h3>
+    <nav class="article-toc">
+      <a href="#section-1">El tiempo es el problema real</a>
+      <a href="#section-2">Matching y pools de talento</a>
+      <a href="#section-3">Cumplimiento normativo</a>
+      <a href="#conclusion">Conclusión</a>
+    </nav>
+  </div>
+  <div class="article-side-card sidebar-cta">
+    <h3>Aplyk</h3>
+    <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+    <a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+  </div>
+</aside>
+</div>
+
 <!-- CTA -->
+
 <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
 <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
 <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
@@ -284,5 +383,43 @@
 </div>
 </div>
 </footer>
+
+<script>
+  const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+  const tocSections = tocLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActiveTocLink = (sectionId) => {
+    tocLinks.forEach(link => {
+      const isActive = link.getAttribute('href') === `#${sectionId}`;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  if (tocLinks.length && tocSections.length) {
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setActiveTocLink(link.getAttribute('href').slice(1));
+      });
+    });
+
+    const updateActiveTocFromScroll = () => {
+      const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+      let currentSection = tocSections[0];
+      tocSections.forEach(section => {
+        if (section.offsetTop <= referenceLine) currentSection = section;
+      });
+      if (currentSection) setActiveTocLink(currentSection.id);
+    };
+
+    updateActiveTocFromScroll();
+    window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+    window.addEventListener('resize', updateActiveTocFromScroll);
+  }
+</script>
+
 </body>
 </html>
