@@ -251,10 +251,26 @@
           <h2 id="app-title" data-i18n="profAppTitle">Everything from your phone</h2>
           <p data-i18n="profAppText">Discover opportunities, review each shift in detail and organise your availability from one place.</p>
         </div>
-        <div class="prof-phone-stage">
+        <div class="prof-phone-stage prof-phone-stage--desktop">
           <figure class="prof-phone prof-phone--left"><img src="/images/professionals-shift-list.webp" alt="Aplyk mobile shift list" loading="lazy"/></figure>
           <figure class="prof-phone prof-phone--main"><img src="/images/professionals-shift-detail.webp" alt="Aplyk mobile shift detail screen" loading="lazy"/></figure>
           <figure class="prof-phone prof-phone--right"><img src="/images/professionals-calendar.webp" alt="Aplyk mobile calendar for upcoming shifts" loading="lazy"/></figure>
+        </div>
+        <div class="prof-mobile-carousel" aria-label="Aplyk app screenshots">
+          <div class="prof-mobile-carousel-track" id="profMobileCarouselTrack">
+            <figure class="prof-mobile-slide"><img src="/images/professionals-shift-list.webp" alt="Aplyk mobile shift list" loading="lazy"/></figure>
+            <figure class="prof-mobile-slide"><img src="/images/professionals-shift-detail.webp" alt="Aplyk mobile shift detail screen" loading="lazy"/></figure>
+            <figure class="prof-mobile-slide"><img src="/images/professionals-calendar.webp" alt="Aplyk mobile calendar for upcoming shifts" loading="lazy"/></figure>
+          </div>
+          <div class="prof-mobile-carousel-controls">
+            <button class="prof-mobile-carousel-btn" id="profCarouselPrev" type="button" aria-label="Previous screenshot"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+            <div class="prof-mobile-carousel-dots" aria-label="Screenshot navigation">
+              <button class="is-active" type="button" data-slide="0" aria-label="Show screenshot 1"></button>
+              <button type="button" data-slide="1" aria-label="Show screenshot 2"></button>
+              <button type="button" data-slide="2" aria-label="Show screenshot 3"></button>
+            </div>
+            <button class="prof-mobile-carousel-btn" id="profCarouselNext" type="button" aria-label="Next screenshot"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+          </div>
         </div>
       </div>
     </section>
@@ -326,7 +342,7 @@
           <h2 id="local-title" data-i18n="profLocalTitle">Find work near you</h2>
           <p data-i18n="profLocalText">Aplyk can surface relevant opportunities based on your location, availability and professional profile. If you are looking for work near you, keeping these details current helps the platform prioritise compatible shifts when companies publish them.</p>
           <div class="prof-future-local-links" aria-label="Future local pages">
-            <span>Santander</span><span>Bilbao</span><span>Cantabria</span><span>País Vasco</span>
+            <span>Cantabria</span><span>País Vasco</span><span>Santander</span><span>Bilbao</span><span>Torrelavega</span><span>San Sebastián</span><span>Vitoria</span><span>Más...</span>
           </div>
         </div>
         <div class="prof-local-visual"><img src="/images/professionals-location.webp" alt="Location-based job discovery interface for professionals" loading="lazy"/></div>
@@ -515,6 +531,41 @@
 })();
 </script>
 
+
+<script id="prof-mobile-carousel-script">
+(() => {
+  const track = document.getElementById('profMobileCarouselTrack');
+  if (!track) return;
+  const slides = [...track.querySelectorAll('.prof-mobile-slide')];
+  const dots = [...document.querySelectorAll('.prof-mobile-carousel-dots [data-slide]')];
+  const prev = document.getElementById('profCarouselPrev');
+  const next = document.getElementById('profCarouselNext');
+  let index = 0;
+  const update = (i, smooth = true) => {
+    index = (i + slides.length) % slides.length;
+    track.scrollTo({left: slides[index].offsetLeft, behavior: smooth ? 'smooth' : 'auto'});
+    dots.forEach((dot, n) => dot.classList.toggle('is-active', n === index));
+  };
+  prev?.addEventListener('click', () => update(index - 1));
+  next?.addEventListener('click', () => update(index + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => update(i)));
+  let timer;
+  track.addEventListener('scroll', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const centre = track.scrollLeft + track.clientWidth / 2;
+      let best = 0, distance = Infinity;
+      slides.forEach((slide, i) => {
+        const d = Math.abs((slide.offsetLeft + slide.offsetWidth / 2) - centre);
+        if (d < distance) { distance = d; best = i; }
+      });
+      index = best;
+      dots.forEach((dot, n) => dot.classList.toggle('is-active', n === index));
+    }, 80);
+  });
+  update(0, false);
+})();
+</script>
 
   <div id="shared-footer"></div>
   <script src="/home.js"></script>
