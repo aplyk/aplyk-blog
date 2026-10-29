@@ -32,8 +32,76 @@
 <script id="companies-page-schema" type="application/ld+json"></script>
 <script id="companies-faq-schema" type="application/ld+json"></script>
 <script defer src="/main.js"></script>
+<style id="aplyk-manager-demo-styles">
+.aplyk-manager-demo{--stage-w:1546;--stage-h:1045;--content-x:379px;--content-y:360px;--content-w:1060px;--content-h:685px;--gap:7px;--worker-scale:.85;--worker-x:113.386px;--move-ms:650ms;--ease:cubic-bezier(.22,.61,.36,1);position:relative;width:100%;aspect-ratio:1546/1045;overflow:hidden;background:#000;border-radius:20px;isolation:isolate}.aplyk-manager-demo *{box-sizing:border-box}.aplyk-manager-demo .manager-stage{position:absolute;inset:0 auto auto 0;width:1546px;height:1045px;transform-origin:0 0}.aplyk-manager-demo .manager-screen{position:absolute;inset:0;width:1546px;height:1045px;display:block;pointer-events:none;user-select:none}.aplyk-manager-demo .manager-create-screen{opacity:1;transition:opacity 360ms ease}.aplyk-manager-demo .manager-list-screen{opacity:0;transition:opacity 360ms ease}.aplyk-manager-demo .manager-list-layer{opacity:0;transition:opacity 360ms ease}.aplyk-manager-demo .manager-content-clip{position:absolute;left:var(--content-x);top:var(--content-y);width:var(--content-w);height:var(--content-h);overflow:hidden;pointer-events:none}.aplyk-manager-demo .manager-item{position:absolute;left:0;top:0;transform-origin:top left;opacity:0;transition:top var(--move-ms) var(--ease),opacity 280ms ease,transform 280ms var(--ease);will-change:top,opacity,transform}.aplyk-manager-demo .manager-item img{display:block;width:1060px;height:auto;pointer-events:none;user-select:none}.aplyk-manager-demo .manager-item.manager-shift{width:1060px}.aplyk-manager-demo .manager-item.manager-worker{left:var(--worker-x);width:calc(1060px * var(--worker-scale));transform:translateY(-8px) scale(var(--worker-scale))}.aplyk-manager-demo .manager-item.manager-worker.visible{transform:translateY(0) scale(var(--worker-scale))}.aplyk-manager-demo .manager-item.manager-shift.manager-new{transform:translateY(-8px)}.aplyk-manager-demo .manager-item.manager-shift.manager-new.visible{transform:translateY(0)}.aplyk-manager-demo .manager-item.visible{opacity:1}.aplyk-manager-demo .manager-tap{position:absolute;left:890px;top:906px;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;border:3px solid rgba(255,255,255,.9);background:rgba(255,255,255,.10);opacity:0;transform:scale(.3);pointer-events:none}.aplyk-manager-demo .manager-tap.play{animation:aplykManagerTapPulse 520ms ease-out forwards}@keyframes aplykManagerTapPulse{0%{opacity:0;transform:scale(.3)}28%{opacity:1}100%{opacity:0;transform:scale(1.25)}}@media(prefers-reduced-motion:reduce){.aplyk-manager-demo .manager-screen,.aplyk-manager-demo .manager-list-layer,.aplyk-manager-demo .manager-item{transition:none!important}.aplyk-manager-demo .manager-tap{display:none}}
+</style>
+
+<style id="companies-hero-balanced-sizing">
+  /* Companies hero — two-column desktop composition, prioritising a larger product demo */
+  @media (min-width:1081px){
+    .biz-hero > .wrap.biz-hero-shell{
+      width:min(calc(100% - 72px), 1480px);
+      max-width:1480px;
+      grid-template-columns:minmax(0,.38fr) minmax(0,.62fr);
+      gap:54px;
+      align-items:center;
+    }
+
+    .biz-hero-copy{
+      width:100%;
+      max-width:610px;
+      margin:0;
+      text-align:left;
+    }
+
+    .biz-hero-copy h1{
+      max-width:610px;
+    }
+
+    .biz-hero-copy .biz-hero-lead{
+      max-width:590px;
+    }
+
+    .biz-hero-actions,
+    .biz-benefit-strip{
+      justify-content:flex-start;
+    }
+
+    .biz-hero-product{
+      width:100%;
+      max-width:none;
+      justify-self:end;
+      margin-left:auto;
+    }
+
+    .biz-product-frame,
+    .aplyk-manager-demo{
+      width:100%;
+    }
+  }
+
+  @media (min-width:1500px){
+    .biz-hero > .wrap.biz-hero-shell{
+      width:min(calc(100% - 96px), 1560px);
+      max-width:1560px;
+      gap:60px;
+    }
+  }
+
+  @media (max-width:1080px){
+    .biz-hero-product{
+      width:100%;
+      max-width:880px;
+      margin-inline:auto;
+    }
+  }
+</style>
+
 </head>
 <body id="top" data-page="companies">
+<button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
 <a class="seo-skip-link" href="#main-content" data-i18n="compSkip">Skip to content</a>
 <div class="site-nav aplyk-shared-nav" data-header="shared-v1">
   <div class="wrap nav-inner">
@@ -63,7 +131,7 @@
 <form action="https://formsubmit.co/info@aplyk.com" id="demo-form" method="POST"><input name="_subject" type="hidden" value="New Aplyk demo request"/><input name="_template" type="hidden" value="table"/><input name="_captcha" type="hidden" value="false"/><input id="demo-form-next" name="_next" type="hidden" value="https://aplyk.com/empresas/?demo_submitted=1"/><div aria-hidden="true" class="honeypot"><label for="demo-website">Website</label><input autocomplete="off" id="demo-website" name="_honey" tabindex="-1" type="text"/></div><div class="form-grid"><div class="form-field"><label data-i18n="demoNameLabel" for="demo-name">Full name</label><input autocomplete="name" data-i18n="demoNamePh" data-i18n-attribute="placeholder" id="demo-name" name="Full name" required type="text"/></div><div class="form-field"><label data-i18n="demoCompanyLabel" for="demo-company">Company</label><input autocomplete="organization" data-i18n="demoCompanyPh" data-i18n-attribute="placeholder" id="demo-company" name="Company" required type="text"/></div><div class="form-field"><label data-i18n="demoIndustryLabel" for="demo-industry">Industry</label><select id="demo-industry" name="Industry" required><option data-i18n="demoSelectPh" disabled selected value="">Select an option</option><option data-i18n="demoIndHospitality" value="Hospitality">Hospitality</option><option data-i18n="demoIndWarehouse" value="Warehousing / Logistics">Warehousing / Logistics</option><option data-i18n="demoIndRetail" value="Retail">Retail</option><option data-i18n="demoIndEvents" value="Events">Events</option><option data-i18n="demoIndOther" value="Other">Other</option></select></div><div class="form-field"><label data-i18n="demoEmailLabel" for="demo-email">Work email</label><input autocomplete="email" data-i18n="demoEmailPh" data-i18n-attribute="placeholder" id="demo-email" name="Email" required type="email"/></div><div class="form-field full"><label data-i18n="demoPhoneLabel" for="demo-phone">Phone</label><div class="phone-input-group"><select aria-label="Country code" id="demo-phone-country" name="Phone country"><option data-code="+34" value="ES">🇪🇸 +34</option><option data-code="+44" value="GB">🇬🇧 +44</option></select><input autocomplete="tel" id="demo-phone" inputmode="tel" maxlength="20" placeholder="600 000 000" required type="tel"/></div><input id="demo-phone-full" name="Phone" type="hidden" value=""/><p aria-live="polite" class="field-error" id="demo-phone-error"></p></div><p class="form-note" data-i18n="demoFormNote">Your information will be sent to info@aplyk.com.</p><div class="form-actions"><button class="btn-secondary" data-close-demo data-i18n="demoCancel" type="button">Cancel</button><button class="btn-primary" data-i18n="demoSubmit" type="submit">Send request</button></div></div></form><div aria-live="polite" class="demo-success" hidden id="demo-success"><div aria-hidden="true" class="demo-success-icon"><span class="material-symbols-outlined">check</span></div><h2 data-i18n="demoSuccessTitle">Request sent</h2><p data-i18n="demoSuccessText">Thank you for contacting Aplyk. We've received your request and will be in touch shortly.</p><button class="btn-primary" data-close-demo data-i18n="demoSuccessClose" type="button">Close</button></div></div></div>
 
 <main id="main-content">
-<header class="biz-hero"><div class="wrap biz-hero-shell"><div class="biz-hero-copy"><div class="eyebrow-pill"><span class="d"></span><span data-i18n="compHeroEyebrow">FOR COMPANIES</span></div><h1 data-i18n="compHeroTitle">Hire temporary staff without losing control</h1><p class="biz-hero-lead" data-i18n="compHeroLead">Post shifts, find available professionals and manage every temporary staffing requirement from one platform.</p><div class="biz-hero-actions"><button class="btn-primary js-open-demo" type="button" data-i18n="bookDemo">Book a demo</button><a class="btn-secondary" href="#matching" data-i18n="compHeroSecondary">See how it works</a></div><div class="biz-benefit-strip" role="list"><span role="listitem"><i class="material-symbols-outlined">verified</i><b data-i18n="compBenefit1">Validated professionals</b></span><span role="listitem"><i class="material-symbols-outlined">tune</i><b data-i18n="compBenefit2">Availability-based matching</b></span><span role="listitem"><i class="material-symbols-outlined">timeline</i><b data-i18n="compBenefit3">Shift tracking</b></span><span role="listitem"><i class="material-symbols-outlined">history</i><b data-i18n="compBenefit4">Performance history</b></span></div></div><div class="biz-hero-product"><div class="biz-product-frame"><div class="biz-product-bar"><div class="biz-product-dots"><span></span><span></span><span></span></div><div class="biz-product-title" data-i18n="compVideoLabel">OPERATIONS VIEW</div></div><video controls playsinline preload="metadata" poster="/images/aplyk-companies-video-poster.webp"><source src="/Resources/Videos/aplyk-companies.mp4" type="video/mp4"/><span data-i18n="compVideoFallback">Your browser does not support HTML5 video.</span></video><div class="biz-product-status"><span><i></i><b data-i18n="compVideoStatus1">Shift workflow</b></span><span data-i18n="compVideoStatus2">From requirement to attendance</span></div></div></div></div></header>
+<header class="biz-hero"><div class="wrap biz-hero-shell"><div class="biz-hero-copy"><div class="eyebrow-pill"><span class="d"></span><span data-i18n="compHeroEyebrow">FOR COMPANIES</span></div><h1 data-i18n="compHeroTitle">Hire temporary staff without losing control</h1><p class="biz-hero-lead" data-i18n="compHeroLead">Post shifts, find available professionals and manage every temporary staffing requirement from one platform.</p><div class="biz-hero-actions"><button class="btn-primary js-open-demo" type="button" data-i18n="bookDemo">Book a demo</button><a class="btn-secondary" href="#matching" data-i18n="compHeroSecondary">See how it works</a></div><div class="biz-benefit-strip" role="list"><span role="listitem"><i class="material-symbols-outlined">verified</i><b data-i18n="compBenefit1">Validated professionals</b></span><span role="listitem"><i class="material-symbols-outlined">tune</i><b data-i18n="compBenefit2">Availability-based matching</b></span><span role="listitem"><i class="material-symbols-outlined">timeline</i><b data-i18n="compBenefit3">Shift tracking</b></span><span role="listitem"><i class="material-symbols-outlined">history</i><b data-i18n="compBenefit4">Performance history</b></span></div></div><div class="biz-hero-product"><div class="biz-product-frame"><div class="biz-product-bar"><div class="biz-product-dots"><span></span><span></span><span></span></div><div class="biz-product-title" data-i18n="compVideoLabel">OPERATIONS VIEW</div></div><div class="aplyk-manager-demo" id="aplykManagerDemo" aria-label="Aplyk Manager animated interface demo"><div class="manager-stage" id="managerStage"><img id="managerCreateScreen" class="manager-screen manager-create-screen" src="/images/CreateShift.svg" alt="Aplyk Manager create shift screen"/><img id="managerListScreen" class="manager-screen manager-list-screen" src="/images/ShiftList.svg" alt="Aplyk Manager shift list screen"/><div id="managerListLayer" class="manager-list-layer"><div class="manager-content-clip"><div class="manager-item manager-shift" id="managerBartender"><img src="/images/BartenderShift.svg" alt="Bartender shift"/></div><div class="manager-item manager-shift" id="managerCatering"><img src="/images/CateringWatier.svg" alt="Catering waiter shift"/></div><div class="manager-item manager-shift" id="managerSetup"><img src="/images/SetUpShift.svg" alt="Set-up shift"/></div><div class="manager-item manager-shift manager-new" id="managerCamarero"><img src="/images/CamareroShift.svg" alt="Waiter shift"/></div><div class="manager-item manager-worker" id="managerJavier"><img src="/images/JavierMartin_worker.svg" alt="Javier Martín worker profile"/></div><div class="manager-item manager-worker" id="managerLucia"><img src="/images/LuciaMoreno_worker.svg" alt="Lucía Moreno worker profile"/></div><div class="manager-item manager-worker" id="managerCarlos"><img src="/images/CarlosRuiz_worker.svg" alt="Carlos Ruiz worker profile"/></div><div class="manager-item manager-worker" id="managerAna"><img src="/images/AnaSanchez_worker.svg" alt="Ana Sánchez worker profile"/></div></div></div><div id="managerTap" class="manager-tap"></div></div></div><div class="biz-product-status"><span><i></i><b data-i18n="compVideoStatus1">Shift workflow</b></span><span data-i18n="compVideoStatus2">From requirement to attendance</span></div></div></div></div></header>
 
 <section class="biz-fragmentation seo-section" aria-labelledby="frag-title"><div class="wrap"><div class="biz-section-heading"><div><div class="prof-section-kicker" data-i18n="compFragKicker">THE CURRENT PROCESS</div><h2 id="frag-title" data-i18n="compFragTitle">Temporary staffing is still too fragmented</h2></div><p data-i18n="compFragText">Traditional temporary hiring can involve several disconnected steps: publishing vacancies, reviewing applications, making calls, checking availability, coordinating schedules and following up manually.</p></div><div class="biz-transformation" aria-label="Temporary staffing workflow comparison">
   <div class="biz-fragmented-side">
@@ -188,6 +256,7 @@
 
 <section class="biz-final"><div class="wrap"><div class="biz-final-panel"><div class="biz-final-copy"><span class="biz-final-label" data-i18n="compFinalLabel">FROM REQUIREMENT TO MANAGED SHIFT</span><h2 data-i18n="compFinalTitle">Turn a staffing requirement into a managed shift</h2><p data-i18n="compFinalText">Post your requirements, find compatible professionals and manage every shift from one platform.</p></div><div class="biz-final-actions"><button class="btn-primary js-open-demo" type="button" data-i18n="bookDemo">Book a demo</button><a class="biz-talk-link" href="/about/"><span data-i18n="compTalkLink">Talk to Aplyk</span><span class="material-symbols-outlined">arrow_forward</span></a><a class="biz-worker-link" href="/profesionales/" data-i18n="compWorkerLink">Looking for work? Discover Aplyk for professionals</a></div></div></div></section>
 </main>
+<script id="aplyk-manager-demo-script">(()=>{const viewport=document.getElementById('aplykManagerDemo');if(!viewport)return;const STAGE_W=1546,GAP=7,WORKER_SCALE=.85;const ids={bartender:'managerBartender',catering:'managerCatering',setup:'managerSetup',camarero:'managerCamarero',javier:'managerJavier',lucia:'managerLucia',carlos:'managerCarlos',ana:'managerAna'};const heights={bartender:115,catering:115,setup:115,camarero:113,javier:183,lucia:181,carlos:183,ana:183};const els=Object.fromEntries(Object.entries(ids).map(([k,id])=>[k,document.getElementById(id)]));const createScreen=document.getElementById('managerCreateScreen'),listScreen=document.getElementById('managerListScreen'),listLayer=document.getElementById('managerListLayer'),tap=document.getElementById('managerTap'),stage=document.getElementById('managerStage');function fit(){stage.style.transform=`scale(${viewport.clientWidth/STAGE_W})`}window.addEventListener('resize',fit,{passive:true});fit();function renderedHeight(id){return heights[id]*(els[id].classList.contains('manager-worker')?WORKER_SCALE:1)}function orderFor(state){const workerCount=({cam:0,w1:1,w2:2,w3:3})[state]??0;if(state==='initial')return ['bartender','catering','setup'];let remainingShifts;if(state==='cam'){remainingShifts=['bartender','catering','setup']}else if(state==='w1'){remainingShifts=['bartender','catering']}else if(state==='w2'){remainingShifts=['bartender']}else{remainingShifts=[]}return ['camarero',...['javier','lucia','carlos'].slice(0,workerCount),...remainingShifts]}function applyListState(state,immediate=false){const order=orderFor(state),visible=new Set(order);let y=0;for(const id of order){const el=els[id];if(immediate)el.style.transition='none';el.style.top=`${y}px`;y+=renderedHeight(id)+GAP}for(const [id,el] of Object.entries(els)){visible.has(id)?el.classList.add('visible'):el.classList.remove('visible')}if(immediate)requestAnimationFrame(()=>requestAnimationFrame(()=>Object.values(els).forEach(el=>el.style.transition='')))}function showCreate(immediate=false){if(immediate){createScreen.style.transition='none';listScreen.style.transition='none';listLayer.style.transition='none'}createScreen.style.opacity='1';listScreen.style.opacity='0';listLayer.style.opacity='0';if(immediate)requestAnimationFrame(()=>{createScreen.style.transition='';listScreen.style.transition='';listLayer.style.transition=''})}function showList(state='initial',immediate=false){applyListState(state,immediate);if(immediate){createScreen.style.transition='none';listScreen.style.transition='none';listLayer.style.transition='none'}createScreen.style.opacity='0';listScreen.style.opacity='1';listLayer.style.opacity='1';if(immediate)requestAnimationFrame(()=>{createScreen.style.transition='';listScreen.style.transition='';listLayer.style.transition=''})}const sleep=ms=>new Promise(r=>setTimeout(r,ms));let active=true;const observer=new IntersectionObserver(entries=>{active=entries[0]?.isIntersecting??true},{threshold:.15});observer.observe(viewport);async function waitUntilActive(){while(!active||document.hidden)await sleep(300)}async function runLoop(){while(true){await waitUntilActive();showCreate(true);applyListState('initial',true);await sleep(1700);tap.classList.remove('play');void tap.offsetWidth;tap.classList.add('play');await sleep(420);showList('initial');await sleep(1500);applyListState('cam');await sleep(1600);applyListState('w1');await sleep(1450);applyListState('w2');await sleep(1450);applyListState('w3');await sleep(3600);showCreate();await sleep(420)}}runLoop()})();</script>
 <div id="shared-footer"></div>
 <script src="/home.js"></script>
 <script defer src="/Resources/shared/contact-widget/contact-widget.js"></script>
