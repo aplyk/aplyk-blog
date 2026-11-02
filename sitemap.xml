@@ -4,13 +4,15 @@
     <loc>https://aplyk.com/</loc>
   </url>
   <url>
-    <loc>https://aplyk.com/blog</loc>
+    <loc>https://aplyk.com/blog/</loc>
   </url>
     <url>
     <loc>https://aplyk.com/empresas/</loc>
+    <lastmod>2026-11-02</lastmod>
   </url>
     <url>
     <loc>https://aplyk.com/profesionales/</loc>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://aplyk.com/posts/por-que-la-supervision-humana-sigue-siendo-necesaria-en-la-contratacion-con-ia/</loc>
@@ -115,6 +117,6 @@
     <loc>https://aplyk.com/posts/que-sectores-dependen-mas-de-los-trabajadores-temporales/</loc>
   </url>
   <url>
-    <loc>https://aplyk.com/about</loc>
+    <loc>https://aplyk.com/about/</loc>
   </url>
 </urlset>
