@@ -52,3 +52,136 @@ const translations ={en:{pageTitle:"Aplyk | AI-Powered Temporary Workforce Platf
 
 /* Fragmentation visual translation keys. */
 (()=>{const x={en:{"compFragTraditionalLabel":"TRADITIONAL PROCESS","compFragPortalTitle":"Job board","compFragPortalMeta":"23 applications","compFragMessageMeta":"“Are you available Saturday?”","compFragSheetTitle":"Spreadsheet","compFragCallsTitle":"Phone calls","compFragCallsMeta":"5 candidates to contact","compFragScreenTitle":"Manual screening","compFragScreenMeta":"Documents pending","compFragTraditionalCaption":"Too many disconnected tools before you even know who is actually available.","compFragWithAplyk":"WITH APLYK","compFragShiftLabel":"SHIFT","compFragShiftTitle":"Warehouse Operative · Saturday","compFragShiftMeta":"18:00–23:00 · 4 people required","compFragStatus":"Matching active","compFragMatchedTitle":"Matched professionals","compFragMatchedMeta":"Available for this shift","compFragAvailable":"Available","compFragMatch":"match","compFragSkillsVerified":"Skills verified","compFragCompleted18":"18 completed shifts","compFragCompleted26":"26 completed shifts","compFragCompleted12":"12 completed shifts","compFragSelected":"3 selected","compFragReady":"Ready to confirm","compFragConfirmButton":"Confirm professionals"},es:{"compFragTraditionalLabel":"PROCESO TRADICIONAL","compFragPortalTitle":"Portal de empleo","compFragPortalMeta":"23 candidaturas","compFragMessageMeta":"“¿Estás disponible el sábado?”","compFragSheetTitle":"Hoja de cálculo","compFragCallsTitle":"Llamadas","compFragCallsMeta":"5 candidatos por contactar","compFragScreenTitle":"Filtrado manual","compFragScreenMeta":"Documentos pendientes","compFragTraditionalCaption":"Demasiadas herramientas desconectadas antes incluso de saber quién está realmente disponible.","compFragWithAplyk":"CON APLYK","compFragShiftLabel":"TURNO","compFragShiftTitle":"Mozo de almacén · Sábado","compFragShiftMeta":"18:00–23:00 · 4 personas necesarias","compFragStatus":"Matching activo","compFragMatchedTitle":"Profesionales compatibles","compFragMatchedMeta":"Disponibles para este turno","compFragAvailable":"Disponible","compFragMatch":"match","compFragSkillsVerified":"Skills validados","compFragCompleted18":"18 turnos completados","compFragCompleted26":"26 turnos completados","compFragCompleted12":"12 turnos completados","compFragSelected":"3 seleccionados","compFragReady":"Listos para confirmar","compFragConfirmButton":"Confirmar profesionales"}};Object.assign(translations.en,x.en);Object.assign(translations.es,x.es);if(document.body?.dataset.page==='companies'){setLanguage(currentLanguage);}})();
+
+
+/* Aplyk demo requests: FormSubmit primary, Formspree fallback.
+ * Capture-phase interception takes precedence over legacy submit handlers in home.js.
+ * The request ID is shared across both providers for potential duplicate reconciliation.
+ */
+(() => {
+  const PRIMARY = 'https://formsubmit.co/ajax/info@aplyk.com';
+  const BACKUP = 'https://formspree.io/f/xzeeydbg';
+  const PRIMARY_TIMEOUT_MS = 8000;
+  const BACKUP_TIMEOUT_MS = 12000;
+  let sending = false;
+
+  function language() {
+    return document.documentElement.lang?.toLowerCase().startsWith('es') ? 'es' : 'en';
+  }
+  function formatPhone() {
+    const input = document.getElementById('demo-phone');
+    const select = document.getElementById('demo-phone-country');
+    const normalized = document.getElementById('demo-phone-full');
+    const error = document.getElementById('demo-phone-error');
+    if (!input || !select || !normalized) return true;
+    const es = select.value === 'ES';
+    let digits = input.value.replace(/\D/g, '');
+    if (es && digits.startsWith('34') && digits.length === 11) digits = digits.slice(2);
+    if (!es && digits.startsWith('44') && digits.length === 12) digits = digits.slice(2);
+    if (!es && digits.startsWith('0') && digits.length === 11) digits = digits.slice(1);
+    const valid = !digits || (es ? /^[6789]\d{8}$/.test(digits) : /^\d{10}$/.test(digits));
+    if (error) error.textContent = valid ? '' : (language() === 'es' ? (es ? 'Introduce un número español válido de 9 dígitos.' : 'Introduce un número británico válido de 10 dígitos después de +44.') : (es ? 'Enter a valid 9-digit Spanish phone number.' : 'Enter a valid 10-digit UK phone number after +44.'));
+    input.setCustomValidity(valid ? '' : 'Invalid phone number');
+    if (!valid) { input.reportValidity(); return false; }
+    normalized.value = digits ? (es ? '+34' : '+44') + digits : '';
+    return true;
+  }
+  async function postWithTimeout(url, options, milliseconds) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), milliseconds);
+    try {
+      return await fetch(url, { ...options, signal: controller.signal, mode: 'cors', redirect: 'follow' });
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+  function formDataAsObject(form) {
+    const result = {};
+    for (const [key, value] of new FormData(form).entries()) {
+      if (key.startsWith('_')) continue;
+      result[key] = value;
+    }
+    return result;
+  }
+  function succeededFormSubmit(payload) {
+    return payload && (payload.success === true || payload.success === 'true');
+  }
+  async function viaFormSubmit(data) {
+    const payload = { ...data, _subject: 'New Aplyk demo request', _template: 'table', _captcha: 'false' };
+    const response = await postWithTimeout(PRIMARY, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }, PRIMARY_TIMEOUT_MS);
+    const json = await response.json();
+    if (!response.ok || !succeededFormSubmit(json)) throw new Error('FormSubmit did not confirm acceptance');
+  }
+  async function viaFormspree(data) {
+    const response = await postWithTimeout(BACKUP, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new URLSearchParams(data)
+    }, BACKUP_TIMEOUT_MS);
+    if (!response.ok) throw new Error('Formspree rejected the submission: HTTP ' + response.status);
+  }
+  function showSuccess(form) {
+    const heading = form.closest('.modal-dialog')?.querySelector('.modal-heading');
+    const success = document.getElementById('demo-success');
+    if (heading) heading.hidden = true;
+    form.hidden = true;
+    if (success) success.hidden = false;
+    form.reset();
+    const phoneError = document.getElementById('demo-phone-error');
+    if (phoneError) phoneError.textContent = '';
+    const phone = document.getElementById('demo-phone');
+    if (phone) phone.setCustomValidity('');
+  }
+  function showStatus(message) {
+    const el = document.getElementById('demo-delivery-status');
+    if (el) { el.textContent = message; el.hidden = !message; }
+  }
+  async function onSubmit(event) {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement) || form.id !== 'demo-form') return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if (sending || !form.reportValidity() || !formatPhone()) return;
+    const honeypot = form.querySelector('[name="_honey"]');
+    if (honeypot?.value) return;
+    sending = true;
+    showStatus('');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const oldLabel = submitButton?.textContent;
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = language() === 'es' ? 'Enviando…' : 'Sending…';
+    }
+    const data = formDataAsObject(form);
+    data['Submission ID'] = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : ('aplyk-' + Date.now() + '-' + Math.random().toString(36).slice(2));
+    try {
+      try { await viaFormSubmit(data); }
+      catch (primaryError) {
+        console.warn('FormSubmit unavailable; attempting Formspree backup:', primaryError);
+        await viaFormspree(data);
+      }
+      showSuccess(form);
+    } catch (error) {
+      console.error('Both demo form providers failed:', error);
+      showStatus(language() === 'es'
+        ? 'No hemos podido confirmar el envío. Inténtalo más tarde o escribe a info@aplyk.com.'
+        : 'We could not confirm delivery. Please try again later or email info@aplyk.com.');
+    } finally {
+      sending = false;
+      if (submitButton) {
+        submitButton.disabled = false;
+        if (submitButton.hasAttribute('data-i18n')) {
+          submitButton.textContent = window.translations?.[language()]?.demoSubmit || oldLabel;
+        } else submitButton.textContent = oldLabel;
+      }
+    }
+  }
+  document.addEventListener('submit', onSubmit, true);
+  document.addEventListener('input', (event) => {
+    if (event.target?.id === 'demo-phone') event.target.setCustomValidity('');
+  });
+})();
