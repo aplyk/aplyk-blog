@@ -62,7 +62,7 @@
 }
 </script>
 <script defer src="/Resources/shared/header.js"></script>
-<script defer="" src="/main.js"></script>
+<script defer="" src="/main.js?v=20261103v5"></script>
 <link href="/Resources/shared/header.css" rel="stylesheet">
 <link href="/Resources/shared/footer.css" rel="stylesheet"/>
 <link href="/Resources/shared/contact-widget/contact-widget.css" rel="stylesheet"/>
@@ -104,11 +104,11 @@
 <h2 data-i18n="demoModalTitle">Book a demo</h2>
 <p data-i18n="demoModalText">Tell us a bit about your company and we'll get back to you shortly.</p>
 </div>
-<form action="https://formspree.io/f/xzeeydbg" id="demo-form" method="POST">
+<form action="https://formspree.io/f/xzeeydbg" id="demo-form" method="POST" data-demo-version="v5">
 <input name="_subject" type="hidden" value="New Aplyk demo request"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
-<input id="demo-form-next" name="_next" type="hidden" value="https://aplyk.com/?demo_submitted=1"/>
+
 <div aria-hidden="true" class="honeypot">
 <label for="demo-website">Website</label>
 <input autocomplete="off" id="demo-website" name="_honey" tabindex="-1" type="text"/>
@@ -150,7 +150,7 @@
 <p aria-live="polite" class="field-error" id="demo-phone-error"></p>
 </div>
 <p class="form-note" data-i18n="demoFormNote">Your information will be sent to info@aplyk.com.</p>
-<p id="demo-delivery-status" role="alert" aria-live="assertive" hidden style="grid-column:1/-1;color:#a33123;font-weight:600;font-size:13px;"></p>
+<p id="demo-delivery-status" role="alert" aria-live="assertive" hidden style="grid-column:1/-1;color:#a33123;font-weight:600;font-size:13px;padding:12px 14px;border:1px solid currentColor;border-radius:9px;background:#fff9f8;line-height:1.55;"></p>
 <div class="form-actions">
 <button class="btn-secondary" data-close-demo="" data-i18n="demoCancel" type="button">Cancel</button>
 <button class="btn-primary" data-i18n="demoSubmit" type="submit">Send request</button>
@@ -484,7 +484,7 @@
 <!-- ===================== FOOTER ===================== -->
 <!-- ===================== SHARED FOOTER ===================== -->
 <div id="shared-footer"></div>
-<script src="/home.js"></script>
+<script src="/home.js?v=20261103v5"></script>
 <script defer="" src="/Resources/shared/contact-widget/contact-widget.js"></script>
 <script src="/Resources/shared/footer.js"></script>
 <script src="/Resources/shared/cookie-consent.js"></script>

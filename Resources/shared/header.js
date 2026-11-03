@@ -214,7 +214,7 @@
             <p data-early-copy="companyText">Aplyk will help you find available professionals, manage shifts and keep your temporary workforce operations in one place.</p>
             <strong data-early-copy="companyEmphasis">Be among the first companies to access Aplyk.</strong>
           </div>
-          <form class="early-access-form" data-early-form="company" action="https://formsubmit.co/info@aplyk.com" method="POST">
+          <form class="early-access-form" data-early-form="company" action="https://formspree.io/f/xzeeydbg" method="POST" data-early-form-version="v6">
             <input type="hidden" name="_subject" value="Aplyk early access - Company"/>
             <input type="hidden" name="_template" value="table"/>
             <input type="hidden" name="_captcha" value="false"/>
@@ -262,7 +262,7 @@
             <p data-early-copy="professionalText">Aplyk will help you discover opportunities that match your availability, location and experience, so you can choose the shifts that suit you.</p>
             <strong data-early-copy="professionalEmphasis">Be among the first professionals to access Aplyk.</strong>
           </div>
-          <form class="early-access-form" data-early-form="professional" action="https://formsubmit.co/info@aplyk.com" method="POST">
+          <form class="early-access-form" data-early-form="professional" action="https://formspree.io/f/xzeeydbg" method="POST" data-early-form-version="v6">
             <input type="hidden" name="_subject" value="Aplyk early access - Professional"/>
             <input type="hidden" name="_template" value="table"/>
             <input type="hidden" name="_captcha" value="false"/>
@@ -398,6 +398,137 @@
       else closeEarlyAccess();
     });
   });
+
+  // Controlled early-access submission for both company and professional forms.
+  // Keep the native HTML destination on Formspree so an unexpected form.submit()
+  // cannot navigate to the failing FormSubmit 522 page.
+  const EARLY_PRIMARY_URL = 'https://formsubmit.co/ajax/info@aplyk.com';
+  const EARLY_BACKUP_URL = 'https://formspree.io/f/xzeeydbg';
+  const EARLY_PRIMARY_TIMEOUT = 6000;
+  const EARLY_BACKUP_TIMEOUT = 12000;
+  const earlySending = new WeakSet();
+
+  function earlyErrorMessage(error, provider) {
+    if (error?.name === 'AbortError') return `${provider}: timeout`;
+    if (error?.status) return `${provider}: HTTP ${error.status}`;
+    return `${provider}: ${error?.message || 'network error'}`;
+  }
+
+  async function earlyPost(url, body, headers, timeoutMs) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      return await fetch(url, {
+        method: 'POST',
+        headers,
+        body,
+        signal: controller.signal,
+        mode: 'cors',
+        redirect: 'follow'
+      });
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  function earlyStatus(form) {
+    let status = form.querySelector('[data-early-submit-status]');
+    if (!status) {
+      status = document.createElement('p');
+      status.setAttribute('data-early-submit-status', '');
+      status.setAttribute('role', 'alert');
+      status.setAttribute('aria-live', 'polite');
+      status.style.cssText = 'margin:12px 0 0;font-size:13px;line-height:1.5;white-space:pre-line;';
+      form.querySelector('.early-access-form-actions')?.before(status);
+      if (!status.isConnected) form.append(status);
+    }
+    return status;
+  }
+
+  async function earlySend(form) {
+    const data = new FormData(form);
+    const reference = (globalThis.crypto?.randomUUID?.() || `lead-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+    data.set('Request ID', reference);
+    // Provider-specific controls are not submitted as user data to Formspree.
+    const fields = {};
+    for (const [key, value] of data) {
+      if (key.startsWith('_')) continue;
+      fields[key] = value;
+    }
+    const errors = [];
+
+    try {
+      const primary = await earlyPost(EARLY_PRIMARY_URL,
+        JSON.stringify({...fields, _subject: data.get('_subject') || 'Aplyk early access', _template: 'table', _captcha: 'false'}),
+        {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        EARLY_PRIMARY_TIMEOUT);
+      let result = null;
+      try { result = await primary.json(); } catch (_) { /* Treat non-JSON as unconfirmed */ }
+      if (primary.ok && (result?.success === true || result?.success === 'true')) return 'FormSubmit';
+      const error = new Error('no confirmed acceptance');
+      error.status = primary.status;
+      throw error;
+    } catch (error) {
+      errors.push(earlyErrorMessage(error, 'FormSubmit'));
+    }
+
+    try {
+      const backupData = new FormData();
+      Object.entries(fields).forEach(([key, value]) => backupData.append(key, value));
+      backupData.append('_subject', data.get('_subject') || 'Aplyk early access');
+      const backup = await earlyPost(EARLY_BACKUP_URL,
+        backupData,
+        {'Accept': 'application/json'},
+        EARLY_BACKUP_TIMEOUT);
+      if (backup.ok) return 'Formspree';
+      const error = new Error('no confirmed acceptance');
+      error.status = backup.status;
+      throw error;
+    } catch (error) {
+      errors.push(earlyErrorMessage(error, 'Formspree'));
+    }
+
+    const failure = new Error(errors.join(' | '));
+    failure.providerErrors = errors;
+    throw failure;
+  }
+
+  modal.querySelectorAll('form[data-early-form]').forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (earlySending.has(form)) return;
+      if (!form.reportValidity()) return;
+      earlySending.add(form);
+      const status = earlyStatus(form);
+      const button = form.querySelector('button[type="submit"]');
+      if (button) button.disabled = true;
+      status.style.color = 'inherit';
+      status.textContent = getLang() === 'es' ? 'Enviando solicitud…' : 'Sending your request…';
+      try {
+        const provider = await earlySend(form);
+        console.info('[Aplyk early access] Accepted by', provider);
+        status.textContent = '';
+        const role = form.dataset.earlyForm;
+        const text = modal.querySelector('[data-early-success-copy]');
+        const dict = copy[getLang()];
+        if (text) text.textContent = role === 'company' ? dict.successCompany : dict.successProfessional;
+        form.reset();
+        showPanel('success');
+      } catch (error) {
+        console.error('[Aplyk early access] Both providers failed:', error);
+        status.style.color = '#b42318';
+        const intro = getLang() === 'es'
+          ? 'No se ha podido confirmar el envío. Los datos siguen en el formulario.'
+          : 'Your request could not be confirmed. Your details remain in the form.';
+        status.textContent = `${intro}\n${(error.providerErrors || [error.message]).join('\n')}`;
+      } finally {
+        earlySending.delete(form);
+        if (button) button.disabled = false;
+      }
+    }, {capture: true});
+  });
+  console.info('[Aplyk early access] v6 active: company/professional FormSubmit AJAX -> Formspree fallback');
 
   const returnBase = `${window.location.origin}${window.location.pathname}`;
   modal.querySelectorAll('[data-early-form]').forEach((form) => {
