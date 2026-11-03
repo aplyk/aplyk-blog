@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 
   <link rel="stylesheet" href="/style.css"/>
-  <link rel="stylesheet" href="/header.css"/>
+  <link rel="stylesheet" href="/Resources/shared/header.css"/>
   <link rel="stylesheet" href="/seo-pages.css"/>
   <link rel="stylesheet" href="/Resources/shared/footer.css"/>
   <link rel="stylesheet" href="/Resources/shared/cookie-consent.css"/>
@@ -35,7 +35,8 @@
   <script id="professionals-page-schema" type="application/ld+json"></script>
   <script id="professionals-faq-schema" type="application/ld+json"></script>
 
-  <script defer src="/main.js"></script>
+  <script defer src="/Resources/shared/header.js"></script>
+<script defer src="/main.js"></script>
 
 <style id="prof-interactive-demo-styles">
   .prof-interactive-demo{
@@ -112,54 +113,8 @@
   </button>
   <a class="seo-skip-link" href="#main-content" data-i18n="profSkip">Skip to content</a>
 
-  <div class="site-nav aplyk-shared-nav" data-header="shared-v1">
-    <div class="wrap nav-inner">
-      <a class="wordmark" href="/" aria-label="Aplyk home">
-        <img src="/images/LogoBlue_LightBlueBG.png" alt="Aplyk"/>
-      </a>
-      <ul class="nav-links" aria-label="Primary">
-        <li><a href="/empresas/" data-i18n="navCompanies">Companies</a></li>
-        <li><a href="/profesionales/" aria-current="page" data-i18n="navWorkers">Workers</a></li>
-        <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
-        <li><a href="/blog/" data-i18n="navBlog">Blog</a></li>
-        <li><a href="/about/" data-i18n="footerAbout">About Us</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="btn-ghost" type="button" data-i18n="DownloadApp">Download App</button>
-        <a class="nav-cta" href="https://candidatos.aplyk.com/" data-i18n="profCreateProfile">Create my profile</a>
-        <div class="language-switcher" id="langWrap">
-          <button id="langBtn" class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
-            <span id="langLabel">EN</span>
-            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
-          </button>
-          <div id="langMenu" class="lang-menu hidden" role="menu" aria-label="Language selector">
-            <button class="lang-item" type="button" data-lang="es">Español (ES)</button>
-            <button class="lang-item" type="button" data-lang="en">English (EN)</button>
-          </div>
-        </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu">
-          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
-        </button>
-      </div>
-    </div>
-    <div id="mobileMenu" class="mobile-menu hidden">
-      <nav class="wrap seo-mobile-nav" aria-label="Mobile menu">
-        <a href="/empresas/" data-i18n="navCompanies">Companies</a>
-        <a href="/profesionales/" aria-current="page" data-i18n="navWorkers">Workers</a>
-        <a href="#faq" data-i18n="navFaq">FAQ</a>
-        <a href="/blog/" data-i18n="navBlog">Blog</a>
-        <a href="/about/" data-i18n="footerAbout">About Us</a>
-        <div class="seo-mobile-actions">
-          <button class="btn-ghost" type="button" data-i18n="login">Login</button>
-          <a class="nav-cta" href="https://candidatos.aplyk.com/" data-i18n="profCreateProfile">Create my profile</a>
-          <div class="seo-mobile-languages">
-            <button class="lang-item-mobile" type="button" data-lang="es">ES</button>
-            <button class="lang-item-mobile" type="button" data-lang="en">EN</button>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </div>
+  <!-- ===================== SHARED HEADER ===================== -->
+<div id="shared-header"></div>
 
   <main id="main-content">
     <header class="prof-hero">
@@ -169,8 +124,8 @@
           <h1 data-i18n="profHeroTitle">Find temporary work that fits around your life</h1>
           <p class="prof-hero-lead" data-i18n="profHeroLead">Discover flexible shift opportunities, review the conditions before accepting, and choose when you want to work.</p>
           <div class="prof-hero-actions">
-            <a class="btn-primary" href="https://candidatos.aplyk.com/" data-i18n="profViewOpportunities">View opportunities</a>
-            <a class="btn-secondary" href="https://candidatos.aplyk.com/" data-i18n="profCreateProfile">Create my profile</a>
+            <button class="btn-primary js-open-early-access-direct" type="button" data-early-role="professional" data-i18n="profViewOpportunities">View opportunities</button>
+            <a class="btn-secondary" href="#how-it-works" data-aplyk-how-it-works>See how it works</a>
           </div>
           <p class="prof-trust-line"><span class="material-symbols-outlined" aria-hidden="true">verified_user</span><span data-i18n="profHeroTrust">You decide which opportunities to accept.</span></p>
         </div>
@@ -216,7 +171,7 @@
       </div>
     </section>
 
-    <section class="prof-process seo-section" aria-labelledby="process-title">
+    <section class="prof-process seo-section" id="how-it-works" aria-labelledby="process-title">
       <div class="wrap">
         <div class="prof-section-head">
           <div class="prof-section-kicker" data-i18n="profProcessKicker">HOW IT WORKS</div>
@@ -393,7 +348,7 @@
           <p data-i18n="profFinalText">Create your profile, tell us when you are available and discover opportunities that match you.</p>
         </div>
         <div class="prof-final-cta-actions">
-          <a class="btn-primary" href="https://candidatos.aplyk.com/" data-i18n="profCreateProfile">Create my profile</a>
+          <a class="btn-primary" href="#how-it-works" data-aplyk-how-it-works>See how it works</a>
           <a class="prof-company-link" href="/empresas/"><span data-i18n="profCompanyLink">Are you a company? Discover Aplyk for companies</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
         </div>
       </div>

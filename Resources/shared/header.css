@@ -1,0 +1,206 @@
+/* Aplyk unified navigation — one header, one interaction model on all three pages. */
+.site-nav.aplyk-shared-nav {position:sticky;top:0;z-index:1000;width:100%;background:rgba(42,82,111,.96);border-bottom:1px solid rgba(255,255,255,.10);backdrop-filter:blur(10px);box-shadow:none;font-family:Manrope,sans-serif;}
+.site-nav.aplyk-shared-nav * {box-sizing:border-box;}
+.site-nav.aplyk-shared-nav .wrap {width:min(calc(100% - 40px),1200px);margin-inline:auto;}
+.site-nav.aplyk-shared-nav .nav-inner {min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.site-nav.aplyk-shared-nav .wordmark {flex:0 0 auto;display:block;}
+.site-nav.aplyk-shared-nav .wordmark img {display:block;width:128px;height:auto;max-width:100%;}
+.site-nav.aplyk-shared-nav .nav-links {display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0;}
+.site-nav.aplyk-shared-nav .nav-links li {margin:0;padding:0;list-style:none;}
+.site-nav.aplyk-shared-nav .nav-links a {position:relative;display:inline-flex;align-items:center;min-height:40px;padding:0;color:rgba(255,255,255,.86);opacity:1;font-size:20px;font-weight:700;line-height:1.3;text-decoration:none;white-space:nowrap;transition:color .2s ease;}
+.site-nav.aplyk-shared-nav .nav-links a::after {content:'';position:absolute;left:0;right:0;bottom:1px;height:3px;border-radius:3px;background:#F28A3A;transform:scaleX(0);transform-origin:center;transition:transform .2s ease;}
+.site-nav.aplyk-shared-nav .nav-links a:hover,.site-nav.aplyk-shared-nav .nav-links a:focus-visible {color:#fff;}
+.site-nav.aplyk-shared-nav .nav-links a:hover::after,.site-nav.aplyk-shared-nav .nav-links a:focus-visible::after,.site-nav.aplyk-shared-nav .nav-links a[aria-current="page"]::after {transform:scaleX(1);}
+.site-nav.aplyk-shared-nav .nav-links a[aria-current="page"] {color:rgba(255,255,255,.86);font-weight:700;}
+.site-nav.aplyk-shared-nav .nav-actions {display:flex;align-items:center;gap:10px;}
+.site-nav.aplyk-shared-nav .btn-ghost,.site-nav.aplyk-shared-nav .lang-btn {display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 16px;border:1.5px solid rgba(255,255,255,.22);border-radius:999px;background:transparent;color:#fff;font-size:15px;font-weight:700;line-height:1.3;white-space:nowrap;cursor:pointer;}
+.site-nav.aplyk-shared-nav .btn-ghost:hover,.site-nav.aplyk-shared-nav .lang-btn:hover {background:rgba(255,255,255,.1);}
+.site-nav.aplyk-shared-nav .nav-cta {display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 20px;border-radius:999px;background:#F28A3A;color:#fff;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap;box-shadow:0 10px 22px rgba(242,138,58,.28);transition:background .2s ease,transform .2s ease;}
+.site-nav.aplyk-shared-nav .nav-cta:hover {background:#D97529;transform:translateY(-1px);}
+.site-nav.aplyk-shared-nav .language-switcher {position:relative;}
+.site-nav.aplyk-shared-nav .lang-btn {gap:6px;}
+.site-nav.aplyk-shared-nav .lang-menu {position:absolute;right:0;top:calc(100% + 10px);min-width:180px;padding:6px;background:#fff;border:1px solid rgba(42,82,111,.12);border-radius:18px;box-shadow:0 20px 48px rgba(42,82,111,.14);z-index:1100;}
+.site-nav.aplyk-shared-nav .lang-menu.hidden,.site-nav.aplyk-shared-nav .mobile-menu.hidden {display:none!important;}
+.site-nav.aplyk-shared-nav .lang-item {display:block;width:100%;padding:10px 12px;text-align:left;border:0;border-radius:12px;background:transparent;color:#2A526F;font-size:14px;font-weight:700;cursor:pointer;}
+.site-nav.aplyk-shared-nav .lang-item:hover {background:#EBF3F8;}
+.site-nav.aplyk-shared-nav .mobile-menu-btn {display:none;align-items:center;justify-content:center;border:0;background:none;color:#fff;cursor:pointer;}
+.site-nav.aplyk-shared-nav .mobile-menu {background:#2A526F;border-top:1px solid rgba(255,255,255,.1);}
+.site-nav.aplyk-shared-nav .mobile-menu nav {display:flex;flex-direction:column;gap:16px;padding:20px 0;}
+.site-nav.aplyk-shared-nav .mobile-menu a {color:rgba(255,255,255,.86);font-size:15px;font-weight:700;text-decoration:none;}
+.site-nav.aplyk-shared-nav .mobile-menu a:hover,.site-nav.aplyk-shared-nav .mobile-menu a[aria-current="page"] {color:#fff;}
+.site-nav.aplyk-shared-nav .mobile-menu .btn-ghost,.site-nav.aplyk-shared-nav .lang-item-mobile {color:#fff!important;}
+.site-nav.aplyk-shared-nav .lang-item-mobile {border:0;background:none;font-size:13px;font-weight:700;cursor:pointer;}
+@media(max-width:1100px){.site-nav.aplyk-shared-nav .nav-links {gap:17px;}.site-nav.aplyk-shared-nav .nav-actions {gap:7px;}}
+@media(max-width:960px){.site-nav.aplyk-shared-nav .nav-links,.site-nav.aplyk-shared-nav .nav-actions>.btn-ghost,.site-nav.aplyk-shared-nav .nav-actions>.nav-cta,.site-nav.aplyk-shared-nav .nav-actions>.language-switcher {display:none!important;}.site-nav.aplyk-shared-nav .mobile-menu-btn {display:flex;}}
+@media(prefers-reduced-motion:reduce){.site-nav.aplyk-shared-nav .nav-links a::after {transition:none;}}
+
+
+/* Shared early-access flow — role-aware on home, companies and professionals. */
+body.modal-open{overflow:hidden}
+.early-access-dialog{width:min(100%,590px);max-height:calc(100vh - 32px);padding:14px 26px 12px;overflow-y:auto;background:radial-gradient(circle at 92% 5%,rgba(242,138,58,.15),transparent 30%),radial-gradient(circle at 4% 96%,rgba(188,210,226,.30),transparent 36%),#fff}
+.early-access-panel{text-align:center}
+.early-access-panel[hidden]{display:none!important}
+.early-access-icon{width:58px;height:58px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:#2A526F;color:#fff;box-shadow:0 12px 26px rgba(42,82,111,.20);transform:rotate(-3deg)}
+.early-access-icon .material-symbols-outlined{font-size:28px}
+.early-access-kicker{display:inline-flex;align-items:center;justify-content:center;margin:0 0 8px;padding:7px 13px;border-radius:999px;background:rgba(242,138,58,.12);border:1px solid rgba(242,138,58,.28);color:#D97529;font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 8px 22px rgba(242,138,58,.10)}
+.early-access-panel h2{max-width:510px;margin:0 auto 6px;color:#2A526F;font-size:clamp(23px,2.8vw,29px);line-height:1.1;letter-spacing:-.03em}
+.early-access-lead,.early-access-form-heading>p:not(.early-access-kicker){max-width:500px;margin:0 auto;color:#64798C;font-size:13px;line-height:1.5}
+.early-access-form-heading>strong{display:block;margin:6px 0 0;color:#2A526F;font-size:12.8px}
+.early-access-role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.early-access-role{min-height:108px;padding:14px;border:1.5px solid rgba(42,82,111,.14);border-radius:18px;background:#fff;color:#2A526F;text-align:left;box-shadow:0 10px 24px rgba(42,82,111,.07);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.early-access-role:hover,.early-access-role:focus-visible{transform:translateY(-2px);border-color:#F28A3A;box-shadow:0 18px 38px rgba(42,82,111,.12);outline:none}
+.early-access-role .material-symbols-outlined{display:flex;width:32px;height:32px;margin-bottom:9px;align-items:center;justify-content:center;border-radius:11px;background:#EEF5FA;color:#D97529;font-size:20px}
+.early-access-role strong{display:block;margin-bottom:4px;font-size:15px}
+.early-access-role small{display:block;color:#64798C;font-size:11.7px;line-height:1.4}
+.early-access-form{margin-top:10px;text-align:left}
+.early-access-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px}
+.early-access-form-grid label{display:flex;flex-direction:column;gap:4px;color:#2A526F;font-size:11px;font-weight:750}
+.early-access-form-grid label.full{grid-column:1/-1}
+.early-access-form input,.early-access-form select{width:100%;min-height:36px;padding:7px 10px;border:1.5px solid rgba(42,82,111,.14);border-radius:10px;background:#fff;color:#1C2E3D;outline:none;font:inherit;font-size:13px}
+.early-access-form input:focus,.early-access-form select:focus{border-color:#F28A3A;box-shadow:0 0 0 3px rgba(242,138,58,.13)}
+.early-access-privacy{margin:6px 0 0;color:#64798C;font-size:10px;line-height:1.45;text-align:left}
+.early-access-form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
+.early-access-success{padding:18px 0 4px}
+.early-access-success p{max-width:540px;margin:0 auto 26px;color:#64798C;font-size:15px;line-height:1.65}
+.early-access-success .demo-success-icon{margin-bottom:20px}
+@media(max-width:640px){.early-access-dialog{padding:34px 20px 24px;max-height:calc(100vh - 18px);border-radius:26px}.early-access-icon{width:62px;height:62px;border-radius:18px}.early-access-panel h2{font-size:29px}.early-access-role-grid,.early-access-form-grid{grid-template-columns:1fr}.early-access-form-grid label.full{grid-column:auto}.early-access-role{min-height:0;padding:20px}.early-access-form-actions{flex-direction:column-reverse}.early-access-form-actions .btn-primary,.early-access-form-actions .btn-secondary{width:100%}}
+
+.site-nav.aplyk-shared-nav button.nav-cta{
+  border:0;
+  font-family:inherit;
+  cursor:pointer;
+}
+.site-nav.aplyk-shared-nav .seo-mobile-actions .nav-cta{
+  width:100%;
+  justify-content:center;
+}
+@media(max-width:640px){
+  .early-access-dialog{width:min(100%,540px);padding:20px 14px 16px;max-height:calc(100vh - 12px);border-radius:20px}
+  .early-access-icon{width:46px;height:46px;border-radius:14px;margin-bottom:10px}
+  .early-access-panel h2{font-size:23px}
+  .early-access-kicker{font-size:12px;padding:6px 10px;margin-bottom:9px}
+  .early-access-role-grid{gap:8px;margin-top:14px}
+  .early-access-role{padding:13px}
+  .early-access-form{margin-top:12px}
+  .early-access-form-grid{gap:7px}
+  .early-access-form input,.early-access-form select{min-height:35px}
+  .early-access-form-actions{margin-top:10px}
+}
+
+@keyframes aplykComingSoonPulse{
+  0%,100%{transform:scale(1);box-shadow:0 8px 22px rgba(242,138,58,.10)}
+  50%{transform:scale(1.035);box-shadow:0 10px 28px rgba(242,138,58,.18)}
+}
+.early-access-kicker{animation:aplykComingSoonPulse 2.4s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.early-access-kicker{animation:none}}
+
+@media(max-width:640px){
+  .early-access-dialog{
+    width:min(100%,540px);
+    padding:12px 14px 10px;
+    max-height:calc(100vh - 8px);
+    border-radius:20px;
+  }
+  .early-access-kicker{margin-bottom:7px}
+  .early-access-form{margin-top:8px}
+  .early-access-form-actions{margin-top:8px}
+}
+
+
+/* =========================================================
+   EARLY ACCESS — near-zero vertical whitespace
+   Final overrides: intentionally stronger than earlier rules.
+   ========================================================= */
+
+.early-access-modal .early-access-dialog{
+  width:min(100%,590px);
+  height:auto !important;
+  min-height:0 !important;
+  max-height:calc(100vh - 10px);
+  padding:38px 22px 38px !important;
+  margin:0 !important;
+  overflow-y:auto;
+}
+
+.early-access-modal .early-access-panel{
+  min-height:0 !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.early-access-modal .early-access-form-heading{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.early-access-modal .early-access-kicker{
+  margin-top:4px !important;
+  margin-bottom:5px !important;
+}
+
+.early-access-modal .early-access-panel h2{
+  margin-top:0 !important;
+  margin-bottom:4px !important;
+}
+
+.early-access-modal .early-access-lead,
+.early-access-modal .early-access-form-heading>p:not(.early-access-kicker){
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+.early-access-modal .early-access-form-heading>strong{
+  margin:4px 0 0 !important;
+}
+
+.early-access-modal .early-access-form{
+  margin-top:7px !important;
+  margin-bottom:0 !important;
+}
+
+.early-access-modal .early-access-form-grid{
+  margin:0 !important;
+}
+
+.early-access-modal .early-access-privacy{
+  margin:4px 0 0 !important;
+}
+
+.early-access-modal .early-access-form-actions{
+  margin-top:6px !important;
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+.early-access-modal .modal-close{
+  top:7px !important;
+  right:7px !important;
+}
+
+@media(max-width:640px){
+  .early-access-modal .early-access-dialog{
+    width:min(100%,540px);
+    max-height:calc(100vh - 6px);
+    padding:38px 12px 38px !important;
+    border-radius:18px;
+  }
+
+  .early-access-modal .early-access-kicker{
+    margin-top:3px !important;
+    margin-bottom:4px !important;
+  }
+
+  .early-access-modal .early-access-form{
+    margin-top:6px !important;
+  }
+
+  .early-access-modal .early-access-form-actions{
+    margin-top:5px !important;
+  }
+
+  .early-access-modal .modal-close{
+    top:5px !important;
+    right:5px !important;
+  }
+}

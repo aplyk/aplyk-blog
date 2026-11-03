@@ -15,12 +15,12 @@
     content="Discover Aplyk, our mission and the technology connecting companies with professionals for temporary work."
     property="og:description" />
   <meta content="https://aplyk.com/images/aplyk-og-preview.png" property="og:image" />
-  <meta content="https://aplyk.com/about" property="og:url" />
+  <meta content="https://aplyk.com/about.html" property="og:url" />
   <meta content="website" property="og:type" />
   <meta content="#2A526F" name="theme-color" />
   <link href="https://aplyk.com/images/aplykIcon.png" rel="icon" type="image/png" />
   <link href="https://aplyk.com/images/aplykIcon.png" rel="apple-touch-icon" />
-  <link href="https://aplyk.com/about" rel="canonical" />
+  <link href="https://aplyk.com/about.html" rel="canonical" />
   <title>About Aplyk | Connecting Companies and Professionals</title>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -30,14 +30,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
-  <link href="style.css" rel="stylesheet" />
+  <link href="/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="/Resources/shared/cookie-consent.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "About Aplyk",
-  "url": "https://aplyk.com/about",
+  "url": "https://aplyk.com/about.html",
   "mainEntity": {
     "@type": "Organization",
     "name": "Aplyk",
@@ -54,11 +54,12 @@
   }
 }
 </script>
-  <script defer="" src="./main.js"></script>
-  <link href="./about.css" rel="stylesheet" />
-  <link href="./header.css" rel="stylesheet" />
+  <script defer src="/Resources/shared/header.js"></script>
+  <script defer src="/main.js"></script>
+  <link href="/about.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/Resources/shared/header.css" />
   <link rel="stylesheet" href="/Resources/shared/footer.css">
-  <link rel="stylesheet" href="./Resources/shared/contact-widget/contact-widget.css">
+  <link rel="stylesheet" href="/Resources/shared/contact-widget/contact-widget.css">
 </head>
 
 <body class="about-page" data-page="about" id="top"><a class="about-skip" data-i18n="aboutSkip" href="#main">Skip to
@@ -68,58 +69,8 @@
   </button>
   <!-- ===================== INTRO VIDEO MODAL ===================== -->
   <!-- ===================== BOOK A DEMO MODAL ===================== -->
-  <!-- ===================== NAV ===================== -->
-  <div class="site-nav aplyk-shared-nav" data-header="shared-v1">
-    <div class="wrap nav-inner">
-      <a aria-label="aplyk" class="wordmark" href="/">
-        <img alt="aplyk" loading="lazy" src="./images/LogoBlue_LightBlueBG.png" />
-      </a>
-      <ul aria-label="Primary" class="nav-links">
-        <li><a data-i18n="navCompanies" href="/#companies">Companies</a></li>
-        <li><a data-i18n="navWorkers" href="/#workers">Workers</a></li>
-        <li><a data-i18n="navFaq" href="/#faq">FAQ</a></li>
-        <li><a data-i18n="navBlog" href="/blog">Blog</a></li>
-        <li><a aria-current="page" class="" data-i18n="footerAbout" href="/about">About Us</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="btn-ghost" data-i18n="login" type="button">Login</button>
-        <a class="nav-cta" data-i18n="bookDemo" href="/#demo">Book a demo</a>
-        <div class="language-switcher" id="langWrap">
-          <button aria-expanded="false" aria-haspopup="true" class="lang-btn" id="langBtn" type="button">
-            <span id="langLabel">EN</span>
-            <span class="material-symbols-outlined" style="font-size:18px; line-height:0;">expand_more</span>
-          </button>
-          <div aria-label="Language selector" class="lang-menu hidden" id="langMenu" role="menu">
-            <button class="lang-item" data-lang="es" type="button">Español (ES)</button>
-            <button class="lang-item" data-lang="en" type="button">English (EN)</button>
-          </div>
-        </div>
-        <button aria-label="Open menu" class="mobile-menu-btn" id="mobileMenuBtn">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-      </div>
-    </div>
-    <div class="mobile-menu hidden" id="mobileMenu">
-      <nav aria-label="Mobile menu" class="wrap" style="padding:20px 0; display:flex; flex-direction:column; gap:16px;">
-        <a data-i18n="navCompanies" href="/#companies">Companies</a>
-        <a data-i18n="navWorkers" href="/#workers">Workers</a>
-        <a data-i18n="navFaq" href="/#faq">FAQ</a>
-        <a data-i18n="navBlog" href="/blog">Blog</a><a data-i18n="footerAbout" href="/about">About Us</a>
-        <div
-          style="margin-top:8px; padding-top:16px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:12px;">
-          <button class="btn-ghost" data-i18n="login" style="width:100%;" type="button">Login</button>
-          <a class="nav-cta" data-i18n="bookDemo" href="/#demo"
-            style="width:100%; justify-content:center;">Book a demo</a>
-          <div style="display:flex; gap:16px; margin-top:4px;">
-            <button class="lang-item-mobile" data-lang="es"
-              style="font-size:13px; font-weight:700; background:none; border:0;" type="button">ES</button>
-            <button class="lang-item-mobile" data-lang="en"
-              style="font-size:13px; font-weight:700; background:none; border:0;" type="button">EN</button>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </div>
+  <!-- ===================== SHARED HEADER ===================== -->
+  <div id="shared-header"></div>
   <main id="main">
     <section class="about-hero about-hero-updated">
       <div class="wrap"><span class="about-eyebrow" data-i18n="aboutEyebrow">ABOUT APLYK</span>
@@ -243,53 +194,33 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const b = document.getElementById('mobileMenuBtn');
-      const m = document.getElementById('mobileMenu');
-
-      if (b && m) {
-        b.setAttribute('aria-expanded', 'false');
-
-        b.addEventListener('click', () => {
-          m.classList.toggle('hidden');
-
-          b.setAttribute(
-            'aria-expanded',
-            String(!m.classList.contains('hidden'))
-          );
-        });
-
-        m.querySelectorAll('a').forEach((a) =>
-          a.addEventListener('click', () => {
-            m.classList.add('hidden');
-          })
-        );
-      }
-
-
       const top = document.getElementById('backToTop');
-
-      if (top) {
-        const update = () => {
-          top.style.display = window.scrollY > 480 ? 'flex' : 'none';
-        };
-
-        update();
-
-        window.addEventListener('scroll', update);
-
-        top.addEventListener('click', () => {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          });
-        });
-      }
+      if (!top) return;
+      const update = () => {
+        top.style.display = window.scrollY > 480 ? 'flex' : 'none';
+      };
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      top.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     });
   </script>
 
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('shared-header');
+      if (!header) return;
+      header.querySelectorAll('a[href="#faq"]').forEach(link => {
+        link.href = '/#faq';
+      });
+      header.querySelectorAll('a[href="/about.html"]').forEach(link => {
+        link.setAttribute('aria-current', 'page');
+      });
+    });
+  </script>
+
   <script src="/Resources/shared/footer.js"></script>
-  <script src="./Resources/shared/contact-widget/contact-widget.js" defer></script>
+  <script src="/Resources/shared/contact-widget/contact-widget.js" defer></script>
   <script src="/Resources/shared/cookie-consent.js"></script>
 </body>
 

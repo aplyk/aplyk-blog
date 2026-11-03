@@ -12,7 +12,7 @@
   <meta content="Tendencias en staffing temporal, gestión de personal y tecnología aplicada al trabajo por turnos."
     property="og:description" />
   <meta content="website" property="og:type" />
-  <link href="https://aplyk.com/blog" rel="canonical" />
+  <link href="https://aplyk.com/blog.html" rel="canonical" />
   <title>Blog — Aplyk</title>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -520,65 +520,29 @@
 
 
   </style>
-  <link href="./header.css" rel="stylesheet" />
+  <link href="/Resources/shared/header.css" rel="stylesheet" />
   <link rel="stylesheet" href="/Resources/shared/footer.css">
   <link rel="stylesheet" href="./Resources/shared/contact-widget/contact-widget.css">
+  <script defer src="/Resources/shared/header.js"></script>
+  <style id="blog-shared-modal-base">
+    /* Only modal foundations are scoped here; shared header.css owns modal visuals. */
+    #early-access-modal.modal{position:fixed;inset:0;z-index:3000;display:none;place-items:center;padding:12px}
+    #early-access-modal.modal.is-open{display:grid}
+    #early-access-modal .modal-backdrop{position:absolute;inset:0;background:rgba(22,40,58,.6);backdrop-filter:blur(4px)}
+    #early-access-modal .modal-dialog{position:relative;z-index:1;border-radius:26px;box-shadow:0 20px 48px rgba(42,82,111,.14)}
+    #early-access-modal .modal-close{position:absolute;top:12px;right:12px;z-index:2;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(42,82,111,.12);border-radius:50%;background:#fff;color:#2A526F;cursor:pointer}
+    #early-access-modal .btn-primary,#early-access-modal .btn-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 23px;border-radius:999px;border:1px solid transparent;font:800 13px Manrope,sans-serif;cursor:pointer}
+    #early-access-modal .btn-primary{background:#F28A3A;color:#fff}
+    #early-access-modal .btn-secondary{background:#fff;border-color:rgba(42,82,111,.14);color:#2A526F}
+    #early-access-modal .early-access-panel h2{font-weight:800}
+    #early-access-modal .early-access-form input,#early-access-modal .early-access-form select{font-family:Manrope,sans-serif}
+    @media(max-width:640px){#early-access-modal.modal{padding:4px}}
+  </style>
 </head>
 
-<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden" id="top">
-  <!-- NAV -->
-  <div class="site-nav aplyk-shared-nav" data-header="shared-v1">
-    <div class="wrap nav-inner">
-      <a aria-label="aplyk" class="wordmark" href="/">
-        <img alt="aplyk" loading="lazy" src="./images/LogoBlue_LightBlueBG.png" />
-      </a>
-      <ul aria-label="Primary" class="nav-links">
-        <li><a data-blog-i18n="navCompanies" href="/empresas/">Companies</a></li>
-        <li><a data-blog-i18n="navWorkers" href="/profesionales/">Workers</a></li>
-        <li><a data-blog-i18n="navFaq" href="/#faq">FAQ</a></li>
-        <li><a aria-current="page" data-blog-i18n="navBlog" href="/blog">Blog</a></li>
-        <li><a data-blog-i18n="navAbout" href="/about">About Us</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="btn-ghost" data-blog-i18n="login" type="button">Login</button>
-        <a class="nav-cta" data-blog-i18n="bookDemo" href="/#demo">Book a demo</a>
-        <div class="language-switcher" id="blogLangWrap">
-          <button aria-expanded="false" aria-haspopup="true" class="lang-btn" id="blogLangBtn" type="button">
-            <span id="blogLangLabel">EN</span>
-            <span class="material-symbols-outlined" style="font-size:18px; line-height:0;">expand_more</span>
-          </button>
-          <div aria-label="Language selector" class="lang-menu hidden" id="blogLangMenu" role="menu">
-            <button class="lang-item blog-lang-item" data-lang="es" type="button">Español (ES)</button>
-            <button class="lang-item blog-lang-item" data-lang="en" type="button">English (EN)</button>
-          </div>
-        </div>
-        <button aria-label="Open menu" class="mobile-menu-btn" id="mobileMenuBtn">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-      </div>
-    </div>
-    <div class="mobile-menu hidden" id="mobileMenu">
-      <nav aria-label="Mobile menu" class="wrap" style="padding:20px 0; display:flex; flex-direction:column; gap:16px;">
-        <a data-blog-i18n="navCompanies" href="/#companies">Companies</a>
-        <a data-blog-i18n="navWorkers" href="/#workers">Workers</a>
-        <a data-blog-i18n="navFaq" href="/#faq">FAQ</a>
-        <a data-blog-i18n="navBlog" href="/blog">Blog</a><a data-blog-i18n="navAbout" href="/about">About
-          Us</a>
-        <div
-          style="margin-top:8px; padding-top:16px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:12px;">
-          <button class="btn-ghost" data-blog-i18n="login" style="width:100%;" type="button">Login</button>
-          <a class="nav-cta" data-blog-i18n="bookDemo" href="/#demo"
-            style="width:100%; justify-content:center;">Book a demo</a>
-          <div style="display:flex; gap:16px; margin-top:4px;">
-            <button class="lang-item-mobile blog-lang-item-mobile" data-lang="es"
-              style="font-size:13px; font-weight:700; background:none; border:0;" type="button">ES</button>
-            <button class="lang-item-mobile blog-lang-item-mobile" data-lang="en"
-              style="font-size:13px; font-weight:700; background:none; border:0;" type="button">EN</button>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </div>
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden" id="top" data-page="blog">
+  <!-- Header compartido con todas las páginas de Aplyk -->
+  <div id="shared-header"></div>
   <!-- HERO BLOG -->
   <section class="bg-primary text-white pt-16 pb-16 px-6 lg:px-12 lg:pt-20"
     style="background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 24px 24px;">
@@ -1284,10 +1248,10 @@
             Reserva una demo y te mostramos cómo Aplyk puede transformar tu gestión de personal temporal.
           </p>
         </div>
-        <a class="blog-cta-button" href="/#demo">
+        <button class="blog-cta-button js-open-early-access-direct" type="button" data-early-role="company">
           <span data-blog-i18n="bookDemo">Reservar una demo</span>
           <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
-        </a>
+        </button>
       </div>
     </div>
   </section>
@@ -1505,8 +1469,13 @@
         if (dict[key] !== undefined) el.innerHTML = dict[key];
       });
 
-      const label = document.getElementById('blogLangLabel');
+      const label = document.getElementById('langLabel');
       if (label) label.textContent = blogLanguage.toUpperCase();
+      const headerNavKeys = {navCompanies:'navCompanies',navWorkers:'navWorkers',navFaq:'navFaq',navBlog:'navBlog',footerAbout:'navAbout'};
+      document.querySelectorAll('#shared-header [data-i18n]').forEach(el => {
+        const key = headerNavKeys[el.dataset.i18n];
+        if (key && dict[key] !== undefined) el.textContent = dict[key];
+      });
 
       setBlogLegalLinks();
 
@@ -1620,9 +1589,9 @@
       setBlogLanguage(detectBlogLanguage());
       filterPosts('all');
 
-      const langWrap = document.getElementById('blogLangWrap');
-      const langBtn = document.getElementById('blogLangBtn');
-      const langMenu = document.getElementById('blogLangMenu');
+      const langWrap = document.getElementById('langWrap');
+      const langBtn = document.getElementById('langBtn');
+      const langMenu = document.getElementById('langMenu');
 
       langBtn?.addEventListener('click', event => {
         event.stopPropagation();
@@ -1630,7 +1599,7 @@
         langBtn.setAttribute('aria-expanded', String(!langMenu.classList.contains('hidden')));
       });
 
-      document.querySelectorAll('.blog-lang-item,.blog-lang-item-mobile').forEach(item => {
+      document.querySelectorAll('#shared-header .lang-item[data-lang],#shared-header .lang-item-mobile[data-lang]').forEach(item => {
         item.addEventListener('click', () => {
           setBlogLanguage(item.dataset.lang);
           langMenu?.classList.add('hidden');
@@ -1644,24 +1613,6 @@
           langBtn?.setAttribute('aria-expanded', 'false');
         }
       });
-
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-
-      if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-          const isOpening = mobileMenu.classList.contains('hidden');
-          mobileMenu.classList.toggle('hidden');
-          mobileMenuBtn.setAttribute('aria-expanded', String(isOpening));
-        });
-
-        mobileMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
 
       const backToTop = document.getElementById('backToTop');
 
