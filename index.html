@@ -91,7 +91,7 @@
   .aplyk-promo-terms{margin-top:16px;padding-top:12px;border-top:1px solid rgba(42,82,111,.12);text-align:left}
   .aplyk-promo-terms summary{color:#2A526F;font-size:12px;font-weight:800;cursor:pointer}
   .aplyk-promo-terms-copy{padding-top:9px;color:#64798C;font-size:11px;line-height:1.55;white-space:pre-line}
-  @media(max-width:480px){.aplyk-promo-dialog{padding:28px 22px 22px;border-radius:22px}}
+  @media(max-width:480px){.aplyk-promo-dialog{padding:28px 22px 22px;border-radius:22px}.aplyk-promo-kicker{margin-top:28px}}
   @media(prefers-reduced-motion:reduce){.aplyk-promo-dialog{animation:none}.aplyk-promo-primary{transition:none}}
 </style>
 <script>
@@ -99,6 +99,28 @@
   try { sessionStorage.setItem('aplyk_intro_video_seen', '1'); } catch (_) {}
 </script>
 
+
+<style id="aplyk-modal-layer-fix-v2">
+/* Fixed overlays stay above site controls, without modifying other stacking contexts. */
+#aplykPromoOverlay.is-open,
+#videoModal.open,
+.modal.is-open,
+.early-access-modal.is-open {
+  z-index: 2147483646 !important;
+}
+/* Floating contact controls must never obscure an open dialog. */
+body:has(#aplykPromoOverlay.is-open, #videoModal.open, .modal.is-open, .early-access-modal.is-open) .mobile-contact-actions,
+body:has(#aplykPromoOverlay.is-open, #videoModal.open, .modal.is-open, .early-access-modal.is-open) #mobileContactActions,
+body:has(#aplykPromoOverlay.is-open, #videoModal.open, .modal.is-open, .early-access-modal.is-open) .back-to-top,
+body:has(#aplykPromoOverlay.is-open, #videoModal.open, .modal.is-open, .early-access-modal.is-open) .mobile-demo-bar,
+body:has(#aplykPromoOverlay.is-open, #videoModal.open, .modal.is-open, .early-access-modal.is-open) #aplyk-chat-widget,
+body:has(#aplykPromoOverlay.is-open, #videoModal.open, .modal.is-open, .early-access-modal.is-open) .aplyk-chat-widget,
+body:has(#aplykPromoOverlay.is-open, #videoModal.open, .modal.is-open, .early-access-modal.is-open) [id^="aplyk-agent"],
+body:has(#aplykPromoOverlay.is-open, #videoModal.open, .modal.is-open, .early-access-modal.is-open) [class^="aplyk-agent"] {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+</style>
 </head>
 <body id="top">
 <button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">
@@ -257,7 +279,7 @@
 <p class="lead" data-i18n="heroLead">Aplyk connects companies with vetted professionals instantly — post a
           shift, get matched, track everything from your pocket.</p>
 <div class="hero-cta">
-<button class="btn-primary js-open-early-access-direct" data-i18n="bookDemo">Book a demo</button>
+<button class="btn-primary js-open-early-access-direct" data-i18n="homeJoinAplyk">Join Aplyk</button>
 <button class="btn-secondary" data-i18n="seeHowItWorks" id="watchVideoBtn">See how it works</button>
 </div>
 <div class="trust-row">
@@ -528,7 +550,7 @@
 <p data-i18n="ctaText">Discover how Aplyk can help streamline your temporary workforce operations.</p>
 </div>
 <button class="btn-primary js-open-early-access-direct">
-<span data-i18n="ctaButton">Book a Demo</span>
+<span data-i18n="homeJoinAplyk">Join Aplyk</span>
 <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
 </button>
 </div>

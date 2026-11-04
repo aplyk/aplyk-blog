@@ -94,3 +94,6 @@ body.modal-open{overflow:hidden}
     width:100%;
   }
 }
+
+/* Keep video and promotional overlays above floating contact widgets. */
+.video-modal.open, .modal.is-open { z-index: 2147483647 !important; }
