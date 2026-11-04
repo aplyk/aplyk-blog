@@ -18,22 +18,26 @@
     "es": {
       "kicker": "Promoción de lanzamiento",
       "headline": "¿Estás buscando trabajo?",
-      "description": "Regístrate y empieza a descubrir turnos cerca de ti.",
+      "description": "Empieza a descubrir turnos cerca de ti. Regístrate y recibe un bono valorado en:",
       "reward_label": "a los primeros 100 registrados.",
       "cta": "Quiero registrarme ahora",
       "close_label": "Cerrar promoción",
       "terms_label": "Consulta las condiciones de la promoción",
-      "terms_full": "Promoción válida exclusivamente en Cantabria y el País Vasco, y limitada a las primeras {{participant_limit}} personas profesionales que completen y validen su perfil. Para recibir el incentivo, deberán completar {{required_completed_hours}} horas de trabajo en turnos gestionados a través de Aplyk dentro de los {{completion_period_days}} días siguientes a la validación del perfil. Una vez comprobado el cumplimiento de los requisitos, cada persona recibirá un único incentivo en forma de una o varias tarjetas regalo por un valor total de {{amount}} {{currency_symbol}}. Las tarjetas regalo estarán sujetas a las condiciones de uso del emisor, que se especificarán en las bases legales completas de la promoción. El incentivo no será transferible ni acumulable con otras promociones. La modalidad y el plazo de entrega, la vigencia de la promoción y el tratamiento fiscal aplicable se detallarán en dichas bases legales."
+      "terms_full": "Promoción limitada a las primeras {{participant_limit}} personas profesionales que completen y validen su perfil. Para recibir el incentivo, deberán completar {{required_completed_hours}} horas de trabajo en turnos gestionados a través de Aplyk dentro de los {{completion_period_days}} días siguientes a la validación del perfil. Se concederá un único incentivo de {{amount}} {{currency_symbol}} por persona, una vez comprobado el cumplimiento de los requisitos. No transferible ni acumulable con otras promociones. La forma y el plazo de abono, la vigencia de la promoción y el tratamiento fiscal aplicable deberán detallarse en las bases legales.",
+      "regional_message": "Aplyk llega a Cantabria y el País Vasco.",
+      "regional_tagline": "¡Que no te lo cuenten!"
     },
     "en": {
       "kicker": "Launch promotion",
       "headline": "Looking for work?",
-      "description": "Register and start discovering shifts near you.",
+      "description": "Discover shifts near you. Sign up and receive a bonus worth:",
       "reward_label": "to the first 100 professionals.",
       "cta": "Register now",
       "close_label": "Close promotion",
       "terms_label": "View promotion terms",
-      "terms_full": "This promotion is valid only in Cantabria and the Basque Country, and is limited to the first {{participant_limit}} professionals who complete and verify their profile. To receive the incentive, participants must complete {{required_completed_hours}} hours of work on shifts arranged through Aplyk within {{completion_period_days}} days of profile verification. Once the requirements have been verified, each eligible person will receive one incentive in the form of one or more gift cards with a total value of {{amount}} {{currency_symbol}}. The gift cards are subject to the issuer’s terms of use, which will be set out in the full promotion terms and conditions. The incentive is non-transferable and cannot be combined with other promotions. The method and timing of delivery, the promotion’s validity period and any applicable tax treatment will be set out in those terms and conditions."
+      "terms_full": "Available to the first {{participant_limit}} professionals who complete and verify their Aplyk profile. To receive the incentive, participants must complete {{required_completed_hours}} hours of work on shifts arranged through Aplyk within {{completion_period_days}} days of profile verification. One incentive of {{amount}} {{currency_symbol}} per person, after the requirements have been verified. Non-transferable and not combinable with other promotions. Payment method and timing, campaign validity and applicable tax treatment must be set out in the full promotion terms.",
+      "regional_message": "Aplyk is coming to Cantabria and the Basque Country.",
+      "regional_tagline": "Be among the first to know!"
     }
   }
 }

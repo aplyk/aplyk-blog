@@ -71,16 +71,19 @@
 <style id="aplyk-promo-styles">
   .aplyk-promo-overlay{position:fixed;inset:0;z-index:5000;display:none;place-items:center;padding:18px;background:rgba(22,40,58,.68);backdrop-filter:blur(4px)}
   .aplyk-promo-overlay.is-open{display:grid}
-  .aplyk-promo-dialog{position:relative;width:min(100%,500px);max-height:calc(100vh - 36px);overflow:auto;padding:32px 34px 25px;border:1px solid rgba(42,82,111,.08);border-radius:26px;background:radial-gradient(circle at 92% 5%,rgba(242,138,58,.15),transparent 30%),radial-gradient(circle at 4% 96%,rgba(188,210,226,.30),transparent 36%),#fff;box-shadow:0 24px 70px rgba(22,40,58,.28);text-align:center;animation:aplykPromoIn .32s ease-out}
+  .aplyk-promo-dialog{position:relative;width:min(100%,500px);max-height:calc(100vh - 36px);overflow:auto;padding:24px 34px 25px;border:1px solid rgba(42,82,111,.08);border-radius:24px;background:radial-gradient(circle at 92% 5%,rgba(242,138,58,.15),transparent 30%),radial-gradient(circle at 4% 96%,rgba(188,210,226,.30),transparent 36%),#fff;box-shadow:0 24px 70px rgba(22,40,58,.28);text-align:center;animation:aplykPromoIn .32s ease-out}
   @keyframes aplykPromoIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
   .aplyk-promo-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:1px solid rgba(42,82,111,.12);border-radius:50%;color:#2A526F;background:rgba(255,255,255,.9);font-size:22px;cursor:pointer}
-  .aplyk-promo-icon{width:56px;height:56px;display:grid;place-items:center;margin:0 auto 16px;border-radius:18px;color:#fff;background:#2A526F;box-shadow:0 12px 26px rgba(42,82,111,.20);font-size:25px}
   .aplyk-promo-kicker{display:inline-block;margin-bottom:12px;padding:7px 13px;border:1px solid rgba(242,138,58,.28);border-radius:999px;color:#D97529;background:rgba(242,138,58,.12);font-size:14px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
   .aplyk-promo-title{max-width:390px;margin:0 auto 8px;color:#2A526F;font-size:clamp(25px,6vw,31px);line-height:1.12;letter-spacing:-.03em}
+  .aplyk-promo-region{max-width:400px;margin:0 auto 9px;padding:10px 14px;border:1px solid rgba(242,138,58,.22);border-radius:14px;background:rgba(242,138,58,.09);color:#2A526F;font-size:15px;font-weight:800;line-height:1.35}
+  .aplyk-promo-region-main,.aplyk-promo-region-tagline{display:block}
+  .aplyk-promo-region-tagline{margin-top:2px}
   .aplyk-promo-description{max-width:400px;margin:0 auto;color:#64798C;font-size:15px;line-height:1.55}
   .aplyk-promo-reward{margin:17px 0 2px;color:#D97529;font-size:clamp(62px,16vw,76px);font-weight:900;line-height:1;letter-spacing:-.07em}
   .aplyk-promo-reward #aplykPromoCurrency{font-size:1em;vertical-align:baseline;letter-spacing:inherit}
-  .aplyk-promo-asterisk{margin-left:2px;color:#D97529;font-size:.25em;vertical-align:super;letter-spacing:0}
+  .aplyk-promo-currency-wrap{position:relative;display:inline-block}
+  .aplyk-promo-asterisk{position:absolute;top:.55em;left:100%;margin-left:1px;color:#D97529;font-size:.25em;line-height:1;vertical-align:baseline;letter-spacing:0}
   .aplyk-promo-reward-label{margin:0 0 19px;color:#2A526F;font-size:14px;font-weight:800}
   .aplyk-promo-actions{display:grid;gap:10px}
   .aplyk-promo-primary{display:flex;min-height:50px;align-items:center;justify-content:center;padding:12px 20px;border:0;border-radius:999px;color:#fff;background:#F28A3A;box-shadow:0 12px 25px rgba(242,138,58,.28);font-family:inherit;font-size:14px;font-weight:800;text-decoration:none;cursor:pointer;transition:transform .2s ease,background .2s ease}
@@ -88,7 +91,7 @@
   .aplyk-promo-terms{margin-top:16px;padding-top:12px;border-top:1px solid rgba(42,82,111,.12);text-align:left}
   .aplyk-promo-terms summary{color:#2A526F;font-size:12px;font-weight:800;cursor:pointer}
   .aplyk-promo-terms-copy{padding-top:9px;color:#64798C;font-size:11px;line-height:1.55;white-space:pre-line}
-  @media(max-width:480px){.aplyk-promo-dialog{padding:28px 22px 22px;border-radius:22px}.aplyk-promo-icon{width:50px;height:50px}}
+  @media(max-width:480px){.aplyk-promo-dialog{padding:28px 22px 22px;border-radius:22px}}
   @media(prefers-reduced-motion:reduce){.aplyk-promo-dialog{animation:none}.aplyk-promo-primary{transition:none}}
 </style>
 <script>
@@ -116,11 +119,11 @@
 <div aria-hidden="true" class="aplyk-promo-overlay" id="aplykPromoOverlay">
   <section aria-labelledby="aplykPromoTitle" aria-modal="true" class="aplyk-promo-dialog" role="dialog">
     <button aria-label="Close promotion" class="aplyk-promo-close" id="aplykPromoClose" type="button">×</button>
-    <div aria-hidden="true" class="aplyk-promo-icon">✦</div>
     <div class="aplyk-promo-kicker" id="aplykPromoKicker"></div>
     <h2 class="aplyk-promo-title" id="aplykPromoTitle"></h2>
+    <p class="aplyk-promo-region" id="aplykPromoRegion"><span class="aplyk-promo-region-main" id="aplykPromoRegionMain"></span><span class="aplyk-promo-region-tagline" id="aplykPromoRegionTagline"></span></p>
     <p class="aplyk-promo-description" id="aplykPromoDescription"></p>
-    <div aria-label="Promotion reward" class="aplyk-promo-reward" id="aplykPromoReward"><span id="aplykPromoAmount"></span><span id="aplykPromoCurrency"></span><sup class="aplyk-promo-asterisk" aria-hidden="true">*</sup></div>
+    <div aria-label="Promotion reward" class="aplyk-promo-reward" id="aplykPromoReward"><span id="aplykPromoAmount"></span><span class="aplyk-promo-currency-wrap"><span id="aplykPromoCurrency"></span><sup class="aplyk-promo-asterisk" aria-hidden="true">*</sup></span></div>
     <p class="aplyk-promo-reward-label" id="aplykPromoRewardLabel"></p>
     <div class="aplyk-promo-actions">
       <button class="aplyk-promo-primary js-open-early-access-direct" data-early-role="professional" id="aplykPromoCta" type="button"></button>
@@ -569,6 +572,10 @@
     const copy = config.copy?.[language()] || config.copy?.en || {};
     document.getElementById('aplykPromoKicker').textContent = copy.kicker || '';
     document.getElementById('aplykPromoTitle').textContent = copy.headline || '';
+    const regionalMessage = document.getElementById('aplykPromoRegion');
+    document.getElementById('aplykPromoRegionMain').textContent = copy.regional_message || '';
+    document.getElementById('aplykPromoRegionTagline').textContent = copy.regional_tagline || '';
+    regionalMessage.hidden = !(copy.regional_message || copy.regional_tagline);
     document.getElementById('aplykPromoDescription').textContent = copy.description || '';
     document.getElementById('aplykPromoAmount').textContent = String(config.reward?.amount ?? '');
     document.getElementById('aplykPromoCurrency').textContent = ` ${config.reward?.currency_symbol || '€'}`;
