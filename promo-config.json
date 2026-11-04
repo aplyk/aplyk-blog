@@ -1,0 +1,39 @@
+{
+  "enabled": true,
+  "audience": "professionals",
+  "type": "registration_reward",
+  "eligibility": {
+    "limit_type": "participants",
+    "participant_limit": 100,
+    "end_at": null,
+    "required_completed_hours": 100,
+    "completion_period_days": 60
+  },
+  "reward": {
+    "amount": 50,
+    "currency": "EUR",
+    "currency_symbol": "€"
+  },
+  "copy": {
+    "es": {
+      "kicker": "Promoción de lanzamiento",
+      "headline": "¿Estás buscando trabajo?",
+      "description": "Regístrate y empieza a descubrir turnos cerca de ti.",
+      "reward_label": "a los primeros 100 registrados.",
+      "cta": "Quiero registrarme ahora",
+      "close_label": "Cerrar promoción",
+      "terms_label": "Consulta las condiciones de la promoción",
+      "terms_full": "Promoción limitada a las primeras {{participant_limit}} personas profesionales que completen y validen su perfil. Para recibir el incentivo, deberán completar {{required_completed_hours}} horas de trabajo en turnos gestionados a través de Aplyk dentro de los {{completion_period_days}} días siguientes a la validación del perfil. Se concederá un único incentivo por persona, consistente en una o varias tarjetas regalo por valor total de {{amount}} {{currency_symbol}}, una vez comprobado el cumplimiento de los requisitos. Las tarjetas regalo estarán sujetas a las condiciones de uso del emisor, que se especificarán en las bases legales. El incentivo no será transferible ni acumulable con otras promociones. La modalidad y el plazo de entrega, la vigencia de la promoción y el tratamiento fiscal aplicable se detallarán en las bases legales."
+    },
+    "en": {
+      "kicker": "Launch promotion",
+      "headline": "Looking for work?",
+      "description": "Register and start discovering shifts near you.",
+      "reward_label": "to the first 100 professionals.",
+      "cta": "Register now",
+      "close_label": "Close promotion",
+      "terms_label": "View promotion terms",
+      "terms_full": "The promotion is limited to the first {{participant_limit}} professionals who complete and verify their profile. To receive the incentive, participants must complete {{required_completed_hours}} hours of work on shifts arranged through Aplyk within {{completion_period_days}} days of profile verification. Once eligibility has been verified, each person will receive one incentive in the form of one or more gift cards with a total value of {{amount}} {{currency_symbol}}. The gift cards are subject to the issuer’s terms of use, which will be set out in the full promotion terms. The incentive is non-transferable and cannot be combined with other promotions. The method and timing of delivery, the promotion’s validity period and any applicable tax treatment will be set out in the full promotion terms."
+    }
+  }
+}

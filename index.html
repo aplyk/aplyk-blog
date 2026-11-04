@@ -67,6 +67,35 @@
 <link href="/Resources/shared/footer.css" rel="stylesheet"/>
 <link href="/Resources/shared/contact-widget/contact-widget.css" rel="stylesheet"/>
 
+
+<style id="aplyk-promo-styles">
+  .aplyk-promo-overlay{position:fixed;inset:0;z-index:5000;display:none;place-items:center;padding:18px;background:rgba(22,40,58,.68);backdrop-filter:blur(4px)}
+  .aplyk-promo-overlay.is-open{display:grid}
+  .aplyk-promo-dialog{position:relative;width:min(100%,500px);max-height:calc(100vh - 36px);overflow:auto;padding:32px 34px 25px;border:1px solid rgba(42,82,111,.08);border-radius:26px;background:radial-gradient(circle at 92% 5%,rgba(242,138,58,.15),transparent 30%),radial-gradient(circle at 4% 96%,rgba(188,210,226,.30),transparent 36%),#fff;box-shadow:0 24px 70px rgba(22,40,58,.28);text-align:center;animation:aplykPromoIn .32s ease-out}
+  @keyframes aplykPromoIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+  .aplyk-promo-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:1px solid rgba(42,82,111,.12);border-radius:50%;color:#2A526F;background:rgba(255,255,255,.9);font-size:22px;cursor:pointer}
+  .aplyk-promo-icon{width:56px;height:56px;display:grid;place-items:center;margin:0 auto 16px;border-radius:18px;color:#fff;background:#2A526F;box-shadow:0 12px 26px rgba(42,82,111,.20);font-size:25px}
+  .aplyk-promo-kicker{display:inline-block;margin-bottom:12px;padding:7px 13px;border:1px solid rgba(242,138,58,.28);border-radius:999px;color:#D97529;background:rgba(242,138,58,.12);font-size:14px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .aplyk-promo-title{max-width:390px;margin:0 auto 8px;color:#2A526F;font-size:clamp(25px,6vw,31px);line-height:1.12;letter-spacing:-.03em}
+  .aplyk-promo-description{max-width:400px;margin:0 auto;color:#64798C;font-size:15px;line-height:1.55}
+  .aplyk-promo-reward{margin:17px 0 2px;color:#D97529;font-size:clamp(62px,16vw,76px);font-weight:900;line-height:1;letter-spacing:-.07em}
+  .aplyk-promo-reward #aplykPromoCurrency{font-size:1em;vertical-align:baseline;letter-spacing:inherit}
+  .aplyk-promo-asterisk{margin-left:2px;color:#D97529;font-size:.25em;vertical-align:super;letter-spacing:0}
+  .aplyk-promo-reward-label{margin:0 0 19px;color:#2A526F;font-size:14px;font-weight:800}
+  .aplyk-promo-actions{display:grid;gap:10px}
+  .aplyk-promo-primary{display:flex;min-height:50px;align-items:center;justify-content:center;padding:12px 20px;border:0;border-radius:999px;color:#fff;background:#F28A3A;box-shadow:0 12px 25px rgba(242,138,58,.28);font-family:inherit;font-size:14px;font-weight:800;text-decoration:none;cursor:pointer;transition:transform .2s ease,background .2s ease}
+  .aplyk-promo-primary:hover{transform:translateY(-2px);background:#D97529}
+  .aplyk-promo-terms{margin-top:16px;padding-top:12px;border-top:1px solid rgba(42,82,111,.12);text-align:left}
+  .aplyk-promo-terms summary{color:#2A526F;font-size:12px;font-weight:800;cursor:pointer}
+  .aplyk-promo-terms-copy{padding-top:9px;color:#64798C;font-size:11px;line-height:1.55;white-space:pre-line}
+  @media(max-width:480px){.aplyk-promo-dialog{padding:28px 22px 22px;border-radius:22px}.aplyk-promo-icon{width:50px;height:50px}}
+  @media(prefers-reduced-motion:reduce){.aplyk-promo-dialog{animation:none}.aplyk-promo-primary{transition:none}}
+</style>
+<script>
+  // Reserve the first-visit video until the promotion configuration is read.
+  try { sessionStorage.setItem('aplyk_intro_video_seen', '1'); } catch (_) {}
+</script>
+
 </head>
 <body id="top">
 <button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">
@@ -82,6 +111,27 @@
   </a>
 </div>
 <button class="mobile-demo-bar js-open-demo" id="mobileDemoBar" type="button" data-i18n="bookDemo">Book a demo</button> -->
+
+<!-- ===================== CONFIGURABLE LAUNCH PROMOTION ===================== -->
+<div aria-hidden="true" class="aplyk-promo-overlay" id="aplykPromoOverlay">
+  <section aria-labelledby="aplykPromoTitle" aria-modal="true" class="aplyk-promo-dialog" role="dialog">
+    <button aria-label="Close promotion" class="aplyk-promo-close" id="aplykPromoClose" type="button">×</button>
+    <div aria-hidden="true" class="aplyk-promo-icon">✦</div>
+    <div class="aplyk-promo-kicker" id="aplykPromoKicker"></div>
+    <h2 class="aplyk-promo-title" id="aplykPromoTitle"></h2>
+    <p class="aplyk-promo-description" id="aplykPromoDescription"></p>
+    <div aria-label="Promotion reward" class="aplyk-promo-reward" id="aplykPromoReward"><span id="aplykPromoAmount"></span><span id="aplykPromoCurrency"></span><sup class="aplyk-promo-asterisk" aria-hidden="true">*</sup></div>
+    <p class="aplyk-promo-reward-label" id="aplykPromoRewardLabel"></p>
+    <div class="aplyk-promo-actions">
+      <button class="aplyk-promo-primary js-open-early-access-direct" data-early-role="professional" id="aplykPromoCta" type="button"></button>
+    </div>
+    <details class="aplyk-promo-terms">
+      <summary id="aplykPromoTermsLabel"></summary>
+      <div class="aplyk-promo-terms-copy" id="aplykPromoTermsCopy"></div>
+    </details>
+  </section>
+</div>
+
 <!-- ===================== INTRO VIDEO MODAL ===================== -->
 <div aria-hidden="true" class="video-modal" id="videoModal">
 <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
@@ -484,6 +534,86 @@
 <!-- ===================== FOOTER ===================== -->
 <!-- ===================== SHARED FOOTER ===================== -->
 <div id="shared-footer"></div>
+
+<script id="aplyk-promo-loader">
+(function(){
+  const videoSkipParams = ['newsletter_submitted','demo_submitted','demo'];
+  const query = new URLSearchParams(window.location.search);
+  const skipCampaigns = videoSkipParams.some(key => query.has(key));
+  const overlay = document.getElementById('aplykPromoOverlay');
+  const watchVideo = document.getElementById('watchVideoBtn');
+  const promoClose = document.getElementById('aplykPromoClose');
+  const promoCta = document.getElementById('aplykPromoCta');
+  let config = null;
+  let previousFocus = null;
+
+  const language = () => ((window.getCurrentLanguage && window.getCurrentLanguage()) || document.documentElement.lang || 'en').toLowerCase().startsWith('es') ? 'es' : 'en';
+  const openVideo = () => { if (watchVideo) watchVideo.click(); };
+  const closePromo = (playVideo, restoreFocus = true) => {
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if (restoreFocus && previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
+    if (playVideo) openVideo();
+  };
+  const interpolate = (text) => String(text || '')
+    .replaceAll('{{amount}}', String(config?.reward?.amount ?? ''))
+    .replaceAll('{{currency_symbol}}', config?.reward?.currency_symbol || '€')
+    .replaceAll('{{participant_limit}}', String(config?.eligibility?.participant_limit ?? ''))
+    .replaceAll('{{required_completed_hours}}', String(config?.eligibility?.required_completed_hours ?? ''))
+    .replaceAll('{{completion_period_days}}', String(config?.eligibility?.completion_period_days ?? ''));
+
+  const renderPromo = () => {
+    if (!config || !overlay) return;
+    const copy = config.copy?.[language()] || config.copy?.en || {};
+    document.getElementById('aplykPromoKicker').textContent = copy.kicker || '';
+    document.getElementById('aplykPromoTitle').textContent = copy.headline || '';
+    document.getElementById('aplykPromoDescription').textContent = copy.description || '';
+    document.getElementById('aplykPromoAmount').textContent = String(config.reward?.amount ?? '');
+    document.getElementById('aplykPromoCurrency').textContent = ` ${config.reward?.currency_symbol || '€'}`;
+    document.getElementById('aplykPromoRewardLabel').textContent = copy.reward_label || '';
+    document.getElementById('aplykPromoCta').textContent = copy.cta || '';
+    document.getElementById('aplykPromoTermsLabel').textContent = copy.terms_label || '';
+    promoClose?.setAttribute('aria-label', copy.close_label || 'Close promotion');
+    document.getElementById('aplykPromoTermsCopy').textContent = interpolate(copy.terms_full || '');
+  };
+  const dateLimitPassed = () => config?.eligibility?.limit_type === 'date' && config.eligibility.end_at && new Date(config.eligibility.end_at).getTime() <= Date.now();
+  const eligibleToShow = () => config?.enabled === true && !dateLimitPassed();
+  const showPromo = () => {
+    renderPromo();
+    previousFocus = document.activeElement;
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    promoClose?.focus();
+  };
+
+  promoClose?.addEventListener('click', () => closePromo(true));
+  promoCta?.addEventListener('click', () => {
+    closePromo(false, false);
+    document.getElementById('watchVideoBtn')?.focus();
+  });
+  overlay?.addEventListener('click', (event) => { if (event.target === overlay) closePromo(true); });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && overlay?.classList.contains('is-open')) closePromo(true);
+  });
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('#langMenu [data-lang], .lang-item-mobile[data-lang]')) setTimeout(renderPromo, 0);
+  });
+
+  if (skipCampaigns) return;
+  fetch('/promo-config.json', {cache:'no-store'})
+    .then(response => { if (!response.ok) throw new Error('Promotion configuration unavailable'); return response.json(); })
+    .then(data => {
+      config = data;
+      if (eligibleToShow()) showPromo();
+      else openVideo();
+    })
+    .catch(error => { console.warn('Aplyk promotion configuration could not be loaded:', error); openVideo(); });
+})();
+</script>
+
 <script src="/home.js?v=20261103v5"></script>
 <script defer="" src="/Resources/shared/contact-widget/contact-widget.js"></script>
 <script src="/Resources/shared/footer.js"></script>
