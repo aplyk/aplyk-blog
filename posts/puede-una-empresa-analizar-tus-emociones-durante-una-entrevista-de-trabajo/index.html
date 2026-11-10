@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="description" content="Si buscas empleo en la Unión Europea, la ley ya traza una línea roja sobre la IA que infiere emociones en una entrevista."/>
+  <meta property="og:title" content="Buscar empleo: ¿pueden analizar tus emociones? | Aplyk"/>
+  <meta property="og:description" content="Si buscas empleo en la Unión Europea, la ley ya traza una línea roja sobre la IA que infiere emociones en una entrevista."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://aplyk.com/posts/puede-una-empresa-analizar-tus-emociones-durante-una-entrevista-de-trabajo/"/>
+  <meta property="og:image" content="https://aplyk.com/posts/puede-una-empresa-analizar-tus-emociones-durante-una-entrevista-de-trabajo/1/caratula_lkn.png"/>
+  <meta property="article:published_time" content="2026-11-10"/>
+<link rel="canonical" href="https://aplyk.com/posts/puede-una-empresa-analizar-tus-emociones-durante-una-entrevista-de-trabajo/"/>
+
+  <title>Buscar empleo: ¿pueden analizar tus emociones? | Aplyk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { 
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="../../shared-components.css"/>
+  <link rel="stylesheet" href="/Resources/shared/footer.css">
+  <link rel="stylesheet" href="/Resources/shared/cookie-consent.css">
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+
+    .article-image {
+      margin: 2.5rem 0;
+    }
+    .article-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(42, 82, 111, 0.10);
+    }
+
+    .sources {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+    }
+    .sources h2 {
+      font-size: 1rem !important;
+      font-weight: 700;
+      color: #94a3b8 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .sources ol {
+      margin: 0 0 0 1.25rem;
+      color: #94a3b8;
+    }
+    .sources li {
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+      color: #94a3b8;
+    }
+
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 3rem; align-items: center; }
+    .article-hero-media { background: linear-gradient(145deg,#f8fafc,#eef4f8); border: 1px solid #e2e8f0; border-radius: 24px; padding: 14px; box-shadow: 0 18px 45px rgba(42,82,111,.10); }
+    .article-hero-media img { width:100%; height:auto; display:block; border-radius:16px; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+
+    .article-toc a.active {
+      color:#F28A3A;
+      border-left-color:#F28A3A;
+      font-weight:800;
+    }
+    .article-section { margin:0 0 2.6rem; padding-top:.25rem; scroll-margin-top:110px; }
+    .article-section h2 { position:relative; }
+    .article-section h2::before { content:""; display:block; width:42px; height:4px; background:#F28A3A; border-radius:999px; margin-bottom:.8rem; }
+    .article-section:nth-of-type(even) { background:#f8fbfd; border:1px solid #edf2f7; border-radius:18px; padding:1.4rem 1.5rem 1.1rem; }
+    .article-image { margin:2.2rem 0 2.8rem; }
+    .article-image--split { display:grid; grid-template-columns:minmax(0, 1fr); }
+    .article-image--wide { margin-left:-48px; margin-right:-48px; }
+    .article-conclusion { margin-top:3rem; padding:1.8rem; border-radius:18px; background:#fff7ef; border:1px solid #fde4cb; }
+    .article-conclusion h2 { margin-top:0 !important; }
+    .sources details { background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:1rem 1.1rem; }
+    .sources summary { cursor:pointer; color:#2a526f; font-weight:800; }
+    .sources ol { margin-top:1rem; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+    @media (max-width: 960px) {
+      .article-hero-grid { grid-template-columns:1fr; gap:2rem; }
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+      .article-image--wide { margin-left:0; margin-right:0; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+      .article-section:nth-of-type(even) { padding:1.15rem; }
+    }
+
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: #2a526f;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(42, 82, 111, 0.22);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+    }
+    .back-to-top:hover {
+      background: #1e3b50;
+      transform: translateY(-2px);
+    }
+    .back-to-top:focus-visible {
+      outline: 3px solid rgba(242, 138, 58, .45);
+      outline-offset: 3px;
+    }
+    .back-to-top .material-symbols-outlined {
+      font-size: 24px;
+      line-height: 1;
+    }
+    @media (max-width: 640px) {
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+
+    /* Related articles: text-only to keep the page lightweight */
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li {
+      margin: 0 !important;
+      list-style: none !important;
+    }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "¿Puede una empresa analizar tus emociones durante una entrevista de trabajo?",
+  "description": "Si buscas empleo en la Unión Europea, la ley ya traza una línea roja sobre la IA que infiere emociones en una entrevista.",
+  "datePublished": "2026-11-10",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aplyk.com/posts/puede-una-empresa-analizar-tus-emociones-durante-una-entrevista-de-trabajo/"
+  },
+  "image": [
+    "https://aplyk.com/posts/puede-una-empresa-analizar-tus-emociones-durante-una-entrevista-de-trabajo/1/caratula_lkn.png"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "Aplyk",
+    "url": "https://aplyk.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aplyk",
+    "url": "https://aplyk.com"
+  }
+}
+  </script>
+</head>
+
+<body id="top" class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+
+  <!-- BACK TO TOP -->
+  <button aria-label="Volver arriba" class="back-to-top" id="backToTop" type="button">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <!-- SHARED NAV -->
+  <div id="site-header"></div>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+    <div class="article-shell flex items-center gap-2 text-sm text-slate-400">
+      <a href="/" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <a href="/blog" class="hover:text-primary transition-colors">Blog</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <span class="text-primary font-medium">¿Puede una empresa analizar tus emociones durante una entrevista de trabajo?</span>
+    </div>
+  </div>
+
+  <!-- HEADER DEL POST -->
+  <header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+    <div class="article-shell article-hero-grid">
+      <div class="flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          Tecnología
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+         ¿Puede una empresa analizar tus emociones durante una entrevista de trabajo?
+      </h1>
+      <p class="text-slate-500 text-lg leading-relaxed">
+         Si buscas empleo en la Unión Europea, la ley ya traza una línea roja sobre la IA que infiere emociones en una entrevista. Te explicamos hasta dónde llega, qué sigue permitido y qué puedes preguntar antes de sentarte.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">Business</span>
+          Aplyk
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          10 Noviembre 2026
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          9 min lectura
+        </span>
+      </div>
+      </div>
+      <div class="article-hero-media">
+        <img src="./1/caratula_lkn.png" alt="Imagen principal del artículo" loading="eager"/>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  
+  
+<main class="article-shell px-6 xl:px-0 py-12">
+  <div class="article-layout">
+    <article class="post-content">
+
+<div class="article-intro"><p>Hay cosas que una empresa no debería pedirle a un algoritmo. Leer tus emociones en una entrevista es una de ellas, y en la Unión Europea la ley ya traza esa línea. Piensa en el momento previo: el vaso de agua sobre la mesa, la silla que cruje, el pulso en las palmas, esa risa nerviosa que se escapa antes de la primera pregunta. Todo eso es información sobre ti, y la cuestión es quién tiene derecho a convertirla en una puntuación.</p>
+<p>La respuesta corta: el AI Act, el Reglamento (UE) 2024/1689, prohíbe los sistemas de IA que infieren emociones en el lugar de trabajo, con excepciones médicas o de seguridad. Ojo con las fechas: esa prohibición se aplica desde el 2 de febrero de 2025, el Reglamento en general se aplica desde el 2 de agosto de 2026 y las obligaciones de alto riesgo para selección llegan el 2 de diciembre de 2027. Las directrices de la Comisión Europea, no vinculantes, incluyen a las personas candidatas.</p>
+<p>Este artículo es para quien busca empleo y quiere saber qué puede preguntar, esperar y exigir. Mi tesis: no hace falta controlar el nerviosismo, sino saber en qué consiste la entrevista.</p></div>
+
+<section class="article-section" id="section-1">
+<h2>Lo que prohíbe el AI Act: la línea roja sobre tus emociones</h2>
+<p>El artículo 5.1.f del Reglamento (UE) 2024/1689 prohíbe comercializar, poner en servicio con ese fin o usar sistemas de IA que infieran las emociones de una persona en el lugar de trabajo y en las instituciones educativas, salvo que el sistema esté destinado a razones médicas o de seguridad. Las preguntas frecuentes del AI Act Service Desk de la Comisión Europea lo resumen igual, con esas dos excepciones.</p>
+<p>Las fechas importan. Según el texto consolidado del artículo 113, el Reglamento se aplica desde el 2 de agosto de 2026, pero los capítulos I y II, que incluyen las prácticas prohibidas, se aplican desde el 2 de febrero de 2025. La prohibición de inferir emociones en el trabajo lleva, por tanto, en vigor desde principios de 2025, aunque el resto del Reglamento se haya desplegado después.</p>
+<p>Las directrices de la Comisión sobre estas prácticas, que no son vinculantes, concretan el alcance, según el resumen de Freshfields. El «lugar de trabajo» abarca cualquier entorno donde se realiza un trabajo, y la prohibición también se aplica a las personas candidatas durante la contratación. Vale para quienes proveen estos sistemas y para quienes los usan. Incluye emociones como ira, felicidad, tristeza, miedo, sorpresa o asco, y también intenciones, y exige que el sistema use datos biométricos, como expresiones faciales o posturas y movimientos corporales. Quedan fuera estados físicos como la fatiga o el dolor, y la excepción médica no cubre detectar estrés o agotamiento en general.</p>
+<p>Además, EURES, el portal europeo de empleo, publicó el 27 de agosto de 2026 una nota que recuerda, entre los derechos de quien busca empleo, el de no tener las expresiones faciales, el tono de voz o el lenguaje corporal analizados por IA durante una entrevista. La propia nota advierte de que su contenido no refleja necesariamente la posición de la Comisión.</p>
+<p>Me parece una de las normas más sensatas del AI Act, y la explico con una escena. Una candidata espera en una sala, con la silla que cruje y un vaso de agua que no se atreve a tocar; el corazón le va deprisa y, al saludar, se le escapa una risa. Ese cuerpo no está contando si sabe hacer el trabajo: está contando que le importa. Convertir esa señal en una puntuación mezcla dos cosas distintas, y el legislador europeo ha optado por separarlas. Es una opinión mía, y las directrices orientan, pero no sustituyen a los tribunales.</p>
+</section>
+
+<figure class="article-image article-image--split">
+  <img src="./1/caratula_lkn.png" alt="Ilustración del artículo ¿Puede una empresa analizar tus emociones durante una entrevista de trabajo? — enfoque PLACER" loading="lazy"/>
+</figure>
+
+<section class="article-section" id="section-2">
+<h2>Dónde está la frontera: tu cara no, tus respuestas sí</h2>
+<p>Que no puedan leer tus emociones no significa que no puedan usar IA en el proceso. Según los ejemplos de la Comisión en su AI Act Service Desk, un sistema que evalúa las respuestas escritas u orales de los candidatos en una evaluación en línea, les asigna una puntuación y genera un ranking para decidir quién pasa a entrevista es de alto riesgo en el punto 4(a) del Anexo III. Alto riesgo quiere decir permitido con obligaciones, y esas obligaciones se aplican desde el 2 de diciembre de 2027. En cambio, una herramienta que ayuda solo a la persona candidata a adaptar su currículum, y cuyas recomendaciones solo ella recibe, queda fuera de ese punto. Si usas apps para buscar trabajo que te sugieren cómo mejorar tu CV, ese es el caso.</p>
+<p>El regulador británico de protección de datos (ICO) auditó entre agosto de 2023 y mayo de 2024 herramientas de IA para captar, cribar y seleccionar candidatos. Algunas puntúan competencias a partir de respuestas escritas y transcripciones de entrevistas, y otras evalúan el lenguaje, el tono y el contenido de entrevistas en vídeo para predecir un tipo de personalidad. El ICO dejó fuera de esa auditoría la IA que procesa datos biométricos, como la detección de emociones, porque preparaba guía aparte, y recomienda que quien recluta explique a los candidatos cómo tratará sus datos la IA y la lógica que aplica. La nota de EURES añade, entre los derechos que recuerda, saber de antemano si se usa IA y qué papel juega, y pedir que una persona revise la decisión.</p>
+<p>Mi lectura es que la frontera es más fina de lo que parece. Una herramienta que declara «no leemos tu cara» puede puntuar tu cadencia al hablar, y si esa puntuación acaba traducida en «seguridad» o «entusiasmo», se acerca a lo que la norma quiere evitar. No puedo valorar un caso concreto: depende de los datos y de la finalidad. Lo que sí puedo decir es que el miedo a que te rechacen por un gesto tiene hoy dos respuestas legales distintas: inferir emociones con datos biométricos está prohibido, y puntuar tus respuestas está regulado. Saber en cuál de los dos terrenos estás es la mitad de la tranquilidad.</p>
+</section>
+
+<section class="article-section" id="section-3">
+<h2>Lo que llega en diciembre de 2027 y lo que ya conviene saber</h2>
+<p>Según el artículo 113 del texto consolidado, las secciones 1, 2 y 3 del capítulo III, que contienen los requisitos y obligaciones para los sistemas de alto riesgo del Anexo III, donde se incluye el empleo, se aplican desde el 2 de diciembre de 2027. Según el análisis de Cuatrecasas, las obligaciones laborales del Reglamento de IA aún no son exigibles, salvo las prácticas prohibidas.</p>
+<p>Hay una discrepancia que conviene señalar. La nota de EURES menciona el 2 de agosto de 2026 como fecha desde la que las empresas que usan IA en contratación deben cumplir ciertas obligaciones, mientras que el texto consolidado del artículo 113 fija el 2 de diciembre de 2027 para los sistemas del Anexo III. Me atengo al texto legal, y quien tenga que aplicar esto a un caso concreto debería confirmar la fecha con un profesional.</p>
+<p>Para quien se presenta a una entrevista, importan tres piezas del Reglamento. El artículo 26.11 prevé que quien use un sistema de alto riesgo para tomar o asistir decisiones sobre personas debe informarles de que están sujetas a él. El artículo 26.7 obliga al empleador a informar antes a los representantes de los trabajadores y a los afectados cuando lo usa en el lugar de trabajo. Y el artículo 86 reconoce a quien sufre una decisión basada en uno de esos sistemas, si le afecta de forma significativa, el derecho a obtener explicaciones claras sobre el papel del sistema y los elementos principales de la decisión.</p>
+<p>Mi opinión, con un ejemplo del sector: en trabajo temporal, donde se decide rápido y casi siempre desde el móvil, me parece más sano evaluar por lo que se hace que por cómo se parece. Plataformas como Aplyk, con trabajadores verificados, valoraciones tras cada turno y control horario por GPS, se apoyan en señales de trabajo real. No es la única manera de hacerlo bien, pero es la dirección que me parece más defendible: que lo medible sea lo que ocurre en el trabajo, y no lo que ocurre en tu cara.</p>
+</section>
+
+<figure class="article-image article-image--wide">
+  <img src="./2/caratula_lkn.png" alt="Ilustración del artículo ¿Puede una empresa analizar tus emociones durante una entrevista de trabajo? — enfoque CONFORT" loading="lazy"/>
+</figure>
+
+<section class="article-section" id="section-4">
+<h2>Lo que España ya exige y lo que puedes preguntar mañana</h2>
+<p>En España, según el análisis de Cuatrecasas, el artículo 64.4.d del Estatuto de los Trabajadores reconoce a la representación legal el derecho a conocer los parámetros de los algoritmos que inciden en el acceso y el mantenimiento del empleo. Y el Real Decreto 723/2026, publicado en el BOE el 15 de septiembre y en vigor desde el 5 de octubre de 2026, exige informar por escrito sobre la existencia de sistemas algorítmicos o automatizados de toma de decisiones (artículo 3.2.k). Si se emplean para decisiones sobre condiciones de trabajo, como la jornada, la asignación de tareas, el salario o la progresión, hay que informar también de sus pautas y criterios. La información debe darse antes del inicio de la relación laboral (artículo 7.1), y el capítulo solo se aplica a relaciones de más de cuatro semanas (artículo 2.2).</p>
+<p>Eso conviene leerlo bien: este real decreto protege a la persona ya contratada y habla de condiciones de trabajo, no de la entrevista, y no se aplica a relaciones cortas. Para la entrevista tienes la prohibición del artículo 5.1.f y, según Cuatrecasas, el RGPD, que obliga a informar de decisiones automatizadas, de la lógica aplicada y de sus consecuencias. Hay un tercer recurso, más sencillo: preguntar. Cuando dices «busco trabajo», nadie te cuenta de oficio cómo te van a evaluar. Estas son cinco preguntas, una propuesta práctica mía, no un requisito legal:</p>
+<ol><li>¿Se usará IA en el proceso y para qué: transcribir, puntuar u ordenar candidaturas?</li><li>¿Analiza mi cara, mi voz o mis gestos? Si infiere emociones, es lo que el artículo 5.1.f prohíbe en el lugar de trabajo, salvo excepciones médicas o de seguridad.</li><li>¿Qué datos se guardan, durante cuánto tiempo y quién los ve?</li><li>¿Revisa una persona cualquier decisión y puedo pedir una explicación?</li><li>¿Ante quién puedo reclamar si no estoy de acuerdo?</li></ol>
+<p>Para la quinta, según Cuatrecasas, según el tipo de incumplimiento podrían intervenir la Inspección de Trabajo, la Agencia Española de Protección de Datos y la Agencia Española de Supervisión de la Inteligencia Artificial.</p>
+<p>Este es el marco general en la UE y en España a fecha de noviembre de 2026. Las directrices de la Comisión no son vinculantes y cada caso depende de la herramienta, de los datos y de las circunstancias, así que, si crees que te han aplicado una de estas tecnologías, conviene consultar a un profesional jurídico o a un sindicato. Una empresa que usa IA con criterio debería poder responder a estas preguntas con calma, y si no puede, esa falta de respuesta ya es información útil.</p>
+</section>
+
+<section class="article-conclusion" id="conclusion"><h2>Conclusión</h2><p>La respuesta a la pregunta del título es que, según el AI Act, una empresa no puede usar IA que infiera tus emociones a partir de datos biométricos, como tu cara, tu voz o tu cuerpo, en una entrevista de trabajo, salvo excepciones médicas o de seguridad. Esa prohibición se aplica desde febrero de 2025, aunque el Reglamento en su conjunto se aplique desde agosto de 2026. Lo demás, como puntuar tus respuestas u ordenar candidaturas, no está prohibido, pero se regula como alto riesgo, con obligaciones que llegan el 2 de diciembre de 2027.</p>
+<p>Mi predicción, y es una apuesta, no un dato: en pocos años, igual que hoy aceptamos una política de privacidad al enviar un currículum, será habitual que la propia oferta de empleo diga si hay IA en el proceso, qué hace y cómo pedir una revisión humana. Las empresas que lo cuenten con claridad atraerán candidatos antes que las que lo escondan.</p>
+<p>Mientras tanto, la acción es pequeña. En tu próxima entrevista, pregunta si habrá IA y qué analiza. Si la respuesta es clara, entrarás con más calma; si no lo es, sabrás algo importante sobre ese proceso. Y cuando se te escape la risa nerviosa, déjala salir: seguirá siendo tuya.</p></section>
+
+<div class="sources"><details><summary>Fuentes y base documental</summary><ol><li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5" target="_blank" rel="noopener noreferrer">Article 5: Prohibited AI practices (texto consolidado a 27 de julio de 2026), European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/taxonomy/term/73" target="_blank" rel="noopener noreferrer">Prohibited AI practices (preguntas frecuentes), European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113" target="_blank" rel="noopener noreferrer">Article 113: Entry into force and application (texto consolidado a 27 de julio de 2026), European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26" target="_blank" rel="noopener noreferrer">Article 26: Obligations of deployers of high-risk AI systems (texto consolidado a 27 de julio de 2026), European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-86" target="_blank" rel="noopener noreferrer">Article 86: Right to explanation of individual decision-making, European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/employment-0" target="_blank" rel="noopener noreferrer">Employment (Guidelines on the classification of high-risk AI systems, Annex III point 4), European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://eures.europa.eu/jobseekers-know-your-rights-age-ai-hiring-2026-08-27_en" target="_blank" rel="noopener noreferrer">Jobseekers know your rights in the age of AI hiring, EURES (European Employment Services), Autoridad Laboral Europea y DG de Empleo de la Comisión Europea, 2026-08-27</a></li>
+<li><a href="https://www.boe.es/eli/es/rd/2026/09/09/723" target="_blank" rel="noopener noreferrer">Real Decreto 723/2026, de 9 de septiembre, por el que se transpone la Directiva (UE) 2019/1152 relativa a unas condiciones laborales transparentes y previsibles en la Unión Europea, Boletín Oficial del Estado (BOE), 2026-09-15</a></li>
+<li><a href="https://cy.ico.org.uk/media2/migrated/4031620/ai-in-recruitment-outcomes-report.pdf" target="_blank" rel="noopener noreferrer">AI tools in recruitment: Audit outcomes report, Information Commissioner&#x27;s Office (ICO), Reino Unido, 2024-11</a></li>
+<li><a href="https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-25-european-commission-releases-critical-ai-act-implementati-102kfql" target="_blank" rel="noopener noreferrer">EU AI Act unpacked #25: European Commission releases critical AI Act implementation guidelines (Part 3) - Prohibited AI Practices, Freshfields, 2025-06-17</a></li>
+<li><a href="https://www.cuatrecasas.com/es/latam/laboral/art/laboral-obligacion-informacion-algoritmica" target="_blank" rel="noopener noreferrer">Nueva obligación de información algorítmica en el ámbito laboral, Cuatrecasas, 2026-09-28</a></li></ol></details></div>
+
+<section class="related-articles" aria-labelledby="related-articles-title"><h2 id="related-articles-title">Artículos relacionados</h2><ul><li><a href="/posts/que-datos-personales-puede-pedir-una-empresa-durante-un-proceso-de-seleccion/">Qué datos personales puede pedir una empresa durante un proceso de selección</a></li><li><a href="/posts/puede-un-algoritmo-decidir-quien-consigue-un-trabajo/">¿Puede un algoritmo decidir quién consigue un trabajo?</a></li><li><a href="/posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/">Cómo la IA puede mejorar el matching entre empresas y candidatos</a></li><li><a href="/posts/puede-una-ia-rechazarte-automaticamente-para-un-puesto-de-trabajo/">¿Puede una IA rechazarte automáticamente para un puesto de trabajo?</a></li></ul></section>
+
+    </article>
+
+    <aside class="article-sidebar" aria-label="Navegación del artículo">
+      <div class="article-side-card">
+        <h3>En este artículo</h3>
+        <nav class="article-toc">
+          <a href="#section-1">Lo que prohíbe el AI Act: la línea roja sobre tus emociones</a>
+          <a href="#section-2">Dónde está la frontera: tu cara no, tus respuestas sí</a>
+          <a href="#section-3">Lo que llega en diciembre de 2027 y lo que ya conviene saber</a>
+          <a href="#section-4">Lo que España ya exige y lo que puedes preguntar mañana</a>
+          <a href="#conclusion">Conclusión</a>
+        </nav>
+      </div>
+      <div class="article-side-card sidebar-cta">
+        <h3>Aplyk</h3>
+        <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+        <a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+    <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
+    <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
+    <div>
+      <a href="/?demo=1" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
+        Reservar una demo
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- VOLVER AL BLOG -->
+  <div class="mt-10">
+    <a href="/blog" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+      Volver al blog
+    </a>
+  </div>
+
+</main>
+
+
+  <!-- SHARED FOOTER -->
+  <div id="shared-footer"></div>
+
+
+  <script>
+    // Back-to-top button: same behaviour as the main Aplyk landing page.
+    const backToTop = document.getElementById('backToTop');
+
+    if (backToTop) {
+      const toggleBackToTop = () => {
+        backToTop.style.display = window.scrollY > 480 ? 'flex' : 'none';
+      };
+
+      toggleBackToTop();
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+
+    // Article table of contents: highlight the section currently being read.
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      // Immediate feedback when a TOC item is clicked.
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const sectionId = link.getAttribute('href').slice(1);
+          setActiveTocLink(sectionId);
+        });
+      });
+
+      // Keep the TOC in sync while the reader scrolls.
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) {
+            currentSection = section;
+          }
+        });
+
+        if (currentSection) {
+          setActiveTocLink(currentSection.id);
+        }
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
+  </script>
+
+  <!-- components.js is retained because it loads the shared article header -->
+  <script src="../../components.js"></script>
+  <script src="/Resources/shared/footer.js"></script>
+
+  <script src="/Resources/shared/cookie-consent.js"></script>
+</body>
+</html>
