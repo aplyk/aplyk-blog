@@ -12,7 +12,8 @@
   <meta content="Tendencias en staffing temporal, gestión de personal y tecnología aplicada al trabajo por turnos."
     property="og:description" />
   <meta content="website" property="og:type" />
-  <link href="https://aplyk.com/blog.html" rel="canonical" />
+  <meta content="https://aplyk.com/blog" property="og:url" />
+  <link href="https://aplyk.com/blog" rel="canonical" />
   <title>Blog — Aplyk</title>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -20,6 +21,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="/Resources/shared/cookie-consent.css">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
     tailwind.config = {
@@ -120,294 +122,6 @@
       border-radius: 40px 40px 0 0;
       overflow: hidden;
     }
-
-    .cookie-banner[hidden] {
-      display: none !important;
-    }
-
-    .cookie-banner {
-      position: fixed;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      z-index: 5000;
-    }
-
-    .cookie-banner-inner {
-      width: min(100%, 1180px);
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
-      padding: 22px;
-      background: #fff;
-      color: #1C2E3D;
-      border: 1px solid rgba(42, 82, 111, .14);
-      border-radius: 24px;
-      box-shadow: 0 24px 70px rgba(22, 40, 58, .24);
-    }
-
-    .cookie-copy h2 {
-      margin: 0 0 6px;
-      font-size: 19px;
-      font-weight: 800;
-      color: #2A526F;
-    }
-
-    .cookie-copy p {
-      margin: 0;
-      color: #64798C;
-      font-size: 13.5px;
-      line-height: 1.55;
-      max-width: 760px;
-    }
-
-    .cookie-copy a {
-      color: #D97529;
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    .cookie-actions,
-    .cookie-preferences-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .cookie-btn {
-      min-height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1.5px solid transparent;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .cookie-btn-choice {
-      background: #2A526F;
-      color: #fff;
-      border-color: #2A526F;
-    }
-
-    .cookie-btn-manage {
-      background: #fff;
-      color: #2A526F;
-      border-color: rgba(42, 82, 111, .28);
-    }
-
-    .cookie-btn-save {
-      background: #F28A3A;
-      color: #fff;
-      border-color: #F28A3A;
-    }
-
-    .cookie-preferences {
-      position: fixed;
-      inset: 0;
-      z-index: 5100;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .cookie-preferences.is-open {
-      display: flex;
-    }
-
-    .cookie-preferences-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(22, 40, 58, .64);
-      backdrop-filter: blur(4px);
-    }
-
-    .cookie-preferences-dialog {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 720px);
-      max-height: calc(100vh - 40px);
-      overflow-y: auto;
-      padding: 32px;
-      border-radius: 28px;
-      background: #fff;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, .30);
-    }
-
-    .cookie-preferences-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 38px;
-      height: 38px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 1px solid rgba(42, 82, 111, .14);
-      background: #fff;
-      color: #2A526F;
-    }
-
-    .cookie-preferences-heading {
-      padding-right: 44px;
-      margin-bottom: 24px;
-    }
-
-    .cookie-preferences-heading h2 {
-      color: #2A526F;
-      font-size: 28px;
-      font-weight: 800;
-      margin: 0 0 9px;
-    }
-
-    .cookie-preferences-heading p {
-      color: #64798C;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .cookie-kicker {
-      color: #D97529;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .cookie-category-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin: 24px 0;
-    }
-
-    .cookie-category {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
-      align-items: center;
-      padding: 18px;
-      border: 1px solid rgba(42, 82, 111, .14);
-      border-radius: 18px;
-    }
-
-    .cookie-category h3 {
-      margin: 0 0 5px;
-      color: #2A526F;
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-    .cookie-category p {
-      margin: 0;
-      color: #64798C;
-      font-size: 12.5px;
-      line-height: 1.55;
-    }
-
-    .cookie-always-on {
-      display: inline-flex;
-      margin-left: 8px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: #EBF3F8;
-      color: #2A526F;
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-    .cookie-switch {
-      position: relative;
-      width: 48px;
-      height: 28px;
-      flex: 0 0 48px;
-    }
-
-    .cookie-switch input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .cookie-slider {
-      position: absolute;
-      inset: 0;
-      border-radius: 999px;
-      background: #C7D0D8;
-      cursor: pointer;
-    }
-
-    .cookie-slider::after {
-      content: "";
-      position: absolute;
-      width: 22px;
-      height: 22px;
-      top: 3px;
-      left: 3px;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, .18);
-      transition: transform .2s ease;
-    }
-
-    .cookie-switch input:checked+.cookie-slider {
-      background: #2A526F;
-    }
-
-    .cookie-switch input:checked+.cookie-slider::after {
-      transform: translateX(20px);
-    }
-
-    .cookie-switch.is-disabled .cookie-slider {
-      opacity: .78;
-      cursor: not-allowed;
-    }
-
-    @media (max-width:900px) {
-      .cookie-banner-inner {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width:640px) {
-      .cookie-banner {
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-      }
-
-      .cookie-banner-inner {
-        padding: 18px;
-        border-radius: 20px;
-      }
-
-      .cookie-actions,
-      .cookie-preferences-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-        width: 100%;
-      }
-
-      .cookie-btn {
-        width: 100%;
-      }
-
-      .cookie-preferences {
-        padding: 10px;
-      }
-
-      .cookie-preferences-dialog {
-        padding: 26px 18px 20px;
-        max-height: calc(100vh - 20px);
-        border-radius: 22px;
-      }
-    }
-
 
     /* Floating CTA island — aligned with homepage design */
     .blog-cta-section {
@@ -515,34 +229,64 @@
         width: 100%;
       }
     }
-
-    /* ===================== QUICK CONTACT ===================== */
-
-
   </style>
-  <link href="/Resources/shared/header.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/Resources/shared/footer.css">
-  <link rel="stylesheet" href="./Resources/shared/contact-widget/contact-widget.css">
-  <script defer src="/Resources/shared/header.js"></script>
-  <style id="blog-shared-modal-base">
-    /* Only modal foundations are scoped here; shared header.css owns modal visuals. */
-    #early-access-modal.modal{position:fixed;inset:0;z-index:3000;display:none;place-items:center;padding:12px}
-    #early-access-modal.modal.is-open{display:grid}
-    #early-access-modal .modal-backdrop{position:absolute;inset:0;background:rgba(22,40,58,.6);backdrop-filter:blur(4px)}
-    #early-access-modal .modal-dialog{position:relative;z-index:1;border-radius:26px;box-shadow:0 20px 48px rgba(42,82,111,.14)}
-    #early-access-modal .modal-close{position:absolute;top:12px;right:12px;z-index:2;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(42,82,111,.12);border-radius:50%;background:#fff;color:#2A526F;cursor:pointer}
-    #early-access-modal .btn-primary,#early-access-modal .btn-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 23px;border-radius:999px;border:1px solid transparent;font:800 13px Manrope,sans-serif;cursor:pointer}
-    #early-access-modal .btn-primary{background:#F28A3A;color:#fff}
-    #early-access-modal .btn-secondary{background:#fff;border-color:rgba(42,82,111,.14);color:#2A526F}
-    #early-access-modal .early-access-panel h2{font-weight:800}
-    #early-access-modal .early-access-form input,#early-access-modal .early-access-form select{font-family:Manrope,sans-serif}
-    @media(max-width:640px){#early-access-modal.modal{padding:4px}}
-  </style>
+  <link href="./header.css" rel="stylesheet" />
 </head>
 
-<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden" id="top" data-page="blog">
-  <!-- Header compartido con todas las páginas de Aplyk -->
-  <div id="shared-header"></div>
+<body class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden" id="top">
+  <!-- NAV -->
+  <div class="site-nav aplyk-shared-nav" data-header="shared-v1">
+    <div class="wrap nav-inner">
+      <a aria-label="aplyk" class="wordmark" href="/">
+        <img alt="aplyk" loading="lazy" src="./images/LogoBlue_LightBlueBG.png" />
+      </a>
+      <ul aria-label="Primary" class="nav-links">
+        <li><a data-blog-i18n="navCompanies" href="/#companies">Companies</a></li>
+        <li><a data-blog-i18n="navWorkers" href="/#workers">Workers</a></li>
+        <li><a data-blog-i18n="navFaq" href="/#faq">FAQ</a></li>
+        <li><a aria-current="page" data-blog-i18n="navBlog" href="/blog">Blog</a></li>
+        <li><a data-blog-i18n="navAbout" href="/about">About Us</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-ghost" data-blog-i18n="login" type="button">Login</button>
+        <a class="nav-cta" data-blog-i18n="bookDemo" href="/?demo=1">Book a demo</a>
+        <div class="language-switcher" id="blogLangWrap">
+          <button aria-expanded="false" aria-haspopup="true" class="lang-btn" id="blogLangBtn" type="button">
+            <span id="blogLangLabel">EN</span>
+            <span class="material-symbols-outlined" style="font-size:18px; line-height:0;">expand_more</span>
+          </button>
+          <div aria-label="Language selector" class="lang-menu hidden" id="blogLangMenu" role="menu">
+            <button class="lang-item blog-lang-item" data-lang="es" type="button">Español (ES)</button>
+            <button class="lang-item blog-lang-item" data-lang="en" type="button">English (EN)</button>
+          </div>
+        </div>
+        <button aria-label="Open menu" class="mobile-menu-btn" id="mobileMenuBtn">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu hidden" id="mobileMenu">
+      <nav aria-label="Mobile menu" class="wrap" style="padding:20px 0; display:flex; flex-direction:column; gap:16px;">
+        <a data-blog-i18n="navCompanies" href="/#companies">Companies</a>
+        <a data-blog-i18n="navWorkers" href="/#workers">Workers</a>
+        <a data-blog-i18n="navFaq" href="/#faq">FAQ</a>
+        <a data-blog-i18n="navBlog" href="/blog">Blog</a><a data-blog-i18n="navAbout" href="/about">About
+          Us</a>
+        <div
+          style="margin-top:8px; padding-top:16px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:12px;">
+          <button class="btn-ghost" data-blog-i18n="login" style="width:100%;" type="button">Login</button>
+          <a class="nav-cta" data-blog-i18n="bookDemo" href="/?demo=1"
+            style="width:100%; justify-content:center;">Book a demo</a>
+          <div style="display:flex; gap:16px; margin-top:4px;">
+            <button class="lang-item-mobile blog-lang-item-mobile" data-lang="es"
+              style="font-size:13px; font-weight:700; background:none; border:0;" type="button">ES</button>
+            <button class="lang-item-mobile blog-lang-item-mobile" data-lang="en"
+              style="font-size:13px; font-weight:700; background:none; border:0;" type="button">EN</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
   <!-- HERO BLOG -->
   <section class="bg-primary text-white pt-16 pb-16 px-6 lg:px-12 lg:pt-20"
     style="background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 24px 24px;">
@@ -581,21 +325,21 @@
   </section>
   <!-- POSTS GRID -->
   <main class="max-w-6xl mx-auto px-6 lg:px-12 py-16">
-                                                    <!-- POST DESTACADO (Featured) -->
+        <!-- POST DESTACADO (Featured) -->
     <a class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card"
-      data-category="trabajadores tecnologia"
-      href="./posts/puede-una-empresa-analizar-tus-emociones-durante-una-entrevista-de-trabajo/index.html"
+      data-category="trabajadores"
+      href="./posts/puede-una-empresa-analizar-tu-cara-voz-o-comportamiento-durante-una-entrevista/index.html"
       id="featured-post">
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="bg-primary/5 min-h-[260px] h-[260px] flex items-center justify-center overflow-hidden">
-          <img alt="¿Puede una empresa analizar tus emociones durante una entrevista de trabajo?" class="w-full h-full object-contain" src="./posts/puede-una-empresa-analizar-tus-emociones-durante-una-entrevista-de-trabajo/1/caratula_lkn.png" />
+          <img alt="¿Puede una empresa analizar tu cara, voz o comportamiento durante una entrevista?" class="w-full h-full object-contain" src="./posts/puede-una-empresa-analizar-tu-cara-voz-o-comportamiento-durante-una-entrevista/1/caratula_lkn.png" />
         </div>
         <div class="p-8 lg:p-10 flex flex-col justify-center gap-4">
-          <div class="flex items-center gap-3"><span class="tag bg-accent/15 text-accent">Tecnología</span><span class="tag bg-primary/10 text-primary" data-blog-i18n="featured">Destacado</span></div>
-          <h2 class="text-2xl font-extrabold text-primary leading-tight group-hover:text-accent transition-colors">¿Puede una empresa analizar tus emociones durante una entrevista de trabajo?</h2>
-          <p class="text-slate-500 leading-relaxed">Si buscas empleo en la Unión Europea, la ley ya traza una línea roja sobre la IA que infiere emociones en una entrevista. Te explicamos hasta dónde llega, qué sigue permitido y qué puedes preguntar antes de sentarte.</p>
+          <div class="flex items-center gap-3"><span class="tag bg-accent/15 text-accent">Trabajadores</span><span class="tag bg-primary/10 text-primary" data-blog-i18n="featured">Destacado</span></div>
+          <h2 class="text-2xl font-extrabold text-primary leading-tight group-hover:text-accent transition-colors">¿Puede una empresa analizar tu cara, voz o comportamiento durante una entrevista?</h2>
+          <p class="text-slate-500 leading-relaxed">Una entrevista por vídeo puede registrar tu cara, tu voz y tus pausas. La ley europea prohíbe inferir tus emociones y deducir tus creencias con esos datos, y regula lo demás; esto es lo que conviene saber antes de conectar la cámara.</p>
           <div class="flex items-center gap-4 text-sm text-slate-400 mt-2">
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>10 Noviembre 2026</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>12 Noviembre 2026</span>
             <span class="flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:16px;">schedule</span>9 min lectura</span>
           </div>
         </div>
@@ -605,96 +349,6 @@
      
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
       <!-- AGREGAR NUEVO POST NORMAL AQUI -->
-
-      <a href="./posts/ai-act-2027-que-deben-preparar-los-departamentos-de-recursos-humanos/index.html"
-        class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card"
-        data-category="empresas">
-        <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
-          <img src="./posts/ai-act-2027-que-deben-preparar-los-departamentos-de-recursos-humanos/1/caratula_lkn.png" alt="AI Act 2027: qué deben preparar los departamentos de Recursos Humanos" class="w-full h-full object-contain" />
-        </div>
-        <div class="p-6 flex flex-col gap-3">
-          <span class="tag bg-accent/15 text-accent">Empresas</span>
-          <h3 class="text-lg font-extrabold text-primary leading-snug group-hover:text-accent transition-colors">AI Act 2027: qué deben preparar los departamentos de Recursos Humanos</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">El aplazamiento a diciembre de 2027 mueve la fecha del examen, no el temario. Esto es lo que ya conviene inventariar, documentar y comunicar en tu área de Recursos Humanos.</p>
-          <div class="flex items-center gap-3 text-xs text-slate-400 mt-1"><span>05 Noviembre 2026</span><span>·</span><span>8 min</span></div>
-        </div>
-      </a>
-
-
-      <a href="./posts/que-significa-que-un-sistema-de-ia-de-recursos-humanos-sea-de-alto-riesgo/index.html"
-        class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card"
-        data-category="empresas tecnologia">
-        <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
-          <img src="./posts/que-significa-que-un-sistema-de-ia-de-recursos-humanos-sea-de-alto-riesgo/1/caratula_lkn.png" alt="Qué significa que un sistema de IA de Recursos Humanos sea de alto riesgo" class="w-full h-full object-contain" />
-        </div>
-        <div class="p-6 flex flex-col gap-3">
-          <span class="tag bg-accent/15 text-accent">Tecnología</span>
-          <h3 class="text-lg font-extrabold text-primary leading-snug group-hover:text-accent transition-colors">Qué significa que un sistema de IA de Recursos Humanos sea de alto riesgo</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">«Alto riesgo» suena a prohibición, pero en el Reglamento europeo de IA es una categoría con requisitos concretos para el proveedor y obligaciones propias para quien usa la herramienta. Esto es lo que dicen los textos oficiales, qué sistemas de selección entran y qué calendario se aplica.</p>
-          <div class="flex items-center gap-3 text-xs text-slate-400 mt-1"><span>03 Noviembre 2026</span><span>·</span><span>7 min</span></div>
-        </div>
-      </a>
-
-
-      <a href="./posts/por-que-la-supervision-humana-sigue-siendo-necesaria-en-la-contratacion-con-ia/index.html"
-        class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card"
-        data-category="empresas tecnologia">
-        <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
-          <img src="./posts/por-que-la-supervision-humana-sigue-siendo-necesaria-en-la-contratacion-con-ia/1/caratula_lkn.png" alt="Por qué la supervisión humana sigue siendo necesaria en la contratación con IA" class="w-full h-full object-contain" />
-        </div>
-        <div class="p-6 flex flex-col gap-3">
-          <span class="tag bg-accent/15 text-accent">Tecnología</span>
-          <h3 class="text-lg font-extrabold text-primary leading-snug group-hover:text-accent transition-colors">Por qué la supervisión humana sigue siendo necesaria en la contratación con IA</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">La herramienta ordena la lista, pero alguien tiene que poder decir «esto no» y explicar por qué. Esto es lo que dicen la AEPD, el regulador británico y la Comisión Europea sobre quién responde, y cómo organizar la supervisión sin frenar tus contrataciones.</p>
-          <div class="flex items-center gap-3 text-xs text-slate-400 mt-1"><span>29 Octubre 2026</span><span>·</span><span>7 min</span></div>
-        </div>
-      </a>
-
-
-      <a href="/posts/como-evitar-discriminacion-cuando-utilizas-ia-para-contratar-personal/"
-        class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card"
-        data-category="empresas">
-        <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
-          <img src="./posts/como-evitar-discriminacion-cuando-utilizas-ia-para-contratar-personal/1/caratula_lkn.png" alt="Cómo evitar discriminación cuando utilizas IA para contratar personal" class="w-full h-full object-contain" />
-        </div>
-        <div class="p-6 flex flex-col gap-3">
-          <span class="tag bg-accent/15 text-accent">Empresas</span>
-          <h3 class="text-lg font-extrabold text-primary leading-snug group-hover:text-accent transition-colors">Cómo evitar discriminación cuando utilizas IA para contratar personal</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">Tu herramienta de selección hace exactamente lo que le pides, incluidos los filtros que nunca revisaste. Esto es lo que dicen la AEPD, el regulador británico y la Comisión Europea, y las seis preguntas que conviene hacer antes de comprar.</p>
-          <div class="flex items-center gap-3 text-xs text-slate-400 mt-1"><span>27 Octubre 2026</span><span>·</span><span>8 min</span></div>
-        </div>
-      </a>
-
-
-      <a href="/posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/"
-        class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card"
-        data-category="empresas tecnologia">
-        <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
-          <img src="./posts/sesgos-algoritmicos-en-seleccion-de-personal-cuando-la-ia-puede-discriminar/1/caratula_lkn.png" alt="Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar" class="w-full h-full object-contain" />
-        </div>
-        <div class="p-6 flex flex-col gap-3">
-          <span class="tag bg-accent/15 text-accent">Tecnología</span>
-          <h3 class="text-lg font-extrabold text-primary leading-snug group-hover:text-accent transition-colors">Sesgos algorítmicos en selección de personal: cuándo la IA puede discriminar</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">Los sistemas que ordenan candidatos y turnos aprenden del pasado de tu empresa, y Bruselas, Londres y Madrid ya los miran con lupa. Lo bueno es que el sesgo deja huellas medibles, y saber qué pedir a tu proveedor cabe en una página.</p>
-          <div class="flex items-center gap-3 text-xs text-slate-400 mt-1"><span>22 Octubre 2026</span><span>·</span><span>8 min</span></div>
-        </div>
-      </a>
-
-
-      <a href="/posts/ia-cv-y-privacidad-que-ocurre-con-tus-datos-cuando-un-algoritmo-analiza-tu-candidatura/"
-        class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card"
-        data-category="trabajadores tecnologia">
-        <div class="min-h-[180px] h-[180px] overflow-hidden bg-primary/5 flex items-center justify-center">
-          <img src="./posts/ia-cv-y-privacidad-que-ocurre-con-tus-datos-cuando-un-algoritmo-analiza-tu-candidatura/1/caratula_lkn.png" alt="IA, CV y privacidad: qué ocurre con tus datos cuando un algoritmo analiza tu candidatura" class="w-full h-full object-contain" />
-        </div>
-        <div class="p-6 flex flex-col gap-3">
-          <span class="tag bg-accent/15 text-accent">Tecnología</span>
-          <h3 class="text-lg font-extrabold text-primary leading-snug group-hover:text-accent transition-colors">IA, CV y privacidad: qué ocurre con tus datos cuando un algoritmo analiza tu candidatura</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">Un algoritmo no tiene prejuicios: aprende los de los datos con los que lo entrenan, y tu candidatura se compara con lo que aprendió. Esto es lo que dicen la AEPD, el regulador británico y la Comisión Europea, y lo que puedes exigir hoy.</p>
-          <div class="flex items-center gap-3 text-xs text-slate-400 mt-1"><span>20 Octubre 2026</span><span>·</span><span>8 min</span></div>
-        </div>
-      </a>
-
 
       <a href="/posts/cuanto-tiempo-puede-conservar-una-empresa-los-datos-de-un-candidato/"
         class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden post-card"
@@ -1278,185 +932,174 @@
             Reserva una demo y te mostramos cómo Aplyk puede transformar tu gestión de personal temporal.
           </p>
         </div>
-        <button class="blog-cta-button js-open-early-access-direct" type="button" data-early-role="company">
+        <a class="blog-cta-button" href="/?demo=1">
           <span data-blog-i18n="bookDemo">Reservar una demo</span>
           <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
-        </button>
+        </a>
       </div>
     </div>
   </section>
-  
-  <!-- ===================== FOOTER ===================== -->
-  <!-- ===================== SHARED FOOTER ===================== -->
-  <div id="shared-footer"></div>
-
-  <!-- COOKIE CONSENT -->
-  <div aria-label="Preferencias de cookies" class="cookie-banner" hidden="" id="cookieBanner" role="region">
-    <div class="cookie-banner-inner">
-      <div class="cookie-copy">
-        <h2 data-blog-i18n="cookieTitle">Tus opciones de privacidad</h2>
-        <p data-blog-i18n-html="cookieText">Utilizamos almacenamiento estrictamente necesario para que Aplyk funcione.
-          Con tu permiso, también podremos utilizar tecnologías de preferencias, analítica y marketing. Puedes aceptar,
-          rechazar o elegir qué autorizas. Consulta nuestra <a class="cookie-policy-link" href="#">Política de
-            Cookies</a>.</p>
+  <!-- FOOTER -->
+  <footer class="site-footer-blog bg-primary text-white px-6 lg:px-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 py-12">
+      <div>
+        <img alt="Aplyk" class="h-10 w-auto object-contain mb-4" src="./images/LogoBlue_LightBlueBG.png" />
+        <p class="text-white/60 text-sm leading-relaxed" data-blog-i18n="footerTagline">Plataforma de personal temporal
+          impulsada por IA, diseñada para operaciones rápidas y eficientes.</p>
       </div>
-      <div class="cookie-actions">
-        <button class="cookie-btn cookie-btn-choice" data-blog-i18n="cookieReject" id="cookieRejectAll"
-          type="button">Rechazar no esenciales</button>
-        <button class="cookie-btn cookie-btn-choice" data-blog-i18n="cookieAccept" id="cookieAcceptAll"
-          type="button">Aceptar todas</button>
-        <button class="cookie-btn cookie-btn-manage" data-blog-i18n="cookieManage" id="cookieManage"
-          type="button">Configurar preferencias</button>
+      <div>
+        <h3 class="text-white text-sm font-extrabold mb-4" data-blog-i18n="footerSolutions">Soluciones</h3>
+        <div class="flex flex-col gap-3 text-sm text-white/60">
+          <a class="hover:text-accent transition-colors" data-blog-i18n="navCompanies"
+            href="/#companies">Empresas</a>
+          <a class="hover:text-accent transition-colors" data-blog-i18n="navWorkers"
+            href="/#workers">Profesionales</a>
+          <a class="hover:text-accent transition-colors" data-blog-i18n="navFaq" href="/#faq">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white text-sm font-extrabold mb-4" data-blog-i18n="footerLegal">Legal</h3>
+        <div class="flex flex-col gap-3 text-sm text-white/60">
+          <a class="privacy-policy-link hover:text-accent transition-colors" data-blog-i18n="privacy" href="#">Política
+            de privacidad</a>
+          <a class="terms-of-service-link hover:text-accent transition-colors" data-blog-i18n="terms" href="#">Términos
+            de servicio</a>
+          <a class="cookie-policy-link hover:text-accent transition-colors" data-blog-i18n="cookies" href="#">Política
+            de cookies</a>
+          <button class="js-cookie-settings text-left hover:text-accent transition-colors"
+            data-blog-i18n="cookieSettings" type="button">Configuración de cookies</button>
+          <a class="security-link hover:text-accent transition-colors" data-blog-i18n="security" href="#">Seguridad</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white text-sm font-extrabold mb-4" data-blog-i18n="footerCompany">Empresa</h3>
+        <div class="flex flex-col gap-3 text-sm text-white/60">
+          <a class="hover:text-accent transition-colors" data-blog-i18n="home" href="/">Inicio</a>
+          <a class="hover:text-accent transition-colors" data-blog-i18n="navBlog" href="/blog">Blog</a>
+          <a class="hover:text-accent transition-colors" data-blog-i18n="navAbout" href="/about">Sobre
+            nosotros</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div aria-hidden="true" aria-labelledby="cookiePreferencesTitle" aria-modal="true" class="cookie-preferences"
-    id="cookiePreferences" role="dialog">
-    <div class="cookie-preferences-backdrop" data-cookie-close=""></div>
-    <div class="cookie-preferences-dialog">
-      <button aria-label="Cerrar configuración de cookies" class="cookie-preferences-close" data-cookie-close=""
-        type="button">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-      <div class="cookie-preferences-heading">
-        <span class="cookie-kicker" data-blog-i18n="cookieKicker">Controles de privacidad</span>
-        <h2 data-blog-i18n="cookiePreferencesTitle" id="cookiePreferencesTitle">Preferencias de cookies</h2>
-        <p data-blog-i18n="cookiePreferencesText">Elige qué tecnologías opcionales puede utilizar Aplyk. El
-          almacenamiento estrictamente necesario permanece siempre activo.</p>
-      </div>
-      <div class="cookie-category-list">
-        <div class="cookie-category">
-          <div>
-            <h3><span data-blog-i18n="cookieNecessaryTitle">Estrictamente necesarias</span><span
-                class="cookie-always-on" data-blog-i18n="cookieAlwaysOn">Siempre activas</span></h3>
-            <p data-blog-i18n="cookieNecessaryText">Necesarias para funciones esenciales del sitio y para guardar tu
-              elección sobre cookies.</p>
-          </div>
-          <label class="cookie-switch is-disabled"><input checked="" disabled="" type="checkbox" /><span
-              class="cookie-slider"></span></label>
-        </div>
-        <div class="cookie-category">
-          <div>
-            <h3 data-blog-i18n="cookiePreferencesCategoryTitle">Preferencias</h3>
-            <p data-blog-i18n="cookiePreferencesCategoryText">Permite recordar opciones voluntarias, como el idioma
-              preferido del sitio.</p>
-          </div>
-          <label class="cookie-switch"><input id="cookiePreferencesToggle" type="checkbox" /><span
-              class="cookie-slider"></span></label>
-        </div>
-        <div class="cookie-category">
-          <div>
-            <h3 data-blog-i18n="cookieAnalyticsTitle">Analítica</h3>
-            <p data-blog-i18n="cookieAnalyticsText">Permitiría medir el uso del sitio web. Actualmente este blog no
-              carga un rastreador analítico.</p>
-          </div>
-          <label class="cookie-switch"><input id="cookieAnalyticsToggle" type="checkbox" /><span
-              class="cookie-slider"></span></label>
-        </div>
-        <div class="cookie-category">
-          <div>
-            <h3 data-blog-i18n="cookieMarketingTitle">Marketing</h3>
-            <p data-blog-i18n="cookieMarketingText">Permitiría tecnologías publicitarias o de medición. Actualmente este
-              blog no carga un rastreador de marketing.</p>
-          </div>
-          <label class="cookie-switch"><input id="cookieMarketingToggle" type="checkbox" /><span
-              class="cookie-slider"></span></label>
-        </div>
-      </div>
-      <div class="cookie-preferences-actions">
-        <button class="cookie-btn cookie-btn-choice" data-blog-i18n="cookieReject" id="cookiePreferencesReject"
-          type="button">Rechazar no esenciales</button>
-        <button class="cookie-btn cookie-btn-choice" data-blog-i18n="cookieAccept" id="cookiePreferencesAccept"
-          type="button">Aceptar todas</button>
-        <button class="cookie-btn cookie-btn-save" data-blog-i18n="cookieSave" id="cookieSavePreferences"
-          type="button">Guardar preferencias</button>
-      </div>
+    <div
+      class="max-w-6xl mx-auto border-t border-white/10 py-6 flex flex-col sm:flex-row gap-3 items-center justify-between text-sm text-white/50">
+      <p>© <span id="currentYear"></span> <span data-blog-i18n="rights">aplyk. Todos los derechos reservados.</span></p>
+      <span data-blog-i18n="status">Plataforma disponible 24/7</span>
     </div>
-  </div>
+  </footer>
   <button aria-label="Volver arriba"
     class="fixed bottom-6 right-6 z-[999] flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-lg transition-all duration-300 hover:bg-accent/90 hover:-translate-y-1"
-    id="backToTop" type="button" style="display:none;">
+    id="backToTop" type="button">
     <span class="material-symbols-outlined">arrow_upward</span>
   </button>
   <script>
     const BLOG_LANG_KEY = 'aplyk_lang';
-    const BLOG_CONSENT_KEY = 'aplyk_cookie_consent_v1';
-    const BLOG_CONSENT_VERSION = 1;
     let blogLanguage = 'es';
 
     const blogTranslations = {
       es: {
-        pageTitle: 'Blog — Aplyk', navAbout: 'Sobre nosotros', navCompanies: 'Empresas', navWorkers: 'Profesionales', navFaq: 'FAQ', navBlog: 'Blog',
-        login: 'Iniciar sesión', bookDemo: 'Reservar una demo', resources: 'Recursos y tendencias', blogTitle: 'Blog de Aplyk',
+        pageTitle: 'Blog — Aplyk',
+        navAbout: 'Sobre nosotros',
+        navCompanies: 'Empresas',
+        navWorkers: 'Profesionales',
+        navFaq: 'FAQ',
+        navBlog: 'Blog',
+        login: 'Iniciar sesión',
+        bookDemo: 'Reservar una demo',
+        resources: 'Recursos y tendencias',
+        blogTitle: 'Blog de Aplyk',
         blogLead: 'Guías prácticas, tendencias del sector y novedades sobre gestión de personal temporal impulsada por IA.',
-        catAll: 'Todos', catCompanies: 'Empresas', catWorkers: 'Trabajadores', catTech: 'Tecnología', catSector: 'Sector', featured: 'Destacado',
-        empty: 'No hay posts en esta categoría todavía.', ctaTitle: '¿Listo para probarlo?',
+        catAll: 'Todos',
+        catCompanies: 'Empresas',
+        catWorkers: 'Trabajadores',
+        catTech: 'Tecnología',
+        catSector: 'Sector',
+        featured: 'Destacado',
+        empty: 'No hay posts en esta categoría todavía.',
+        ctaTitle: '¿Listo para probarlo?',
         ctaText: 'Reserva una demo y te mostramos cómo Aplyk puede transformar tu gestión de personal temporal.',
         footerTagline: 'Plataforma de personal temporal impulsada por IA, diseñada para operaciones rápidas y eficientes.',
-        footerSolutions: 'Soluciones', footerLegal: 'Legal', footerCompany: 'Empresa', privacy: 'Política de privacidad',
-        terms: 'Términos de servicio', cookies: 'Política de cookies', cookieSettings: 'Configuración de cookies', home: 'Inicio',
-        rights: 'aplyk. Todos los derechos reservados.', status: 'Plataforma disponible 24/7',
-        cookieTitle: 'Tus opciones de privacidad',
-        cookieText: 'Utilizamos almacenamiento estrictamente necesario para que Aplyk funcione. Con tu permiso, también podremos utilizar tecnologías de preferencias, analítica y marketing. Puedes aceptar, rechazar o elegir qué autorizas. Consulta nuestra <a href="#" class="cookie-policy-link">Política de Cookies</a>.',
-        cookieReject: 'Rechazar no esenciales', cookieAccept: 'Aceptar todas', cookieManage: 'Configurar preferencias',
-        cookieKicker: 'Controles de privacidad', cookiePreferencesTitle: 'Preferencias de cookies',
-        cookiePreferencesText: 'Elige qué tecnologías opcionales puede utilizar Aplyk. El almacenamiento estrictamente necesario permanece siempre activo.',
-        cookieNecessaryTitle: 'Estrictamente necesarias', cookieAlwaysOn: 'Siempre activas',
-        cookieNecessaryText: 'Necesarias para funciones esenciales del sitio y para guardar tu elección sobre cookies.',
-        cookiePreferencesCategoryTitle: 'Preferencias', cookiePreferencesCategoryText: 'Permite recordar opciones voluntarias, como el idioma preferido del sitio.',
-        cookieAnalyticsTitle: 'Analítica', cookieAnalyticsText: 'Permitiría medir el uso del sitio web. Actualmente este blog no carga un rastreador analítico.',
-        cookieMarketingTitle: 'Marketing', cookieMarketingText: 'Permitiría tecnologías publicitarias o de medición. Actualmente este blog no carga un rastreador de marketing.',
-        cookieSave: 'Guardar preferencias',
+        footerSolutions: 'Soluciones',
+        footerLegal: 'Legal',
+        footerCompany: 'Empresa',
+        privacy: 'Política de privacidad',
+        terms: 'Términos de servicio',
+        cookies: 'Política de cookies',
+        cookieSettings: 'Configuración de cookies',
+        home: 'Inicio',
+        rights: 'aplyk. Todos los derechos reservados.',
+        status: 'Plataforma disponible 24/7',
         security: 'Seguridad'
       },
       en: {
-        pageTitle: 'Blog — Aplyk', navAbout: 'About Us', navCompanies: 'Companies', navWorkers: 'Workers', navFaq: 'FAQ', navBlog: 'Blog',
-        login: 'Login', bookDemo: 'Book a demo', resources: 'Resources & trends', blogTitle: 'Aplyk Blog',
+        pageTitle: 'Blog — Aplyk',
+        navAbout: 'About Us',
+        navCompanies: 'Companies',
+        navWorkers: 'Workers',
+        navFaq: 'FAQ',
+        navBlog: 'Blog',
+        login: 'Login',
+        bookDemo: 'Book a demo',
+        resources: 'Resources & trends',
+        blogTitle: 'Aplyk Blog',
         blogLead: 'Practical guides, industry trends and insights into AI-powered temporary workforce management.',
-        catAll: 'All', catCompanies: 'Companies', catWorkers: 'Workers', catTech: 'Technology', catSector: 'Industry', featured: 'Featured',
-        empty: 'There are no posts in this category yet.', ctaTitle: 'Ready to see it in action?',
+        catAll: 'All',
+        catCompanies: 'Companies',
+        catWorkers: 'Workers',
+        catTech: 'Technology',
+        catSector: 'Industry',
+        featured: 'Featured',
+        empty: 'There are no posts in this category yet.',
+        ctaTitle: 'Ready to see it in action?',
         ctaText: 'Book a demo and discover how Aplyk can transform temporary workforce management.',
         footerTagline: 'AI-powered temporary workforce platform designed for fast and efficient operations.',
-        footerSolutions: 'Solutions', footerLegal: 'Legal', footerCompany: 'Company', privacy: 'Privacy Policy',
-        terms: 'Terms of Service', cookies: 'Cookie Policy', cookieSettings: 'Cookie Settings', home: 'Home',
-        rights: 'aplyk. All rights reserved.', status: 'Platform available 24/7',
-        cookieTitle: 'Your privacy choices',
-        cookieText: 'We use strictly necessary storage to make Aplyk work. With your permission, we may also use preference, analytics and marketing technologies. You can accept, reject or choose what you allow. Read our <a href="#" class="cookie-policy-link">Cookie Policy</a>.',
-        cookieReject: 'Reject non-essential', cookieAccept: 'Accept all', cookieManage: 'Manage preferences',
-        cookieKicker: 'Privacy controls', cookiePreferencesTitle: 'Cookie preferences',
-        cookiePreferencesText: 'Choose which optional technologies Aplyk may use. Strictly necessary storage is always active.',
-        cookieNecessaryTitle: 'Strictly necessary', cookieAlwaysOn: 'Always on',
-        cookieNecessaryText: 'Required for essential website functions and for storing your cookie-consent choice.',
-        cookiePreferencesCategoryTitle: 'Preferences', cookiePreferencesCategoryText: 'Allows optional choices, such as the preferred website language, to be remembered.',
-        cookieAnalyticsTitle: 'Analytics', cookieAnalyticsText: 'Would allow us to measure website usage. This blog currently does not load an analytics tracker.',
-        cookieMarketingTitle: 'Marketing', cookieMarketingText: 'Would allow advertising or campaign-measurement technologies. This blog currently does not load a marketing tracker.',
-        cookieSave: 'Save preferences',
+        footerSolutions: 'Solutions',
+        footerLegal: 'Legal',
+        footerCompany: 'Company',
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Service',
+        cookies: 'Cookie Policy',
+        cookieSettings: 'Cookie Settings',
+        home: 'Home',
+        rights: 'aplyk. All rights reserved.',
+        status: 'Platform available 24/7',
         security: 'Security'
       }
     };
 
-    function getBlogConsent() {
+    function getSharedConsent() {
+      if (window.AplykCookieConsent?.get) {
+        return window.AplykCookieConsent.get();
+      }
+
       try {
-        const raw = localStorage.getItem(BLOG_CONSENT_KEY);
-        if (!raw) return null;
-        const parsed = JSON.parse(raw);
-        return parsed && parsed.version === BLOG_CONSENT_VERSION ? parsed : null;
-      } catch (_) { return null; }
+        const raw = localStorage.getItem('aplyk_cookie_consent_v1');
+        return raw ? JSON.parse(raw) : null;
+      } catch (_) {
+        return null;
+      }
     }
 
-    function blogHasConsent(category) {
-      return Boolean(getBlogConsent()?.[category] === true);
+    function hasPreferenceConsent() {
+      return Boolean(getSharedConsent()?.preferences);
     }
 
     function detectBlogLanguage() {
-      if (blogHasConsent('preferences')) {
+      if (hasPreferenceConsent()) {
         try {
           const saved = localStorage.getItem(BLOG_LANG_KEY);
           if (saved === 'es' || saved === 'en') return saved;
-        } catch (_) { }
+        } catch (_) {}
       }
-      const languages = Array.isArray(navigator.languages) && navigator.languages.length ? navigator.languages : [navigator.language];
-      return languages.some(lang => String(lang || '').toLowerCase().startsWith('es')) ? 'es' : 'en';
+
+      const languages =
+        Array.isArray(navigator.languages) && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language];
+
+      return languages.some(lang =>
+        String(lang || '').toLowerCase().startsWith('es')
+      ) ? 'es' : 'en';
     }
 
     function setBlogLegalLinks() {
@@ -1465,16 +1108,19 @@
           ? './Resources/Documents/Privacy/privacy-policy-es.html'
           : './Resources/Documents/Privacy/privacy-policy-en.html';
       });
+
       document.querySelectorAll('.terms-of-service-link').forEach(link => {
         link.href = blogLanguage === 'es'
           ? './Resources/Documents/Terms/terms-of-service-es.html'
           : './Resources/Documents/Terms/terms-of-service-en.html';
       });
+
       document.querySelectorAll('.cookie-policy-link').forEach(link => {
         link.href = blogLanguage === 'es'
           ? './Resources/Documents/Cookies/cookie-policy-es.html'
           : './Resources/Documents/Cookies/cookie-policy-en.html';
       });
+
       document.querySelectorAll('.security-link').forEach(link => {
         link.href = blogLanguage === 'es'
           ? './Resources/Documents/Security/security-es.html'
@@ -1482,10 +1128,10 @@
       });
     }
 
-
     function setBlogLanguage(lang) {
       blogLanguage = lang === 'en' ? 'en' : 'es';
       const dict = blogTranslations[blogLanguage];
+
       document.documentElement.lang = blogLanguage;
       document.title = dict.pageTitle;
 
@@ -1499,77 +1145,16 @@
         if (dict[key] !== undefined) el.innerHTML = dict[key];
       });
 
-      const label = document.getElementById('langLabel');
+      const label = document.getElementById('blogLangLabel');
       if (label) label.textContent = blogLanguage.toUpperCase();
-      const headerNavKeys = {navCompanies:'navCompanies',navWorkers:'navWorkers',navFaq:'navFaq',navBlog:'navBlog',footerAbout:'navAbout'};
-      document.querySelectorAll('#shared-header [data-i18n]').forEach(el => {
-        const key = headerNavKeys[el.dataset.i18n];
-        if (key && dict[key] !== undefined) el.textContent = dict[key];
-      });
 
       setBlogLegalLinks();
 
-      if (blogHasConsent('preferences')) {
-        try { localStorage.setItem(BLOG_LANG_KEY, blogLanguage); } catch (_) { }
+      if (hasPreferenceConsent()) {
+        try {
+          localStorage.setItem(BLOG_LANG_KEY, blogLanguage);
+        } catch (_) {}
       }
-    }
-
-    function saveBlogConsent(preferences, analytics, marketing) {
-      const consent = {
-        version: BLOG_CONSENT_VERSION, necessary: true,
-        preferences: Boolean(preferences), analytics: Boolean(analytics), marketing: Boolean(marketing),
-        updatedAt: new Date().toISOString()
-      };
-
-      try {
-        localStorage.setItem(BLOG_CONSENT_KEY, JSON.stringify(consent));
-        if (consent.preferences) localStorage.setItem(BLOG_LANG_KEY, blogLanguage);
-        else localStorage.removeItem(BLOG_LANG_KEY);
-      } catch (_) { }
-
-      window.aplykConsent = consent;
-      document.dispatchEvent(new CustomEvent('aplyk:consentchange', { detail: consent }));
-      document.getElementById('cookieBanner').hidden = true;
-      closeCookiePreferences();
-    }
-
-    function openCookiePreferences() {
-      const consent = getBlogConsent();
-      document.getElementById('cookiePreferencesToggle').checked = Boolean(consent?.preferences);
-      document.getElementById('cookieAnalyticsToggle').checked = Boolean(consent?.analytics);
-      document.getElementById('cookieMarketingToggle').checked = Boolean(consent?.marketing);
-      const panel = document.getElementById('cookiePreferences');
-      panel.classList.add('is-open');
-      panel.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeCookiePreferences() {
-      const panel = document.getElementById('cookiePreferences');
-      panel.classList.remove('is-open');
-      panel.setAttribute('aria-hidden', 'true');
-    }
-
-    function wireCookieConsent() {
-      const existing = getBlogConsent();
-      document.getElementById('cookieBanner').hidden = Boolean(existing);
-      window.aplykConsent = existing || {
-        version: BLOG_CONSENT_VERSION, necessary: true, preferences: false, analytics: false, marketing: false
-      };
-
-      document.getElementById('cookieAcceptAll').addEventListener('click', () => saveBlogConsent(true, true, true));
-      document.getElementById('cookieRejectAll').addEventListener('click', () => saveBlogConsent(false, false, false));
-      document.getElementById('cookieManage').addEventListener('click', openCookiePreferences);
-      document.querySelectorAll('.js-cookie-settings').forEach(el => el.addEventListener('click', openCookiePreferences));
-      document.querySelectorAll('[data-cookie-close]').forEach(el => el.addEventListener('click', closeCookiePreferences));
-      document.getElementById('cookiePreferencesAccept').addEventListener('click', () => saveBlogConsent(true, true, true));
-      document.getElementById('cookiePreferencesReject').addEventListener('click', () => saveBlogConsent(false, false, false));
-      document.getElementById('cookieSavePreferences').addEventListener('click', () => {
-        saveBlogConsent(
-          document.getElementById('cookiePreferencesToggle').checked,
-          document.getElementById('cookieAnalyticsToggle').checked,
-          document.getElementById('cookieMarketingToggle').checked
-        );
-      });
     }
 
     function filterPosts(cat) {
@@ -1594,15 +1179,25 @@
       let visibleCount = 0;
 
       if (featured) {
-        const featuredCategories = (featured.dataset.category || '').split(/\s+/).filter(Boolean);
-        const showFeatured = cat === 'all' || featuredCategories.includes(cat);
+        const featuredCategories = (featured.dataset.category || '')
+          .split(/\s+/)
+          .filter(Boolean);
+
+        const showFeatured =
+          cat === 'all' || featuredCategories.includes(cat);
+
         featured.style.display = showFeatured ? '' : 'none';
         if (showFeatured) visibleCount++;
       }
 
       cards.forEach(card => {
-        const cardCategories = (card.dataset.category || '').split(/\s+/).filter(Boolean);
-        const showCard = cat === 'all' || cardCategories.includes(cat);
+        const cardCategories = (card.dataset.category || '')
+          .split(/\s+/)
+          .filter(Boolean);
+
+        const showCard =
+          cat === 'all' || cardCategories.includes(cat);
+
         card.style.display = showCard ? '' : 'none';
         if (showCard) visibleCount++;
       });
@@ -1615,27 +1210,32 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      wireCookieConsent();
       setBlogLanguage(detectBlogLanguage());
       filterPosts('all');
 
-      const langWrap = document.getElementById('langWrap');
-      const langBtn = document.getElementById('langBtn');
-      const langMenu = document.getElementById('langMenu');
+      const langWrap = document.getElementById('blogLangWrap');
+      const langBtn = document.getElementById('blogLangBtn');
+      const langMenu = document.getElementById('blogLangMenu');
 
       langBtn?.addEventListener('click', event => {
         event.stopPropagation();
-        langMenu.classList.toggle('hidden');
-        langBtn.setAttribute('aria-expanded', String(!langMenu.classList.contains('hidden')));
+        langMenu?.classList.toggle('hidden');
+
+        langBtn.setAttribute(
+          'aria-expanded',
+          String(!langMenu?.classList.contains('hidden'))
+        );
       });
 
-      document.querySelectorAll('#shared-header .lang-item[data-lang],#shared-header .lang-item-mobile[data-lang]').forEach(item => {
-        item.addEventListener('click', () => {
-          setBlogLanguage(item.dataset.lang);
-          langMenu?.classList.add('hidden');
-          langBtn?.setAttribute('aria-expanded', 'false');
+      document
+        .querySelectorAll('.blog-lang-item, .blog-lang-item-mobile')
+        .forEach(item => {
+          item.addEventListener('click', () => {
+            setBlogLanguage(item.dataset.lang);
+            langMenu?.classList.add('hidden');
+            langBtn?.setAttribute('aria-expanded', 'false');
+          });
         });
-      });
 
       document.addEventListener('click', event => {
         if (langWrap && !langWrap.contains(event.target)) {
@@ -1644,47 +1244,66 @@
         }
       });
 
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpening = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden');
+
+          mobileMenuBtn.setAttribute(
+            'aria-expanded',
+            String(isOpening)
+          );
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
       const backToTop = document.getElementById('backToTop');
 
       if (backToTop) {
         const updateBackToTop = () => {
           backToTop.style.display =
-            window.scrollY > 480
-              ? 'flex'
-              : 'none';
+            window.scrollY > 480 ? 'flex' : 'none';
         };
 
         updateBackToTop();
 
         window.addEventListener(
           'scroll',
-          updateBackToTop
+          updateBackToTop,
+          { passive: true }
         );
 
-        backToTop.addEventListener(
-          'click',
-          () => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
-          }
-        );
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
       }
 
-      // document.getElementById('currentYear').textContent = new Date().getFullYear();
+      const currentYear = document.getElementById('currentYear');
+      if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+      }
 
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape') {
-          closeCookiePreferences();
           langMenu?.classList.add('hidden');
+          langBtn?.setAttribute('aria-expanded', 'false');
         }
       });
     });
   </script>
-
-  <script src="/Resources/shared/footer.js"></script>
-  <script src="./Resources/shared/contact-widget/contact-widget.js" defer></script>
+  <script src="/Resources/shared/cookie-consent.js"></script>
 </body>
 
 </html>
