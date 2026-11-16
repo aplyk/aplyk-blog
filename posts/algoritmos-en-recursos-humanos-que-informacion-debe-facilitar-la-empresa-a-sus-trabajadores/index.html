@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="description" content="España ya exige informar por escrito a cada trabajador de los sistemas algorítmicos que influyen en sus condiciones de trabajo, y la representación legal…"/>
+  <meta property="og:title" content="Algoritmos y contratación de personal: qué informar | Aplyk"/>
+  <meta property="og:description" content="España ya exige informar por escrito a cada trabajador de los sistemas algorítmicos que influyen en sus condiciones de trabajo, y la representación legal…"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://aplyk.com/posts/algoritmos-en-recursos-humanos-que-informacion-debe-facilitar-la-empresa-a-sus-trabajadores/"/>
+  <meta property="og:image" content="https://aplyk.com/posts/algoritmos-en-recursos-humanos-que-informacion-debe-facilitar-la-empresa-a-sus-trabajadores/1/caratula_lkn.png"/>
+  <meta property="article:published_time" content="2026-11-17"/>
+<link rel="canonical" href="https://aplyk.com/posts/algoritmos-en-recursos-humanos-que-informacion-debe-facilitar-la-empresa-a-sus-trabajadores/"/>
+
+  <title>Algoritmos y contratación de personal: qué informar | Aplyk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { 
+          colors: {
+            "primary": "#2a526f",
+            "primary-dark": "#1e3b50",
+            "accent-light": "#BCD2E2",
+            "accent": "#F28A3A",
+            "background-light": "#f9fafb",
+            "faq-bg": "#ebf3f8",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="../../shared-components.css"/>
+  <link rel="stylesheet" href="/Resources/shared/footer.css">
+  <link rel="stylesheet" href="/Resources/shared/cookie-consent.css">
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .post-content h2 {
+      font-size: 1.6rem; font-weight: 800; color: #2a526f;
+      margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.25;
+    }
+    .post-content h3 {
+      font-size: 1.2rem; font-weight: 700; color: #2a526f;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+    .post-content p {
+      color: #475569; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem; color: #475569;
+    }
+    .post-content li {
+      margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem;
+    }
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+    .post-content strong { color: #2a526f; font-weight: 700; }
+    .post-content a { color: #F28A3A; text-decoration: underline; }
+    .post-content a:hover { color: #d97529; }
+    .post-content blockquote {
+      border-left: 4px solid #F28A3A; padding: 1rem 1.5rem;
+      background: #fef7f0; border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0; color: #2a526f; font-style: italic;
+    }
+    .post-content hr {
+      border: none; border-top: 1px solid #e2e8f0; margin: 2.5rem 0;
+    }
+    .callout {
+      background: #ebf3f8; border: 1px solid #BCD2E2;
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout-icon { color: #2a526f; flex-shrink: 0; margin-top: 2px; }
+    .callout-text { color: #2a526f; font-size: 0.95rem; line-height: 1.65; }
+    .callout-text strong { color: #1e3b50; }
+
+    .article-image {
+      margin: 2.5rem 0;
+    }
+    .article-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(42, 82, 111, 0.10);
+    }
+
+    .sources {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+    }
+    .sources h2 {
+      font-size: 1rem !important;
+      font-weight: 700;
+      color: #94a3b8 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .sources ol {
+      margin: 0 0 0 1.25rem;
+      color: #94a3b8;
+    }
+    .sources li {
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+      color: #94a3b8;
+    }
+
+
+    /* Editorial article layout */
+    .article-shell { max-width: 1180px; margin: 0 auto; }
+    .article-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 3rem; align-items: center; }
+    .article-hero-media { background: linear-gradient(145deg,#f8fafc,#eef4f8); border: 1px solid #e2e8f0; border-radius: 24px; padding: 14px; box-shadow: 0 18px 45px rgba(42,82,111,.10); }
+    .article-hero-media img { width:100%; height:auto; display:block; border-radius:16px; }
+    .article-layout { display:grid; grid-template-columns:minmax(0, 760px) minmax(240px, 300px); gap:4rem; align-items:start; }
+    .article-sidebar { position:sticky; top:96px; display:flex; flex-direction:column; gap:1rem; }
+    .article-side-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:1.25rem; box-shadow:0 8px 24px rgba(42,82,111,.05); }
+    .article-side-card h3 { color:#2a526f; font-size:.95rem; font-weight:800; margin:0 0 .9rem; }
+    .article-toc { display:flex; flex-direction:column; gap:.7rem; }
+    .article-toc a { color:#64748b; font-size:.88rem; line-height:1.35; text-decoration:none; border-left:2px solid #e2e8f0; padding-left:.75rem; transition:.2s ease; }
+    .article-toc a:hover { color:#F28A3A; border-left-color:#F28A3A; }
+
+    .article-toc a.active {
+      color:#F28A3A;
+      border-left-color:#F28A3A;
+      font-weight:800;
+    }
+    .article-section { margin:0 0 2.6rem; padding-top:.25rem; scroll-margin-top:110px; }
+    .article-section h2 { position:relative; }
+    .article-section h2::before { content:""; display:block; width:42px; height:4px; background:#F28A3A; border-radius:999px; margin-bottom:.8rem; }
+    .article-section:nth-of-type(even) { background:#f8fbfd; border:1px solid #edf2f7; border-radius:18px; padding:1.4rem 1.5rem 1.1rem; }
+    .article-image { margin:2.2rem 0 2.8rem; }
+    .article-image--split { display:grid; grid-template-columns:minmax(0, 1fr); }
+    .article-image--wide { margin-left:-48px; margin-right:-48px; }
+    .article-conclusion { margin-top:3rem; padding:1.8rem; border-radius:18px; background:#fff7ef; border:1px solid #fde4cb; }
+    .article-conclusion h2 { margin-top:0 !important; }
+    .sources details { background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:1rem 1.1rem; }
+    .sources summary { cursor:pointer; color:#2a526f; font-weight:800; }
+    .sources ol { margin-top:1rem; }
+    .sidebar-cta { background:#2a526f; color:#fff; border:none; }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta p { color:rgba(255,255,255,.72); font-size:.87rem; line-height:1.55; margin-bottom:1rem; }
+    .sidebar-cta a { display:inline-flex; align-items:center; gap:.35rem; background:#F28A3A; color:#fff; font-weight:800; font-size:.82rem; padding:.7rem 1rem; border-radius:10px; text-decoration:none; }
+    @media (max-width: 960px) {
+      .article-hero-grid { grid-template-columns:1fr; gap:2rem; }
+      .article-layout { grid-template-columns:1fr; gap:2rem; }
+      .article-sidebar { position:static; order:-1; display:grid; grid-template-columns:1fr 1fr; }
+      .article-image--wide { margin-left:0; margin-right:0; }
+    }
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns:1fr; }
+      .article-section:nth-of-type(even) { padding:1.15rem; }
+    }
+
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: #2a526f;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(42, 82, 111, 0.22);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+    }
+    .back-to-top:hover {
+      background: #1e3b50;
+      transform: translateY(-2px);
+    }
+    .back-to-top:focus-visible {
+      outline: 3px solid rgba(242, 138, 58, .45);
+      outline-offset: 3px;
+    }
+    .back-to-top .material-symbols-outlined {
+      font-size: 24px;
+      line-height: 1;
+    }
+    @media (max-width: 640px) {
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+
+    /* Related articles: text-only to keep the page lightweight */
+    .related-articles {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .related-articles h2 {
+      font-size: 1.35rem !important;
+      font-weight: 800;
+      color: #2a526f !important;
+      margin: 0 0 1rem !important;
+    }
+    .related-articles ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid;
+      gap: .7rem;
+      list-style: none;
+    }
+    .related-articles li {
+      margin: 0 !important;
+      list-style: none !important;
+    }
+    .related-articles a {
+      display: block;
+      padding: .8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+      color: #2a526f;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .related-articles a:hover {
+      color: #F28A3A;
+      border-color: #F28A3A;
+      transform: translateY(-1px);
+    }
+
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Algoritmos en Recursos Humanos: qué información debe facilitar la empresa a sus trabajadores",
+  "description": "España ya exige informar por escrito a cada trabajador de los sistemas algorítmicos que influyen en sus condiciones de trabajo, y la representación legal…",
+  "datePublished": "2026-11-17",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aplyk.com/posts/algoritmos-en-recursos-humanos-que-informacion-debe-facilitar-la-empresa-a-sus-trabajadores/"
+  },
+  "image": [
+    "https://aplyk.com/posts/algoritmos-en-recursos-humanos-que-informacion-debe-facilitar-la-empresa-a-sus-trabajadores/1/caratula_lkn.png"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "Aplyk",
+    "url": "https://aplyk.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aplyk",
+    "url": "https://aplyk.com"
+  }
+}
+  </script>
+</head>
+
+<body id="top" class="bg-background-light text-slate-900 font-display antialiased overflow-x-hidden">
+
+  <!-- BACK TO TOP -->
+  <button aria-label="Volver arriba" class="back-to-top" id="backToTop" type="button">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <!-- SHARED NAV -->
+  <div id="site-header"></div>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-slate-100 px-6 lg:px-12 py-3">
+    <div class="article-shell flex items-center gap-2 text-sm text-slate-400">
+      <a href="/" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <a href="/blog" class="hover:text-primary transition-colors">Blog</a>
+      <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+      <span class="text-primary font-medium">Algoritmos en Recursos Humanos: qué información debe facilitar la empresa a sus trabajadores</span>
+    </div>
+  </div>
+
+  <!-- HEADER DEL POST -->
+  <header class="bg-white border-b border-slate-100 px-6 lg:px-12 py-12">
+    <div class="article-shell article-hero-grid">
+      <div class="flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent/15 text-accent">
+          Empresas
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary leading-tight tracking-tight">
+         Algoritmos en Recursos Humanos: qué información debe facilitar la empresa a sus trabajadores
+      </h1>
+      <p class="text-slate-500 text-lg leading-relaxed">
+         España ya exige informar por escrito a cada trabajador de los sistemas algorítmicos que influyen en sus condiciones de trabajo, y la representación legal tiene derecho a conocer sus reglas desde 2021. Una sola hoja bien hecha puede servir para las tres capas de información que se acumulan hasta diciembre de 2027.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-slate-400 pt-2 border-t border-slate-100">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">Business</span>
+          Aplyk
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">calendar_today</span>
+          17 Noviembre 2026
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:16px;">schedule</span>
+          9 min lectura
+        </span>
+      </div>
+      </div>
+      <div class="article-hero-media">
+        <img src="./1/caratula_lkn.png" alt="Imagen principal del artículo" loading="eager"/>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  
+  
+<main class="article-shell px-6 xl:px-0 py-12">
+  <div class="article-layout">
+    <article class="post-content">
+
+<div class="article-intro"><p>Si un algoritmo influye en decisiones sobre tu plantilla, tus trabajadores tienen derecho a saberlo. Piensa en un viernes a las cinco: la impresora de la oficina saca el cuadrante de la semana, el papel sale aún templado y, en una esquina, hay una nota que casi nadie lee: «turnos asignados por el sistema». Detrás de esa nota hay una pregunta que la ley española ya hace en voz alta: ¿sabe tu gente con qué criterios se reparte su trabajo?</p>
+<p>La respuesta jurídica tiene tres capas con tres calendarios. La representación legal de la plantilla tiene derecho, desde 2021, a conocer los parámetros, reglas e instrucciones de los algoritmos que afectan a las condiciones de trabajo (artículo 64.4.d del Estatuto de los Trabajadores). Cada persona trabajadora debe recibir, según el Real Decreto 723/2026, en vigor desde el 5 de octubre de 2026, información por escrito sobre esos sistemas antes de empezar. Y el AI Act añadirá obligaciones de información desde diciembre de 2027.</p>
+<p>Este artículo explica qué debes informar, a quién, cuándo y cómo, desde la contratación de personal hasta el reparto de turnos. Mi tesis: una sola hoja bien hecha puede cubrir las tres capas.</p></div>
+
+<section class="article-section" id="section-1">
+<h2>Tres capas de información, tres calendarios</h2>
+<p>La primera capa es colectiva. La Ley 12/2021, de 28 de septiembre, añadió al artículo 64.4 del Estatuto de los Trabajadores una letra d): el derecho a ser informado por la empresa de los parámetros, reglas e instrucciones en los que se basan los algoritmos o sistemas de inteligencia artificial que afectan a la toma de decisiones que pueden incidir en las condiciones de trabajo, el acceso y el mantenimiento del empleo, incluida la elaboración de perfiles. El preámbulo de la ley atribuye ese derecho al comité de empresa.</p>
+<p>La segunda es individual. El Real Decreto 723/2026, de 9 de septiembre, publicado en el BOE el 15 de septiembre y en vigor desde el 5 de octubre de 2026, transpone parcialmente la Directiva (UE) 2019/1152 y sustituye al Real Decreto 1659/1998. Su exposición de motivos destaca como novedad la obligación de informar sobre sistemas algorítmicos o automatizados de toma de decisiones, y la apoya en los artículos 2.11, 26.7, 26.11 y 86 del AI Act, en relación con el punto 4.b del Anexo III. Según su artículo 8, no afecta a los derechos de información de la representación legal en materia de contratación del artículo 8 del Estatuto.</p>
+<p>La tercera es europea. El artículo 26.7 del AI Act obliga al empleador a informar antes a los representantes de los trabajadores y a los afectados cuando use un sistema de alto riesgo en el lugar de trabajo, y el artículo 26.11 exige informar a las personas sujetas a decisiones asistidas por esos sistemas. Según el artículo 113 del texto consolidado, estas obligaciones se aplican desde el 2 de diciembre de 2027 para los sistemas del Anexo III, mientras que el Reglamento en general se aplica desde el 2 de agosto de 2026.</p>
+<p>Mi lectura: España se ha adelantado, y eso invierte el orden en que mucha gente piensa. El calendario europeo no es el que manda: lo que ya es exigible es lo español. Quien espere a 2027 para ordenar la información llevará meses de retraso con una parte de su plantilla.</p>
+</section>
+
+<figure class="article-image article-image--split">
+  <img src="./1/caratula_lkn.png" alt="Ilustración del artículo Algoritmos en Recursos Humanos: qué información debe facilitar la empresa a sus trabajadores — enfoque PLACER" loading="lazy"/>
+</figure>
+
+<section class="article-section" id="section-2">
+<h2>Qué debe contener la información que recibe cada trabajador</h2>
+<p>El artículo 3.1 del real decreto obliga a informar por escrito sobre los elementos esenciales del contrato y las principales condiciones de ejecución, y se entiende cumplido cuando esa información ya figura en el contrato escrito que obra en poder de la persona trabajadora. El artículo 3.2.k añade un contenido concreto: la existencia de sistemas algorítmicos o automatizados de toma de decisiones. Si se emplean para decisiones sobre condiciones de trabajo, como la duración y distribución de la jornada, la asignación de tareas, los salarios, la progresión profesional, el lugar de trabajo o la extinción del contrato, hay que informar también de sus pautas, criterios y reglas de funcionamiento. El artículo 3.3 permite sustituir algunos apartados por una referencia a leyes o convenios, y la letra k no figura entre ellos.</p>
+<p>La forma y el momento también están regulados. La información se da en papel o en formato electrónico, accesible, que se pueda almacenar e imprimir y con prueba de transmisión o recepción conservada por la empresa (artículo 6.2). Se entrega antes de empezar la relación (artículo 7.1), y cualquier modificación se informa por escrito lo antes posible y, a más tardar, el día en que el cambio surta efecto (artículos 5.1 y 7.3). El real decreto se aplica a todas las empresas y personas trabajadoras del artículo 1 del Estatuto (artículo 2.1), pero su capítulo II solo a relaciones laborales de más de cuatro semanas (artículo 2.2).</p>
+<p>Mi lectura es que la letra k tiene una consecuencia práctica incómoda y útil. La Comisión Europea pone como ejemplo de alto riesgo en gestión laboral un optimizador que asigna turnos puntuando a los trabajadores por puntualidad, ausencias, aceptación de ofertas y valoraciones. Si ese es tu caso, «los turnos los asigna el sistema» no basta: hay que poder describir los criterios. Si usas una de las plataformas para reclutar personal con matching, como Aplyk u otra, la forma más sencilla de empezar es pedir al proveedor una descripción clara de qué datos usa y cómo ordena. Y si gestionas personal temporal, el umbral de cuatro semanas importa: los trabajadores temporales con contratos más cortos quedan fuera de ese capítulo, aunque no de pensar en la representación legal ni en el AI Act. Conviene notar, además, que la exposición de motivos remite al punto 4.b, el de gestión de relaciones laborales, y no al 4.a, el de reclutamiento y selección de personal, que el AI Act trata por su cuenta.</p>
+</section>
+
+<section class="article-section" id="section-3">
+<h2>Lo que ya puede pedirte la plantilla, y qué pasa con el secreto empresarial</h2>
+<p>Para quienes ya tienen contrato, la disposición transitoria única del real decreto prevé que la empresa facilite, a quien lo solicite, la información del artículo 3 en treinta días hábiles desde la solicitud, siempre que no obrara ya en su poder, y que informe de las modificaciones posteriores a la entrada en vigor en el plazo del artículo 7.3. La disposición adicional primera encargó al Ministerio de Trabajo, a través del SEPE, poner a disposición un modelo de documento informativo en un máximo de veinte días desde la publicación, y aclara que ese modelo no condiciona la exigibilidad de las obligaciones: hasta que se publique, las empresas deben informar por cualquier medio adecuado que garantice constancia y accesibilidad. Este artículo no verifica si el modelo ya está disponible; conviene consultarlo en el portal del SEPE.</p>
+<p>En cuanto al secreto empresarial, el preámbulo de la Ley 12/2021 afirma que la información sobre las derivadas laborales de los algoritmos debe darse desde el mayor respeto a los secretos industrial y comercial, que esta información no cuestiona. Y el propio texto del artículo 64.4.d habla de «parámetros, reglas e instrucciones», no de código fuente. Para la representación legal, además, esa letra no menciona ningún umbral de duración de los contratos.</p>
+<p>Mi opinión: el miedo más razonable de quien dirige Recursos Humanos es doble, revelar lo que no debe y equivocarse al explicarlo. Los textos legales dan salida a ambos: lo que se pide es describir pautas y criterios, y un documento escrito, entregado y archivado ayuda a acreditar que se ha cumplido. Yo lo trataría como una norma de calidad de la información, no como una auditoría del algoritmo. Si tu plantilla incluye personas cedidas por empresas de trabajo temporal, el artículo 3.2.j del real decreto tiene un apartado propio sobre la empresa usuaria y la causa del contrato, y conviene consultar con un profesional quién informa de qué.</p>
+</section>
+
+<figure class="article-image article-image--wide">
+  <img src="./2/caratula_lkn.png" alt="Ilustración del artículo Algoritmos en Recursos Humanos: qué información debe facilitar la empresa a sus trabajadores — enfoque CONFORT" loading="lazy"/>
+</figure>
+
+<section class="article-section" id="section-4">
+<h2>Una hoja para las tres capas</h2>
+<p>Lo que sigue es mi propuesta, no un requisito legal: una hoja, redactada en lenguaje llano, con seis campos.</p>
+<ol><li><strong>Sistema y proveedor.</strong> Cómo se llama y quién lo suministra.</li><li><strong>Decisión que apoya.</strong> Jornada, asignación de tareas, salario, progresión, lugar de trabajo o extinción, según el artículo 3.2.k.</li><li><strong>Pautas, criterios y reglas.</strong> Qué datos usa y cómo influyen, en palabras que entienda un trabajador.</li><li><strong>Supervisión humana.</strong> Quién revisa las decisiones y cómo se pide una revisión o una explicación.</li><li><strong>Fecha de la última modificación.</strong> Para cumplir los artículos 5 y 7.3 cuando cambie algo.</li><li><strong>Constancia de entrega.</strong> Dónde se archiva la prueba de transmisión o recepción (artículo 6.2).</li></ol>
+<p>La misma hoja sirve de base para informar a la representación legal (artículo 64.4.d del Estatuto), para el aviso previo del artículo 26.7 del AI Act y para responder a una petición de explicaciones al amparo del artículo 86, cuando esas obligaciones sean aplicables. Este último reconoce a quien sufra una decisión significativa basada en un sistema de alto riesgo del Anexo III el derecho a obtener explicaciones claras sobre el papel del sistema y los elementos principales de la decisión.</p>
+<p>Hay, además, algo satisfactorio en el resultado. Un folio que sale templado de la impresora, con seis campos rellenos y un recibí firmado, es la sensación de tener ordenado lo que antes era un rumor en el pasillo. Y reduce la fricción: una hoja, un responsable de mantenerla, una fecha de revisión.</p>
+<p>Este es el marco general en España y en la UE a fecha de noviembre de 2026. No se analiza el régimen sancionador ni otras jurisdicciones, y la aplicación depende de la empresa, del tipo de contrato y de cómo esté configurado cada sistema, por lo que conviene validarlo con un profesional laboral.</p>
+</section>
+
+<section class="article-conclusion" id="conclusion"><h2>Conclusión</h2><p>Tu plantilla tiene derecho a saber cuándo un algoritmo influye en sus condiciones de trabajo, y esa información se reparte en tres capas. Los representantes pueden pedir los parámetros, reglas e instrucciones desde 2021. Cada persona contratada por más de cuatro semanas debe recibir, desde el 5 de octubre de 2026, información escrita sobre los sistemas algorítmicos y, si deciden jornada, tareas o salario, sobre sus criterios. Y el AI Act sumará obligaciones de información desde el 2 de diciembre de 2027.</p>
+<p>Mi predicción, y es una apuesta, no un dato: durante 2027, la hoja informativa sobre sistemas algorítmicos se convertirá en un anexo habitual a los contratos, igual que hoy lo es la información sobre el convenio aplicable. Las empresas que la tengan redactada, archivada y revisada tendrán una ventaja tranquila: no improvisarán cuando un trabajador, un representante o un cliente se lo pidan.</p>
+<p>La acción de este mes cabe en un folio: haz una lista de los sistemas que influyen en jornada, tareas, salario o progresión en tu empresa, escribe los seis campos para el que más pese y pide a tu proveedor una descripción de sus criterios. Si al terminar sabes explicar ese sistema en cinco líneas, has resuelto la parte más difícil.</p></section>
+
+<div class="sources"><details><summary>Fuentes y base documental</summary><ol><li><a href="https://www.boe.es/eli/es/rd/2026/09/09/723" target="_blank" rel="noopener noreferrer">Real Decreto 723/2026, de 9 de septiembre, por el que se transpone la Directiva (UE) 2019/1152 del Parlamento Europeo y del Consejo, de 20 de junio de 2019, relativa a unas condiciones laborales transparentes y previsibles en la Unión Europea, Boletín Oficial del Estado (BOE), 2026-09-15</a></li>
+<li><a href="https://boe.es/buscar/pdf/2021/BOE-A-2021-15767-consolidado.pdf" target="_blank" rel="noopener noreferrer">Ley 12/2021, de 28 de septiembre, por la que se modifica el texto refundido de la Ley del Estatuto de los Trabajadores para garantizar los derechos laborales de las personas dedicadas al reparto en el ámbito de plataformas digitales (texto consolidado), Boletín Oficial del Estado (BOE), 2021-09-29</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26" target="_blank" rel="noopener noreferrer">Article 26: Obligations of deployers of high-risk AI systems (texto consolidado a 27 de julio de 2026), European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-86" target="_blank" rel="noopener noreferrer">Article 86: Right to explanation of individual decision-making, European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113" target="_blank" rel="noopener noreferrer">Article 113: Entry into force and application (texto consolidado a 27 de julio de 2026), European Commission, AI Act Service Desk, N/D</a></li>
+<li><a href="https://ai-act-service-desk.ec.europa.eu/en/employment-0" target="_blank" rel="noopener noreferrer">Employment (Guidelines on the classification of high-risk AI systems, Annex III point 4), European Commission, AI Act Service Desk, N/D</a></li></ol></details></div>
+
+<section class="related-articles" aria-labelledby="related-articles-title"><h2 id="related-articles-title">Artículos relacionados</h2><ul><li><a href="/posts/que-obligaciones-tiene-una-empresa-cuando-utiliza-algoritmos-para-contratar-trabajadores/">Qué obligaciones tiene una empresa cuando utiliza algoritmos para contratar trabajadores</a></li><li><a href="/posts/como-la-ia-puede-mejorar-el-matching-entre-empresas-y-candidatos/">Cómo la IA puede mejorar el matching entre empresas y candidatos</a></li><li><a href="/posts/ia-cv-y-privacidad-que-ocurre-con-tus-datos-cuando-un-algoritmo-analiza-tu-candidatura/">IA, CV y privacidad: qué ocurre con tus datos cuando un algoritmo analiza tu candidatura</a></li><li><a href="/posts/que-buscan-realmente-los-trabajadores-temporales-en-una-empresa/">Qué buscan realmente los trabajadores temporales en una empresa</a></li></ul></section>
+
+    </article>
+
+    <aside class="article-sidebar" aria-label="Navegación del artículo">
+      <div class="article-side-card">
+        <h3>En este artículo</h3>
+        <nav class="article-toc">
+          <a href="#section-1">Tres capas de información, tres calendarios</a>
+          <a href="#section-2">Qué debe contener la información que recibe cada trabajador</a>
+          <a href="#section-3">Lo que ya puede pedirte la plantilla, y qué pasa con el secreto empresarial</a>
+          <a href="#section-4">Una hoja para las tres capas</a>
+          <a href="#conclusion">Conclusión</a>
+        </nav>
+      </div>
+      <div class="article-side-card sidebar-cta">
+        <h3>Aplyk</h3>
+        <p>Gestión de personal temporal con tecnología, matching y control operativo en una sola plataforma.</p>
+        <a href="/?demo=1">Reservar una demo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-12 bg-primary rounded-2xl p-8 text-white text-center flex flex-col gap-4">
+    <h3 class="text-xl font-extrabold">¿Quieres ver la tecnología en acción?</h3>
+    <p class="text-white/70">Descubre cómo Aplyk automatiza la gestión de turnos, reduce los no-shows y cubre vacantes en minutos — no en días.</p>
+    <div>
+      <a href="/?demo=1" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:-translate-y-0.5">
+        Reservar una demo
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- VOLVER AL BLOG -->
+  <div class="mt-10">
+    <a href="/blog" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+      Volver al blog
+    </a>
+  </div>
+
+</main>
+
+
+  <!-- SHARED FOOTER -->
+  <div id="shared-footer"></div>
+
+
+  <script>
+    // Back-to-top button: same behaviour as the main Aplyk landing page.
+    const backToTop = document.getElementById('backToTop');
+
+    if (backToTop) {
+      const toggleBackToTop = () => {
+        backToTop.style.display = window.scrollY > 480 ? 'flex' : 'none';
+      };
+
+      toggleBackToTop();
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+
+    // Article table of contents: highlight the section currently being read.
+    const tocLinks = Array.from(document.querySelectorAll('.article-toc a[href^="#"]'));
+    const tocSections = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveTocLink = (sectionId) => {
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${sectionId}`;
+        link.classList.toggle('active', isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    if (tocLinks.length && tocSections.length) {
+      // Immediate feedback when a TOC item is clicked.
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const sectionId = link.getAttribute('href').slice(1);
+          setActiveTocLink(sectionId);
+        });
+      });
+
+      // Keep the TOC in sync while the reader scrolls.
+      const updateActiveTocFromScroll = () => {
+        const referenceLine = window.scrollY + Math.min(220, window.innerHeight * 0.30);
+        let currentSection = tocSections[0];
+
+        tocSections.forEach(section => {
+          if (section.offsetTop <= referenceLine) {
+            currentSection = section;
+          }
+        });
+
+        if (currentSection) {
+          setActiveTocLink(currentSection.id);
+        }
+      };
+
+      updateActiveTocFromScroll();
+      window.addEventListener('scroll', updateActiveTocFromScroll, { passive: true });
+      window.addEventListener('resize', updateActiveTocFromScroll);
+    }
+  </script>
+
+  <!-- components.js is retained because it loads the shared article header -->
+  <script src="../../components.js"></script>
+  <script src="/Resources/shared/footer.js"></script>
+
+  <script src="/Resources/shared/cookie-consent.js"></script>
+</body>
+</html>
